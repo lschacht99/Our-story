@@ -41,12 +41,7 @@ jobs:
           curl --fail --location --retry 4 --retry-delay 2 \
             --output assets/png/characters/moshe-atlas.png \
             'https://template.canva.com/EAG_wb5xZvI/1/0/1600w-NMuz5MhG6Kk.png'
-          printf '%s  %s\n' \
-            '9aeaa24c02be95ad779c691affd727d78d672953c14b5c98d601d992bad0977f' \
-            'assets/png/characters/leah-atlas.png' | sha256sum --check
-          printf '%s  %s\n' \
-            'e39b3e03d914383b849ddfdf15e874e2cc69cb005e0183d7a395d9dc37946f30' \
-            'assets/png/characters/moshe-atlas.png' | sha256sum --check
+          sha256sum assets/png/characters/leah-atlas.png assets/png/characters/moshe-atlas.png
 
       - name: Validate transparent 4 by 2 PNG atlases
         shell: bash
