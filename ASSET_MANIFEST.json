@@ -1,0 +1,23 @@
+{
+  "formatRule": "PNG only. SVG and PDF visual assets are prohibited.",
+  "generatedArtDirection": "Warm hand-painted 2.5D travel mystery, original Hamsa Nomads identity, Professor Layton-like narrative structure without copying protected artwork or UI.",
+  "scenes": [
+    {"path":"assets/scenes/title-key-art.png","use":"Title screen key art"},
+    {"path":"assets/scenes/paris-apartment.png","use":"Paris invitation and packing scene"},
+    {"path":"assets/scenes/paris-airport.png","use":"Paris departures and baggage scene"},
+    {"path":"assets/scenes/istanbul-airport.png","use":"Clock and tile puzzle scene"},
+    {"path":"assets/scenes/muscat-airport.png","use":"Night navigation puzzle scene"},
+    {"path":"assets/scenes/mumbai-airport.png","use":"Arrivals and linked-corridor scene"},
+    {"path":"assets/scenes/havdalah.png","use":"Chapter memory reveal"}
+  ],
+  "atlases": [
+    {"path":"assets/atlases/leah.png","grid":"7x7","animations":["idle","walk","talk","question","jump","interact"]},
+    {"path":"assets/atlases/moshe.png","grid":"7x7","animations":["idle","walk","talk","question","jump","interact"]},
+    {"path":"assets/atlases/props.png","grid":"5x5","use":"Puzzle objects and travel props"},
+    {"path":"assets/atlases/ui.png","grid":"5x5","use":"Seals, stamps and decorative UI"}
+  ],
+  "ui": [
+    {"path":"assets/ui/app-icon.png","size":"192x192","use":"App icon and Hamsa emblem"},
+    {"path":"assets/ui/hamsa.png","size":"192x192","use":"Header emblem alias"}
+  ]
+}
