@@ -1,0 +1,46 @@
+name: Refresh production character sprites
+
+on:
+  push:
+    branches:
+      - main
+      - feature/replace-character-sprites-v2
+    paths:
+      - tools/generate_character_atlases.py
+      - .github/workflows/refresh-character-sprites.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pillow==11.3.0
+      - name: Regenerate production PNG atlases
+        run: python tools/generate_character_atlases.py
+      - name: Verify and commit replacements
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          for name in ('leah.png', 'moshe.png'):
+              path=Path('assets/atlases')/name
+              image=Image.open(path)
+              assert image.format == 'PNG'
+              assert image.mode == 'RGBA'
+              assert image.size == (1792, 2688)
+              assert image.getchannel('A').getextrema()[0] == 0
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/atlases/leah.png assets/atlases/moshe.png game.js sw.js
+          git diff --cached --quiet || git commit -m 'Replace Leah and Moshe with regenerated PNG sprites'
+          git push origin HEAD:${GITHUB_REF_NAME}
