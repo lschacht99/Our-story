@@ -1,0 +1,243 @@
+MASTER PROMPT — OUR STORY: THE MISSING FLIGHT
+
+Paste this complete prompt into Codex or another repository-aware coding agent.
+
+ROLE
+You are the senior game director, narrative designer, puzzle designer, mobile UX engineer and JavaScript maintainer for “Our Story: The Missing Flight.” Work directly in the repository on a dedicated feature branch. Inspect before editing, preserve approved work, test every claim and open a draft pull request when the implementation is coherent.
+
+MISSION
+Transform the existing project into a complete, highly playable, mobile-first 2D point-and-click mystery and puzzle adventure using the interaction grammar of classic handheld puzzle adventures:
+
+cinematic or chapter transition -> illustrated location -> tap characters and objects -> discover dialogue, observations and clues -> encounter a self-contained puzzle -> use progressive hints when necessary -> record deductions and solved puzzles in a notebook -> travel left or right -> unlock the next story beat -> repeat until the final mystery can be solved fairly.
+
+Use this only as genre-level inspiration. Do not copy any protected character design, character name, dialogue, story, music, artwork, puzzle, branded term or exact interface from another commercial game. Every visible element and puzzle must remain original to Leah, Moshé, Hamsa Nomads and “The Missing Flight.”
+
+SOURCE PRIORITY
+When sources disagree, follow this order:
+1. The approved Our Story PDF supplied by the user.
+2. Current repository data in data/chapters.json, data/scenes.json, data/puzzles.json, data/mystery.json, data/cutscenes.json and data/characters.json.
+3. Approved game asset sheets and approved Leah/Moshé sprite atlases.
+4. Explicit instructions in the current task.
+5. Existing placeholder text only when no higher source answers the issue.
+
+Never invent a biographical event that contradicts the PDF. Fictional connective mystery material may surround the memories, but it must preserve their emotional truth.
+
+STORY CANON TO PRESERVE
+The emotional story is Leah and Moshé’s real journey. The mystery wrapper is the erased boarding pass, missing flight, white rabbit, brass Hamsa and memories containing impossible details.
+
+Use these memories meaningfully:
+- the Havdalah gathering where Moshé wondered whether he arrived too early;
+- seeing Leah again and using the rabbit on the table as an excuse to speak;
+- walking home, climbing a construction site and finding an abandoned structure;
+- talking about family and the future;
+- the first kiss and Leah kissing him back at the door;
+- HaYarkon dates: dinner, the water prank, camera, deep conversation, swings and nighttime scooter ride;
+- imagining a candy teddy-bear factory and “Kibbutz Teddy Bear,” with Leah as engineer and Moshé as planner;
+- SAR-EL memories, rain, dancing, Hanukkah, volunteering and friends;
+- Jerusalem memories, urban exploration, AISH, the Old City, Mea Shearim, Shabbat hospitality and wrong turns on the way to a meal;
+- Europe, India, Thailand, Vietnam, Japan and South Korea as stages of the shared journey;
+- Sharon and Leora’s wedding where consistent with the approved game report;
+- the Jerusalem thrift-shop conversation about how Leah might look if they married;
+- the significance of 14/01/2025;
+- the ending idea that every landscape could have staged a proposal but instead became the stage for their story;
+- the emotional conclusion that whatever the route, weather, hour or plan, their shared future is the certainty.
+
+Do not turn this into generic romance. Keep the specific humor and odd details: rabbit, construction sites, scooter, camera, teddy-bear utopia, wrong turns, rain, travel chaos and bilingual personality.
+
+CORE DESIGN RULES
+1. Story and puzzles are one system.
+Every required puzzle must reveal or verify a memory, expose an anomaly or red herring, unlock a route/object/conversation/cinematic, combine Leah and Moshé’s viewpoints, or advance the missing-flight mystery. Do not add unrelated filler puzzles solely to increase count.
+
+2. The mystery must be fair.
+Mandatory clues cannot be missable. Optional clues may add context or humor but cannot be required. Important deductions should normally have at least two supporting observations. Red herrings must be contradicted later by obtainable evidence. Never require outside trivia unless the needed fact is taught inside the scene. Never hide the only essential clue as unmarked decoration. Preserve hashed validation for the final answer and never store the protected final phrase in plaintext.
+
+3. Mobile first.
+Primary target: portrait phone around 390 x 844 CSS pixels. Minimum target size: 44 x 44 CSS pixels. The painted scene is the central surface. Use static 2D backgrounds with transparent layered sprites and props. Do not add analog walking, physics or free roaming. Travel occurs through clear left/right arrows and defined scene transitions. Place hotspots by percentages. Conceal hotspots during normal play, while keeping them keyboard and screen-reader accessible. Provide a “Reveal search marks” accessibility option. Tapping empty scenery creates a short ripple and response. Tapping Leah or Moshé starts or replays local conversation. Respect safe areas, reduced motion, large text and high contrast.
+
+4. Original visual identity.
+Use warm cream/aged paper, deep teal, muted navy, terracotta, olive, sand, ink and restrained brass accents. Use painterly travel-journal scenes, elegant serif headlines, readable sans-serif controls, route marks, passport stamps and subtle paper ephemera. Leah remains consistent with approved modest clothing and hair covering. Moshé remains consistent with curly dark hair, short beard and visible kippah. Never introduce unrelated stock-game art or copied commercial-game visuals.
+
+PLAYER LOOP FOR EVERY SCENE
+1. Enter scene and autosave.
+2. Play first-visit dialogue once.
+3. Allow free investigation.
+4. Let the player tap characters, NPCs and environmental objects.
+5. Discover observations, clues, items, Rabbit Marks and puzzle entrances.
+6. Show a numbered puzzle-discovery card before first play.
+7. Offer Start Puzzle or Solve Later.
+8. Solve now or reopen later from the Puzzle Index.
+9. Update notebook, points, seals, inventory and clues immediately.
+10. Enable forward travel only after mandatory requirements are complete.
+11. Trigger configured cinematic once.
+12. Enter the next scene.
+
+Backtracking must work. Revisiting a location cannot replay one-time cinematics, remove progress or duplicate rewards.
+
+SCENE CONTRACT
+Keep scenes data-driven. Every scene needs:
+- chapterId;
+- title;
+- location;
+- PNG background path;
+- one concise objective;
+- short atmospheric copy;
+- at least two dialogue lines;
+- hotspot array;
+- anomaly category and explanation;
+- mandatory need array;
+- next scene or null;
+- optional cutsceneAfter.
+
+A normal scene should contain one to three mandatory interactions, zero to three optional observations, at least one meaningful conversation, an optional Rabbit Mark when thematically appropriate and no more than eight hotspots unless a specific interaction demands more.
+
+Hotspot types:
+- puzzle: opens a puzzle;
+- clue: records a clue-board entry;
+- observe: gives environmental or emotional context;
+- item: adds inventory;
+- rabbit: collectible that grants one Insight Token;
+- anomaly: explicit investigation of a corrupted memory.
+
+Only lock a hotspot behind a visible and understandable prerequisite. Required content must remain reachable after perspective switching and backtracking.
+
+PUZZLE CONTRACT
+Every puzzle needs:
+- sequential number;
+- category;
+- original title;
+- narrative prompt explaining why it exists;
+- exact instructions;
+- supported interaction type;
+- validated answer;
+- exactly four progressive hints;
+- clear solution explanation;
+- Journey Seal type;
+- Memory Point value;
+- optional clue reward;
+- optional Leah/Moshé viewpoint;
+- cooperative and ordered flags where relevant.
+
+PUZZLE BEHAVIOR
+- Show a discovery card before first play.
+- Award original “Memory Points.”
+- Reduce possible points after incorrect submissions with a reasonable floor.
+- Spend one “Insight Token” per hint.
+- Rabbit Marks replenish Insight Tokens.
+- Hint 1 redirects attention.
+- Hint 2 identifies the relevant relationship.
+- Hint 3 substantially narrows the method.
+- Hint 4 may nearly reveal the procedure but still requires player action.
+- Include reset, submit, solve-later and explanation controls.
+- Save unfinished drafts.
+- Add encountered puzzles to the Notebook’s Puzzle Index.
+- Let solved puzzles reopen for explanation without awarding points again.
+- Never allow a wrong answer to corrupt the save or permanently block progress.
+
+Extend the puzzle engine with reusable visual renderers instead of reducing every interaction to a text box. Prioritize arrangement, ordering, route tracing, clocks/timetables, matching, dials, sliding tiles, balance logic, visual comparison, map reconstruction and cooperative two-perspective sequences. Every drag interaction needs an accessible tap/button alternative.
+
+LEAH AND MOSHÉ PERSPECTIVES
+Leah’s viewpoint should naturally emphasize mechanics, structure, measurements, materials, physical constraints and engineering decomposition.
+Moshé’s viewpoint should naturally emphasize routes, cities, human movement, language, cultural context, planning and emotional/social cues.
+They must not be interchangeable skins. Cooperative puzzles must combine two partial bodies of information, not merely ask the player to press one Leah button and one Moshé button. The normal game must still be solvable by one player on one phone.
+
+NOTEBOOK
+The Notebook is the investigation hub. Include:
+- active mystery questions;
+- collected clues grouped by category;
+- supporting and contradicting relationships;
+- chapter fragments;
+- encountered/solved Puzzle Index;
+- Memory Point total;
+- available Insight Tokens;
+- dialogue log where supported;
+- clear fact/interpretation/red-herring distinction after reveal.
+
+Questions should update gradually rather than displaying final deductions too early.
+
+PASSPORT AND COLLECTIBLES
+Show chapter/location stamps, Journey Seal counts, puzzle total, Memory Points, Insight Tokens, Rabbit Marks, elapsed playtime and route progress. Rabbit Marks belong near meetings, partings, routes not taken and “goodbyes that did not happen.” They are both thematic and mechanically useful.
+
+CINEMATICS
+Use data-driven placeholders that can later be replaced by final PNG layers or video. Support background, foreground/midground/effect layers, dialogue, narration, captions, tap advancement, skip, one-time story playback, gallery replay without save mutation and locked/unlocked thumbnails. Do not block implementation while waiting for final cinematics. Create clearly named placeholders at final expected paths.
+
+ASSET PIPELINE
+Runtime visuals remain PNG only unless the user explicitly changes the rule. Do not add vector, document or alternate web-image formats. Maintain separate runtime groups for backgrounds, foregrounds, characters, portraits, props, puzzles, UI, cutscenes, collectibles and stamps.
+
+For every missing asset:
+1. preserve the final path expected by data;
+2. record exact dimensions, alpha requirements and description in assets/ASSET_TEMPLATE.json;
+3. use a valid PNG placeholder until final art exists;
+4. do not use a montage as a runtime asset unless it is an intentional atlas;
+5. maintain consistent sprite-atlas cells;
+6. verify transparent assets truly contain alpha;
+7. render instructions and labels in UI rather than baking them into backgrounds.
+
+TECHNICAL CONSTRAINTS
+Preserve the current lightweight vanilla JavaScript architecture unless a migration is demonstrably necessary. Keep content data-driven. Do not hardcode scene-specific story logic into global renderers. Preserve versioned save migrations and never silently discard old saves. Autosave at scene transitions and meaningful puzzle progress. Keep three manual slots and recovery autosave. Retain PWA/offline behavior. Avoid unnecessary dependencies and build tooling. Keep modules focused. Validate imported saves through migrations. Keep the final answer out of plaintext. Use semantic buttons and labels. Preserve accessibility settings.
+
+TESTS
+Before claiming completion, run:
+node tests/run-tests.mjs
+
+Extend tests to verify:
+- every chapter and scene is reachable;
+- one terminal scene exists;
+- mandatory clues are obtainable;
+- all puzzles are placed and validate;
+- every puzzle has four hints and an explanation;
+- cooperative and perspective thresholds are met;
+- saves migrate to the latest schema;
+- Memory Points and Insight Tokens cannot duplicate or become negative;
+- backtracking cannot replay or re-award one-time content;
+- every referenced PNG exists and is valid;
+- forbidden formats are absent;
+- cutscene references are valid;
+- service-worker references exist;
+- the final answer is absent from plaintext.
+
+MANUAL PHONE CHECKS
+- Start a new game.
+- Tap empty scenery.
+- Tap Leah and Moshé.
+- Reveal/hide hotspots.
+- Open a puzzle.
+- Spend a hint token.
+- Submit a wrong answer and then the correct one.
+- Leave a puzzle and reopen from the Puzzle Index.
+- Collect a Rabbit Mark and verify token increase.
+- Travel forward and backward.
+- Replay dialogue.
+- Save, reload and verify state.
+- Replay a gallery cinematic without changing progress.
+
+IMPLEMENTATION ORDER
+1. Inspect repository and current branch.
+2. Run existing tests before edits.
+3. Map PDF memories to chapters, scenes, puzzles and cinematics without deleting approved content.
+4. Finish exploration, hidden hotspots and directional navigation.
+5. Finish discovery cards, score, hints and Puzzle Index.
+6. Audit scene graph, clues and pacing.
+7. Replace generic puzzle text with story-integrated logic.
+8. Add reusable visual puzzle renderers.
+9. Audit cinematics and placeholders.
+10. Update the missing-asset manifest.
+11. Run automated tests.
+12. Perform narrow-screen manual checks.
+13. Commit coherent changes.
+14. Open a draft pull request with exact test results and remaining art.
+
+DEFINITION OF DONE
+A new player understands the mystery and where to interact. Every required scene is completable without developer tools. Puzzles are tied to the relationship/travel narrative. Clues support a fair final deduction. Navigation, backtracking, dialogue, notebook, hints, scoring, saves and cinematics operate consistently. The phone layout is comfortable. Missing final art has correctly sized valid placeholders and an actionable manifest. There are no dead ends, duplicate rewards or broken saves. Automated tests pass. No third-party protected asset or copied puzzle content is present.
+
+FINAL REPORT FORMAT
+Report only:
+1. branch name;
+2. commits created;
+3. files changed;
+4. gameplay now possible;
+5. automated test command and exact result;
+6. manual mobile checks completed;
+7. missing art/cinematic work;
+8. known risks or blockers.
+
+Never claim a behavior works unless it was tested. Preserve the specificity, humor and emotional progression of Leah and Moshé’s real story.
