@@ -79,7 +79,7 @@ export function renderScene(game) {
       onclick: (event) => {
         event.stopPropagation();
         if (!complete) {
-          toast(`${scene.need.length - needDone} required discovery${scene.need.length - needDone === 1 ? '' : 'ies'} remain.`);
+          toast(remainingDiscoveryText(scene.need.length - needDone));
           return;
         }
         game.advanceScene(scene);
@@ -92,7 +92,7 @@ export function renderScene(game) {
       onclick: (event) => {
         event.stopPropagation();
         if (complete) game.showEnding();
-        else toast(`${scene.need.length - needDone} required discovery${scene.need.length - needDone === 1 ? '' : 'ies'} remain.`);
+        else toast(remainingDiscoveryText(scene.need.length - needDone));
       }
     }, '›'));
   }
@@ -133,6 +133,10 @@ export function renderScene(game) {
     game.persist();
     setTimeout(() => playDialogue(scene.dialogue, game.data.characters, {}), 300);
   }
+}
+
+function remainingDiscoveryText(count) {
+  return `${count} required ${count === 1 ? 'discovery' : 'discoveries'} remain.`;
 }
 
 function findPreviousScene(sceneId, scenes) {
