@@ -26,9 +26,9 @@ export function blankSave(slotId = null, profileName = 'Nomads') {
     playTime: 0,
     finished: false,
 
-    // Layton-inspired progression, renamed and reworked for this original story.
-    // Insight Tokens are spent on progressive hints. Memory Points are awarded
-    // per puzzle and decrease after incorrect submissions.
+    // Original progression vocabulary for this game. Insight Tokens are spent
+    // on progressive hints. Memory Points are awarded per solved puzzle and
+    // decrease after incorrect submissions.
     insightTokens: 10,
     puzzleScores: {},
     puzzleAttempts: {},
@@ -127,6 +127,8 @@ export function deserializeSave(text) {
 export function slotSummary(save, chapters, scenesById, progressFn) {
   if (!save) return { status: 'empty' };
   const p = progressFn ? progressFn(save) : { pct: 0 };
+  const memoryPoints = (save.solvedPuzzles || [])
+    .reduce((sum, id) => sum + Number(save.puzzleScores?.[id] || 0), 0);
   return {
     status: save.finished ? 'completed' : 'normal',
     profileName: save.profileName,
@@ -135,7 +137,7 @@ export function slotSummary(save, chapters, scenesById, progressFn) {
     playTime: save.playTime,
     puzzles: save.solvedPuzzles.length,
     rabbitMarks: save.rabbitMarks.length,
-    memoryPoints: Object.values(save.puzzleScores || {}).reduce((sum, value) => sum + Number(value || 0), 0),
+    memoryPoints,
     pct: p.pct,
     lastSavedAt: save.lastSavedAt
   };
