@@ -1,0 +1,47 @@
+name: Import approved character sprites
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/replace-character-sprites
+    paths:
+      - .github/workflows/import-approved-sprites.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-sprites:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/replace-character-sprites
+          fetch-depth: 0
+
+      - name: Download approved transparent PNG atlases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/atlases
+          curl --fail --location --retry 3 --output assets/atlases/leah.png 'https://template.canva.com/EAG_wWzJKoc/1/0/1600w-Gn9fC7Sp2nk.png'
+          curl --fail --location --retry 3 --output assets/atlases/moshe.png 'https://template.canva.com/EAG_wb5xZvI/1/0/1600w-NMuz5MhG6Kk.png'
+          printf '%s  %s\n' '9aeaa24c02be95ad779c691affd727d78d672953c14b5c98d601d992bad0977f' 'assets/atlases/leah.png' | sha256sum --check
+          printf '%s  %s\n' 'e39b3e03d914383b849ddfdf15e874e2cc69cb005e0183d7a395d9dc37946f30' 'assets/atlases/moshe.png' | sha256sum --check
+          file assets/atlases/leah.png assets/atlases/moshe.png
+
+      - name: Commit approved atlases
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/atlases/leah.png assets/atlases/moshe.png
+          if git diff --cached --quiet; then
+            echo 'Approved sprite atlases are already current.'
+          else
+            git commit -m 'Add approved Leah and Moshé PNG atlases'
+            git push origin HEAD:feature/replace-character-sprites
+          fi
