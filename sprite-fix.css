@@ -1,4 +1,4 @@
-/* Runtime repair for the approved 4×2 Leah and Moshé PNG atlases. */
+/* Direct runtime mapping for the approved Leah and Moshé 4×2 PNG sheets. */
 .character .sprite{
   width:clamp(126px,34vw,166px)!important;
   height:clamp(236px,64vw,311px)!important;
@@ -7,26 +7,43 @@
   background-position:0 0!important;
   image-rendering:auto!important;
   transform-origin:50% 100%;
-  opacity:0;
-  animation:none!important;
-  transition:opacity .2s ease;
-  will-change:transform;
-}
-.character-assets-ready .character .sprite{
-  opacity:1;
+  opacity:1!important;
   animation:approvedCharacterIdle 2.8s ease-in-out infinite!important;
+  will-change:transform,background-position;
 }
-.character.leah .sprite{background-image:var(--leah-atlas)!important}
-.character.moshe .sprite{background-image:var(--moshe-atlas)!important}
+.character.leah .sprite{
+  background-image:url('assets/png/characters/leah-atlas.png?v=20260714-5')!important;
+}
+.character.moshe .sprite{
+  background-image:url('assets/png/characters/moshe-atlas.png?v=20260714-5')!important;
+}
+
+/* 4×2 frame map: idle, talk, walk 1, walk 2 / question, surprise, point, jump. */
+.character .sprite[data-anim="idle"]{background-position:0 0!important}
+.character .sprite[data-anim="talk"]{background-position:33.333% 0!important}
+.character .sprite[data-anim="question"]{background-position:0 100%!important}
+.character .sprite[data-anim="surprised"]{background-position:33.333% 100%!important}
+.character .sprite[data-anim="interact"],
+.character .sprite[data-anim="point"]{background-position:66.667% 100%!important}
+.character .sprite[data-anim="jump"]{background-position:100% 100%!important}
+.character .sprite[data-anim="walk"]{
+  animation:approvedWalkFrames .58s steps(1,end) infinite,approvedWalkBob .58s ease-in-out infinite!important;
+}
 
 @keyframes approvedCharacterIdle{
   0%,100%{transform:translateY(0) scale(1)}
   50%{transform:translateY(-4px) scale(1.006)}
 }
+@keyframes approvedWalkFrames{
+  0%,49.9%{background-position:66.667% 0}
+  50%,100%{background-position:100% 0}
+}
+@keyframes approvedWalkBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
 
-/* The modular game replaced its illustrated prologue scenes with 32×48
-   placeholder files. Use the last real scene artwork directly from the
-   repository history until the restored PNG copies are committed. */
+/* Preserve the illustrated prologue art while the local restored copies deploy. */
 .title-screen{
   background-image:linear-gradient(#102c3133,#102c31a8),url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/title-key-art.png')!important;
 }
@@ -46,8 +63,6 @@
   background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/mumbai-airport.png')!important;
 }
 
-/* Keep the game framed like a point-and-click scene instead of stretching it
-   across an ultrawide desktop monitor. */
 @media(min-width:700px){
   body{background:#163b41}
   .app-shell{
@@ -56,10 +71,7 @@
     background:var(--cream);
     box-shadow:0 0 70px #06191c80;
   }
-  .scene{
-    min-height:0!important;
-    grid-template-rows:auto auto!important;
-  }
+  .scene{min-height:0!important;grid-template-rows:auto auto!important}
   .stage{
     width:100%;
     min-height:0!important;
@@ -68,34 +80,24 @@
     background-size:cover!important;
     background-position:center!important;
   }
-  .character .sprite{
-    width:220px!important;
-    height:413px!important;
-  }
+  .character .sprite{width:220px!important;height:413px!important}
   .character.leah{left:7%!important}
   .character.moshe{right:7%!important}
   .scene-info{padding:18px 26px 22px!important}
 }
 
 @media(min-width:1100px){
-  .character .sprite{
-    width:238px!important;
-    height:446px!important;
-  }
+  .character .sprite{width:238px!important;height:446px!important}
   .character.leah{left:9%!important}
   .character.moshe{right:9%!important}
 }
 
 @media(max-width:699px){
-  .stage{
-    min-height:500px!important;
-    background-size:cover!important;
-    background-position:center!important;
-  }
+  .stage{min-height:500px!important;background-size:cover!important;background-position:center!important}
   .character.leah{left:-2%!important}
   .character.moshe{right:-2%!important}
 }
 
 @media(prefers-reduced-motion:reduce){
-  .character-assets-ready .character .sprite{animation:none!important}
+  .character .sprite{animation:none!important}
 }
