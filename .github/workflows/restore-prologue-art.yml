@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - main
       - fix/runtime-assets-v4
     paths:
       - .github/workflows/restore-prologue-art.yml
@@ -15,10 +16,10 @@ jobs:
   restore-art:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repair branch with history
+      - name: Check out the triggering branch with history
         uses: actions/checkout@v4
         with:
-          ref: fix/runtime-assets-v4
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -81,5 +82,5 @@ jobs:
             echo 'Scene artwork is already repaired.'
           else
             git commit -m 'Restore full illustrated prologue backgrounds'
-            git push origin HEAD:fix/runtime-assets-v4
+            git push origin HEAD:${{ github.ref_name }}
           fi
