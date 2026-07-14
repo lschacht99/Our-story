@@ -1,4 +1,4 @@
-const CACHE = 'our-story-runtime-v5-20260714';
+const CACHE = 'our-story-runtime-v6-20260714';
 
 self.addEventListener('install', () => self.skipWaiting());
 

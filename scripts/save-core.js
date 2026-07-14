@@ -1,7 +1,7 @@
 // Versioned save schema, migrations and (de)serialization.
 // Pure module: no DOM, no localStorage — usable from Node tests.
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
 
 export function blankSave(slotId = null, profileName = 'Nomads') {
   return {
@@ -25,9 +25,19 @@ export function blankSave(slotId = null, profileName = 'Nomads') {
     view: 'moshe',
     playTime: 0,
     finished: false,
+
+    // Original progression vocabulary for this game. Insight Tokens are spent
+    // on progressive hints. Memory Points are awarded per solved puzzle and
+    // decrease after incorrect submissions.
+    insightTokens: 10,
+    puzzleScores: {},
+    puzzleAttempts: {},
+    encounteredPuzzles: [],
+    navigationHistory: [],
+
     settings: {
       sound: true, music: true, captions: true, largeText: false,
-      contrast: false, reducedMotion: false, hotspotHighlight: true, clock24: true
+      contrast: false, reducedMotion: false, hotspotHighlight: false, clock24: true
     },
     lastSavedAt: null
   };
@@ -53,6 +63,7 @@ export function migrateSave(raw) {
     };
     s.sceneId = legacyScenes[raw.scene] || s.sceneId;
     s.solvedPuzzles = (raw.solved || []).map((id) => legacyPuzzles[id] || id);
+    s.encounteredPuzzles = [...s.solvedPuzzles];
     s.rabbitMarks = Array.from({ length: raw.rabbit || 0 }, (_, i) => `legacy-rm-${i + 1}`);
     if (raw.settings) {
       s.settings.sound = raw.settings.sound !== false;
@@ -81,11 +92,23 @@ export function migrateSave(raw) {
     save.visitedScenes = save.visitedScenes || [];
     save.saveVersion = 3;
   }
+  if (save.saveVersion === 3) {
+    // v3 → v4: puzzle presentation, scoring, hint economy and backtracking.
+    save.insightTokens = Number.isFinite(save.insightTokens) ? save.insightTokens : 10;
+    save.puzzleScores = save.puzzleScores || {};
+    save.puzzleAttempts = save.puzzleAttempts || {};
+    save.encounteredPuzzles = save.encounteredPuzzles || [...(save.solvedPuzzles || [])];
+    save.navigationHistory = save.navigationHistory || [];
+    save.saveVersion = 4;
+  }
   if (save.saveVersion !== SAVE_VERSION) return null; // future version: do not touch
 
   // Fill any missing fields from the blank template without erasing data.
   const base = blankSave(save.slotId, save.profileName);
   const merged = { ...base, ...save, settings: { ...base.settings, ...(save.settings || {}) } };
+  merged.insightTokens = Math.max(0, Number(merged.insightTokens) || 0);
+  merged.encounteredPuzzles = [...new Set(merged.encounteredPuzzles || [])];
+  merged.navigationHistory = Array.isArray(merged.navigationHistory) ? merged.navigationHistory : [];
   return merged;
 }
 
@@ -104,6 +127,8 @@ export function deserializeSave(text) {
 export function slotSummary(save, chapters, scenesById, progressFn) {
   if (!save) return { status: 'empty' };
   const p = progressFn ? progressFn(save) : { pct: 0 };
+  const memoryPoints = (save.solvedPuzzles || [])
+    .reduce((sum, id) => sum + Number(save.puzzleScores?.[id] || 0), 0);
   return {
     status: save.finished ? 'completed' : 'normal',
     profileName: save.profileName,
@@ -112,6 +137,7 @@ export function slotSummary(save, chapters, scenesById, progressFn) {
     playTime: save.playTime,
     puzzles: save.solvedPuzzles.length,
     rabbitMarks: save.rabbitMarks.length,
+    memoryPoints,
     pct: p.pct,
     lastSavedAt: save.lastSavedAt
   };
