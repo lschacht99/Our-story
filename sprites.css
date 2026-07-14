@@ -7,8 +7,8 @@
   transform-origin:50% 100%;
   will-change:transform,background-position;
 }
-.sprite.leah{background-image:url('assets/atlases/leah.png')!important}
-.sprite.moshe{background-image:url('assets/atlases/moshe.png')!important}
+.sprite.leah{background-image:var(--leah-atlas)!important}
+.sprite.moshe{background-image:var(--moshe-atlas)!important}
 
 .sprite[data-anim="idle"]{background-position:0 0!important;animation:characterBreath 2.8s ease-in-out infinite!important}
 .sprite[data-anim="talk"]{background-position:33.333% 0!important;animation:characterTalk .72s ease-in-out infinite!important}
