@@ -44,6 +44,14 @@ export function conditionMet(cond, save) {
   return false;
 }
 
+// Memory Points earned for a solve: base minus 10 per wrong submission,
+// never below the floor of 10. Points and tokens can never go negative.
+export function puzzleAward(basePoints, wrongSubmissions) {
+  const base = Number(basePoints) || 35;
+  const misses = Math.max(0, Number(wrongSubmissions) || 0);
+  return Math.max(10, base - 10 * misses);
+}
+
 export function sceneComplete(scene, save) {
   const state = save.sceneState[sceneKey(scene)] || { found: [] };
   return (scene.need || []).every(

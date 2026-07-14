@@ -11,6 +11,8 @@ A mobile-first, cooperative 2.5D point-and-click puzzle adventure starring **Lea
 - **DS-style save system**: 3 slots + autosave/backup recovery, rename/copy/delete (double confirmation), JSON export/import, versioned schema with migrations (including the old Chapter-1 prototype save)
 - **Cutscene engine**: 10 data-driven PNG-layer cutscenes with skip/replay and a gallery (replays never touch the save)
 - **Passport, Journey Seals, Rabbit Marks, route map, dialogue log**
+- **Memory Points & Insight Tokens**: puzzles award points (reduced by wrong submissions, floor of 10); hints cost one Insight Token each; Rabbit Marks replenish tokens
+- **Handheld-style exploration**: concealed hotspots with a "Reveal search marks" accessibility setting, search ripples on empty scenery, tappable characters, puzzle discovery cards with Solve-later and a Notebook Puzzle Index, left/right travel arrows with safe backtracking (one-time cutscenes never replay)
 - **PWA**: offline service worker, lazy chapter asset caching, installable
 - **Accessibility**: captions, large text, high contrast, reduced motion, hotspot highlighting, keyboard focus styles, screen-reader labels, 44px touch targets
 

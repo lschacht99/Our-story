@@ -1,11 +1,19 @@
-// Point-and-click scene renderer: painted background, sprites, hotspots,
-// perspective switching, anomalies, Rabbit Marks and completion flow.
+// Point-and-click scene renderer: painted background, tappable characters,
+// concealed hotspots (with accessible reveal), search ripples, perspective
+// switching, Rabbit Marks (Insight Tokens), travel arrows and backtracking.
 import { el, $, openModal, closeModal, toast } from './ui.js';
 import { playDialogue } from './dialogue.js';
 import { openPuzzle } from './puzzle.js';
 import { conditionMet, sceneComplete } from './core.js';
 
 const HOTSPOT_ICON = { puzzle: '?', clue: '!', rabbit: '♧', item: '▣', observe: '◉', anomaly: '≠' };
+const SEARCH_LINES = [
+  'Nothing here — but the light is lovely.',
+  'Just scenery. Beautiful, uncooperative scenery.',
+  'Moshé would caption this. Leah would measure it.',
+  'No clue here. The rabbit remains unimpressed.',
+  'Only paint and memory.'
+];
 
 export function renderScene(game) {
   const save = game.save;
@@ -28,26 +36,54 @@ export function renderScene(game) {
     el('small', {}, chapter.title),
     el('strong', {}, scene.title)));
 
-  // characters
-  stage.append(sprite('leah', game), sprite('moshe', game));
+  // Tap empty scenery → brief search ripple + short response.
+  stage.addEventListener('click', (e) => {
+    if (e.target !== stage) return;
+    const rect = stage.getBoundingClientRect();
+    const ripple = el('span', {
+      class: 'search-ripple',
+      style: `left:${e.clientX - rect.left}px;top:${e.clientY - rect.top}px`
+    });
+    stage.append(ripple);
+    setTimeout(() => ripple.remove(), 700);
+    toast(SEARCH_LINES[Math.floor(Math.random() * SEARCH_LINES.length)]);
+  });
 
-  // hotspots (respecting active perspective and lock conditions)
+  // Tapping Leah or Moshé replays the local conversation.
+  stage.append(sprite('leah', game, scene), sprite('moshe', game, scene));
+
+  const reveal = !!save.settings.hotspotHighlight;
   for (const spot of scene.hotspots) {
     if (spot.view && spot.view !== 'both' && spot.view !== save.view) continue;
     const done = isSpotDone(spot, save, state);
     const locked = spot.locked && !conditionMet(spot.locked, save);
     const btn = el('button', {
-      class: `hotspot ${spot.type}${done ? ' done' : ''}${locked ? ' locked' : ''}${save.settings.hotspotHighlight ? ' hl' : ''}`,
+      class: `hotspot ${spot.type}${done ? ' done' : ''}${locked ? ' locked' : ''}${reveal || done ? ' hl' : ' concealed'}`,
       style: `left:${spot.x}%;top:${spot.y}%`,
       'aria-label': locked ? `${spot.label} (locked)` : spot.label,
       title: spot.label,
-      onclick: () => activate(spot, scene, game)
+      onclick: (e) => { e.stopPropagation(); activate(spot, scene, game); }
     }, HOTSPOT_ICON[spot.type] || '?');
     stage.append(btn);
   }
 
   const complete = sceneComplete(scene, save);
   const needDone = scene.need.filter((id) => save.solvedPuzzles.includes(id) || state.found.includes(id)).length;
+
+  // Travel arrows: back to any visited previous scene, forward when complete.
+  const prevId = game.prevMap[scene.id];
+  if (prevId && save.visitedScenes.includes(prevId)) {
+    stage.append(el('button', {
+      class: 'travel-arrow left', 'aria-label': `Travel back to ${game.data.scenes.scenes[prevId].title}`,
+      onclick: (e) => { e.stopPropagation(); game.goToScene(prevId); }
+    }, '‹'));
+  }
+  if (scene.next && complete) {
+    stage.append(el('button', {
+      class: 'travel-arrow right', 'aria-label': `Travel on to ${game.data.scenes.scenes[scene.next].title}`,
+      onclick: (e) => { e.stopPropagation(); game.advanceScene(scene); }
+    }, '›'));
+  }
 
   const info = el('footer', { class: 'scene-info' },
     el('h3', {}, scene.title),
@@ -91,12 +127,12 @@ function activate(spot, scene, game) {
   if (spot.type === 'rabbit') {
     if (save.rabbitMarks.includes(spot.id)) { toast('Rabbit Mark already collected'); return; }
     save.rabbitMarks.push(spot.id);
+    save.insightTokens += 1;
     game.persist();
-    toast(`Rabbit Mark collected (${save.rabbitMarks.length})`);
+    toast(`Rabbit Mark collected — +1 Insight Token (${save.insightTokens} ◈)`);
     renderScene(game);
     return;
   }
-  // clue / observe / item
   if (!state.found.includes(spot.id)) state.found.push(spot.id);
   if (spot.type === 'clue' && spot.clue && !save.clueBoard.includes(spot.clue)) {
     save.clueBoard.push(spot.clue);
@@ -115,12 +151,12 @@ function activate(spot, scene, game) {
   ), { label: spot.label });
 }
 
-function sprite(name, game) {
+function sprite(name, game, scene) {
   const info = game.data.characters[name];
-  const wrap = el('div', { class: `character ${name}` },
-    el('div', {
-      class: 'sprite', role: 'img', 'aria-label': info.name,
-      style: `background-image:url('${info.atlas}')`
+  return el('div', { class: `character ${name}` },
+    el('button', {
+      class: 'sprite', 'aria-label': `Talk with ${info.name}`,
+      style: `background-image:url('${info.atlas}')`,
+      onclick: (e) => { e.stopPropagation(); playDialogue(scene.dialogue, game.data.characters, {}); }
     }));
-  return wrap;
 }

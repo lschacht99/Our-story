@@ -441,6 +441,15 @@
      "y": 66,
      "label": "Rabbit print",
      "type": "rabbit"
+    },
+    {
+     "id": "ob-door",
+     "x": 88,
+     "y": 66,
+     "label": "The door, later that night",
+     "type": "observe",
+     "text": "The walk home ended at her door. A first kiss, given nervously — and, at the door, returned. Neither of them managed to say anything clever afterwards, which said everything.",
+     "optional": true
     }
    ],
    "anomaly": {
@@ -620,6 +629,15 @@
      "y": 44,
      "label": "Rabbit by the reeds",
      "type": "rabbit"
+    },
+    {
+     "id": "ob-talk",
+     "x": 62,
+     "y": 66,
+     "label": "The quiet stretch of grass",
+     "type": "observe",
+     "text": "Between the splash and the swings there was a long conversation about family, and futures, and which of the two of them worries more (disputed, tied).",
+     "optional": true
     }
    ],
    "anomaly": {
@@ -3256,6 +3274,15 @@
      "y": 58,
      "label": "The rabbit, at rest",
      "type": "rabbit"
+    },
+    {
+     "id": "ob-date",
+     "x": 34,
+     "y": 66,
+     "label": "A date kept like a stone in a pocket",
+     "type": "observe",
+     "text": "14/01/2025. The day the certainty was said out loud: wherever the day goes — whatever the weather, the hour or the plan — the shared future is the one fixed point.",
+     "optional": true
     }
    ],
    "anomaly": {
