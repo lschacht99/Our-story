@@ -1,0 +1,11 @@
+{
+  "name": "our-story-the-missing-flight",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A cooperative point-and-click travel mystery starring Leah and Moshé.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run-tests.mjs",
+    "start": "python3 -m http.server 8080"
+  }
+}
