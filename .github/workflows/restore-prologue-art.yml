@@ -1,0 +1,85 @@
+name: Restore real prologue artwork
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix/runtime-assets-v4
+    paths:
+      - .github/workflows/restore-prologue-art.yml
+
+permissions:
+  contents: write
+
+jobs:
+  restore-art:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repair branch with history
+        uses: actions/checkout@v4
+        with:
+          ref: fix/runtime-assets-v4
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image tooling
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Restore and upscale the real illustrated scenes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from io import BytesIO
+          from pathlib import Path
+          import subprocess
+          from PIL import Image, ImageEnhance, ImageFilter, ImageOps
+
+          source_commit = '3e075ec4c7b2500ed0d095849181f1a9c11f9afa'
+          mapping = {
+              'assets/scenes/paris-apartment.png': 'assets/png/backgrounds/p01-paris-apartment.png',
+              'assets/scenes/paris-airport.png': 'assets/png/backgrounds/p02-paris-airport.png',
+              'assets/scenes/istanbul-airport.png': 'assets/png/backgrounds/p03-istanbul.png',
+              'assets/scenes/muscat-airport.png': 'assets/png/backgrounds/p04-muscat.png',
+              'assets/scenes/mumbai-airport.png': 'assets/png/backgrounds/p05-mumbai-arrivals.png',
+              'assets/scenes/havdalah.png': 'assets/png/backgrounds/c1s1-havdalah.png',
+              'assets/scenes/title-key-art.png': 'assets/png/ui/title-key-art.png',
+          }
+
+          for old_path, new_path in mapping.items():
+              raw = subprocess.check_output(['git', 'show', f'{source_commit}:{old_path}'])
+              image = Image.open(BytesIO(raw)).convert('RGB')
+              image = ImageOps.fit(image, (1280, 720), method=Image.Resampling.LANCZOS)
+              image = image.filter(ImageFilter.UnsharpMask(radius=1.15, percent=112, threshold=3))
+              image = ImageEnhance.Contrast(image).enhance(1.025)
+              image = image.quantize(colors=192, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.FLOYDSTEINBERG)
+              destination = Path(new_path)
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              image.save(destination, format='PNG', optimize=True)
+              assert Image.open(destination).size == (1280, 720)
+              print(f'{old_path} -> {new_path}')
+          PY
+
+      - name: Commit repaired scene artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/png/backgrounds/p01-paris-apartment.png \
+                  assets/png/backgrounds/p02-paris-airport.png \
+                  assets/png/backgrounds/p03-istanbul.png \
+                  assets/png/backgrounds/p04-muscat.png \
+                  assets/png/backgrounds/p05-mumbai-arrivals.png \
+                  assets/png/backgrounds/c1s1-havdalah.png \
+                  assets/png/ui/title-key-art.png
+          if git diff --cached --quiet; then
+            echo 'Scene artwork is already repaired.'
+          else
+            git commit -m 'Restore full illustrated prologue backgrounds'
+            git push origin HEAD:fix/runtime-assets-v4
+          fi
