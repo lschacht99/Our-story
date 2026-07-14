@@ -1,13 +1,16 @@
 // Player-facing investigation surfaces: Mystery Notebook, Hamsa Nomads
 // Passport, route map, inventory and Rabbit Marks.
-import { el, formatTime } from './ui.js';
+import { el, formatTime, closeModal } from './ui.js';
 import { sceneComplete, chapterComplete, overallProgress } from './core.js';
+import { openPuzzle } from './puzzle.js';
 
 export function notebookPanel(game) {
   const { save, data } = game;
   const wrap = el('div', { class: 'section' },
     el('p', { class: 'eyebrow' }, 'Investigation'),
-    el('h2', {}, 'Mystery Notebook'));
+    el('h2', {}, 'Mystery Notebook'),
+    el('p', {}, el('strong', {}, `${save.memoryPoints}`), ' Memory Points · ',
+      el('strong', {}, `${save.insightTokens} ◈`), ' Insight Tokens'));
 
   const qs = el('div', { class: 'cards' });
   for (const q of data.mystery.notebookQuestions) {
@@ -36,7 +39,23 @@ export function notebookPanel(game) {
       el('strong', {}, has ? `${f.label}` : `${f.label} — sealed`),
       has ? el('p', {}, f.text) : null));
   }
-  wrap.append(frags);
+  wrap.append(frags, el('h3', {}, 'Puzzle Index'));
+
+  const idx = el('div', { class: 'cards' });
+  const encountered = save.encounteredPuzzles
+    .map((id) => [id, data.puzzles[id]])
+    .filter(([, p]) => p);
+  for (const [pid, p] of encountered) {
+    const solved = save.solvedPuzzles.includes(pid);
+    idx.append(el('button', {
+      class: `card puzzle-index-row${solved ? ' done' : ''}`,
+      onclick: () => { closeModal(); openPuzzle(pid, game); }
+    },
+      el('strong', {}, `${solved ? '✓ ' : ''}Puzzle ${p.n} · ${p.title}`),
+      el('small', {}, solved ? `${p.cat} — solved, tap to reread the solution` : `${p.cat} — unsolved, tap to continue`)));
+  }
+  if (!encountered.length) idx.append(el('p', {}, 'No puzzles discovered yet.'));
+  wrap.append(idx);
   return wrap;
 }
 
@@ -59,6 +78,8 @@ export function passportPanel(game) {
   const seals = el('p', {}, `Seals — Eye ${save.journeySeals.eye} · Gear ${save.journeySeals.gear} · Compass ${save.journeySeals.compass} · Key ${save.journeySeals.key} · Two Hands ${save.journeySeals.hands}`);
   wrap.append(grid, seals,
     el('p', {}, el('strong', {}, `${save.solvedPuzzles.length}`), ' puzzles · ',
+      el('strong', {}, `${save.memoryPoints}`), ' Memory Points · ',
+      el('strong', {}, `${save.insightTokens} ◈`), ' Insight Tokens · ',
       el('strong', {}, `${save.rabbitMarks.length}`), ' Rabbit Marks · ',
       el('strong', {}, formatTime(save.playTime)), ' traveled'));
   return wrap;

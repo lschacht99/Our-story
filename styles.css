@@ -72,3 +72,18 @@
 body.reduced-motion *,body.reduced-motion *:before,body.reduced-motion *:after{animation-duration:.001ms!important;transition-duration:.001ms!important}
 .bottom-nav{grid-template-columns:repeat(6,1fr)}
 .bottom-nav button img{width:26px;height:26px}
+
+/* ===== exploration pass: concealed hotspots, ripples, travel arrows ===== */
+.hotspot.concealed{background:transparent;color:transparent;box-shadow:none;animation:none}
+.hotspot.concealed:focus-visible{background:#fff8e9ee;color:var(--navy);box-shadow:0 0 0 7px #d6a84944}
+.search-ripple{position:absolute;z-index:8;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid #f4db9c;border-radius:50%;pointer-events:none;animation:ripple .65s ease-out forwards}
+@keyframes ripple{to{transform:scale(3.4);opacity:0}}
+.travel-arrow{position:absolute;z-index:14;top:50%;transform:translateY(-50%);width:48px;height:64px;border:0;border-radius:14px;background:#fff8e9e6;color:var(--navy);font-size:30px;font-weight:900;box-shadow:0 8px 22px #10212244}
+.travel-arrow.left{left:8px}
+.travel-arrow.right{right:8px;background:var(--terra);color:#fff;animation:pulse 2.2s infinite}
+.character .sprite{border:0;padding:0;cursor:pointer;pointer-events:auto;background-color:transparent}
+.character{pointer-events:auto}
+.points-line{margin:6px 0 0;font-weight:800;color:var(--olive)}
+.puzzle-index-row{text-align:left;border:0;width:100%;cursor:pointer}
+.discovery .row{justify-content:center}
+body.reduced-motion .search-ripple,body.reduced-motion .travel-arrow.right{animation:none}

@@ -4,7 +4,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, extname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { normalizeAnswer, sha256Hex, checkAnswer, conditionMet, sceneComplete } from '../scripts/core.js';
+import { normalizeAnswer, sha256Hex, checkAnswer, conditionMet, sceneComplete, puzzleAward } from '../scripts/core.js';
 import { blankSave, migrateSave, deserializeSave, serializeSave, SAVE_VERSION } from '../scripts/save-core.js';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
@@ -149,6 +149,7 @@ for (const [id, p] of Object.entries(puzzles)) {
   }
   if (p.type === 'text') ok(p.answer || p.validator === 'hash', `puzzle ${id} has no validator`);
   if (p.awardsClue) ok(mystery.clues.some((c) => c.clueId === p.awardsClue), `puzzle ${id} awards unknown clue`);
+  ok(Number.isFinite(p.points) && p.points >= 10, `puzzle ${id} needs a positive points value`);
   if (p.coop) coop += 1;
   if (p.ordered) ordered += 1;
   if (p.view) viewed += 1;
@@ -231,6 +232,27 @@ for (const cs of cutscenes) {
   ok(migrateSave('garbage') === null && deserializeSave('{not json') === null, 'garbage save not rejected');
   const round = deserializeSave(serializeSave(blankSave(1, 'Round')));
   ok(round && round.profileName === 'Round' && round.slotId === 1, 'serialize/deserialize roundtrip failed');
+
+  // v3 → v4: points/tokens economy fields appear, progress retained
+  const v3 = migrateSave({
+    saveVersion: 3, profileName: 'Old', solvedPuzzles: ['pz-clocks', 'pz-tiles'],
+    rabbitMarks: ['rm-p01', 'rm-p02'], unlockedCutscenes: ['cs01-invitation', 'cs05-mumbai-arrival'],
+    sceneState: {}, visitedScenes: [], clueBoard: [], journeySeals: { eye: 1, gear: 0, compass: 1, key: 0, hands: 0 },
+    fragments: [], stamps: [], drafts: {}, hintsUsed: {}, inventory: [], settings: {}, playTime: 10, view: 'moshe', finished: false
+  });
+  ok(v3 && v3.saveVersion === SAVE_VERSION, 'v3 migration failed');
+  ok(v3.memoryPoints === 70, 'v3 migration retroactive points wrong');
+  ok(v3.insightTokens === 2, 'v3 migration retroactive tokens wrong');
+  ok(v3.encounteredPuzzles.includes('pz-clocks'), 'v3 migration lost encountered puzzles');
+  ok(v3.playedCutscenes.includes('cs05-mumbai-arrival'), 'v3 migration must mark unlocked cutscenes as played');
+
+  // economy invariants: points never negative, floor respected, no duplicate award
+  ok(puzzleAward(45, 0) === 45 && puzzleAward(45, 2) === 25, 'puzzleAward arithmetic wrong');
+  ok(puzzleAward(45, 99) === 10 && puzzleAward(10, 5) === 10, 'puzzleAward floor broken');
+  ok(puzzleAward(undefined, -3) > 0, 'puzzleAward must never go negative');
+  const fresh = blankSave();
+  ok(fresh.memoryPoints === 0 && fresh.insightTokens >= 1, 'fresh save economy defaults wrong');
+  ok(Array.isArray(fresh.playedCutscenes) && Array.isArray(fresh.encounteredPuzzles), 'fresh save missing v4 arrays');
 }
 
 // ---------- 9. puzzle validation logic ----------

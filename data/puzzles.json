@@ -16,7 +16,8 @@
     "TERMINAL TWO."
    ],
    "why": "The shifted letters spell TERMINAL TWO — where the replacement route begins.",
-   "awardsClue": "clue-invitation"
+   "awardsClue": "clue-invitation",
+   "points": 35
   },
   "pz-packing": {
    "n": "002",
@@ -33,7 +34,8 @@
     "Passports go last, on top, reachable.",
     "C S K S G F C C T P."
    ],
-   "why": "Fragile things ride on soft layers and the passports stay on top."
+   "why": "Fragile things ride on soft layers and the passports stay on top.",
+   "points": 40
   },
   "pz-timetable": {
    "n": "003",
@@ -65,7 +67,8 @@
     "Choose B."
    ],
    "why": "Flight B lands with a comfortable same-terminal transfer.",
-   "awardsClue": "clue-return-ticket"
+   "awardsClue": "clue-return-ticket",
+   "points": 45
   },
   "pz-scale": {
    "n": "004",
@@ -82,7 +85,8 @@
     "Five kilograms remain.",
     "10, 7, 5."
    ],
-   "why": "10 + 7 + 5 = 22 kg, using exactly three weights."
+   "why": "10 + 7 + 5 = 22 kg, using exactly three weights.",
+   "points": 40
   },
   "pz-clocks": {
    "n": "005",
@@ -100,7 +104,8 @@
     "11:00, 12:00, 13:30."
    ],
    "why": "All four clocks now show one shared instant — except the fifth, stuck on a Havdalah hour.",
-   "awardsClue": "clue-clocks"
+   "awardsClue": "clue-clocks",
+   "points": 45
   },
   "pz-tiles": {
    "n": "006",
@@ -124,7 +129,8 @@
     "Hamsa → Rabbit → Arrow → Gate."
    ],
    "why": "The completed pattern slides the tile wall open onto the hidden concourse.",
-   "view": "leah"
+   "view": "leah",
+   "points": 35
   },
   "pz-suitcase": {
    "n": "007",
@@ -160,7 +166,8 @@
     "The musician."
    ],
    "why": "Only the musician matches destination, sound and occasion.",
-   "awardsClue": "clue-lost-suitcase"
+   "awardsClue": "clue-lost-suitcase",
+   "points": 50
   },
   "pz-stars": {
    "n": "008",
@@ -185,7 +192,8 @@
     "East → Crown → Heart → West → South."
    ],
    "why": "The five stars trace a Hamsa across the ceiling and the gate display flickers back on.",
-   "coop": true
+   "coop": true,
+   "points": 60
   },
   "pz-seats": {
    "n": "009",
@@ -202,7 +210,8 @@
     "The flowers get their own seat F; the musician takes G.",
     "M L S C E F M."
    ],
-   "why": "Everyone boards: couple together, family together, flowers unsquashed."
+   "why": "Everyone boards: couple together, family together, flowers unsquashed.",
+   "points": 50
   },
   "pz-corridors": {
    "n": "010",
@@ -229,7 +238,8 @@
    ],
    "why": "Each traveler opened the other's path until both reached arrivals — together.",
    "coop": true,
-   "ordered": true
+   "ordered": true,
+   "points": 60
   },
   "pz-havdalah": {
    "n": "011",
@@ -253,7 +263,8 @@
     "Wine → Spices → Flame → Blessing."
    ],
    "why": "The ceremony completes — and in the candlelight, a white rabbit sits calmly on the table.",
-   "awardsClue": "clue-rabbit-first"
+   "awardsClue": "clue-rabbit-first",
+   "points": 35
   },
   "pz-future-object": {
    "n": "012",
@@ -289,7 +300,8 @@
     "The metro card."
    ],
    "why": "A future metro card inside an old memory: proof the past is being reconstructed, not replayed.",
-   "awardsClue": "clue-future-object"
+   "awardsClue": "clue-future-object",
+   "points": 35
   },
   "pz-footprints": {
    "n": "013",
@@ -325,7 +337,8 @@
     "Every trail arrives; none leave."
    ],
    "why": "The direction anomaly, stated plainly: in this reconstruction, arrivals are real and departures are not.",
-   "awardsClue": "clue-anomaly-rule"
+   "awardsClue": "clue-anomaly-rule",
+   "points": 50
   },
   "pz-skyline": {
    "n": "014",
@@ -349,7 +362,8 @@
     "Old Tower → Crane → New Tower → Antenna."
    ],
    "why": "The overlaid skylines agree — except one tower that belongs to a later city.",
-   "view": "both"
+   "view": "both",
+   "points": 35
   },
   "pz-bridge": {
    "n": "015",
@@ -367,7 +381,8 @@
     "Camera, Leah, Moshé, Scooter."
    ],
    "why": "Load path respected, camera dry, dinner intact, scooter's one brake unharmed.",
-   "view": "leah"
+   "view": "leah",
+   "points": 40
   },
   "pz-settlement": {
    "n": "016",
@@ -392,7 +407,8 @@
    ],
    "why": "Engineer and planner build one small town — and its sign already says WELCOME HOME.",
    "coop": true,
-   "ordered": true
+   "ordered": true,
+   "points": 60
   },
   "pz-groupphoto": {
    "n": "017",
@@ -428,7 +444,8 @@
     "Leah and Moshé — the same two, every photo."
    ],
    "why": "You cannot appear in a memory you are still rebuilding. The pattern holds.",
-   "awardsClue": "clue-groupphoto"
+   "awardsClue": "clue-groupphoto",
+   "points": 50
   },
   "pz-oldcity": {
    "n": "018",
@@ -451,7 +468,8 @@
     "Finish above the city, on the rooftops.",
     "Market Lane → Second Arch → Fountain Court → Rooftop Path."
    ],
-   "why": "One clean line through the city — and from the rooftop path, the lane that shouldn't exist is briefly visible."
+   "why": "One clean line through the city — and from the rooftop path, the lane that shouldn't exist is briefly visible.",
+   "points": 45
   },
   "pz-sixturns": {
    "n": "019",
@@ -469,7 +487,8 @@
     "L R R L L R."
    ],
    "why": "Traced on the map, the turns draw a letter S — the first stroke of a sentence still being written.",
-   "awardsClue": "clue-sixturns"
+   "awardsClue": "clue-sixturns",
+   "points": 45
   },
   "pz-signs": {
    "n": "020",
@@ -488,7 +507,8 @@
    ],
    "why": "Rest, travelers, a question: the street grid itself is asking whether to keep moving or to stay.",
    "awardsClue": "clue-proposal-paris",
-   "view": "moshe"
+   "view": "moshe",
+   "points": 35
   },
   "pz-battery": {
    "n": "021",
@@ -506,7 +526,8 @@
     "4 kilometres of assist, shared however you like."
    ],
    "why": "Four assisted kilometres, alternated fairly — and four pedaled ones, complained about equally.",
-   "view": "leah"
+   "view": "leah",
+   "points": 40
   },
   "pz-timeline": {
    "n": "022",
@@ -529,7 +550,8 @@
     "Lunch was late; the grass came after.",
     "Walk → Bridge → Lunch → Grass."
    ],
-   "why": "The day reassembles: quiet, bordered by two countries, ordered by light."
+   "why": "The day reassembles: quiet, bordered by two countries, ordered by light.",
+   "points": 45
   },
   "pz-ticket-route": {
    "n": "023",
@@ -547,7 +569,8 @@
     "A M V A."
    ],
    "why": "Every 'wrong' connection on the route still shows two adjacent seats. The itinerary optimized for togetherness.",
-   "awardsClue": "clue-ticket-route"
+   "awardsClue": "clue-ticket-route",
+   "points": 45
   },
   "pz-blessings": {
    "n": "024",
@@ -583,7 +606,8 @@
     "The blessing of building a home together."
    ],
    "why": "The page about building a home is the one the memory cannot supply — the players must supply it themselves.",
-   "awardsClue": "clue-missing-blessing"
+   "awardsClue": "clue-missing-blessing",
+   "points": 35
   },
   "pz-mirror": {
    "n": "025",
@@ -602,7 +626,8 @@
    ],
    "why": "Two visitors have no doubles: the same two missing from every photograph.",
    "awardsClue": "clue-mirror",
-   "view": "both"
+   "view": "both",
+   "points": 35
   },
   "pz-train": {
    "n": "026",
@@ -637,7 +662,8 @@
     "Someone you've met before is also going your way.",
     "The musician — Mumbai wedding, Udaipur honeymoon tour. Follow the clinking."
    ],
-   "why": "The musician's luggage has been right twice already. Platform 3, as the sign said."
+   "why": "The musician's luggage has been right twice already. Platform 3, as the sign said.",
+   "points": 45
   },
   "pz-cablecar": {
    "n": "027",
@@ -655,7 +681,8 @@
     "90+80, 70+60, 50."
    ],
    "why": "Three trips, no group split at the top, and the fireworks catch everyone mid-air on the last one.",
-   "view": "leah"
+   "view": "leah",
+   "points": 40
   },
   "pz-amber": {
    "n": "028",
@@ -678,7 +705,8 @@
     "The arch is the destination, not a break.",
     "First → Second → Third → Gate arch."
    ],
-   "why": "The breaks stitch a walkable line up the hill, straight to the gate before sunset."
+   "why": "The breaks stitch a walkable line up the hill, straight to the gate before sunset.",
+   "points": 35
   },
   "pz-fuzzy": {
    "n": "029",
@@ -713,7 +741,8 @@
     "Who carried green?",
     "The small kid with the green powder bag. The tail is now a Holi trophy."
    ],
-   "why": "Unclipped by small hands dusted green. The tail was returned, ceremonially, at sundown."
+   "why": "Unclipped by small hands dusted green. The tail was returned, ceremonially, at sundown.",
+   "points": 50
   },
   "pz-bargain": {
    "n": "030",
@@ -731,7 +760,8 @@
     "96 + 24 = 120."
    ],
    "why": "Both sides declare victory, which is the definition of a fair price. The rabbit figurine nods.",
-   "view": "moshe"
+   "view": "moshe",
+   "points": 50
   },
   "pz-symmetry": {
    "n": "031",
@@ -767,7 +797,8 @@
     "One extra lit window."
    ],
    "why": "The memory added a lit window: somewhere in the reconstruction, a home is already waiting.",
-   "view": "both"
+   "view": "both",
+   "points": 35
   },
   "pz-campsite": {
    "n": "032",
@@ -793,7 +824,8 @@
    "why": "Camp stands, fire burns, stars come out early — and a letter fragment waits in the tent pocket.",
    "coop": true,
    "ordered": true,
-   "awardsClue": "clue-wedding-gift"
+   "awardsClue": "clue-wedding-gift",
+   "points": 60
   },
   "pz-canal": {
    "n": "033",
@@ -816,7 +848,8 @@
     "Neon is better after dark: Chinatown late.",
     "Chabad → Floating market → Chinatown → Pier."
    ],
-   "why": "Every stop caught in its best hour, and the loop-canal with no exit safely avoided."
+   "why": "Every stop caught in its best hour, and the loop-canal with no exit safely avoided.",
+   "points": 45
   },
   "pz-tides": {
    "n": "034",
@@ -851,7 +884,8 @@
     "One entry on the chart is an anomaly, not an option.",
     "09:30, rising mid-tide."
    ],
-   "why": "Mid-tide threads both needles. The impossible 16:30 low is logged in the notebook instead."
+   "why": "Mid-tide threads both needles. The impossible 16:30 low is logged in the notebook instead.",
+   "points": 45
   },
   "pz-coconut": {
    "n": "035",
@@ -869,7 +903,8 @@
     "7 − 4 − 2 = 1."
    ],
    "why": "One coconut remains — and during a certain hypothetical question, it rolled away, unneeded.",
-   "awardsClue": "clue-question-early"
+   "awardsClue": "clue-question-early",
+   "points": 50
   },
   "pz-visual-route": {
    "n": "036",
@@ -893,7 +928,8 @@
     "Fish → Umbrella → Golden bowl → Moon."
    ],
    "why": "Pictures outlast words: four signs later, home. (The fish-umbrella-bowl shop dinner happened anyway.)",
-   "view": "moshe"
+   "view": "moshe",
+   "points": 35
   },
   "pz-seder": {
    "n": "037",
@@ -916,7 +952,8 @@
     "The greens before the breaking.",
     "Kiddush → Urchatz → Karpas → Yachatz."
    ],
-   "why": "The seder begins correctly; the matzah under the hat survives Songkran entirely."
+   "why": "The seder begins correctly; the matzah under the hat survives Songkran entirely.",
+   "points": 35
   },
   "pz-elephant": {
    "n": "038",
@@ -951,7 +988,8 @@
     "The something cycles: bridge, gate, bridge, …",
     "The gate."
    ],
-   "why": "Pattern PBPGPBP(G): pagoda every other stop, the alternates cycling bridge-gate. The bananas confirm."
+   "why": "Pattern PBPGPBP(G): pagoda every other stop, the alternates cycling bridge-gate. The bananas confirm.",
+   "points": 50
   },
   "pz-whitetemple": {
    "n": "039",
@@ -975,7 +1013,8 @@
     "Café → High road → Hot spring → Temple at four."
    ],
    "why": "The temple catches the four o'clock light like frost catching fire.",
-   "awardsClue": null
+   "awardsClue": null,
+   "points": 45
   },
   "pz-flags": {
    "n": "040",
@@ -992,7 +1031,8 @@
     "The third group is a flag short.",
     "Position 11 — a banner arrives one flag early."
    ],
-   "why": "Under the early banner: the side street, the quiet gap, and the best view of the fireworks."
+   "why": "Under the early banner: the side street, the quiet gap, and the best view of the fireworks.",
+   "points": 35
   },
   "pz-coaster": {
    "n": "041",
@@ -1009,7 +1049,8 @@
     "So the couple takes the middle.",
     "BM, LM, TF."
    ],
-   "why": "Everyone rides, the hat survives until the loop, and the photo at the drop is legendary."
+   "why": "Everyone rides, the hat survives until the loop, and the photo at the drop is legendary.",
+   "points": 50
   },
   "pz-lanterns": {
    "n": "042",
@@ -1034,7 +1075,8 @@
    ],
    "why": "When the white lantern lights, its reflection finally matches — and the rabbit tally in the notebook aligns into a pattern.",
    "view": "both",
-   "awardsClue": "clue-rabbit-pattern"
+   "awardsClue": "clue-rabbit-pattern",
+   "points": 35
   },
   "pz-basket": {
    "n": "043",
@@ -1070,7 +1112,8 @@
     "C. (D was attempted. Once.)"
    ],
    "why": "Opposite, low, alternating: the basket goes forward — upstream, oddly, but forward.",
-   "view": "leah"
+   "view": "leah",
+   "points": 40
   },
   "pz-gates": {
    "n": "044",
@@ -1093,7 +1136,8 @@
     "The hinge admits you once.",
     "East → South → Hinge → Courtyard."
    ],
-   "why": "Gate within gate within gate — and behind you, each door quietly ceases to exist."
+   "why": "Gate within gate within gate — and behind you, each door quietly ceases to exist.",
+   "points": 45
   },
   "pz-boat": {
    "n": "045",
@@ -1128,7 +1172,8 @@
     "The rower has done this nine thousand times, and she's aiming middle.",
     "The singing middle cave."
    ],
-   "why": "The middle cave sings because it breathes — open at both ends. The song is Sharon's tune."
+   "why": "The middle cave sings because it breathes — open at both ends. The song is Sharon's tune.",
+   "points": 50
   },
   "pz-terraces": {
    "n": "046",
@@ -1145,7 +1190,8 @@
     "Count on: 4 (9th), 4 (10th), then…",
     "The 11th group — a 3 arrives early. The hidden path crosses there."
    ],
-   "why": "Where the rhythm breaks, a farmer's path crosses the terraces — invisible in the mist, obvious in the count."
+   "why": "Where the rhythm breaks, a farmer's path crosses the terraces — invisible in the mist, obvious in the count.",
+   "points": 35
   },
   "pz-mud": {
    "n": "047",
@@ -1170,7 +1216,8 @@
    ],
    "why": "The bike surfaces with a sound like a cork. Both of them are 40% mud. The waterfall applauds.",
    "coop": true,
-   "ordered": true
+   "ordered": true,
+   "points": 60
   },
   "pz-echo": {
    "n": "048",
@@ -1189,7 +1236,8 @@
    ],
    "why": "Every departure in this reconstruction is answered the same way. The cave just says it out loud.",
    "awardsClue": "clue-echo",
-   "textAlternative": true
+   "textAlternative": true,
+   "points": 35
   },
   "pz-neon": {
    "n": "049",
@@ -1224,7 +1272,8 @@
     "What keeps appearing where it shouldn't?",
     "The rabbit — a reflection with no sign."
    ],
-   "why": "Five signs, six reflections. The rabbit shines up from the water with nothing above to cast it."
+   "why": "Five signs, six reflections. The rabbit shines up from the water with nothing above to cast it.",
+   "points": 35
   },
   "pz-queue": {
    "n": "050",
@@ -1259,7 +1308,8 @@
     "Splitting up defeats the entire premise of this journey.",
     "C."
    ],
-   "why": "A scheduling problem wearing a fun hat, solved. Ride photo: two people mid-laugh — from a ride they hadn't boarded yet."
+   "why": "A scheduling problem wearing a fun hat, solved. Ride photo: two people mid-laugh — from a ride they hadn't boarded yet.",
+   "points": 50
   },
   "pz-toriipath": {
    "n": "051",
@@ -1284,7 +1334,8 @@
    ],
    "why": "The Hamsa is a compass for memories: clear eye, true detail; clouded eye, invention.",
    "view": "both",
-   "awardsClue": "clue-hamsa-anchor"
+   "awardsClue": "clue-hamsa-anchor",
+   "points": 35
   },
   "pz-deer": {
    "n": "052",
@@ -1319,7 +1370,8 @@
     "Paper crumbs are not a natural part of the deer diet. And yet.",
     "The one with the crumbs."
    ],
-   "why": "Justice in Nara: the deer bowed in apology. The maps were beyond saving. New maps were purchased."
+   "why": "Justice in Nara: the deer bowed in apology. The maps were beyond saving. New maps were purchased.",
+   "points": 50
   },
   "pz-maplayers": {
    "n": "053",
@@ -1343,7 +1395,8 @@
    ],
    "why": "Systems and stories agree on exactly one crossing — the famous one, where everyone meets.",
    "coop": true,
-   "awardsClue": null
+   "awardsClue": null,
+   "points": 60
   },
   "pz-fuji": {
    "n": "054",
@@ -1367,7 +1420,8 @@
     "Dawn → Lake ride → Flower arch → Snacks."
    ],
    "why": "Sorted, the truth is visible: in every gate and arch, they are walking IN. This reconstruction has no exits.",
-   "awardsClue": "clue-gates"
+   "awardsClue": "clue-gates",
+   "points": 45
   },
   "pz-palace": {
    "n": "055",
@@ -1389,7 +1443,8 @@
     "End with the sunset.",
     "East → South → West."
    ],
-   "why": "The gates open in the sun's own order. The guard ceremony, this once, runs forward."
+   "why": "The gates open in the sun's own order. The guard ceremony, this once, runs forward.",
+   "points": 45
   },
   "pz-seoulmate": {
    "n": "056",
@@ -1407,7 +1462,8 @@
     "SEOULMATE."
    ],
    "why": "A word built from a city, so she would hear the word inside it. The last fragment glows.",
-   "awardsClue": "clue-seoulmate"
+   "awardsClue": "clue-seoulmate",
+   "points": 50
   },
   "pz-reconstruct": {
    "n": "057",
@@ -1434,7 +1490,8 @@
     "V through VIII cover Thailand to Korea.",
     "I, II, III, IV, V, VI, VII, VIII."
    ],
-   "why": "The page exists again. It is a boarding pass for one seat, on a return flight — with the final line still blank."
+   "why": "The page exists again. It is a boarding pass for one seat, on a return flight — with the final line still blank.",
+   "points": 45
   },
   "pz-evidence": {
    "n": "058",
@@ -1470,7 +1527,8 @@
     "The receipt."
    ],
    "why": "Kept, folded, carried across nine countries. The joke was never entirely a joke.",
-   "awardsClue": "clue-thrift"
+   "awardsClue": "clue-thrift",
+   "points": 50
   },
   "pz-phiphi2": {
    "n": "059",
@@ -1494,7 +1552,8 @@
    ],
    "why": "The evening airport ferry left while the question hung in the air. He never looked at it. The rabbit sat exactly where he didn't look.",
    "view": "leah",
-   "awardsClue": "clue-rabbit-role"
+   "awardsClue": "clue-rabbit-role",
+   "points": 35
   },
   "pz-proposals": {
    "n": "060",
@@ -1529,7 +1588,8 @@
     "Where was a question actually asked — and where was a word actually built?",
     "Koh Phi Phi and Seoul."
    ],
-   "why": "Every candidate held one authentic clue and one lovely lie. Only the too-early question and the Seoulmate sentence survive the Hamsa's eye."
+   "why": "Every candidate held one authentic clue and one lovely lie. Only the too-early question and the Seoulmate sentence survive the Hamsa's eye.",
+   "points": 35
   },
   "pz-meta-order": {
    "n": "061",
@@ -1554,7 +1614,8 @@
    ],
    "why": "The spine of the story, straightened: an excuse, a question, an unboarded departure, a word.",
    "coop": true,
-   "ordered": true
+   "ordered": true,
+   "points": 60
   },
   "pz-meta-memories": {
    "n": "062",
@@ -1590,7 +1651,8 @@
     "The horse wedding — imagined, allergic, and lovely, but never real."
    ],
    "why": "The imagined horses gallop off, taking the last red herring with them.",
-   "coop": true
+   "coop": true,
+   "points": 35
   },
   "pz-final-phrase": {
    "n": "063",
@@ -1608,7 +1670,8 @@
     "The cave said the first word. Then ask: with whom? Say it to her."
    ],
    "why": "The line writes itself in gold. The missing flight departs, forever, without him — exactly as it always did.",
-   "coop": true
+   "coop": true,
+   "points": 100
   }
  }
 }

@@ -13,6 +13,7 @@ const DATA_FILES = ['chapters', 'scenes', 'puzzles', 'cutscenes', 'mystery', 'ch
 const game = {
   data: {},
   chaptersById: {},
+  prevMap: {},
   save: null,
   mode: 'home',
 
@@ -63,12 +64,24 @@ const game = {
       this.preloadScene(scene.next);
       this.render();
     };
-    if (scene.cutsceneAfter) {
+    // One-time cinematics: never replayed by backtracking or re-advancing.
+    if (scene.cutsceneAfter && !this.save.playedCutscenes.includes(scene.cutsceneAfter)) {
       const cs = this.data.cutscenes.cutscenes.find((c) => c.id === scene.cutsceneAfter);
       unlockCutscene(cs.id, this.save);
+      this.save.playedCutscenes.push(cs.id);
       this.persist();
       playCutscene(cs, this, { onDone: go });
     } else go();
+  },
+
+  // Backtracking / free travel to an already visited scene: no cinematics,
+  // no re-awards, progress untouched.
+  goToScene(sceneId) {
+    this.save.sceneId = sceneId;
+    this.persist();
+    this.autosaveNow();
+    this.preloadScene(sceneId);
+    this.render();
   },
 
   checkChapterProgress() {
@@ -159,7 +172,7 @@ const game = {
     const rows = [
       ['sound', 'Sound cues'], ['music', 'Music'], ['captions', 'Captions'],
       ['largeText', 'Larger text'], ['contrast', 'High contrast'],
-      ['reducedMotion', 'Reduced motion'], ['hotspotHighlight', 'Highlight hotspots'],
+      ['reducedMotion', 'Reduced motion'], ['hotspotHighlight', 'Reveal search marks'],
       ['clock24', '24-hour clock']
     ];
     const wrap = el('div', { class: 'section' },
@@ -198,6 +211,9 @@ async function loadData() {
   game.data.characters = game.data.characters.characters;
   game.data.puzzles = game.data.puzzles.puzzles;
   for (const ch of game.data.chapters.chapters) game.chaptersById[ch.id] = ch;
+  for (const [sid, sc] of Object.entries(game.data.scenes.scenes)) {
+    if (sc.next) game.prevMap[sc.next] = sid;
+  }
 }
 
 function bindTopBar() {

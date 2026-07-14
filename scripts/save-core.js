@@ -1,7 +1,7 @@
 // Versioned save schema, migrations and (de)serialization.
 // Pure module: no DOM, no localStorage — usable from Node tests.
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
 
 export function blankSave(slotId = null, profileName = 'Nomads') {
   return {
@@ -19,6 +19,11 @@ export function blankSave(slotId = null, profileName = 'Nomads') {
     journeySeals: { eye: 0, gear: 0, compass: 0, key: 0, hands: 0 },
     fragments: [],
     stamps: [],
+    memoryPoints: 0,
+    insightTokens: 3,
+    encounteredPuzzles: [],
+    puzzleMisses: {},
+    playedCutscenes: [],
     unlockedCutscenes: ['cs01-invitation'],
     drafts: {},
     hintsUsed: {},
@@ -27,7 +32,7 @@ export function blankSave(slotId = null, profileName = 'Nomads') {
     finished: false,
     settings: {
       sound: true, music: true, captions: true, largeText: false,
-      contrast: false, reducedMotion: false, hotspotHighlight: true, clock24: true
+      contrast: false, reducedMotion: false, hotspotHighlight: false, clock24: true
     },
     lastSavedAt: null
   };
@@ -80,6 +85,16 @@ export function migrateSave(raw) {
     save.hintsUsed = save.hintsUsed || {};
     save.visitedScenes = save.visitedScenes || [];
     save.saveVersion = 3;
+  }
+  if (save.saveVersion === 3) {
+    // v3 → v4: Memory Points, Insight Tokens, puzzle discovery, cutscene guards.
+    // Older saves get retroactive points so long-running journeys aren't zeroed.
+    save.memoryPoints = save.memoryPoints ?? (save.solvedPuzzles?.length || 0) * 35;
+    save.insightTokens = save.insightTokens ?? Math.max(1, (save.rabbitMarks?.length || 0));
+    save.encounteredPuzzles = save.encounteredPuzzles || [...(save.solvedPuzzles || [])];
+    save.puzzleMisses = save.puzzleMisses || {};
+    save.playedCutscenes = save.playedCutscenes || [...(save.unlockedCutscenes || [])];
+    save.saveVersion = 4;
   }
   if (save.saveVersion !== SAVE_VERSION) return null; // future version: do not touch
 
