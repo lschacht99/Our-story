@@ -1,0 +1,4 @@
+Leah: approved PNG atlas active
+Moshé: approved PNG atlas active
+Old low-quality atlases: removed
+Animation states: idle, talk, walk, question, surprised, interact, jump
