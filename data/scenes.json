@@ -1,0 +1,3271 @@
+{
+ "scenes": {
+  "p01-paris-apartment": {
+   "chapterId": "prologue",
+   "title": "Paris — The Invitation",
+   "location": "Paris apartment",
+   "background": "assets/png/backgrounds/p01-paris-apartment.png",
+   "objective": "Inspect Sharon's changing invitation and pack for Mumbai.",
+   "copy": "Sharon's wedding invitation has begun to erase itself. A tiny white rabbit now appears beside the route line.",
+   "dialogue": [
+    [
+     "sharon",
+     "Moshé, Leah — come quickly. Leora and I are getting married in Mumbai!"
+    ],
+    [
+     "sharon",
+     "Bring the invitation. Whatever happens, do not lose the Hamsa."
+    ],
+    [
+     "leah",
+     "The venue line just… disappeared."
+    ],
+    [
+     "moshe",
+     "And a rabbit appeared in the corner of the card. Let's inspect everything."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-invitation",
+     "x": 50,
+     "y": 58,
+     "label": "Changing invitation",
+     "type": "puzzle"
+    },
+    {
+     "id": "pz-packing",
+     "x": 16,
+     "y": 72,
+     "label": "Open suitcase",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-map",
+     "x": 22,
+     "y": 32,
+     "label": "Travel map",
+     "type": "observe",
+     "text": "A hand-drawn route links Paris, Istanbul, Muscat and Mumbai. The direct line has been scratched out.",
+     "optional": true
+    },
+    {
+     "id": "rm-p01",
+     "x": 86,
+     "y": 30,
+     "label": "Rabbit mark",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "The invitation's paper is warm, like something remembered rather than printed."
+   },
+   "need": [
+    "pz-invitation",
+    "pz-packing"
+   ],
+   "next": "p02-paris-airport"
+  },
+  "p02-paris-airport": {
+   "chapterId": "prologue",
+   "title": "Paris — Departures",
+   "location": "Charles de Gaulle",
+   "background": "assets/png/backgrounds/p02-paris-airport.png",
+   "objective": "Choose the valid Istanbul flight and pass the baggage check.",
+   "copy": "The direct Mumbai flight is cancelled. Only one route reaches the Muscat connection in time — and part of the boarding pass has erased itself.",
+   "dialogue": [
+    [
+     "leah",
+     "I'll compare the departure times and delays."
+    ],
+    [
+     "moshe",
+     "I'll check the terminal map. Look — the erased block on our pass is too short to say MUMBAI."
+    ],
+    [
+     "npc",
+     "The baggage scale is broken too. Strange morning."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-timetable",
+     "x": 28,
+     "y": 24,
+     "label": "Departure board",
+     "type": "puzzle"
+    },
+    {
+     "id": "pz-scale",
+     "x": 78,
+     "y": 66,
+     "label": "Broken baggage scale",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-cancelled",
+     "x": 52,
+     "y": 34,
+     "label": "Cancelled direct flight",
+     "type": "clue",
+     "clue": "clue-cancelled-direct",
+     "optional": true
+    },
+    {
+     "id": "rm-p02",
+     "x": 60,
+     "y": 44,
+     "label": "Rabbit sticker",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "The erased line on the boarding pass is shaped like a return code, not a destination."
+   },
+   "need": [
+    "pz-timetable",
+    "pz-scale"
+   ],
+   "next": "p03-istanbul"
+  },
+  "p03-istanbul": {
+   "chapterId": "prologue",
+   "title": "Istanbul — The Hidden Gate",
+   "location": "Istanbul airport",
+   "background": "assets/png/backgrounds/p03-istanbul.png",
+   "objective": "Align the clocks, open the tile gate and recover the suitcase.",
+   "copy": "Four clocks disagree — one shows a time from years ago. The connecting gate hides in the blue tiles, and someone has taken the green suitcase.",
+   "dialogue": [
+    [
+     "moshe",
+     "Four cities, four clocks — and none agree. That one shows a Saturday night from years ago."
+    ],
+    [
+     "leah",
+     "The tile wall is mechanical. I can feel the seams."
+    ],
+    [
+     "npc",
+     "Excuse me — are you also looking for a green suitcase?"
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-clocks",
+     "x": 54,
+     "y": 40,
+     "label": "Four clocks",
+     "type": "puzzle"
+    },
+    {
+     "id": "pz-tiles",
+     "x": 42,
+     "y": 26,
+     "label": "Blue tile gate",
+     "type": "puzzle",
+     "view": "leah"
+    },
+    {
+     "id": "pz-suitcase",
+     "x": 84,
+     "y": 74,
+     "label": "Similar suitcases",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-p03",
+     "x": 66,
+     "y": 18,
+     "label": "Rabbit mosaic",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "One clock is stuck on a Havdalah hour from years before this trip."
+   },
+   "need": [
+    "pz-clocks",
+    "pz-tiles",
+    "pz-suitcase"
+   ],
+   "next": "p04-muscat"
+  },
+  "p04-muscat": {
+   "chapterId": "prologue",
+   "title": "Muscat — Under the Stars",
+   "location": "Muscat airport, power failure",
+   "background": "assets/png/backgrounds/p04-muscat.png",
+   "objective": "Restore the Mumbai gate with the star ceiling and assign the final seats.",
+   "copy": "A power failure erased the gate display. An old navigation pattern glows faintly on the ceiling — it takes two people to use it.",
+   "dialogue": [
+    [
+     "leah",
+     "I can operate the star ceiling. The mechanism still turns."
+    ],
+    [
+     "moshe",
+     "And I found the route diagram. Read me the stars — we need both pieces."
+    ],
+    [
+     "leah",
+     "Together, then."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-stars",
+     "x": 56,
+     "y": 18,
+     "label": "Star ceiling",
+     "type": "puzzle"
+    },
+    {
+     "id": "pz-seats",
+     "x": 78,
+     "y": 66,
+     "label": "Seating list",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-p04",
+     "x": 90,
+     "y": 24,
+     "label": "Rabbit of light",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "The star pattern overhead shows the sky of Tel Aviv, not Muscat."
+   },
+   "need": [
+    "pz-stars",
+    "pz-seats"
+   ],
+   "next": "p05-mumbai-arrivals"
+  },
+  "p05-mumbai-arrivals": {
+   "chapterId": "prologue",
+   "title": "Mumbai — Two Corridors",
+   "location": "Mumbai arrivals",
+   "background": "assets/png/backgrounds/p05-mumbai-arrivals.png",
+   "objective": "Reunite through the linked corridors, then find what Sharon left behind.",
+   "copy": "Security split them into different corridors — every control opens the other person's path. At arrivals, no one is waiting.",
+   "dialogue": [
+    [
+     "leah",
+     "I can see the power controls, but not the route."
+    ],
+    [
+     "moshe",
+     "I can see the doors, but none of them have power."
+    ],
+    [
+     "stranger",
+     "Two paths. One arrival. Work together."
+    ],
+    [
+     "leah",
+     "Sharon isn't here. But her Hamsa is — and this photograph… two people are missing from it."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-corridors",
+     "x": 48,
+     "y": 52,
+     "label": "Linked corridors",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-photo",
+     "x": 34,
+     "y": 80,
+     "label": "Photograph on the floor",
+     "type": "clue",
+     "clue": "clue-photo"
+    },
+    {
+     "id": "cl-hamsa",
+     "x": 62,
+     "y": 82,
+     "label": "Brass Hamsa",
+     "type": "clue",
+     "clue": "clue-hamsa-eye",
+     "locked": "solve:pz-corridors"
+    },
+    {
+     "id": "cl-note",
+     "x": 74,
+     "y": 74,
+     "label": "Sharon's note",
+     "type": "clue",
+     "clue": "clue-sharon-note",
+     "locked": "solve:pz-corridors"
+    },
+    {
+     "id": "rm-p05",
+     "x": 14,
+     "y": 40,
+     "label": "Rabbit shadow",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "Two figures in the photograph are blank white outlines."
+   },
+   "need": [
+    "pz-corridors",
+    "cl-photo",
+    "cl-hamsa",
+    "cl-note"
+   ],
+   "next": "c1s1-havdalah",
+   "cutsceneAfter": "cs05-mumbai-arrival"
+  },
+  "c1s1-havdalah": {
+   "chapterId": "ch1",
+   "title": "Havdalah — The First Rabbit",
+   "location": "Tel Aviv, Saturday night",
+   "background": "assets/png/backgrounds/c1s1-havdalah.png",
+   "objective": "Relive the Havdalah where everything started.",
+   "copy": "The Hamsa grows warm and Mumbai dissolves into a Saturday night years earlier. Moshé arrived early. He did not expect to see Leah again — and his English was not ready.",
+   "dialogue": [
+    [
+     "moshe",
+     "(She's here. Say something. Anything. In… which language?)"
+    ],
+    [
+     "leah",
+     "You're the one from last week, right? You look like you want to say something."
+    ],
+    [
+     "moshe",
+     "I… yes. Um. Look — a rabbit! On the table!"
+    ],
+    [
+     "leah",
+     "…That is genuinely a rabbit. Okay, now we have to talk about it."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-havdalah",
+     "x": 50,
+     "y": 62,
+     "label": "Havdalah set",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-rabbit1",
+     "x": 68,
+     "y": 70,
+     "label": "The white rabbit",
+     "type": "clue",
+     "clue": "clue-rabbit-first",
+     "locked": "solve:pz-havdalah"
+    },
+    {
+     "id": "ob-candle",
+     "x": 40,
+     "y": 46,
+     "label": "Braided candle",
+     "type": "observe",
+     "text": "The flame leans toward the rabbit, as if pointing.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s1",
+     "x": 88,
+     "y": 56,
+     "label": "Rabbit mark",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The clock on the wall shows the exact hour the stuck Istanbul clock showed."
+   },
+   "need": [
+    "pz-havdalah",
+    "cl-rabbit1"
+   ],
+   "next": "c1s2-construction",
+   "cutsceneAfter": "cs03-havdalah-rabbit"
+  },
+  "c1s2-construction": {
+   "chapterId": "ch1",
+   "title": "The Debris Hill",
+   "location": "Construction site and abandoned house",
+   "background": "assets/png/backgrounds/c1s2-construction.png",
+   "objective": "Climb the debris hill and find the object that doesn't belong.",
+   "copy": "An early not-quite-date: a construction site, a hill of debris and an abandoned house. Something on the hill is from the wrong year.",
+   "dialogue": [
+    [
+     "leah",
+     "Structurally, that debris hill is climbable. I checked."
+    ],
+    [
+     "moshe",
+     "You checked. Before or after deciding we're climbing it?"
+    ],
+    [
+     "leah",
+     "Yes."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-future-object",
+     "x": 46,
+     "y": 54,
+     "label": "Something glinting",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-house",
+     "x": 76,
+     "y": 40,
+     "label": "Abandoned house",
+     "type": "observe",
+     "text": "Moshé reads the building's history from its seams; Leah reads its structure. Same house, two stories.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s2",
+     "x": 12,
+     "y": 66,
+     "label": "Rabbit print",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "A metro card on the hill is dated years after this afternoon."
+   },
+   "need": [
+    "pz-future-object"
+   ],
+   "next": "c1s3-bakery-beach"
+  },
+  "c1s3-bakery-beach": {
+   "chapterId": "ch1",
+   "title": "Bakery and the Cold Beach",
+   "location": "Bakery, then dawn beach",
+   "background": "assets/png/backgrounds/c1s3-bakery-beach.png",
+   "objective": "Time the bakery surprise, then read the footprints on the cold beach.",
+   "copy": "A surprise from the bakery, and later a beach far too cold for swimming. The footprints in the sand tell an impossible story.",
+   "dialogue": [
+    [
+     "moshe",
+     "One of these boxes is a surprise. Do not shake it."
+    ],
+    [
+     "leah",
+     "These footprints arrive at the water… but none come back."
+    ],
+    [
+     "moshe",
+     "Write that down. That's the second impossible thing this week."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-footprints",
+     "x": 60,
+     "y": 72,
+     "label": "Footprints in the sand",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-bakery",
+     "x": 22,
+     "y": 44,
+     "label": "Bakery box",
+     "type": "observe",
+     "text": "Inside: the exact pastry Leah mentioned once, in passing, weeks ago. He remembered.",
+     "optional": true
+    },
+    {
+     "id": "cl-anomaly-rule",
+     "x": 74,
+     "y": 60,
+     "label": "Notebook — anomaly rule",
+     "type": "clue",
+     "clue": "clue-anomaly-rule",
+     "locked": "solve:pz-footprints"
+    },
+    {
+     "id": "rm-c1s3",
+     "x": 90,
+     "y": 80,
+     "label": "Rabbit in the dunes",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "Footprints arrive and never leave."
+   },
+   "need": [
+    "pz-footprints",
+    "cl-anomaly-rule"
+   ],
+   "next": "c1s4-rooftop"
+  },
+  "c1s4-rooftop": {
+   "chapterId": "ch1",
+   "title": "Rooftop, Wine and Samba",
+   "location": "Tel Aviv rooftop at dusk",
+   "background": "assets/png/backgrounds/c1s4-rooftop.png",
+   "objective": "Match the skyline: what Leah sees and what Moshé sees are different layers of the same city.",
+   "copy": "Wine, chocolate, samba from a phone speaker, and the metro construction cranes turning slowly below.",
+   "dialogue": [
+    [
+     "moshe",
+     "That crane line is the new metro. Give it ten years, this skyline is unrecognizable."
+    ],
+    [
+     "leah",
+     "The crane's counterweight is wrong for that load. Give it ten minutes."
+    ],
+    [
+     "moshe",
+     "…Should we tell someone?"
+    ],
+    [
+     "leah",
+     "They know. Probably."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-skyline",
+     "x": 50,
+     "y": 34,
+     "label": "The skyline",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-samba",
+     "x": 30,
+     "y": 66,
+     "label": "Phone speaker",
+     "type": "observe",
+     "text": "The samba track skips at the same beat every loop — like a memory rehearsing itself.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s4",
+     "x": 82,
+     "y": 22,
+     "label": "Rabbit weathervane",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "One tower in the skyline belongs to a city they haven't visited yet."
+   },
+   "need": [
+    "pz-skyline"
+   ],
+   "next": "c1s5-yarkon"
+  },
+  "c1s5-yarkon": {
+   "chapterId": "ch1",
+   "title": "Dinner by the Yarkon",
+   "location": "Yarkon park",
+   "background": "assets/png/backgrounds/c1s5-yarkon.png",
+   "objective": "Cross the old bridge with the camera, the swing and the scooter intact.",
+   "copy": "Dinner by the river. A wooden bridge with opinions, a splash that nearly took the camera, swings, and a scooter with exactly one working brake.",
+   "dialogue": [
+    [
+     "leah",
+     "The third plank is rotten. Load path goes left rail, then post."
+    ],
+    [
+     "moshe",
+     "I'll take the camera. If I fall in, the last photo will at least be dramatic."
+    ],
+    [
+     "leah",
+     "If you fall in, hand the camera up first."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-bridge",
+     "x": 44,
+     "y": 56,
+     "label": "The wooden bridge",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-swing",
+     "x": 78,
+     "y": 48,
+     "label": "The swings",
+     "type": "observe",
+     "text": "Two swings, still moving slightly, though no one has touched them.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s5",
+     "x": 14,
+     "y": 44,
+     "label": "Rabbit by the reeds",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "The camera's screen briefly shows a photo they haven't taken yet: a bench at dawn."
+   },
+   "need": [
+    "pz-bridge"
+   ],
+   "next": "c1s6-kibbutz"
+  },
+  "c1s6-kibbutz": {
+   "chapterId": "ch1",
+   "title": "The Kibbutz Teddy Bear",
+   "location": "Kibbutz lawn",
+   "background": "assets/png/backgrounds/c1s6-kibbutz.png",
+   "objective": "Solve the settlement model together — engineer and planner.",
+   "copy": "A kibbutz with a giant teddy bear, and a scale model of the settlement with its pieces scattered. Leah sees structures; Moshé sees the plan.",
+   "dialogue": [
+    [
+     "moshe",
+     "A settlement is a story: houses face the square, the square faces the gate."
+    ],
+    [
+     "leah",
+     "And the water tower goes on the high point or your story ends in a drought."
+    ],
+    [
+     "moshe",
+     "Co-op mode?"
+    ],
+    [
+     "leah",
+     "Co-op mode."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-settlement",
+     "x": 52,
+     "y": 62,
+     "label": "Settlement model",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-bear",
+     "x": 80,
+     "y": 42,
+     "label": "Giant teddy bear",
+     "type": "observe",
+     "text": "The bear holds a tiny paper flag with a hand-drawn rabbit on it.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s6",
+     "x": 20,
+     "y": 70,
+     "label": "Rabbit under the bear",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The model's welcome sign reads 'WELCOME HOME' in a handwriting neither of them recognizes — yet."
+   },
+   "need": [
+    "pz-settlement"
+   ],
+   "next": "c1s7-sarel"
+  },
+  "c1s7-sarel": {
+   "chapterId": "ch1",
+   "title": "SAR-EL in the Rain",
+   "location": "Volunteer base",
+   "background": "assets/png/backgrounds/c1s7-sarel.png",
+   "objective": "Deduce who is missing from the group photo.",
+   "copy": "Volunteering, a rain dance that worked too well, cleaning duty, Hanukkah candles, a New Year — and a group photo with a familiar problem.",
+   "dialogue": [
+    [
+     "leah",
+     "Everyone from the base is in this photo. Count them."
+    ],
+    [
+     "moshe",
+     "Fourteen. There were sixteen of us."
+    ],
+    [
+     "leah",
+     "The same two missing as Mumbai. Every photo, the same two."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-groupphoto",
+     "x": 48,
+     "y": 52,
+     "label": "Group photo",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-groupphoto",
+     "x": 48,
+     "y": 68,
+     "label": "Notebook — the missing two",
+     "type": "clue",
+     "clue": "clue-groupphoto",
+     "locked": "solve:pz-groupphoto"
+    },
+    {
+     "id": "ob-hanukkiah",
+     "x": 76,
+     "y": 36,
+     "label": "Hanukkiah in the window",
+     "type": "observe",
+     "text": "Eight little flames, steady in the rain-light.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s7",
+     "x": 16,
+     "y": 34,
+     "label": "Rabbit on the noticeboard",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "Two figures missing from every photograph — always the same two."
+   },
+   "need": [
+    "pz-groupphoto",
+    "cl-groupphoto"
+   ],
+   "next": "c1s8-jerusalem"
+  },
+  "c1s8-jerusalem": {
+   "chapterId": "ch1",
+   "title": "Jerusalem of Gold",
+   "location": "Old City and beyond",
+   "background": "assets/png/backgrounds/c1s8-jerusalem.png",
+   "objective": "Retrace the day through the Old City without crossing your own path.",
+   "copy": "Urbex above a highway, volunteering, Jeff, AISH, the Old City at golden hour and a hostel with a roof view worth the stairs.",
+   "dialogue": [
+    [
+     "moshe",
+     "Four quarters, one afternoon, and Jeff says the shortcut is 'through the second arch, obviously'."
+    ],
+    [
+     "leah",
+     "Jeff's shortcuts have a 50% survival rating."
+    ],
+    [
+     "moshe",
+     "Which is why we map it first."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-oldcity",
+     "x": 46,
+     "y": 58,
+     "label": "Old City lanes",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-jeff",
+     "x": 74,
+     "y": 66,
+     "label": "Jeff",
+     "type": "observe",
+     "text": "Jeff insists he once saw a white rabbit on the hostel roof. Nobody believed him. You do, now.",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s8",
+     "x": 86,
+     "y": 30,
+     "label": "Rabbit scratched in stone",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "One archway opens onto a lane that, by every map, should not exist."
+   },
+   "need": [
+    "pz-oldcity"
+   ],
+   "next": "c1s9-meashearim"
+  },
+  "c1s9-meashearim": {
+   "chapterId": "ch1",
+   "title": "Shabbat in Mea Shearim",
+   "location": "Mea Shearim, Friday night",
+   "background": "assets/png/backgrounds/c1s9-meashearim.png",
+   "objective": "Recount the six wrong turns and find the shape they drew.",
+   "copy": "Mincha, cholent with strangers who became hosts, and afterwards — six wrong turns in the lamplit lanes. Drawn on paper, the turns make a shape.",
+   "dialogue": [
+    [
+     "leah",
+     "We were lost for an hour and I wasn't worried once."
+    ],
+    [
+     "moshe",
+     "Because being lost together isn't lost. Wait — draw our turns. Left, right, left…"
+    ],
+    [
+     "leah",
+     "…It makes a letter. Moshé, the wrong turns make a letter."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-sixturns",
+     "x": 50,
+     "y": 56,
+     "label": "The six wrong turns",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-sixturns",
+     "x": 50,
+     "y": 72,
+     "label": "Notebook — the letter",
+     "type": "clue",
+     "clue": "clue-sixturns",
+     "locked": "solve:pz-sixturns"
+    },
+    {
+     "id": "ob-cholent",
+     "x": 24,
+     "y": 62,
+     "label": "The hosts' table",
+     "type": "observe",
+     "text": "Their host said: 'A guest who gets lost on the way back was meant to stay longer.'",
+     "optional": true
+    },
+    {
+     "id": "rm-c1s9",
+     "x": 82,
+     "y": 44,
+     "label": "Rabbit under a lamp",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "Every wrong turn bent the same way — inward, toward each other."
+   },
+   "need": [
+    "pz-sixturns",
+    "cl-sixturns"
+   ],
+   "next": "c2s1-athens",
+   "cutsceneAfter": "cs06-israel-fragment"
+  },
+  "c2s1-athens": {
+   "chapterId": "ch2",
+   "title": "Athens — Layover Music",
+   "location": "Athens airport, night",
+   "background": "assets/png/backgrounds/c2s1-athens.png",
+   "objective": "Listen. Someone is humming a tune you know.",
+   "copy": "A long layover. A musician in the corner hums a tune that doesn't belong to Athens — it belongs to Sharon.",
+   "dialogue": [
+    [
+     "leah",
+     "That tune. Sharon hums that when she's plotting something."
+    ],
+    [
+     "moshe",
+     "Sharon is always plotting something. That's her resting state."
+    ],
+    [
+     "leah",
+     "Then follow the tune."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "cl-stranger",
+     "x": 46,
+     "y": 56,
+     "label": "The humming musician",
+     "type": "clue",
+     "clue": "clue-stranger"
+    },
+    {
+     "id": "ob-gate",
+     "x": 74,
+     "y": 40,
+     "label": "Gate screen",
+     "type": "observe",
+     "text": "The gate flickers between two flight numbers. One of them is not in any timetable.",
+     "optional": true
+    },
+    {
+     "id": "rm-c2s1",
+     "x": 20,
+     "y": 66,
+     "label": "Rabbit on a guitar case",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The musician hums Sharon's tune — a song she made up, that no stranger could know."
+   },
+   "need": [
+    "cl-stranger"
+   ],
+   "next": "c2s2-paris"
+  },
+  "c2s2-paris": {
+   "chapterId": "ch2",
+   "title": "Paris at Dawn",
+   "location": "Bakery to the Arc",
+   "background": "assets/png/backgrounds/c2s2-paris.png",
+   "objective": "Read the street signs the way Moshé does — as one long sentence.",
+   "copy": "Fresh bread, an empty avenue, the Arc de Triomphe far away, and street signs that, read in the right order, say more than directions.",
+   "dialogue": [
+    [
+     "moshe",
+     "Every city is a text. Paris is just showing off about it."
+    ],
+    [
+     "leah",
+     "Your croissant is showing off on your scarf."
+    ],
+    [
+     "moshe",
+     "That's called 'annotation'."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-signs",
+     "x": 44,
+     "y": 48,
+     "label": "Street signs",
+     "type": "puzzle",
+     "view": "moshe"
+    },
+    {
+     "id": "cl-parisring",
+     "x": 70,
+     "y": 68,
+     "label": "Ring-shaped mark",
+     "type": "clue",
+     "clue": "clue-proposal-paris",
+     "locked": "solve:pz-signs",
+     "optional": true
+    },
+    {
+     "id": "rm-c2s2",
+     "x": 14,
+     "y": 38,
+     "label": "Rabbit in the bakery window",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "Read in walking order, the signs spell a question no city planner wrote."
+   },
+   "need": [
+    "pz-signs"
+   ],
+   "next": "c2s3-versailles"
+  },
+  "c2s3-versailles": {
+   "chapterId": "ch2",
+   "title": "Versailles by Bike",
+   "location": "Palace gardens",
+   "background": "assets/png/backgrounds/c2s3-versailles.png",
+   "objective": "Get both bikes home on one battery.",
+   "copy": "Rented bikes, endless gravel alleys, and one battery dying exactly halfway around the Grand Canal.",
+   "dialogue": [
+    [
+     "leah",
+     "Your battery's flat. Mine has 40%. Physics time."
+    ],
+    [
+     "moshe",
+     "Is 'physics time' where you tow me?"
+    ],
+    [
+     "leah",
+     "It's where we alternate. Towing you is plan C."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-battery",
+     "x": 50,
+     "y": 60,
+     "label": "The dying battery",
+     "type": "puzzle",
+     "view": "leah"
+    },
+    {
+     "id": "ob-fountain",
+     "x": 78,
+     "y": 44,
+     "label": "Fountain",
+     "type": "observe",
+     "text": "The fountain's spray makes a brief arch — like a gate. You keep seeing gates.",
+     "optional": true
+    },
+    {
+     "id": "rm-c2s3",
+     "x": 20,
+     "y": 50,
+     "label": "Rabbit topiary",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The palace clock face has no hands at all today."
+   },
+   "need": [
+    "pz-battery"
+   ],
+   "next": "c2s4-strasbourg"
+  },
+  "c2s4-strasbourg": {
+   "chapterId": "ch2",
+   "title": "A Quiet Shabbat on the Border",
+   "location": "Strasbourg",
+   "background": "assets/png/backgrounds/c2s4-strasbourg.png",
+   "objective": "Order the border-crossing day correctly — the timeline has been shuffled.",
+   "copy": "A quiet Shabbat near the German border. Afterwards, remembering the day, the events refuse to stay in order.",
+   "dialogue": [
+    [
+     "moshe",
+     "We crossed the bridge before lunch. No — after the walk. No…"
+    ],
+    [
+     "leah",
+     "The memory's been shuffled. Lay the moments out and rebuild it."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-timeline",
+     "x": 48,
+     "y": 56,
+     "label": "The shuffled day",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-border",
+     "x": 76,
+     "y": 62,
+     "label": "Border stone",
+     "type": "observe",
+     "text": "One foot in each country, both of them laughing about it.",
+     "optional": true
+    },
+    {
+     "id": "rm-c2s4",
+     "x": 18,
+     "y": 42,
+     "label": "Rabbit carved in timber",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The remembered day plays out of order until reassembled."
+   },
+   "need": [
+    "pz-timeline"
+   ],
+   "next": "c2s5-riviera"
+  },
+  "c2s5-riviera": {
+   "chapterId": "ch2",
+   "title": "The Riviera Tickets",
+   "location": "Antibes, Menton, the Italian line",
+   "background": "assets/png/backgrounds/c2s5-riviera.png",
+   "objective": "Reconstruct the Riviera route from the old tickets — and notice what all of them share.",
+   "copy": "Fishing at Antibes, the Citron Festival in Menton, a spontaneous hop across the Italian line. A pouch of old tickets holds the chapter's secret.",
+   "dialogue": [
+    [
+     "leah",
+     "Antibes, Menton, Ventimiglia… half these connections were 'wrong'."
+    ],
+    [
+     "moshe",
+     "And on every single one, our seats are adjacent. Every 'mistake', side by side."
+    ],
+    [
+     "leah",
+     "That's not luck. That's a pattern. Write it down."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-ticket-route",
+     "x": 50,
+     "y": 58,
+     "label": "Pouch of old tickets",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-ticket-route",
+     "x": 50,
+     "y": 74,
+     "label": "Notebook — adjacent seats",
+     "type": "clue",
+     "clue": "clue-ticket-route",
+     "locked": "solve:pz-ticket-route"
+    },
+    {
+     "id": "ob-citron",
+     "x": 78,
+     "y": 46,
+     "label": "Citron Festival float",
+     "type": "observe",
+     "text": "A float shaped like a lemon whale. No mystery. Just excellent.",
+     "optional": true
+    },
+    {
+     "id": "rm-c2s5",
+     "x": 16,
+     "y": 64,
+     "label": "Rabbit on a fishing sign",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "One ticket lists a departure city neither of them has ever been to."
+   },
+   "need": [
+    "pz-ticket-route",
+    "cl-ticket-route"
+   ],
+   "next": "c3s1-mumbai-wedding"
+  },
+  "c3s1-mumbai-wedding": {
+   "chapterId": "ch3",
+   "title": "The Wedding with a Missing Piece",
+   "location": "Mumbai synagogue",
+   "background": "assets/png/backgrounds/c3s1-mumbai-wedding.png",
+   "objective": "Order the seven blessings and discover which one is missing.",
+   "copy": "Sharon and Leora's wedding, woven from Indian Jewish tradition: garlands, henna, the chuppah — and a booklet with one page gone.",
+   "dialogue": [
+    [
+     "sharon",
+     "You made it! You look like people who followed a very strange route."
+    ],
+    [
+     "leah",
+     "Sharon! You weren't at the airport — we found your Hamsa, and a photo, and—"
+    ],
+    [
+     "sharon",
+     "Later. First: hold this booklet. Something's missing from it, and you two are the ones who'll notice what."
+    ],
+    [
+     "moshe",
+     "The blessings. There should be seven. There are six."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-blessings",
+     "x": 48,
+     "y": 54,
+     "label": "The wedding booklet",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-blessing",
+     "x": 48,
+     "y": 70,
+     "label": "Notebook — the missing page",
+     "type": "clue",
+     "clue": "clue-missing-blessing",
+     "locked": "solve:pz-blessings"
+    },
+    {
+     "id": "ob-caricature",
+     "x": 76,
+     "y": 62,
+     "label": "Wedding caricaturist",
+     "type": "observe",
+     "text": "The caricaturist has drawn everyone — except two chairs left blank, 'for the ones still traveling'.",
+     "optional": true
+    },
+    {
+     "id": "ob-sleep",
+     "x": 20,
+     "y": 66,
+     "label": "Quiet corner",
+     "type": "observe",
+     "text": "Someone is peacefully asleep in the synagogue corner. Weddings are long. This is tradition too.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s1",
+     "x": 86,
+     "y": 38,
+     "label": "Rabbit in the garlands",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The missing page is the blessing about building a home together."
+   },
+   "need": [
+    "pz-blessings",
+    "cl-blessing"
+   ],
+   "next": "c3s2-elephanta",
+   "cutsceneAfter": "cs07-wedding"
+  },
+  "c3s2-elephanta": {
+   "chapterId": "ch3",
+   "title": "Elephanta — The Doubles",
+   "location": "Elephanta caves",
+   "background": "assets/png/backgrounds/c3s2-elephanta.png",
+   "objective": "Compare the carved doubles from both perspectives and find who has none.",
+   "copy": "In the cave temple, every visitor seems to have a stone double among the carvings. Leah checks the geometry; Moshé checks the faces.",
+   "dialogue": [
+    [
+     "moshe",
+     "That carving is the tour guide. That one's the boat captain. It's everyone."
+    ],
+    [
+     "leah",
+     "Not everyone. Check the two empty niches."
+    ],
+    [
+     "moshe",
+     "…No doubles for us."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-mirror",
+     "x": 50,
+     "y": 50,
+     "label": "The stone doubles",
+     "type": "puzzle",
+     "view": "both"
+    },
+    {
+     "id": "cl-mirror",
+     "x": 50,
+     "y": 68,
+     "label": "Notebook — the empty niches",
+     "type": "clue",
+     "clue": "clue-mirror",
+     "locked": "solve:pz-mirror"
+    },
+    {
+     "id": "rm-c3s2",
+     "x": 82,
+     "y": 60,
+     "label": "Rabbit-shaped shadow",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "Everyone has a stone double except the two of them."
+   },
+   "need": [
+    "pz-mirror",
+    "cl-mirror"
+   ],
+   "next": "c3s3-ahmedabad"
+  },
+  "c3s3-ahmedabad": {
+   "chapterId": "ch3",
+   "title": "Ahmedabad in Motion",
+   "location": "Temple, mall, train",
+   "background": "assets/png/backgrounds/c3s3-ahmedabad.png",
+   "objective": "Catch the right train across a timetable that argues with itself.",
+   "copy": "A photo with a crowd of delighted children, a temple, an ice-cold mall, and a train station where the platforms play musical chairs.",
+   "dialogue": [
+    [
+     "leah",
+     "Platform 3 says Udaipur. The board says platform 5. The conductor says 'yes'."
+    ],
+    [
+     "moshe",
+     "Classic. We triangulate."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-train",
+     "x": 52,
+     "y": 58,
+     "label": "The arguing timetable",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-children",
+     "x": 24,
+     "y": 48,
+     "label": "Photo with the children",
+     "type": "observe",
+     "text": "Twenty children wanted one photo each. That's twenty photos. Their cheeks hurt from smiling.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s3",
+     "x": 80,
+     "y": 40,
+     "label": "Rabbit chalked on a wall",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "Platform 7 appears on the board. The station has six platforms."
+   },
+   "need": [
+    "pz-train"
+   ],
+   "next": "c3s4-udaipur"
+  },
+  "c3s4-udaipur": {
+   "chapterId": "ch3",
+   "title": "Udaipur — Lakes and Fireworks",
+   "location": "Udaipur",
+   "background": "assets/png/backgrounds/c3s4-udaipur.png",
+   "objective": "Balance the cable car load so everyone rides before the fireworks.",
+   "copy": "Lakes, a palace, animal shelters, a cable car with a strict weight limit, a window with the perfect view — and, that evening, an imagined wedding with horses.",
+   "dialogue": [
+    [
+     "moshe",
+     "If the wedding had horses. Hypothetically. White ones."
+    ],
+    [
+     "leah",
+     "Hypothetically, you're allergic to horses."
+    ],
+    [
+     "moshe",
+     "Hypothetically, I'd endure."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-cablecar",
+     "x": 54,
+     "y": 40,
+     "label": "Cable car queue",
+     "type": "puzzle",
+     "view": "leah"
+    },
+    {
+     "id": "ob-window",
+     "x": 78,
+     "y": 52,
+     "label": "The window",
+     "type": "observe",
+     "text": "From this window the palace floats twice: once in stone, once in the lake.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s4",
+     "x": 16,
+     "y": 58,
+     "label": "Rabbit kite",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "The fireworks reflected in the lake show one burst the sky never fired."
+   },
+   "need": [
+    "pz-cablecar"
+   ],
+   "next": "c3s5-pushkar"
+  },
+  "c3s5-pushkar": {
+   "chapterId": "ch3",
+   "title": "Pushkar and the Pink City",
+   "location": "Pushkar, Amber, Hawa Mahal",
+   "background": "assets/png/backgrounds/c3s5-pushkar.png",
+   "objective": "Follow the Amber fort wall pattern to the gate before sunset.",
+   "copy": "A camel with strong opinions, the walls of Amber climbing the hills, the honeycomb face of Hawa Mahal, and the first dust of Holi in the air.",
+   "dialogue": [
+    [
+     "leah",
+     "The wall pattern repeats every five merlons, then breaks. The break marks the path."
+    ],
+    [
+     "moshe",
+     "The camel also knows the path. The camel has done this before."
+    ],
+    [
+     "leah",
+     "The camel is not a data source."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-amber",
+     "x": 46,
+     "y": 44,
+     "label": "Amber wall pattern",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-camel",
+     "x": 76,
+     "y": 68,
+     "label": "The camel",
+     "type": "observe",
+     "text": "The camel regards you with the patience of a creature that has seen many tourists and respected few.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s5",
+     "x": 20,
+     "y": 36,
+     "label": "Rabbit in the honeycomb",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "The fort's shadows fall toward the sun."
+   },
+   "need": [
+    "pz-amber"
+   ],
+   "next": "c3s6-purim-holi"
+  },
+  "c3s6-purim-holi": {
+   "chapterId": "ch3",
+   "title": "Purim Meets Holi",
+   "location": "Chabad courtyard",
+   "background": "assets/png/backgrounds/c3s6-purim-holi.png",
+   "objective": "Deduce what happened to Fuzzy's tail.",
+   "copy": "Purim and Holi in the same week: costumes under colour clouds, a rabbi briefly on horseback, and Fuzzy the costume-dog missing his tail.",
+   "dialogue": [
+    [
+     "moshe",
+     "Purim question: who took Fuzzy's tail?"
+    ],
+    [
+     "leah",
+     "Holi answer: whoever did is currently pink."
+    ],
+    [
+     "moshe",
+     "Everyone is currently pink."
+    ],
+    [
+     "leah",
+     "Then we deduce."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-fuzzy",
+     "x": 50,
+     "y": 60,
+     "label": "Fuzzy's missing tail",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-rabbi",
+     "x": 78,
+     "y": 44,
+     "label": "Rabbi on horseback",
+     "type": "observe",
+     "text": "For exactly ninety seconds, the rabbi rode a horse through the courtyard. It will be discussed for years.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s6",
+     "x": 18,
+     "y": 48,
+     "label": "Rabbit stencil in powder",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "In one photo of the party, a guest appears twice, in two costumes, at once."
+   },
+   "need": [
+    "pz-fuzzy"
+   ],
+   "next": "c3s7-tuktuk"
+  },
+  "c3s7-tuktuk": {
+   "chapterId": "ch3",
+   "title": "Tuk and Tuk",
+   "location": "City streets",
+   "background": "assets/png/backgrounds/c3s7-tuktuk.png",
+   "objective": "Agree the fair price and the true route.",
+   "copy": "Two tuk-tuks, nicknamed Tuk and Tuk. One driver quotes double and drives half the distance; the other quotes half and drives double.",
+   "dialogue": [
+    [
+     "moshe",
+     "He says 300, 'special price'."
+    ],
+    [
+     "leah",
+     "The meter, the map and basic dignity say 120."
+    ],
+    [
+     "moshe",
+     "Watch this. I learned the numbers in three languages for exactly this moment."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-bargain",
+     "x": 50,
+     "y": 62,
+     "label": "The negotiation",
+     "type": "puzzle",
+     "view": "moshe"
+    },
+    {
+     "id": "ob-tuk",
+     "x": 24,
+     "y": 54,
+     "label": "Tuk (the first one)",
+     "type": "observe",
+     "text": "Tuk's dashboard shrine includes seven deities, a plastic sunflower, and — new today — a small white rabbit figurine.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s7",
+     "x": 82,
+     "y": 46,
+     "label": "Rabbit figurine",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The driver, mid-bargain, says: 'For you, the way back is free.' There is no way back on this route."
+   },
+   "need": [
+    "pz-bargain"
+   ],
+   "next": "c3s8-agra"
+  },
+  "c3s8-agra": {
+   "chapterId": "ch3",
+   "title": "Agra — Perfect Symmetry",
+   "location": "Taj Mahal at dawn",
+   "background": "assets/png/backgrounds/c3s8-agra.png",
+   "objective": "Find the single asymmetry the memory has hidden in the Taj.",
+   "copy": "Jahangir's story, dawn mist, and the Taj doubling itself in the long pool. Perfect symmetry — except one deliberate flaw the memory added.",
+   "dialogue": [
+    [
+     "leah",
+     "Structure says: bilateral symmetry, near-perfect. Reflection says: liar."
+    ],
+    [
+     "moshe",
+     "The reflection has one extra window lit. The building doesn't."
+    ],
+    [
+     "leah",
+     "Anomaly. Object class. Log it."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-symmetry",
+     "x": 50,
+     "y": 46,
+     "label": "The Taj and its reflection",
+     "type": "puzzle",
+     "view": "both"
+    },
+    {
+     "id": "ob-jahangir",
+     "x": 76,
+     "y": 64,
+     "label": "Guide telling Jahangir's story",
+     "type": "observe",
+     "text": "A story of emperors and gardens; Moshé retains every date, Leah retains how the aqueducts worked.",
+     "optional": true
+    },
+    {
+     "id": "rm-c3s8",
+     "x": 16,
+     "y": 40,
+     "label": "Rabbit in the mist",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "The reflection shows one lit window that the building does not have."
+   },
+   "need": [
+    "pz-symmetry"
+   ],
+   "next": "c3s9-himalaya"
+  },
+  "c3s9-himalaya": {
+   "chapterId": "ch3",
+   "title": "Himalayan Campsite",
+   "location": "Mountain trail",
+   "background": "assets/png/backgrounds/c3s9-himalaya.png",
+   "objective": "Set the campsite together before dark — two jobs, one order.",
+   "copy": "A hike with a youth group, thin bright air, and a campsite to raise before dark. In a tent pocket: a letter fragment in Sharon's handwriting.",
+   "dialogue": [
+    [
+     "leah",
+     "Tent needs anchoring before the wind; fire needs shelter before the tent blocks the light."
+    ],
+    [
+     "moshe",
+     "So: my windbreak, your anchors, my fire, your guylines. Call it."
+    ],
+    [
+     "sharon",
+     "(on paper) — my gift is the journey back through yours —"
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-campsite",
+     "x": 48,
+     "y": 58,
+     "label": "Raising the campsite",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-gift",
+     "x": 66,
+     "y": 70,
+     "label": "Sharon's letter fragment",
+     "type": "clue",
+     "clue": "clue-wedding-gift",
+     "locked": "solve:pz-campsite"
+    },
+    {
+     "id": "rm-c3s9",
+     "x": 84,
+     "y": 34,
+     "label": "Rabbit above the snowline",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The stars come out before the sun has finished setting."
+   },
+   "need": [
+    "pz-campsite",
+    "cl-gift"
+   ],
+   "next": "c4s1-bangkok"
+  },
+  "c4s1-bangkok": {
+   "chapterId": "ch4",
+   "title": "Bangkok by Boat",
+   "location": "Canals and Chinatown",
+   "background": "assets/png/backgrounds/c4s1-bangkok.png",
+   "objective": "Plot the canal boat route that hits every stop before the market closes.",
+   "copy": "Chabad, shakshuka pizza (a fusion nobody asked for and everybody finished), a canal boat, Chinatown neon and the floating market.",
+   "dialogue": [
+    [
+     "moshe",
+     "Shakshuka pizza. I have questions."
+    ],
+    [
+     "leah",
+     "Eat first, question later. The boat leaves in four minutes."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-canal",
+     "x": 48,
+     "y": 58,
+     "label": "Canal route map",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-pizza",
+     "x": 22,
+     "y": 66,
+     "label": "Shakshuka pizza",
+     "type": "observe",
+     "text": "Culinary diplomacy between two homelands. Verdict: unexpectedly excellent.",
+     "optional": true
+    },
+    {
+     "id": "rm-c4s1",
+     "x": 80,
+     "y": 42,
+     "label": "Rabbit lantern",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "One canal on the map loops back into itself — a route with no exit."
+   },
+   "need": [
+    "pz-canal"
+   ],
+   "next": "c4s2-krabi"
+  },
+  "c4s2-krabi": {
+   "chapterId": "ch4",
+   "title": "Krabi — Reading the Tides",
+   "location": "Krabi coast",
+   "background": "assets/png/backgrounds/c4s2-krabi.png",
+   "objective": "Pick the boat and hour that beat the tide.",
+   "copy": "Limestone towers, longtail boats, and a tide chart where the sea does the scheduling.",
+   "dialogue": [
+    [
+     "leah",
+     "Low tide strands the lagoon boat. High tide closes the cave mouth."
+    ],
+    [
+     "moshe",
+     "So there's a window. There's always a window."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-tides",
+     "x": 50,
+     "y": 56,
+     "label": "Tide chart",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c4s2",
+     "x": 78,
+     "y": 68,
+     "label": "Rabbit drawn in sand",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The tide chart lists two low tides at the same hour."
+   },
+   "need": [
+    "pz-tides"
+   ],
+   "next": "c4s3-kohphiphi"
+  },
+  "c4s3-kohphiphi": {
+   "chapterId": "ch4",
+   "title": "Koh Phi Phi — The Question",
+   "location": "Phi Phi beach, sunset",
+   "background": "assets/png/backgrounds/c4s3-kohphiphi.png",
+   "objective": "Split the coconuts fairly — and let the evening happen.",
+   "copy": "Smoothies, coconuts, a boxing match on a screen, Monkey Beach, a kayak — and at sunset, a question asked far too early, and the laughter after it.",
+   "dialogue": [
+    [
+     "moshe",
+     "Okay. Hypothetically. Completely hypothetically. Would you marry me?"
+    ],
+    [
+     "leah",
+     "…We've known each other how long, and you're asking on a beach with a coconut in each hand?"
+    ],
+    [
+     "moshe",
+     "The coconuts are load-bearing. They give me courage."
+    ],
+    [
+     "leah",
+     "Ask me again someday, without the coconuts. Then it counts."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-coconut",
+     "x": 46,
+     "y": 62,
+     "label": "The coconut split",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-question",
+     "x": 64,
+     "y": 74,
+     "label": "Notebook — the question",
+     "type": "clue",
+     "clue": "clue-question-early",
+     "locked": "solve:pz-coconut"
+    },
+    {
+     "id": "ob-monkey",
+     "x": 80,
+     "y": 46,
+     "label": "Monkey Beach",
+     "type": "observe",
+     "text": "A monkey stole a smoothie. The monkey shows no remorse.",
+     "optional": true
+    },
+    {
+     "id": "rm-c4s3",
+     "x": 16,
+     "y": 52,
+     "label": "Rabbit by the kayak",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "For one heartbeat there were three shadows on the sand at sunset."
+   },
+   "need": [
+    "pz-coconut",
+    "cl-question"
+   ],
+   "next": "c4s4-phuket",
+   "cutsceneAfter": "cs08-phiphi-question"
+  },
+  "c4s4-phuket": {
+   "chapterId": "ch4",
+   "title": "Patong — The Visual Language",
+   "location": "Phuket night street",
+   "background": "assets/png/backgrounds/c4s4-phuket.png",
+   "objective": "Navigate to the guesthouse using only pictures — no shared language.",
+   "copy": "A night street in five scripts and no common language. The route home is written in pictures: follow the signs by what they show, not what they say.",
+   "dialogue": [
+    [
+     "moshe",
+     "New game: we navigate by icons only. Fish, then umbrella, then the golden bowl."
+    ],
+    [
+     "leah",
+     "And if we end up at a fish-umbrella-bowl shop?"
+    ],
+    [
+     "moshe",
+     "Then dinner."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-visual-route",
+     "x": 50,
+     "y": 52,
+     "label": "The picture route",
+     "type": "puzzle",
+     "view": "moshe"
+    },
+    {
+     "id": "rm-c4s4",
+     "x": 82,
+     "y": 60,
+     "label": "Rabbit neon sign",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "One sign, in no language either knows, is momentarily perfectly readable."
+   },
+   "need": [
+    "pz-visual-route"
+   ],
+   "next": "c4s5-kohsamui"
+  },
+  "c4s5-kohsamui": {
+   "chapterId": "ch4",
+   "title": "Passover on the Sand",
+   "location": "Koh Samui",
+   "background": "assets/png/backgrounds/c4s5-kohsamui.png",
+   "objective": "Set the outdoor seder in the right order before Songkran's water reaches the table.",
+   "copy": "An outdoor Passover on the beach, and Songkran the same week: the festival of freedom meeting the festival of water.",
+   "dialogue": [
+    [
+     "leah",
+     "Seder order on one side, water festival on the other. Protect the matzah at all costs."
+    ],
+    [
+     "moshe",
+     "The matzah is under the only waterproof thing we own. My hat."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-seder",
+     "x": 48,
+     "y": 60,
+     "label": "The seder table",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-songkran",
+     "x": 78,
+     "y": 48,
+     "label": "Songkran water fight",
+     "type": "observe",
+     "text": "A city-wide water fight. Everyone loses. Everyone wins.",
+     "optional": true
+    },
+    {
+     "id": "rm-c4s5",
+     "x": 18,
+     "y": 44,
+     "label": "Rabbit under the table",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "The seder plate has a sixth space, shaped exactly like a small brass Hamsa."
+   },
+   "need": [
+    "pz-seder"
+   ],
+   "next": "c4s6-waterfall"
+  },
+  "c4s6-waterfall": {
+   "chapterId": "ch4",
+   "title": "The Hidden Waterfall",
+   "location": "Jungle road",
+   "background": "assets/png/backgrounds/c4s6-waterfall.png",
+   "objective": "Just be here. Some memories don't need solving.",
+   "copy": "A motorbike, a wrong turn taken on purpose, and a waterfall that wasn't on any map. No puzzle here. Just the two of them, and water.",
+   "dialogue": [
+    [
+     "leah",
+     "No anomalies. No erased people. Just… a waterfall."
+    ],
+    [
+     "moshe",
+     "Suspicious."
+    ],
+    [
+     "leah",
+     "Moshé."
+    ],
+    [
+     "moshe",
+     "Enjoying it. I'm enjoying it."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "ob-pool",
+     "x": 50,
+     "y": 62,
+     "label": "The pool",
+     "type": "observe",
+     "text": "Cold, clear, perfect. The memory holds still here, unedited."
+    },
+    {
+     "id": "ob-bike",
+     "x": 20,
+     "y": 70,
+     "label": "The motorbike",
+     "type": "observe",
+     "text": "One working mirror, one optimistic engine, zero regrets.",
+     "optional": true
+    },
+    {
+     "id": "rm-c4s6",
+     "x": 82,
+     "y": 50,
+     "label": "Rabbit on a mossy stone",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "For once — nothing. A memory left completely intact is itself a message."
+   },
+   "need": [
+    "ob-pool"
+   ],
+   "next": "c4s7-ancientcity"
+  },
+  "c4s7-ancientcity": {
+   "chapterId": "ch4",
+   "title": "The Ancient City",
+   "location": "Heritage park",
+   "background": "assets/png/backgrounds/c4s7-ancientcity.png",
+   "objective": "Deduce which monument the elephant will visit next.",
+   "copy": "A park of scaled-down monuments, rental bikes, temples — and an elephant with a fixed round it refuses to explain.",
+   "dialogue": [
+    [
+     "moshe",
+     "The elephant visits the monuments in a pattern. History rewards the patient observer."
+    ],
+    [
+     "leah",
+     "The elephant visits wherever the bananas are."
+    ],
+    [
+     "moshe",
+     "…The bananas move in a pattern."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-elephant",
+     "x": 50,
+     "y": 58,
+     "label": "The elephant's round",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c4s7",
+     "x": 80,
+     "y": 40,
+     "label": "Rabbit among the ruins",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "One miniature monument depicts a building from a country later in the journey."
+   },
+   "need": [
+    "pz-elephant"
+   ],
+   "next": "c4s8-chiangmai"
+  },
+  "c4s8-chiangmai": {
+   "chapterId": "ch4",
+   "title": "White Temple Road",
+   "location": "Chiang Mai to Chiang Rai",
+   "background": "assets/png/backgrounds/c4s8-chiangmai.png",
+   "objective": "Sequence the mountain road past the fire haze to the White Temple.",
+   "copy": "A Starbucks that looks like a palace, a road smudged with forest-fire haze, a hot spring, a banana of legendary size — and the White Temple shining like frost.",
+   "dialogue": [
+    [
+     "leah",
+     "Fire haze closes the high road after noon. Hot spring detour adds an hour."
+    ],
+    [
+     "moshe",
+     "And the temple face lights at four. So the order writes itself — if we're exact."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-whitetemple",
+     "x": 48,
+     "y": 50,
+     "label": "The road plan",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-banana",
+     "x": 76,
+     "y": 66,
+     "label": "The legendary banana",
+     "type": "observe",
+     "text": "It's enormous. Photos were taken. Science was consulted. No conclusion reached.",
+     "optional": true
+    },
+    {
+     "id": "rm-c4s8",
+     "x": 18,
+     "y": 40,
+     "label": "Rabbit in the frost-white carvings",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "The temple's mirrored walls reflect the road behind you as the road ahead."
+   },
+   "need": [
+    "pz-whitetemple"
+   ],
+   "next": "c5s1-hcmc"
+  },
+  "c5s1-hcmc": {
+   "chapterId": "ch5",
+   "title": "Reunification Day",
+   "location": "Ho Chi Minh City",
+   "background": "assets/png/backgrounds/c5s1-hcmc.png",
+   "objective": "Count the flag pattern to find the parade's viewing gap.",
+   "copy": "Flags on every balcony, a parade filling the boulevards, fireworks promised for nightfall — and one quiet gap in the crowd, if you can find it.",
+   "dialogue": [
+    [
+     "moshe",
+     "Flags in runs: three red, one gold-starred banner, repeat. Except one balcony breaks the run."
+    ],
+    [
+     "leah",
+     "The break marks the side street. That's our gap."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-flags",
+     "x": 50,
+     "y": 46,
+     "label": "Flag pattern",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c5s1",
+     "x": 80,
+     "y": 62,
+     "label": "Rabbit on a balcony",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "One flag shows a symbol from no country at all — a small white rabbit."
+   },
+   "need": [
+    "pz-flags"
+   ],
+   "next": "c5s2-birthday"
+  },
+  "c5s2-birthday": {
+   "chapterId": "ch5",
+   "title": "The Birthday",
+   "location": "Amusement park",
+   "background": "assets/png/backgrounds/c5s2-birthday.png",
+   "objective": "Seat the birthday group on the coaster within every rule.",
+   "copy": "A birthday of perfume, an amusement park, a giraffe who ate the map, a roller coaster and a waterpark. Someone has to solve the seating.",
+   "dialogue": [
+    [
+     "leah",
+     "Coaster rows of two. The birthday girl picks first. The map is inside the giraffe."
+    ],
+    [
+     "moshe",
+     "The giraffe ate the map?"
+    ],
+    [
+     "leah",
+     "The giraffe ate the map."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-coaster",
+     "x": 52,
+     "y": 50,
+     "label": "Coaster seating",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-giraffe",
+     "x": 78,
+     "y": 60,
+     "label": "The giraffe",
+     "type": "observe",
+     "text": "The giraffe remains unrepentant. The map remains internal.",
+     "optional": true
+    },
+    {
+     "id": "rm-c5s2",
+     "x": 18,
+     "y": 46,
+     "label": "Rabbit balloon",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The park's clock tower counts one hour twice during the afternoon."
+   },
+   "need": [
+    "pz-coaster"
+   ],
+   "next": "c5s3-hoian"
+  },
+  "c5s3-hoian": {
+   "chapterId": "ch5",
+   "title": "Hoi An — Lanterns",
+   "location": "Hoi An old town, night",
+   "background": "assets/png/backgrounds/c5s3-hoian.png",
+   "objective": "Light the lanterns in the pattern their reflections demand.",
+   "copy": "The Japanese bridge, a river doubled with lantern light — and a tally in the notebook that suddenly makes the rabbit's pattern visible.",
+   "dialogue": [
+    [
+     "leah",
+     "Look at the Rabbit Marks list. Havdalah. The beach. The kayak. Every single one…"
+    ],
+    [
+     "moshe",
+     "…is a goodbye that didn't happen. The rabbit only appears where we almost parted and didn't."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-lanterns",
+     "x": 48,
+     "y": 44,
+     "label": "The lantern strings",
+     "type": "puzzle",
+     "view": "both"
+    },
+    {
+     "id": "cl-pattern",
+     "x": 62,
+     "y": 66,
+     "label": "Notebook — the rabbit's pattern",
+     "type": "clue",
+     "clue": "clue-rabbit-pattern",
+     "locked": "solve:pz-lanterns"
+    },
+    {
+     "id": "rm-c5s3",
+     "x": 82,
+     "y": 52,
+     "label": "Rabbit lantern, unlit",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "One lantern's reflection glows in the river while the lantern itself is dark."
+   },
+   "need": [
+    "pz-lanterns",
+    "cl-pattern"
+   ],
+   "next": "c5s4-coconut"
+  },
+  "c5s4-coconut": {
+   "chapterId": "ch5",
+   "title": "Coconut Village",
+   "location": "Basket boats",
+   "background": "assets/png/backgrounds/c5s4-coconut.png",
+   "objective": "Balance the spinning basket boat.",
+   "copy": "Round basket boats that spin like teacups with opinions. Balance is everything; dignity is optional.",
+   "dialogue": [
+    [
+     "leah",
+     "Weight low, movements opposite, and never both lean the same way."
+    ],
+    [
+     "moshe",
+     "Tell that to the boat. The boat disagrees with physics."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-basket",
+     "x": 50,
+     "y": 60,
+     "label": "The basket boat",
+     "type": "puzzle",
+     "view": "leah"
+    },
+    {
+     "id": "rm-c5s4",
+     "x": 78,
+     "y": 46,
+     "label": "Rabbit woven into a basket",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "The current carries other boats downstream; theirs drifts gently up."
+   },
+   "need": [
+    "pz-basket"
+   ],
+   "next": "c5s5-hue"
+  },
+  "c5s5-hue": {
+   "chapterId": "ch5",
+   "title": "Huế — Nested Gates",
+   "location": "Imperial City",
+   "background": "assets/png/backgrounds/c5s5-hue.png",
+   "objective": "Pass the nested gates in the ceremonial order.",
+   "copy": "The Imperial City: gate within gate within gate. Each one must be entered by its correct door, in its correct order.",
+   "dialogue": [
+    [
+     "moshe",
+     "Outer gate: east door for travelers. Middle gate: the inscription says scholars pass south."
+    ],
+    [
+     "leah",
+     "And the inner gate hinge only turns one way. Sequence it."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-gates",
+     "x": 50,
+     "y": 50,
+     "label": "The nested gates",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c5s5",
+     "x": 20,
+     "y": 58,
+     "label": "Rabbit on a bronze urn",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "Looking back after each gate, the door you entered is no longer there."
+   },
+   "need": [
+    "pz-gates"
+   ],
+   "next": "c5s6-ninhbinh"
+  },
+  "c5s6-ninhbinh": {
+   "chapterId": "ch5",
+   "title": "Tam Cốc by Boat",
+   "location": "Ninh Bình rice fields",
+   "background": "assets/png/backgrounds/c5s6-ninhbinh.png",
+   "objective": "Choose the cave passage the boat can pass at this water level.",
+   "copy": "Rice fields brushed gold, karst hills, and a rower steering with her feet toward three low cave mouths.",
+   "dialogue": [
+    [
+     "leah",
+     "Water's high after the rain. Clearance on the left cave is under a meter."
+    ],
+    [
+     "moshe",
+     "The rower says the middle one 'sings'. I vote for the one that sings."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-boat",
+     "x": 50,
+     "y": 58,
+     "label": "Three cave mouths",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c5s6",
+     "x": 80,
+     "y": 44,
+     "label": "Rabbit in the rice",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "The middle cave hums a tune — Sharon's tune."
+   },
+   "need": [
+    "pz-boat"
+   ],
+   "next": "c5s7-sapa"
+  },
+  "c5s7-sapa": {
+   "chapterId": "ch5",
+   "title": "Sapa Terraces",
+   "location": "Sapa and Fansipan",
+   "background": "assets/png/backgrounds/c5s7-sapa.png",
+   "objective": "Count the terrace levels to find the path the mist hides.",
+   "copy": "Rice terraces stacked into the clouds, a waterfall, and the Fansipan cable car vanishing into white.",
+   "dialogue": [
+    [
+     "leah",
+     "The terraces step down in a countable rhythm. The path crosses where the rhythm breaks."
+    ],
+    [
+     "moshe",
+     "Like the flags in Saigon. The world keeps hiding doors in patterns."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-terraces",
+     "x": 48,
+     "y": 48,
+     "label": "The terrace rhythm",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c5s7",
+     "x": 78,
+     "y": 62,
+     "label": "Rabbit in the mist",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "Through one gap in the mist: not Vietnam, but a street from Jerusalem."
+   },
+   "need": [
+    "pz-terraces"
+   ],
+   "next": "c5s8-caobang"
+  },
+  "c5s8-caobang": {
+   "chapterId": "ch5",
+   "title": "Cao Bằng — The Border Falls",
+   "location": "Ban Gioc",
+   "background": "assets/png/backgrounds/c5s8-caobang.png",
+   "objective": "Free the motorbike from the mud — together, in the right order.",
+   "copy": "The great border waterfall, a muddy track, and a motorbike sunk to the axle. This is a two-person extraction.",
+   "dialogue": [
+    [
+     "leah",
+     "Boards under the wheel first, or the winch just digs it deeper."
+    ],
+    [
+     "moshe",
+     "Then I pull the front while you rock the throttle. On three. Count in whichever language, but count."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-mud",
+     "x": 50,
+     "y": 62,
+     "label": "The stuck motorbike",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-falls",
+     "x": 76,
+     "y": 40,
+     "label": "The border falls",
+     "type": "observe",
+     "text": "Two countries share one waterfall, and the waterfall has no opinion about borders.",
+     "optional": true
+    },
+    {
+     "id": "rm-c5s8",
+     "x": 18,
+     "y": 50,
+     "label": "Rabbit tracks in the mud",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "Among the mud tracks: a clean set of rabbit prints that begin and end nowhere."
+   },
+   "need": [
+    "pz-mud"
+   ],
+   "next": "c5s9-cave"
+  },
+  "c5s9-cave": {
+   "chapterId": "ch5",
+   "title": "Ngườm Ngao — The Echo",
+   "location": "Cave interior",
+   "background": "assets/png/backgrounds/c5s9-cave.png",
+   "objective": "Ask the cave the question, and hear what it answers back.",
+   "copy": "Headlamps in a cathedral of stone. Every word comes back changed by one letter of meaning. The cave has an opinion about departures.",
+   "dialogue": [
+    [
+     "moshe",
+     "Echo test. HELLO."
+    ],
+    [
+     "leah",
+     "'Hello.' Fine. Try the other one."
+    ],
+    [
+     "moshe",
+     "…GO?"
+    ],
+    [
+     "leah",
+     "It said 'stay'. Moshé. The cave said 'stay'."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-echo",
+     "x": 50,
+     "y": 52,
+     "label": "The echo chamber",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-echo",
+     "x": 50,
+     "y": 70,
+     "label": "Notebook — the echo's answer",
+     "type": "clue",
+     "clue": "clue-echo",
+     "locked": "solve:pz-echo"
+    },
+    {
+     "id": "rm-c5s9",
+     "x": 80,
+     "y": 60,
+     "label": "Rabbit-shaped stalagmite",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The echo returns 'go' as 'stay' — every time, for anyone."
+   },
+   "need": [
+    "pz-echo",
+    "cl-echo"
+   ],
+   "next": "c6s1-osaka"
+  },
+  "c6s1-osaka": {
+   "chapterId": "ch6",
+   "title": "Osaka — Castle and Neon",
+   "location": "Osaka",
+   "background": "assets/png/backgrounds/c6s1-osaka.png",
+   "objective": "Match the neon signs to their canal reflections.",
+   "copy": "A castle above its moat by day; Dotonbori's neon canyon by night. The canal reflects the signs — almost all of them faithfully.",
+   "dialogue": [
+    [
+     "moshe",
+     "Six signs, six reflections. Pair them."
+    ],
+    [
+     "leah",
+     "Five pair. The sixth reflection belongs to a sign that isn't there."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-neon",
+     "x": 50,
+     "y": 50,
+     "label": "Neon and reflections",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c6s1",
+     "x": 80,
+     "y": 62,
+     "label": "Rabbit neon, flickering",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "One reflection in the canal has no sign above it."
+   },
+   "need": [
+    "pz-neon"
+   ],
+   "next": "c6s2-themepark"
+  },
+  "c6s2-themepark": {
+   "chapterId": "ch6",
+   "title": "The Theme Park Queue",
+   "location": "Theme park",
+   "background": "assets/png/backgrounds/c6s2-themepark.png",
+   "objective": "Beat the queue system with pure logic.",
+   "copy": "A day of engineered joy. The headline ride's queue splits and merges by posted rules — and one path is provably fastest.",
+   "dialogue": [
+    [
+     "leah",
+     "Left lane merges every ten minutes. Right lane is single-file but never stops."
+    ],
+    [
+     "moshe",
+     "And the express gate opens on the quarter hour. This is just a scheduling problem wearing a fun hat."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-queue",
+     "x": 50,
+     "y": 56,
+     "label": "The queue rules",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c6s2",
+     "x": 20,
+     "y": 48,
+     "label": "Rabbit mascot pin",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The ride's photo screen shows the two of you — from a ride you haven't boarded yet."
+   },
+   "need": [
+    "pz-queue"
+   ],
+   "next": "c6s3-kyoto"
+  },
+  "c6s3-kyoto": {
+   "chapterId": "ch6",
+   "title": "Kyoto — Repeating Gates",
+   "location": "Kyoto",
+   "background": "assets/png/backgrounds/c6s3-kyoto.png",
+   "objective": "Walk the tunnel of gates, testing each with the Hamsa's eye.",
+   "copy": "Old lanes, pagodas, the Golden Pavilion — and a tunnel of vermilion gates repeating beyond counting. Held up here, the Hamsa's eye reacts.",
+   "dialogue": [
+    [
+     "leah",
+     "Hold the Hamsa to each gate. On the true ones, the eye stays clear."
+    ],
+    [
+     "moshe",
+     "And on the false ones it clouds. Sharon gave us a compass for memories."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-toriipath",
+     "x": 50,
+     "y": 46,
+     "label": "The tunnel of gates",
+     "type": "puzzle",
+     "view": "both"
+    },
+    {
+     "id": "cl-anchor",
+     "x": 50,
+     "y": 66,
+     "label": "Notebook — the Hamsa's eye",
+     "type": "clue",
+     "clue": "clue-hamsa-anchor",
+     "locked": "solve:pz-toriipath"
+    },
+    {
+     "id": "rm-c6s3",
+     "x": 80,
+     "y": 56,
+     "label": "Rabbit at a fox shrine",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "Walking back through the gates leads deeper in."
+   },
+   "need": [
+    "pz-toriipath",
+    "cl-anchor"
+   ],
+   "next": "c6s4-nara"
+  },
+  "c6s4-nara": {
+   "chapterId": "ch6",
+   "title": "Nara — The Deer Deduction",
+   "location": "Nara park",
+   "background": "assets/png/backgrounds/c6s4-nara.png",
+   "objective": "Deduce which deer took the maps — yes, again with the maps.",
+   "copy": "Deer that bow, stone lanterns, temple eaves — and three map pamphlets missing from a closed bag.",
+   "dialogue": [
+    [
+     "moshe",
+     "The bag was closed. The maps are gone. There are four hundred deer."
+    ],
+    [
+     "leah",
+     "Three suspects came within reach. Crumbs, timing, and one very smug deer."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-deer",
+     "x": 50,
+     "y": 58,
+     "label": "The deer lineup",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c6s4",
+     "x": 78,
+     "y": 44,
+     "label": "Rabbit among stone lanterns",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "One deer in the park appears in a photo taken years earlier, identical antler chip and all."
+   },
+   "need": [
+    "pz-deer"
+   ],
+   "next": "c6s5-tokyo"
+  },
+  "c6s5-tokyo": {
+   "chapterId": "ch6",
+   "title": "Tokyo — Map Layers",
+   "location": "Tokyo",
+   "background": "assets/png/backgrounds/c6s5-tokyo.png",
+   "objective": "Overlay both mental maps of Tokyo to find the one crossing they agree on.",
+   "copy": "Tower, gardens, temple, the electronics district, the great crossing. Leah's Tokyo is systems; Moshé's Tokyo is stories. The truth needs both layers.",
+   "dialogue": [
+    [
+     "leah",
+     "My map: rail lines, load, flow. Yours?"
+    ],
+    [
+     "moshe",
+     "Districts, eras, names. Overlay them — where do both maps put the meeting point?"
+    ],
+    [
+     "leah",
+     "One crossing. Only one satisfies both."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-maplayers",
+     "x": 50,
+     "y": 50,
+     "label": "Two maps, one city",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-c6s5",
+     "x": 18,
+     "y": 60,
+     "label": "Rabbit in a claw machine",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "place",
+    "text": "Both maps, overlaid, mark one street that exists on neither."
+   },
+   "need": [
+    "pz-maplayers"
+   ],
+   "next": "c6s6-fuji"
+  },
+  "c6s6-fuji": {
+   "chapterId": "ch6",
+   "title": "Fuji — The Flower Arch",
+   "location": "Lake at Fuji",
+   "background": "assets/png/backgrounds/c6s6-fuji.png",
+   "objective": "Order the day's photographs — and see what every gate photo shares.",
+   "copy": "Bikes around the lake, a garden, rice snacks, the mountain unveiled at dawn, a flower arch. Sorting the photos reveals the chapter's truth.",
+   "dialogue": [
+    [
+     "moshe",
+     "Order the photos: dawn, garden, arch, lake, snacks… wait."
+    ],
+    [
+     "leah",
+     "Every gate photo, every arch, every torii — we're always walking in. Not one photo of us leaving."
+    ],
+    [
+     "moshe",
+     "In this whole reconstruction… nobody ever leaves."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-fuji",
+     "x": 48,
+     "y": 54,
+     "label": "The day's photographs",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-gates",
+     "x": 48,
+     "y": 72,
+     "label": "Notebook — entrances only",
+     "type": "clue",
+     "clue": "clue-gates",
+     "locked": "solve:pz-fuji"
+    },
+    {
+     "id": "ob-snacks",
+     "x": 78,
+     "y": 64,
+     "label": "Rice snack stand",
+     "type": "observe",
+     "text": "A small box of rice snacks. Remember this box. It will be slandered later as a ring box.",
+     "optional": true
+    },
+    {
+     "id": "rm-c6s6",
+     "x": 16,
+     "y": 42,
+     "label": "Rabbit by the flower arch",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "direction",
+    "text": "In every gate photograph they are entering. There are no photographs of leaving."
+   },
+   "need": [
+    "pz-fuji",
+    "cl-gates"
+   ],
+   "next": "c7s1-seoul"
+  },
+  "c7s1-seoul": {
+   "chapterId": "ch7",
+   "title": "Seoul — Palace and City",
+   "location": "Seoul",
+   "background": "assets/png/backgrounds/c7s1-seoul.png",
+   "objective": "Open the palace gates in the ceremonial order one last time.",
+   "copy": "Bikes along the Han, palace gates, borrowed traditional clothes, a city that is five centuries old and five minutes new at once.",
+   "dialogue": [
+    [
+     "leah",
+     "Last country. I can feel the journey gathering itself."
+    ],
+    [
+     "moshe",
+     "One more gate sequence. The palaces here nest like Huế — but the order runs by the compass."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-palace",
+     "x": 50,
+     "y": 50,
+     "label": "The palace gates",
+     "type": "puzzle"
+    },
+    {
+     "id": "ob-hanbok",
+     "x": 76,
+     "y": 62,
+     "label": "Traditional clothing",
+     "type": "observe",
+     "text": "Borrowed splendor, modestly worn; the rental shop owner approves of Leah's scarf-matching instincts.",
+     "optional": true
+    },
+    {
+     "id": "rm-c7s1",
+     "x": 18,
+     "y": 44,
+     "label": "Rabbit roof charm",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "time",
+    "text": "The changing-of-the-guard runs in reverse once, like a film rewinding."
+   },
+   "need": [
+    "pz-palace"
+   ],
+   "next": "c7s2-seoulmate"
+  },
+  "c7s2-seoulmate": {
+   "chapterId": "ch7",
+   "title": "Seoulmate",
+   "location": "Han river at night",
+   "background": "assets/png/backgrounds/c7s2-seoulmate.png",
+   "objective": "Complete the wordplay. Receive the final fragment.",
+   "copy": "City lights on the water. Moshé has been building a sentence all day, syllable by syllable, and the last word is a city.",
+   "dialogue": [
+    [
+     "moshe",
+     "You… are… my…"
+    ],
+    [
+     "leah",
+     "If the next word is a pun, I'm pushing you in the river."
+    ],
+    [
+     "moshe",
+     "…Seoulmate."
+    ],
+    [
+     "leah",
+     "(She does not push him in the river.)"
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-seoulmate",
+     "x": 50,
+     "y": 56,
+     "label": "The unfinished sentence",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-seoulmate",
+     "x": 50,
+     "y": 72,
+     "label": "The final fragment",
+     "type": "clue",
+     "clue": "clue-seoulmate",
+     "locked": "solve:pz-seoulmate"
+    },
+    {
+     "id": "rm-c7s2",
+     "x": 80,
+     "y": 46,
+     "label": "Rabbit on the railing",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The city's light-boards flicker, for one frame, into a word only he was thinking."
+   },
+   "need": [
+    "pz-seoulmate",
+    "cl-seoulmate"
+   ],
+   "next": "f01-page"
+  },
+  "f01-page": {
+   "chapterId": "final",
+   "title": "Reconstructing the Page",
+   "location": "Guesthouse desk",
+   "background": "assets/png/backgrounds/f01-page.png",
+   "objective": "Assemble the erased boarding pass from the chapter fragments.",
+   "copy": "Every fragment earned across eight chapters, laid out under the lamp. The erased page of the boarding pass wants to exist again.",
+   "dialogue": [
+    [
+     "leah",
+     "Eight fragments. One page. Order them by the journey, not the calendar."
+    ],
+    [
+     "moshe",
+     "And the erased block… it's a flight code. It was always a flight code."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-reconstruct",
+     "x": 50,
+     "y": 54,
+     "label": "The fragments",
+     "type": "puzzle"
+    },
+    {
+     "id": "rm-f01",
+     "x": 80,
+     "y": 42,
+     "label": "Rabbit on the desk",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "The reconstructed pass names a return flight — one seat only."
+   },
+   "need": [
+    "pz-reconstruct"
+   ],
+   "next": "f02-thriftshop",
+   "cutsceneAfter": "cs09-boarding-pass"
+  },
+  "f02-thriftshop": {
+   "chapterId": "final",
+   "title": "The Thrift-Shop Evidence",
+   "location": "Jerusalem thrift shop",
+   "background": "assets/png/backgrounds/f02-thriftshop.png",
+   "objective": "Find the proof that the too-early question had a true intention.",
+   "copy": "A memory returns: a Jerusalem thrift shop, trying on hypothetical wedding clothes, laughing — and meaning it more than either admitted.",
+   "dialogue": [
+    [
+     "moshe",
+     "We said it was a joke."
+    ],
+    [
+     "leah",
+     "We kept the receipt, Moshé. People don't keep receipts for jokes."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-evidence",
+     "x": 48,
+     "y": 56,
+     "label": "The rack and the receipt",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-thrift",
+     "x": 48,
+     "y": 72,
+     "label": "Notebook — it was true",
+     "type": "clue",
+     "clue": "clue-thrift",
+     "locked": "solve:pz-evidence"
+    },
+    {
+     "id": "rm-f02",
+     "x": 80,
+     "y": 48,
+     "label": "Rabbit between the hangers",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The receipt's date is stamped twice: once then, once now."
+   },
+   "need": [
+    "pz-evidence",
+    "cl-thrift"
+   ],
+   "next": "f03-phiphi2"
+  },
+  "f03-phiphi2": {
+   "chapterId": "final",
+   "title": "Phi Phi — The Second Perspective",
+   "location": "Phi Phi beach, night",
+   "background": "assets/png/backgrounds/f03-phiphi2.png",
+   "objective": "Replay the question from Leah's side of the beach.",
+   "copy": "The same sunset, remembered from the other side. From here you can see what Moshé couldn't: where the rabbit sat, and what left without him.",
+   "dialogue": [
+    [
+     "leah",
+     "From my side I could see the pier. The evening ferry — the one that connects to the airport — it left while you were mid-question."
+    ],
+    [
+     "moshe",
+     "That was my ferry. That was my flight home. I never even looked at it."
+    ],
+    [
+     "leah",
+     "The rabbit was sitting on the pier post. Right where you didn't look."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-phiphi2",
+     "x": 50,
+     "y": 52,
+     "label": "The remembered beach",
+     "type": "puzzle",
+     "view": "leah"
+    },
+    {
+     "id": "cl-rabbit-role",
+     "x": 50,
+     "y": 70,
+     "label": "Notebook — the rabbit's post",
+     "type": "clue",
+     "clue": "clue-rabbit-role",
+     "locked": "solve:pz-phiphi2"
+    },
+    {
+     "id": "rm-f03",
+     "x": 80,
+     "y": 58,
+     "label": "Rabbit on the pier post",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "person",
+    "text": "In this memory, Moshé's shadow points at the pier even though he never faced it."
+   },
+   "need": [
+    "pz-phiphi2",
+    "cl-rabbit-role"
+   ],
+   "next": "f04-proposals"
+  },
+  "f04-proposals": {
+   "chapterId": "final",
+   "title": "Six Possible Proposals",
+   "location": "Memory collage",
+   "background": "assets/png/backgrounds/f04-proposals.png",
+   "objective": "Test each proposal place with the Hamsa and reject the red herrings.",
+   "copy": "Paris. The Taj. Koh Phi Phi. The Vietnamese waterfall. Fuji. Seoul. Six places float like postcards. Each holds one authentic clue — or one beautiful lie.",
+   "dialogue": [
+    [
+     "leah",
+     "Hamsa up. Test them all. Paris ring-mark?"
+    ],
+    [
+     "moshe",
+     "Clouds over. Coffee stain, like we thought. Fuji ring box?"
+    ],
+    [
+     "leah",
+     "Clouds. Rice snacks. The eye only clears on Phi Phi… and on Seoul."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-proposals",
+     "x": 50,
+     "y": 52,
+     "label": "The six postcards",
+     "type": "puzzle"
+    },
+    {
+     "id": "cl-false-fuji",
+     "x": 74,
+     "y": 66,
+     "label": "The Fuji 'ring box'",
+     "type": "clue",
+     "clue": "clue-false-fuji",
+     "optional": true
+    },
+    {
+     "id": "rm-f04",
+     "x": 18,
+     "y": 44,
+     "label": "Rabbit between postcards",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "object",
+    "text": "Four of the six postcards cloud the Hamsa's eye."
+   },
+   "need": [
+    "pz-proposals"
+   ],
+   "next": "f05-metapuzzle"
+  },
+  "f05-metapuzzle": {
+   "chapterId": "final",
+   "title": "The Missing Flight",
+   "location": "The memory space",
+   "background": "assets/png/backgrounds/f05-metapuzzle.png",
+   "objective": "Order the fragments, choose the true memories, rebuild the ticket — and answer.",
+   "copy": "Everything converges. The fragments align, the false memories fall away, the boarding pass completes itself — except for one line, which only they can write.",
+   "dialogue": [
+    [
+     "leah",
+     "The missing flight was never on our route. It was your return flight — the one you never boarded, after a question asked too early."
+    ],
+    [
+     "moshe",
+     "Sharon knew. The rabbit marked every goodbye we skipped. The Hamsa kept the true memories safe until we could read them."
+    ],
+    [
+     "leah",
+     "So the last line of the ticket isn't a destination. It's what you said instead of boarding."
+    ],
+    [
+     "moshe",
+     "Then say it with me."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "pz-meta-order",
+     "x": 30,
+     "y": 46,
+     "label": "Order the fragments",
+     "type": "puzzle"
+    },
+    {
+     "id": "pz-meta-memories",
+     "x": 70,
+     "y": 46,
+     "label": "Choose the true memories",
+     "type": "puzzle"
+    },
+    {
+     "id": "pz-final-phrase",
+     "x": 50,
+     "y": 68,
+     "label": "The last line",
+     "type": "puzzle",
+     "locked": "solve:pz-meta-order,pz-meta-memories"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "The final line of the boarding pass awaits three words."
+   },
+   "need": [
+    "pz-meta-order",
+    "pz-meta-memories",
+    "pz-final-phrase"
+   ],
+   "next": "f06-ending",
+   "cutsceneAfter": "cs10-final-reveal"
+  },
+  "f06-ending": {
+   "chapterId": "final",
+   "title": "The Bench at Dawn",
+   "location": "Everywhere at once",
+   "background": "assets/png/backgrounds/f06-ending.png",
+   "objective": "Sit. Watch the sun rise on the stage of your story.",
+   "copy": "A bench at dawn. The rabbit, unhurried at last. A teddy bear, a lizard, a drink with two straws, the brass Hamsa warm in the middle. Behind them, every skyline of the journey at once — the landscapes that became the stage for their story.",
+   "dialogue": [
+    [
+     "sharon",
+     "(voice, warm) Told you my gift wasn't the kind you unwrap."
+    ],
+    [
+     "moshe",
+     "Every landscape we crossed… none of it was the destination."
+    ],
+    [
+     "leah",
+     "It was the stage. The story was always us."
+    ],
+    [
+     "moshe",
+     "Ask me again someday, you said. Without the coconuts."
+    ],
+    [
+     "leah",
+     "…Ask."
+    ]
+   ],
+   "hotspots": [
+    {
+     "id": "ob-bench",
+     "x": 50,
+     "y": 60,
+     "label": "The bench",
+     "type": "observe",
+     "text": "There is room for two, and the rabbit."
+    },
+    {
+     "id": "ob-skyline",
+     "x": 50,
+     "y": 30,
+     "label": "The skyline of everywhere",
+     "type": "observe",
+     "text": "Tel Aviv into Paris into Mumbai into Bangkok into Hoi An into Kyoto into Seoul. One horizon.",
+     "optional": true
+    },
+    {
+     "id": "rm-f06",
+     "x": 64,
+     "y": 58,
+     "label": "The rabbit, at rest",
+     "type": "rabbit"
+    }
+   ],
+   "anomaly": {
+    "category": "phrase",
+    "text": "No anomalies remain. The memory is whole."
+   },
+   "need": [
+    "ob-bench"
+   ],
+   "next": null
+  }
+ }
+}

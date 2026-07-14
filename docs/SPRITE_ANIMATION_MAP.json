@@ -1,0 +1,14 @@
+{
+  "grid": "4x2",
+  "characters": ["leah", "moshe"],
+  "frames": {
+    "idle": {"column": 0, "row": 0},
+    "talk": {"column": 1, "row": 0},
+    "walk-1": {"column": 2, "row": 0},
+    "walk-2": {"column": 3, "row": 0},
+    "question": {"column": 0, "row": 1},
+    "surprised": {"column": 1, "row": 1},
+    "interact": {"column": 2, "row": 1},
+    "jump": {"column": 3, "row": 1}
+  }
+}

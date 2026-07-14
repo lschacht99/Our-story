@@ -1,0 +1,135 @@
+{
+  "cutscenes": [
+    {
+      "id": "cs01-invitation", "title": "Sharon's Invitation", "unlock": "start",
+      "background": "assets/png/cutscenes/backgrounds/cs01-invitation.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs01-invitation.png",
+      "music": "warm", "steps": [
+        {"t": "narrate", "text": "Paris. A Tuesday like any other — until the mailbox."},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/glow.png", "x": 50, "y": 55, "scale": 1.4, "anim": "fadein"},
+        {"t": "say", "who": "sharon", "text": "Moshé! Leah! Leora said yes! Mumbai! Wedding! Come!"},
+        {"t": "say", "who": "leah", "text": "That's five exclamation marks. It must be real."},
+        {"t": "say", "who": "moshe", "text": "Mumbai. We'd better start packing tonight."},
+        {"t": "narrate", "text": "Neither of them noticed, yet, that the invitation had already begun to change."}
+      ]
+    },
+    {
+      "id": "cs02-erasure", "title": "The Erasure", "unlock": "scene:p01-paris-apartment",
+      "background": "assets/png/cutscenes/backgrounds/cs02-erasure.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs02-erasure.png",
+      "music": "uneasy", "steps": [
+        {"t": "layer", "img": "assets/png/cutscenes/layers/ticket.png", "x": 50, "y": 45, "scale": 1.0, "anim": "rise"},
+        {"t": "narrate", "text": "At the check-in desk, in full view of both of them, the boarding pass began to erase itself."},
+        {"t": "say", "who": "leah", "text": "The destination block — it's fading. Ink doesn't do that."},
+        {"t": "say", "who": "moshe", "text": "And look at the shape of the erased line. That's too short for MUMBAI."},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/rabbit.png", "x": 78, "y": 72, "scale": 0.6, "anim": "fadein"},
+        {"t": "narrate", "text": "On the counter, where no rabbit could possibly be, sat a rabbit."}
+      ]
+    },
+    {
+      "id": "cs03-havdalah-rabbit", "title": "The First Rabbit", "unlock": "scene:c1s1-havdalah",
+      "background": "assets/png/cutscenes/backgrounds/cs03-havdalah-rabbit.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs03-havdalah-rabbit.png",
+      "music": "tender", "steps": [
+        {"t": "layer", "img": "assets/png/cutscenes/layers/candle.png", "x": 30, "y": 45, "scale": 1.0, "anim": "fadein"},
+        {"t": "narrate", "text": "Years earlier. A Saturday night in Tel Aviv. Moshé arrived early, rehearsing English sentences that kept collapsing."},
+        {"t": "say", "who": "moshe", "text": "(Hello. Shalom. Bonjour. No — commit to one language, coward.)"},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/rabbit.png", "x": 62, "y": 62, "scale": 0.7, "anim": "rise"},
+        {"t": "say", "who": "leah", "text": "…Is that a rabbit on the table?"},
+        {"t": "say", "who": "moshe", "text": "Yes! Rabbit! I mean — yes. It appears we have a rabbit."},
+        {"t": "narrate", "text": "It was not a good opening line. It was, however, the beginning of everything."}
+      ]
+    },
+    {
+      "id": "cs04-route", "title": "The Long Way East", "unlock": "scene:p02-paris-airport",
+      "background": "assets/png/cutscenes/backgrounds/cs04-route.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs04-route.png",
+      "music": "travel", "steps": [
+        {"t": "narrate", "text": "With the direct flight gone, the route redrew itself: Paris → Istanbul → Muscat → Mumbai."},
+        {"t": "say", "who": "moshe", "text": "Three flights instead of one. The long way east."},
+        {"t": "say", "who": "leah", "text": "Someone designed this route. Look — every connection is tight, but never impossible."},
+        {"t": "say", "who": "moshe", "text": "Like a puzzle set by someone who knows exactly how fast we work."},
+        {"t": "narrate", "text": "Somewhere in Mumbai, Sharon checked a list and smiled."}
+      ]
+    },
+    {
+      "id": "cs05-mumbai-arrival", "title": "No One at Arrivals", "unlock": "scene:p05-mumbai-arrivals",
+      "background": "assets/png/cutscenes/backgrounds/cs05-mumbai-arrival.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs05-mumbai-arrival.png",
+      "music": "uneasy", "steps": [
+        {"t": "narrate", "text": "Arrivals. Garlands, name signs, families colliding into hugs. And for them — no one."},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/photo.png", "x": 38, "y": 62, "scale": 0.9, "anim": "rise"},
+        {"t": "say", "who": "leah", "text": "A photograph, face down on the floor. It's the wedding party — but two people are just… blank."},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/hamsa.png", "x": 68, "y": 55, "scale": 0.8, "anim": "fadein"},
+        {"t": "say", "who": "moshe", "text": "And a brass Hamsa, warm like it's been held all day. With a note: 'Start where you two started.'"},
+        {"t": "say", "who": "leah", "text": "Where we started. Moshé — that's not a place in India."},
+        {"t": "narrate", "text": "The Hamsa's eye caught the light, and the arrivals hall began, very gently, to dissolve."}
+      ]
+    },
+    {
+      "id": "cs06-israel-fragment", "title": "The First Fragment", "unlock": "scene:c1s9-meashearim",
+      "background": "assets/png/cutscenes/backgrounds/cs06-israel-fragment.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs06-israel-fragment.png",
+      "music": "tender", "steps": [
+        {"t": "layer", "img": "assets/png/cutscenes/layers/glow.png", "x": 50, "y": 40, "scale": 1.2, "anim": "fadein"},
+        {"t": "narrate", "text": "Above the lamplit lanes of Mea Shearim, the chapter gathered itself into a glowing fragment."},
+        {"t": "say", "who": "leah", "text": "Israel gave us the rabbit, the missing two in the photos, and a letter drawn by wrong turns."},
+        {"t": "say", "who": "moshe", "text": "Every memory here was a door in. Never a door out. Keep that — I think it matters."},
+        {"t": "narrate", "text": "Fragment II secured: the rabbit appeared the first time either of them needed an excuse to keep talking."}
+      ]
+    },
+    {
+      "id": "cs07-wedding", "title": "The Wedding, Minus One Page", "unlock": "scene:c3s1-mumbai-wedding",
+      "background": "assets/png/cutscenes/backgrounds/cs07-wedding.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs07-wedding.png",
+      "music": "celebration", "steps": [
+        {"t": "narrate", "text": "The wedding was everything the invitation promised — garlands and henna, old melodies in a Mumbai synagogue, two brides laughing through the ceremony."},
+        {"t": "say", "who": "sharon", "text": "Six blessings sung. The seventh page… see for yourselves."},
+        {"t": "say", "who": "leah", "text": "The page about building a home. It's not torn out — it was never printed."},
+        {"t": "say", "who": "sharon", "text": "Some blessings can't be printed. Some have to be answered."},
+        {"t": "say", "who": "moshe", "text": "Sharon. What exactly is your wedding gift to us?"},
+        {"t": "say", "who": "sharon", "text": "You're standing in it."}
+      ]
+    },
+    {
+      "id": "cs08-phiphi-question", "title": "The Question Asked Too Early", "unlock": "scene:c4s3-kohphiphi",
+      "background": "assets/png/cutscenes/backgrounds/cs08-phiphi-question.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs08-phiphi-question.png",
+      "music": "tender", "steps": [
+        {"t": "narrate", "text": "Sunset on Koh Phi Phi. The tide coming in. A man holding two coconuts for courage."},
+        {"t": "say", "who": "moshe", "text": "Hypothetically. Completely hypothetically. Would you marry me?"},
+        {"t": "say", "who": "leah", "text": "Ask me again someday, without the coconuts. Then it counts."},
+        {"t": "narrate", "text": "Behind them, unwatched, the evening ferry pulled away from the pier — the ferry to the airport, and the flight home he had once planned to take alone."},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/rabbit.png", "x": 82, "y": 68, "scale": 0.55, "anim": "fadein"},
+        {"t": "narrate", "text": "On the pier post, exactly where no one looked, the rabbit watched the ferry go."}
+      ]
+    },
+    {
+      "id": "cs09-boarding-pass", "title": "The Page, Almost Whole", "unlock": "scene:f01-page",
+      "background": "assets/png/cutscenes/backgrounds/cs09-boarding-pass.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs09-boarding-pass.png",
+      "music": "uneasy", "steps": [
+        {"t": "layer", "img": "assets/png/cutscenes/layers/ticket.png", "x": 50, "y": 42, "scale": 1.1, "anim": "rise"},
+        {"t": "narrate", "text": "Eight fragments, eight chapters, one page. The boarding pass lay reassembled under the lamp — a return flight, one seat, dated the morning after a certain sunset."},
+        {"t": "say", "who": "leah", "text": "It was never our flight that was missing. It was yours. The one you never took."},
+        {"t": "say", "who": "moshe", "text": "I was supposed to fly home after Thailand. Alone. I'd forgotten I ever planned it."},
+        {"t": "say", "who": "leah", "text": "The reconstruction didn't erase it. You did. The night you asked me a question with a coconut in each hand."},
+        {"t": "narrate", "text": "One line of the pass remained blank. Not a destination. A sentence."}
+      ]
+    },
+    {
+      "id": "cs10-final-reveal", "title": "The Missing Flight", "unlock": "scene:f05-metapuzzle",
+      "background": "assets/png/cutscenes/backgrounds/cs10-final-reveal.png",
+      "thumbnail": "assets/png/cutscenes/thumbnails/cs10-final-reveal.png",
+      "music": "finale", "steps": [
+        {"t": "layer", "img": "assets/png/cutscenes/layers/glow.png", "x": 50, "y": 45, "scale": 1.6, "anim": "fadein"},
+        {"t": "narrate", "text": "The words settled onto the final line, and every anomaly in every memory quietly resolved."},
+        {"t": "say", "who": "sharon", "text": "There it is. My whole gift. You crossed nine countries and the only flight that ever mattered is the one that left without you."},
+        {"t": "say", "who": "moshe", "text": "The rabbit marked every goodbye we skipped. Your Hamsa kept the true memories safe."},
+        {"t": "say", "who": "sharon", "text": "And the photograph? You two were blank because your story wasn't finished being told. Look at it now."},
+        {"t": "layer", "img": "assets/png/cutscenes/layers/photo.png", "x": 50, "y": 68, "scale": 1.0, "anim": "rise"},
+        {"t": "narrate", "text": "In the photograph, at last, all sixteen faces. The landscapes were never the destination. They were the stage."}
+      ]
+    }
+  ]
+}
