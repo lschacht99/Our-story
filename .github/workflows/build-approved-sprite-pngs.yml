@@ -32,32 +32,95 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Decode the approved Leah and Moshé sheets
+      - name: Decode and validate the approved Leah and Moshé sheets
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p assets/png/characters
-          cat assets/sprite-data/leah-*.b64 | tr -d '\r\n\t ' | base64 --decode > assets/png/characters/leah-atlas.png
-          cat assets/sprite-data/moshe-*.b64 | tr -d '\r\n\t ' | base64 --decode > assets/png/characters/moshe-atlas.png
-
-      - name: Validate transparent 4 by 2 PNG atlases
-        shell: bash
-        run: |
-          set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+          import base64
           import struct
+          import zlib
+
+          SIGNATURE = b'\x89PNG\r\n\x1a\n'
+
+          def clean(path):
+              return b''.join(Path(path).read_bytes().split())
+
+          def png_info(data):
+              if not data.startswith(SIGNATURE):
+                  raise ValueError('invalid PNG signature')
+              pos = len(SIGNATURE)
+              width = height = color_type = None
+              has_trns = False
+              ended = False
+              while pos + 12 <= len(data):
+                  length = struct.unpack('>I', data[pos:pos+4])[0]
+                  kind = data[pos+4:pos+8]
+                  start = pos + 8
+                  end = start + length
+                  crc_end = end + 4
+                  if crc_end > len(data):
+                      raise ValueError(f'truncated {kind!r} chunk')
+                  payload = data[start:end]
+                  expected = struct.unpack('>I', data[end:crc_end])[0]
+                  actual = zlib.crc32(kind)
+                  actual = zlib.crc32(payload, actual) & 0xffffffff
+                  if actual != expected:
+                      raise ValueError(f'bad CRC in {kind!r}')
+                  if kind == b'IHDR':
+                      width, height, _, color_type = struct.unpack('>IIBB', payload[:10])
+                  elif kind == b'tRNS':
+                      has_trns = True
+                  elif kind == b'IEND':
+                      ended = True
+                      pos = crc_end
+                      break
+                  pos = crc_end
+              if not ended:
+                  raise ValueError('missing IEND')
+              return width, height, color_type, has_trns
 
           for name in ('leah', 'moshe'):
-              path = Path(f'assets/png/characters/{name}-atlas.png')
-              data = path.read_bytes()
-              assert data[:8] == b'\x89PNG\r\n\x1a\n', f'{name}: invalid PNG signature'
-              width, height, bit_depth, color_type = struct.unpack('>IIBB', data[16:26])
-              assert width >= 512 and height >= 480, f'{name}: unexpectedly small {width}x{height}'
-              assert width % 4 == 0 and height % 2 == 0, f'{name}: not a 4x2 atlas'
-              has_alpha = color_type in (4, 6) or (color_type == 3 and b'tRNS' in data)
-              assert has_alpha, f'{name}: PNG has no transparency (type {color_type})'
-              print(f'{name}: {width}x{height}, transparent PNG, {path.stat().st_size} bytes')
+              files = sorted(Path('assets/sprite-data').glob(f'{name}-*.b64'))
+              if not files:
+                  raise SystemExit(f'{name}: no sprite chunks found')
+              chunks = [clean(path) for path in files]
+              candidates = []
+              try:
+                  candidates.append(('joined-base64', base64.b64decode(b''.join(chunks), validate=False)))
+              except Exception:
+                  pass
+              try:
+                  candidates.append(('per-file-base64', b''.join(base64.b64decode(chunk, validate=False) for chunk in chunks)))
+              except Exception:
+                  pass
+
+              chosen = None
+              errors = []
+              for method, data in candidates:
+                  try:
+                      info = png_info(data)
+                      chosen = (method, data, info)
+                      break
+                  except Exception as exc:
+                      errors.append(f'{method}: {exc}')
+              if chosen is None:
+                  raise SystemExit(f"{name}: could not reconstruct a valid PNG; {'; '.join(errors)}")
+
+              method, data, (width, height, color_type, has_trns) = chosen
+              if width < 512 or height < 480:
+                  raise SystemExit(f'{name}: unexpectedly small {width}x{height}')
+              if width % 4 or height % 2:
+                  raise SystemExit(f'{name}: dimensions are not divisible into a 4x2 atlas')
+              has_alpha = color_type in (4, 6) or (color_type == 3 and has_trns)
+              if not has_alpha:
+                  raise SystemExit(f'{name}: PNG has no transparency (type {color_type})')
+
+              output = Path(f'assets/png/characters/{name}-atlas.png')
+              output.write_bytes(data)
+              print(f'{name}: {width}x{height}, transparent PNG, {len(data)} bytes, decoded via {method}')
           PY
 
       - name: Commit direct runtime PNG files
