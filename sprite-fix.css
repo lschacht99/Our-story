@@ -1,0 +1,101 @@
+/* Runtime repair for the approved 4×2 Leah and Moshé PNG atlases. */
+.character .sprite{
+  width:clamp(126px,34vw,166px)!important;
+  height:clamp(236px,64vw,311px)!important;
+  background-repeat:no-repeat!important;
+  background-size:400% 200%!important;
+  background-position:0 0!important;
+  image-rendering:auto!important;
+  transform-origin:50% 100%;
+  opacity:0;
+  animation:none!important;
+  transition:opacity .2s ease;
+  will-change:transform;
+}
+.character-assets-ready .character .sprite{
+  opacity:1;
+  animation:approvedCharacterIdle 2.8s ease-in-out infinite!important;
+}
+.character.leah .sprite{background-image:var(--leah-atlas)!important}
+.character.moshe .sprite{background-image:var(--moshe-atlas)!important}
+
+@keyframes approvedCharacterIdle{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-4px) scale(1.006)}
+}
+
+/* The modular game replaced its illustrated prologue scenes with 32×48
+   placeholder files. Use the last real scene artwork directly from the
+   repository history until the restored PNG copies are committed. */
+.title-screen{
+  background-image:linear-gradient(#102c3133,#102c31a8),url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/title-key-art.png')!important;
+}
+.stage[aria-label^="Paris — The Invitation"]{
+  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/paris-apartment.png')!important;
+}
+.stage[aria-label^="Paris — Departures"]{
+  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/paris-airport.png')!important;
+}
+.stage[aria-label^="Istanbul — The Hidden Gate"]{
+  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/istanbul-airport.png')!important;
+}
+.stage[aria-label^="Muscat — Under the Stars"]{
+  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/muscat-airport.png')!important;
+}
+.stage[aria-label^="Mumbai — Two Corridors"]{
+  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/mumbai-airport.png')!important;
+}
+
+/* Keep the game framed like a point-and-click scene instead of stretching it
+   across an ultrawide desktop monitor. */
+@media(min-width:700px){
+  body{background:#163b41}
+  .app-shell{
+    width:min(100%,1280px);
+    margin-inline:auto;
+    background:var(--cream);
+    box-shadow:0 0 70px #06191c80;
+  }
+  .scene{
+    min-height:0!important;
+    grid-template-rows:auto auto!important;
+  }
+  .stage{
+    width:100%;
+    min-height:0!important;
+    height:auto!important;
+    aspect-ratio:16/9;
+    background-size:cover!important;
+    background-position:center!important;
+  }
+  .character .sprite{
+    width:220px!important;
+    height:413px!important;
+  }
+  .character.leah{left:7%!important}
+  .character.moshe{right:7%!important}
+  .scene-info{padding:18px 26px 22px!important}
+}
+
+@media(min-width:1100px){
+  .character .sprite{
+    width:238px!important;
+    height:446px!important;
+  }
+  .character.leah{left:9%!important}
+  .character.moshe{right:9%!important}
+}
+
+@media(max-width:699px){
+  .stage{
+    min-height:500px!important;
+    background-size:cover!important;
+    background-position:center!important;
+  }
+  .character.leah{left:-2%!important}
+  .character.moshe{right:-2%!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .character-assets-ready .character .sprite{animation:none!important}
+}

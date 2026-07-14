@@ -1,1 +1,33 @@
-const CACHE='missing-journey-characters-v3';const FILES=['./','index.html','styles.css','game.js','manifest.webmanifest','assets/ui/app-icon.png','assets/ui/hamsa.png','assets/atlases/leah.png','assets/atlases/moshe.png','assets/atlases/props.png','assets/atlases/ui.png','assets/scenes/title-key-art.png','assets/scenes/paris-apartment.png','assets/scenes/paris-airport.png','assets/scenes/istanbul-airport.png','assets/scenes/muscat-airport.png','assets/scenes/mumbai-airport.png','assets/scenes/havdalah.png'];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match('index.html'))))});
+const CACHE = 'our-story-runtime-v4-20260714';
+
+self.addEventListener('install', () => self.skipWaiting());
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const request = event.request;
+  if (request.method !== 'GET') return;
+
+  event.respondWith(
+    fetch(request, { cache: 'no-cache' })
+      .then((response) => {
+        if (response && response.ok && new URL(request.url).origin === self.location.origin) {
+          const copy = response.clone();
+          caches.open(CACHE).then((cache) => cache.put(request, copy));
+        }
+        return response;
+      })
+      .catch(async () => {
+        const cached = await caches.match(request);
+        if (cached) return cached;
+        if (request.mode === 'navigate') return caches.match('./index.html');
+        throw new Error(`Offline asset unavailable: ${request.url}`);
+      })
+  );
+});
