@@ -1,4 +1,4 @@
-const CACHE = 'our-story-runtime-v4-20260714';
+const CACHE = 'our-story-runtime-v5-20260714';
 
 self.addEventListener('install', () => self.skipWaiting());
 
@@ -15,7 +15,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   event.respondWith(
-    fetch(request, { cache: 'no-cache' })
+    fetch(request, { cache: 'reload' })
       .then((response) => {
         if (response && response.ok && new URL(request.url).origin === self.location.origin) {
           const copy = response.clone();
