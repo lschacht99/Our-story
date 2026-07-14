@@ -56,6 +56,9 @@ const game = {
     this.persist();
     this.autosaveNow(); // autosave at every scene transition
     const go = () => {
+      const history = this.save.navigationHistory ??= [];
+      if (this.save.sceneId && history.at(-1) !== this.save.sceneId) history.push(this.save.sceneId);
+      if (history.length > 40) history.splice(0, history.length - 40);
       this.save.sceneId = scene.next;
       this.checkChapterProgress();
       this.persist();
@@ -65,10 +68,23 @@ const game = {
     };
     if (scene.cutsceneAfter) {
       const cs = this.data.cutscenes.cutscenes.find((c) => c.id === scene.cutsceneAfter);
+      const alreadyUnlocked = this.save.unlockedCutscenes.includes(cs.id);
       unlockCutscene(cs.id, this.save);
       this.persist();
-      playCutscene(cs, this, { onDone: go });
+      if (!alreadyUnlocked) playCutscene(cs, this, { onDone: go });
+      else go();
     } else go();
+  },
+
+  returnToScene(sceneId) {
+    if (!sceneId || !this.data.scenes.scenes[sceneId]) return;
+    const history = this.save.navigationHistory ??= [];
+    if (history.at(-1) === sceneId) history.pop();
+    this.save.sceneId = sceneId;
+    this.persist();
+    this.autosaveNow();
+    this.preloadScene(sceneId);
+    this.render();
   },
 
   checkChapterProgress() {
@@ -135,6 +151,10 @@ const game = {
         onclick: () => {
           const target = ch.scenes.find((sid) => !sceneComplete({ ...scenesById[sid], id: sid }, save)) || ch.scenes[0];
           this.save = save;
+          if (this.save.sceneId && this.save.sceneId !== target) {
+            const history = this.save.navigationHistory ??= [];
+            if (history.at(-1) !== this.save.sceneId) history.push(this.save.sceneId);
+          }
           this.save.sceneId = target;
           this.mode = 'scene';
           closeModal();
@@ -159,7 +179,7 @@ const game = {
     const rows = [
       ['sound', 'Sound cues'], ['music', 'Music'], ['captions', 'Captions'],
       ['largeText', 'Larger text'], ['contrast', 'High contrast'],
-      ['reducedMotion', 'Reduced motion'], ['hotspotHighlight', 'Highlight hotspots'],
+      ['reducedMotion', 'Reduced motion'], ['hotspotHighlight', 'Reveal interaction points'],
       ['clock24', '24-hour clock']
     ];
     const wrap = el('div', { class: 'section' },
