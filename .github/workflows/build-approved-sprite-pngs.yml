@@ -3,8 +3,7 @@ name: Build approved sprite PNGs
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - main
+    branches: [main]
     paths:
       - .github/workflows/build-approved-sprite-pngs.yml
       - data/characters.json
@@ -12,9 +11,7 @@ on:
       - sprite-fix.css
       - sw.js
   push:
-    branches:
-      - main
-      - fix/direct-approved-sprites-v5
+    branches: [main, fix/direct-approved-sprites-v5]
     paths:
       - .github/workflows/build-approved-sprite-pngs.yml
 
@@ -35,12 +32,26 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets/png/characters
-          curl --fail --location --retry 4 --retry-delay 2 \
+          CURL_ARGS=(
+            --fail-with-body
+            --location
+            --http1.1
+            --retry 4
+            --retry-all-errors
+            --retry-delay 2
+            --connect-timeout 20
+            --max-time 120
+            --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/150 Safari/537.36'
+            --header 'Accept: image/avif,image/webp,image/apng,image/png,image/*,*/*;q=0.8'
+            --header 'Referer: https://www.canva.com/'
+          )
+          curl "${CURL_ARGS[@]}" \
             --output assets/png/characters/leah-atlas.png \
             'https://template.canva.com/EAG_wWzJKoc/1/0/1600w-Gn9fC7Sp2nk.png'
-          curl --fail --location --retry 4 --retry-delay 2 \
+          curl "${CURL_ARGS[@]}" \
             --output assets/png/characters/moshe-atlas.png \
             'https://template.canva.com/EAG_wb5xZvI/1/0/1600w-NMuz5MhG6Kk.png'
+          file assets/png/characters/leah-atlas.png assets/png/characters/moshe-atlas.png
           sha256sum assets/png/characters/leah-atlas.png assets/png/characters/moshe-atlas.png
 
       - name: Validate transparent 4 by 2 PNG atlases
