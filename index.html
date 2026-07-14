@@ -4,46 +4,49 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#153f46">
-  <meta name="description" content="Hamsa Nomads: The Missing Journey — a cooperative point-and-click travel mystery.">
-  <title>Hamsa Nomads: The Missing Journey</title>
+  <meta name="description" content="Our Story — The Missing Flight: a cooperative point-and-click travel mystery starring Leah and Moshé.">
+  <title>Our Story — The Missing Flight</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/png" href="assets/ui/app-icon.png">
+  <link rel="icon" type="image/png" href="assets/png/ui/app-icon.png">
+  <link rel="apple-touch-icon" href="assets/png/ui/app-icon.png">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="sprites.css">
 </head>
 <body>
   <div id="app" class="app-shell">
-    <header class="topbar" aria-label="Game controls">
-      <button class="brand" id="homeBtn" type="button" aria-label="Return to title">
-        <img src="assets/ui/hamsa.png" alt="" width="36" height="42">
-        <span><strong>Hamsa Nomads</strong><small>The Missing Journey</small></span>
+    <header class="topbar">
+      <button class="brand" id="homeBtn" type="button" aria-label="Return to title screen">
+        <img src="assets/png/ui/app-icon.png" alt="" width="36" height="36">
+        <span><strong>Our Story</strong><small>The Missing Flight</small></span>
       </button>
-      <button class="objective-chip" id="objectiveBtn" type="button" aria-haspopup="dialog">
-        <span>Current objective</span>
-        <strong id="objectiveText">Begin the journey</strong>
-      </button>
-      <button class="icon-btn" id="soundBtn" type="button" aria-label="Toggle sound" aria-pressed="false">♪</button>
+      <p class="objective-chip"><span>Objective</span><strong id="objectiveText">Begin the journey</strong></p>
     </header>
 
-    <main id="screen" class="screen" aria-live="polite"></main>
+    <main id="screen" class="screen" aria-live="polite">
+      <div id="loading" class="loading">
+        <img src="assets/png/ui/loading.png" alt="" width="120" height="180">
+        <p>Unfolding the map…</p>
+      </div>
+    </main>
 
     <nav class="bottom-nav" aria-label="Journey menu">
-      <button id="passportBtn" type="button"><span class="nav-icon">▤</span><span>Passport</span></button>
-      <button id="mapBtn" type="button"><span class="nav-icon">⌁</span><span>Route</span></button>
-      <button id="journalBtn" type="button"><span class="nav-icon">?</span><span>Mysteries</span></button>
-      <button id="settingsBtn" type="button"><span class="nav-icon">⚙</span><span>Settings</span></button>
+      <button id="passportBtn" type="button"><img src="assets/png/ui/icon-passport.png" alt="" width="26" height="26"><span>Passport</span></button>
+      <button id="mapBtn" type="button"><img src="assets/png/ui/icon-map.png" alt="" width="26" height="26"><span>Route</span></button>
+      <button id="journalBtn" type="button"><img src="assets/png/ui/icon-notebook.png" alt="" width="26" height="26"><span>Notebook</span></button>
+      <button id="bagBtn" type="button"><img src="assets/png/ui/icon-inventory.png" alt="" width="26" height="26"><span>Satchel</span></button>
+      <button id="logBtn" type="button"><img src="assets/png/ui/icon-cutscene.png" alt="" width="26" height="26"><span>Log</span></button>
+      <button id="settingsBtn" type="button"><img src="assets/png/ui/icon-settings.png" alt="" width="26" height="26"><span>Options</span></button>
     </nav>
   </div>
 
   <dialog id="modal" class="modal">
     <div class="modal-shell">
-      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close dialog">×</button>
       <div id="modalContent"></div>
     </div>
   </dialog>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="sprite-loader.js" defer></script>
+  <script type="module" src="scripts/engine.js"></script>
 </body>
 </html>

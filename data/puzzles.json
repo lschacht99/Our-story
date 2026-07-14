@@ -1,0 +1,1614 @@
+{
+ "puzzles": {
+  "pz-invitation": {
+   "n": "001",
+   "title": "The Restless Invitation",
+   "cat": "Observation",
+   "seal": "eye",
+   "prompt": "Letters moved when the invitation changed. They settle into a hidden instruction.",
+   "inst": "Type the hidden eleven-letter instruction. Spaces do not matter.",
+   "type": "text",
+   "answer": "TERMINALTWO",
+   "hints": [
+    "It names an airport location.",
+    "It begins with T.",
+    "Two words: eight letters, then three.",
+    "TERMINAL TWO."
+   ],
+   "why": "The shifted letters spell TERMINAL TWO — where the replacement route begins.",
+   "awardsClue": "clue-invitation"
+  },
+  "pz-packing": {
+   "n": "002",
+   "title": "One Suitcase, Two Nomads",
+   "cat": "Packing",
+   "seal": "gear",
+   "prompt": "Pack without crushing the wedding gift or burying the passports.",
+   "inst": "Enter the item initials in packing order: Clothes, Scarf box, Kippah case, Shoes, Gift, Food, Chargers, Camera, Toiletries, Passports.",
+   "type": "text",
+   "answer": "CSKSGFCCTP",
+   "hints": [
+    "Soft clothes form the base.",
+    "The scarf box lies flat on the clothes.",
+    "Passports go last, on top, reachable.",
+    "C S K S G F C C T P."
+   ],
+   "why": "Fragile things ride on soft layers and the passports stay on top."
+  },
+  "pz-timetable": {
+   "n": "003",
+   "title": "The Flight That Still Exists",
+   "cat": "Timetable",
+   "seal": "compass",
+   "prompt": "Only one flight leaves enough time for the Muscat connection.",
+   "inst": "Choose the valid itinerary.",
+   "type": "choice",
+   "answer": "B",
+   "options": [
+    [
+     "A",
+     "09:10 · delayed 55 min · arrives 13:20"
+    ],
+    [
+     "B",
+     "10:05 · on time · arrives 12:55 · same terminal"
+    ],
+    [
+     "C",
+     "09:35 · arrives 12:45 · terminal change needs 70 min"
+    ]
+   ],
+   "hints": [
+    "The connecting gate closes at 14:05.",
+    "A same-terminal transfer needs 50 minutes.",
+    "A is delayed; C loses 70 minutes changing terminals.",
+    "Choose B."
+   ],
+   "why": "Flight B lands with a comfortable same-terminal transfer.",
+   "awardsClue": "clue-return-ticket"
+  },
+  "pz-scale": {
+   "n": "004",
+   "title": "The Broken Baggage Scale",
+   "cat": "Balance",
+   "seal": "gear",
+   "prompt": "Use exactly three reference weights to balance the 22 kg suitcase.",
+   "inst": "Type the three weights from largest to smallest, separated by commas. Available: 10, 7, 5, 4, 2.",
+   "type": "text",
+   "answer": "10,7,5",
+   "hints": [
+    "Begin with the 10 kg weight.",
+    "Add the 7 kg weight next.",
+    "Five kilograms remain.",
+    "10, 7, 5."
+   ],
+   "why": "10 + 7 + 5 = 22 kg, using exactly three weights."
+  },
+  "pz-clocks": {
+   "n": "005",
+   "title": "Four Cities, Four Clocks",
+   "cat": "Time zones",
+   "seal": "compass",
+   "prompt": "Set every clock to the same instant as 09:00 in Paris.",
+   "inst": "Enter the Istanbul, Muscat and Mumbai times, separated by commas (24-hour).",
+   "type": "text",
+   "answer": "11:00,12:00,13:30",
+   "hints": [
+    "Istanbul is two hours ahead of Paris.",
+    "Muscat is three hours ahead.",
+    "Mumbai is four and a half hours ahead.",
+    "11:00, 12:00, 13:30."
+   ],
+   "why": "All four clocks now show one shared instant — except the fifth, stuck on a Havdalah hour.",
+   "awardsClue": "clue-clocks"
+  },
+  "pz-tiles": {
+   "n": "006",
+   "title": "The Gate in the Tiles",
+   "cat": "Pattern",
+   "seal": "eye",
+   "prompt": "Leah feels the mechanical seams: four symbols must be pressed in order.",
+   "inst": "Tap the symbols in the order: protector, messenger, direction, destination.",
+   "type": "sequence",
+   "tokens": [
+    "Rabbit",
+    "Gate",
+    "Hamsa",
+    "Arrow"
+   ],
+   "answer": "Hamsa|Rabbit|Arrow|Gate",
+   "hints": [
+    "Begin with the protective symbol.",
+    "The messenger follows the protector.",
+    "The direction comes before the destination.",
+    "Hamsa → Rabbit → Arrow → Gate."
+   ],
+   "why": "The completed pattern slides the tile wall open onto the hidden concourse.",
+   "view": "leah"
+  },
+  "pz-suitcase": {
+   "n": "007",
+   "title": "The Vanishing Suitcase",
+   "cat": "Deduction",
+   "seal": "key",
+   "prompt": "Who accidentally took the green Mumbai suitcase?",
+   "inst": "Use the destination sticker, the metallic sound and the wedding clue.",
+   "type": "choice",
+   "answer": "musician",
+   "options": [
+    [
+     "chef",
+     "Caterer · spice jars · flying to Ankara"
+    ],
+    [
+     "student",
+     "Student · books · flying to Izmir"
+    ],
+    [
+     "musician",
+     "Musician · metal instruments · Mumbai wedding"
+    ],
+    [
+     "architect",
+     "Architect · rolled plans · flying to Doha"
+    ]
+   ],
+   "hints": [
+    "The suitcase carries a Mumbai sticker.",
+    "A witness heard metal clinking inside.",
+    "One suspect is attending Sharon's wedding.",
+    "The musician."
+   ],
+   "why": "Only the musician matches destination, sound and occasion.",
+   "awardsClue": "clue-lost-suitcase"
+  },
+  "pz-stars": {
+   "n": "008",
+   "title": "Muscat Under the Stars",
+   "cat": "Cooperative route",
+   "seal": "hands",
+   "prompt": "Moshé reads the route diagram; Leah turns the star ceiling. Neither works alone.",
+   "inst": "Tap the constellations in the diagram's order: East, Crown, Heart, West, South.",
+   "type": "sequence",
+   "tokens": [
+    "West",
+    "Heart",
+    "East",
+    "South",
+    "Crown"
+   ],
+   "answer": "East|Crown|Heart|West|South",
+   "hints": [
+    "Begin at the right-hand edge — the East.",
+    "The Crown sits highest of all.",
+    "The Heart is the central star.",
+    "East → Crown → Heart → West → South."
+   ],
+   "why": "The five stars trace a Hamsa across the ceiling and the gate display flickers back on.",
+   "coop": true
+  },
+  "pz-seats": {
+   "n": "009",
+   "title": "The Seating Problem",
+   "cat": "Logic",
+   "seal": "key",
+   "prompt": "Seven passengers, seven seats, and the gate is closing.",
+   "inst": "Enter the initials for seats A–G in order: Moshé, Leah, Sara, Child, Eli, Flowers, Musician.",
+   "type": "text",
+   "answer": "MLSCEFM",
+   "hints": [
+    "The family of three takes C, D and E.",
+    "Moshé and Leah stay together in A and B.",
+    "The flowers get their own seat F; the musician takes G.",
+    "M L S C E F M."
+   ],
+   "why": "Everyone boards: couple together, family together, flowers unsquashed."
+  },
+  "pz-corridors": {
+   "n": "010",
+   "title": "Two Corridors, One Arrival",
+   "cat": "Cooperative finale",
+   "seal": "hands",
+   "prompt": "Leah sees the power controls; Moshé sees the doors. Each control opens the other's path.",
+   "inst": "Tap the six controls in the only safe order.",
+   "type": "sequence",
+   "tokens": [
+    "Gate",
+    "Power",
+    "Belt",
+    "Walkway",
+    "Elevator",
+    "Sign"
+   ],
+   "answer": "Power|Gate|Walkway|Belt|Sign|Elevator",
+   "hints": [
+    "Nothing opens before Leah restores power.",
+    "Moshé opens the gate, then redirects the walkway.",
+    "The belt must move before the sign updates.",
+    "Power → Gate → Walkway → Belt → Sign → Elevator."
+   ],
+   "why": "Each traveler opened the other's path until both reached arrivals — together.",
+   "coop": true,
+   "ordered": true
+  },
+  "pz-havdalah": {
+   "n": "011",
+   "title": "The Havdalah Order",
+   "cat": "Ritual order",
+   "seal": "eye",
+   "prompt": "Set the Havdalah items in the order they are used.",
+   "inst": "Tap in order: wine, spices, flame, then the closing blessing.",
+   "type": "sequence",
+   "tokens": [
+    "Flame",
+    "Spices",
+    "Blessing",
+    "Wine"
+   ],
+   "answer": "Wine|Spices|Flame|Blessing",
+   "hints": [
+    "It begins over a full cup.",
+    "The fragrance comes second.",
+    "Light before the final words.",
+    "Wine → Spices → Flame → Blessing."
+   ],
+   "why": "The ceremony completes — and in the candlelight, a white rabbit sits calmly on the table.",
+   "awardsClue": "clue-rabbit-first"
+  },
+  "pz-future-object": {
+   "n": "012",
+   "title": "The Object from Later",
+   "cat": "Anomaly hunt",
+   "seal": "eye",
+   "prompt": "One object on the debris hill does not belong to this afternoon.",
+   "inst": "Choose the object that comes from the future of this memory.",
+   "type": "choice",
+   "answer": "metro",
+   "options": [
+    [
+     "bottle",
+     "A dusty glass bottle"
+    ],
+    [
+     "metro",
+     "A metro card, dated years from now"
+    ],
+    [
+     "brick",
+     "A broken brick with old stamps"
+    ],
+    [
+     "rope",
+     "A frayed climbing rope"
+    ]
+   ],
+   "hints": [
+    "Three objects have aged here for years.",
+    "One object hasn't been printed yet.",
+    "Moshé talked about the metro on the rooftop — later.",
+    "The metro card."
+   ],
+   "why": "A future metro card inside an old memory: proof the past is being reconstructed, not replayed.",
+   "awardsClue": "clue-future-object"
+  },
+  "pz-footprints": {
+   "n": "013",
+   "title": "Footprints That Never Left",
+   "cat": "Deduction",
+   "seal": "key",
+   "prompt": "Read the beach: whose prints are whose, and what is impossible about them?",
+   "inst": "Choose the statement the sand actually proves.",
+   "type": "choice",
+   "answer": "arrive",
+   "options": [
+    [
+     "swim",
+     "Someone swam despite the cold"
+    ],
+    [
+     "arrive",
+     "Every trail arrives; not one trail leaves"
+    ],
+    [
+     "dog",
+     "A dog chased the gulls at dawn"
+    ],
+    [
+     "tide",
+     "The tide erased half the story"
+    ]
+   ],
+   "hints": [
+    "Count trails toward the water.",
+    "Now count trails coming back.",
+    "Zero is a strange number of departures.",
+    "Every trail arrives; none leave."
+   ],
+   "why": "The direction anomaly, stated plainly: in this reconstruction, arrivals are real and departures are not.",
+   "awardsClue": "clue-anomaly-rule"
+  },
+  "pz-skyline": {
+   "n": "014",
+   "title": "Two Skylines",
+   "cat": "Perspective",
+   "seal": "eye",
+   "prompt": "Leah sees structures; Moshé sees the city's story. Only overlaid do they match the view.",
+   "inst": "Switch perspectives, note which towers each of you can identify, then tap the towers left to right.",
+   "type": "sequence",
+   "tokens": [
+    "Crane",
+    "Old Tower",
+    "Antenna",
+    "New Tower"
+   ],
+   "answer": "Old Tower|Crane|New Tower|Antenna",
+   "hints": [
+    "The oldest silhouette stands far left.",
+    "The crane leans beside it.",
+    "The antenna ends the line on the right.",
+    "Old Tower → Crane → New Tower → Antenna."
+   ],
+   "why": "The overlaid skylines agree — except one tower that belongs to a later city.",
+   "view": "both"
+  },
+  "pz-bridge": {
+   "n": "015",
+   "title": "The Opinionated Bridge",
+   "cat": "Mechanics",
+   "seal": "gear",
+   "prompt": "Cross with camera, dinner and scooter — the rotten plank takes at most one light load.",
+   "inst": "Type the crossing order, comma separated: Moshe, Leah, Scooter, Camera.",
+   "type": "text",
+   "answer": "CAMERA,LEAH,MOSHE,SCOOTER",
+   "hints": [
+    "The lightest precious thing goes first, carried high.",
+    "Leah tests the rail path with the camera.",
+    "The scooter rolls across last, alone.",
+    "Camera, Leah, Moshé, Scooter."
+   ],
+   "why": "Load path respected, camera dry, dinner intact, scooter's one brake unharmed.",
+   "view": "leah"
+  },
+  "pz-settlement": {
+   "n": "016",
+   "title": "The Settlement Model",
+   "cat": "Cooperative build",
+   "seal": "hands",
+   "prompt": "Leah places structures; Moshé arranges the plan. The model wants both.",
+   "inst": "Tap the pieces in build order: water first, homes before square, square before gate.",
+   "type": "sequence",
+   "tokens": [
+    "Gate",
+    "Houses",
+    "Water Tower",
+    "Square"
+   ],
+   "answer": "Water Tower|Houses|Square|Gate",
+   "hints": [
+    "No settlement without water on the high point.",
+    "Homes come before their meeting place.",
+    "The gate is the last promise.",
+    "Water Tower → Houses → Square → Gate."
+   ],
+   "why": "Engineer and planner build one small town — and its sign already says WELCOME HOME.",
+   "coop": true,
+   "ordered": true
+  },
+  "pz-groupphoto": {
+   "n": "017",
+   "title": "Fourteen of Sixteen",
+   "cat": "Deduction",
+   "seal": "key",
+   "prompt": "Sixteen volunteers, fourteen in the photo. Who is missing?",
+   "inst": "Choose who the photo cannot show.",
+   "type": "choice",
+   "answer": "us",
+   "options": [
+    [
+     "cooks",
+     "The two cooks — they were serving"
+    ],
+    [
+     "us",
+     "Leah and Moshé themselves"
+    ],
+    [
+     "late",
+     "The two who overslept"
+    ],
+    [
+     "photographer",
+     "The photographer and their friend"
+    ]
+   ],
+   "hints": [
+    "The cooks are visible, aprons and all.",
+    "Nobody overslept — attendance was taken.",
+    "Who was missing from the Mumbai photo?",
+    "Leah and Moshé — the same two, every photo."
+   ],
+   "why": "You cannot appear in a memory you are still rebuilding. The pattern holds.",
+   "awardsClue": "clue-groupphoto"
+  },
+  "pz-oldcity": {
+   "n": "018",
+   "title": "Four Quarters, One Path",
+   "cat": "Route",
+   "seal": "compass",
+   "prompt": "Cross the Old City visiting each quarter once, never crossing your own path.",
+   "inst": "Tap the quarters in a walkable order starting nearest the hostel gate.",
+   "type": "sequence",
+   "tokens": [
+    "Second Arch",
+    "Market Lane",
+    "Rooftop Path",
+    "Fountain Court"
+   ],
+   "answer": "Market Lane|Second Arch|Fountain Court|Rooftop Path",
+   "hints": [
+    "Start where the morning market noise is loudest.",
+    "Jeff's 'second arch, obviously' comes second — obviously.",
+    "Finish above the city, on the rooftops.",
+    "Market Lane → Second Arch → Fountain Court → Rooftop Path."
+   ],
+   "why": "One clean line through the city — and from the rooftop path, the lane that shouldn't exist is briefly visible."
+  },
+  "pz-sixturns": {
+   "n": "019",
+   "title": "Six Wrong Turns",
+   "cat": "Wordplay route",
+   "seal": "compass",
+   "prompt": "Recount the six wrong turns of that Shabbat walk. Drawn on paper, they make a letter.",
+   "inst": "Type the six turns in order as L or R, no spaces. They began by turning left at the bakery.",
+   "type": "text",
+   "answer": "LRRLLR",
+   "hints": [
+    "It starts with L.",
+    "Two rights follow the first left.",
+    "It ends turning right, under the lamp.",
+    "L R R L L R."
+   ],
+   "why": "Traced on the map, the turns draw a letter S — the first stroke of a sentence still being written.",
+   "awardsClue": "clue-sixturns"
+  },
+  "pz-signs": {
+   "n": "020",
+   "title": "The Sentence in the Signs",
+   "cat": "Wordplay",
+   "seal": "eye",
+   "prompt": "Moshé reads the street signs in walking order. They form a question.",
+   "inst": "The signs read: RUE DU REPOS, AVENUE DES VOYAGEURS, PLACE DE LA QUESTION. Type the one French word the three share a theme with: the word for 'stay' — RESTER — appears hidden in one sign. Type that sign's key word.",
+   "type": "text",
+   "answer": "REPOS",
+   "hints": [
+    "Look at the first sign.",
+    "'Repos' means rest — rest and staying share a root of stillness.",
+    "The other two signs are travelers and a question.",
+    "REPOS."
+   ],
+   "why": "Rest, travelers, a question: the street grid itself is asking whether to keep moving or to stay.",
+   "awardsClue": "clue-proposal-paris",
+   "view": "moshe"
+  },
+  "pz-battery": {
+   "n": "021",
+   "title": "One Battery, Two Bikes",
+   "cat": "Logistics",
+   "seal": "gear",
+   "prompt": "40% battery, two bikes, 8 km of gravel. Assist drains 10% per km but only one bike can use it at a time.",
+   "inst": "Swapping the battery costs nothing. What is the greatest assisted distance, in km, you can share before it dies?",
+   "type": "text",
+   "answer": "4",
+   "hints": [
+    "10% per assisted kilometre.",
+    "40 ÷ 10.",
+    "It doesn't matter who uses it — the pool is shared.",
+    "4 kilometres of assist, shared however you like."
+   ],
+   "why": "Four assisted kilometres, alternated fairly — and four pedaled ones, complained about equally.",
+   "view": "leah"
+  },
+  "pz-timeline": {
+   "n": "022",
+   "title": "The Shuffled Shabbat",
+   "cat": "Ordering",
+   "seal": "compass",
+   "prompt": "The border day refuses to stay in order. Rebuild it.",
+   "inst": "Tap the moments in true order.",
+   "type": "sequence",
+   "tokens": [
+    "Bridge crossing",
+    "Morning walk",
+    "Reading on the grass",
+    "Late lunch"
+   ],
+   "answer": "Morning walk|Bridge crossing|Late lunch|Reading on the grass",
+   "hints": [
+    "The day began on foot, early.",
+    "You crossed the bridge with morning light behind you.",
+    "Lunch was late; the grass came after.",
+    "Walk → Bridge → Lunch → Grass."
+   ],
+   "why": "The day reassembles: quiet, bordered by two countries, ordered by light."
+  },
+  "pz-ticket-route": {
+   "n": "023",
+   "title": "The Pouch of Old Tickets",
+   "cat": "Route logic",
+   "seal": "compass",
+   "prompt": "Reconstruct the Riviera hops from the ticket stubs — and notice what every stub shares.",
+   "inst": "Type the route as city initials in travel order: Antibes, Menton, Ventimiglia, and back to Antibes.",
+   "type": "text",
+   "answer": "AMVA",
+   "hints": [
+    "It starts where the fishing rods are.",
+    "The Citron Festival is the second stop.",
+    "Italy is the farthest point, then home.",
+    "A M V A."
+   ],
+   "why": "Every 'wrong' connection on the route still shows two adjacent seats. The itinerary optimized for togetherness.",
+   "awardsClue": "clue-ticket-route"
+  },
+  "pz-blessings": {
+   "n": "024",
+   "title": "Six of Seven",
+   "cat": "Ritual order",
+   "seal": "eye",
+   "prompt": "The booklet holds six blessings. Which of the seven is missing?",
+   "inst": "Choose the missing blessing's theme.",
+   "type": "choice",
+   "answer": "home",
+   "options": [
+    [
+     "wine",
+     "The blessing over wine"
+    ],
+    [
+     "joy",
+     "The blessing of joy and gladness"
+    ],
+    [
+     "home",
+     "The blessing of building a home together"
+    ],
+    [
+     "voices",
+     "The blessing of the voices of the couple"
+    ]
+   ],
+   "hints": [
+    "Wine opens the booklet — it's there.",
+    "Joy and voices both appear on the last page.",
+    "Which blessing is about what two people build?",
+    "The blessing of building a home together."
+   ],
+   "why": "The page about building a home is the one the memory cannot supply — the players must supply it themselves.",
+   "awardsClue": "clue-missing-blessing"
+  },
+  "pz-mirror": {
+   "n": "025",
+   "title": "The Stone Doubles",
+   "cat": "Perspective compare",
+   "seal": "eye",
+   "prompt": "Leah maps the niches; Moshé matches the faces. Cross-check both lists.",
+   "inst": "How many visitors in the cave have no stone double? Type the number.",
+   "type": "text",
+   "answer": "2",
+   "hints": [
+    "Moshé matched every face he could.",
+    "Leah counted two empty niches.",
+    "The empty niches are exactly where two doubles should stand.",
+    "2."
+   ],
+   "why": "Two visitors have no doubles: the same two missing from every photograph.",
+   "awardsClue": "clue-mirror",
+   "view": "both"
+  },
+  "pz-train": {
+   "n": "026",
+   "title": "The Arguing Timetable",
+   "cat": "Timetable",
+   "seal": "compass",
+   "prompt": "Board says platform 5, sign says 3, conductor says yes. The Udaipur train leaves in 9 minutes.",
+   "inst": "Choose the evidence that actually identifies the right platform.",
+   "type": "choice",
+   "answer": "luggage",
+   "options": [
+    [
+     "board",
+     "Trust the central board"
+    ],
+    [
+     "sign",
+     "Trust the platform sign"
+    ],
+    [
+     "luggage",
+     "Follow the wedding musician's metal luggage"
+    ],
+    [
+     "crowd",
+     "Follow the biggest crowd"
+    ]
+   ],
+   "hints": [
+    "The board and sign contradict — one of them updated late.",
+    "Crowds follow the board, including its mistakes.",
+    "Someone you've met before is also going your way.",
+    "The musician — Mumbai wedding, Udaipur honeymoon tour. Follow the clinking."
+   ],
+   "why": "The musician's luggage has been right twice already. Platform 3, as the sign said."
+  },
+  "pz-cablecar": {
+   "n": "027",
+   "title": "The Cable Car Limit",
+   "cat": "Balance",
+   "seal": "gear",
+   "prompt": "The car takes 200 kg per trip. Loads: 90, 80, 70, 60, 50. Everyone rides before the fireworks — in three trips.",
+   "inst": "Type the three trips as weight pairs, heaviest trip first, e.g. 90+80,70+60,50",
+   "type": "text",
+   "answer": "90+80,70+60,50",
+   "hints": [
+    "90 and 80 together stay under 200.",
+    "70 and 60 pair cleanly.",
+    "The lightest rides alone with the view.",
+    "90+80, 70+60, 50."
+   ],
+   "why": "Three trips, no group split at the top, and the fireworks catch everyone mid-air on the last one.",
+   "view": "leah"
+  },
+  "pz-amber": {
+   "n": "028",
+   "title": "The Wall's Rhythm",
+   "cat": "Pattern",
+   "seal": "eye",
+   "prompt": "The Amber wall repeats every five merlons, then breaks. Breaks mark the path.",
+   "inst": "Tap the wall sections in path order.",
+   "type": "sequence",
+   "tokens": [
+    "Third break",
+    "First break",
+    "Gate arch",
+    "Second break"
+   ],
+   "answer": "First break|Second break|Third break|Gate arch",
+   "hints": [
+    "Follow the breaks in the order the wall climbs.",
+    "Lowest break first.",
+    "The arch is the destination, not a break.",
+    "First → Second → Third → Gate arch."
+   ],
+   "why": "The breaks stitch a walkable line up the hill, straight to the gate before sunset."
+  },
+  "pz-fuzzy": {
+   "n": "029",
+   "title": "The Case of Fuzzy's Tail",
+   "cat": "Deduction",
+   "seal": "key",
+   "prompt": "Fuzzy the costume-dog has lost his tail during Purim-meets-Holi. Everyone is pink.",
+   "inst": "Choose the culprit using the three facts: the tail's hook was unclipped, not torn; the culprit is shorter than the hook; green powder was found on the clip.",
+   "type": "choice",
+   "answer": "kid",
+   "options": [
+    [
+     "dancer",
+     "The tall dancer covered in pink"
+    ],
+    [
+     "kid",
+     "The small kid whose powder bag was green"
+    ],
+    [
+     "fuzzy",
+     "Fuzzy himself, mid-costume-change"
+    ],
+    [
+     "wind",
+     "The Holi wind, blamed for everything"
+    ]
+   ],
+   "hints": [
+    "Unclipped means hands, not accident.",
+    "The hook sits low — or the culprit reached up? No: shorter than the hook.",
+    "Who carried green?",
+    "The small kid with the green powder bag. The tail is now a Holi trophy."
+   ],
+   "why": "Unclipped by small hands dusted green. The tail was returned, ceremonially, at sundown."
+  },
+  "pz-bargain": {
+   "n": "030",
+   "title": "The Fair Meter",
+   "cat": "Numbers",
+   "seal": "key",
+   "prompt": "Quoted 300. The meter says 8 per km, the map says 12 km, and dignity is non-negotiable.",
+   "inst": "Type the fair price Moshé negotiates to, in rupees. He offers meter price plus a 24-rupee tip for the shrine's new rabbit.",
+   "type": "text",
+   "answer": "120",
+   "hints": [
+    "Meter: 8 × 12.",
+    "That's 96.",
+    "Plus 24 for the rabbit figurine's welfare.",
+    "96 + 24 = 120."
+   ],
+   "why": "Both sides declare victory, which is the definition of a fair price. The rabbit figurine nods.",
+   "view": "moshe"
+  },
+  "pz-symmetry": {
+   "n": "031",
+   "title": "The Flaw in the Reflection",
+   "cat": "Spot the difference",
+   "seal": "eye",
+   "prompt": "Building and reflection differ in exactly one detail.",
+   "inst": "Choose the detail the reflection adds.",
+   "type": "choice",
+   "answer": "window",
+   "options": [
+    [
+     "minaret",
+     "An extra minaret"
+    ],
+    [
+     "window",
+     "One extra lit window"
+    ],
+    [
+     "dome",
+     "A second dome"
+    ],
+    [
+     "bird",
+     "A bird that isn't in the sky"
+    ]
+   ],
+   "hints": [
+    "Count the big shapes — they all match.",
+    "It's small, warm and yellow.",
+    "Someone seems to be home in the reflection only.",
+    "One extra lit window."
+   ],
+   "why": "The memory added a lit window: somewhere in the reconstruction, a home is already waiting.",
+   "view": "both"
+  },
+  "pz-campsite": {
+   "n": "032",
+   "title": "Camp Before Dark",
+   "cat": "Cooperative order",
+   "seal": "hands",
+   "prompt": "Two workers, four jobs, one correct interleaving before the light goes.",
+   "inst": "Tap the jobs in order: his windbreak, her anchors, his fire, her guylines.",
+   "type": "sequence",
+   "tokens": [
+    "Fire",
+    "Windbreak",
+    "Guylines",
+    "Anchors"
+   ],
+   "answer": "Windbreak|Anchors|Fire|Guylines",
+   "hints": [
+    "Wind first, or nothing else survives.",
+    "The tent must be anchored before the fire is lit beside it.",
+    "Guylines are the final tension.",
+    "Windbreak → Anchors → Fire → Guylines."
+   ],
+   "why": "Camp stands, fire burns, stars come out early — and a letter fragment waits in the tent pocket.",
+   "coop": true,
+   "ordered": true,
+   "awardsClue": "clue-wedding-gift"
+  },
+  "pz-canal": {
+   "n": "033",
+   "title": "Four Stops Before Closing",
+   "cat": "Route",
+   "seal": "compass",
+   "prompt": "Chabad, Chinatown, the floating market and the pier — one boat line, one direction, market closes first.",
+   "inst": "Tap the stops in the only order that catches everything.",
+   "type": "sequence",
+   "tokens": [
+    "Chinatown",
+    "Floating market",
+    "Pier",
+    "Chabad"
+   ],
+   "answer": "Chabad|Floating market|Chinatown|Pier",
+   "hints": [
+    "Start where breakfast (and the shakshuka pizza) is.",
+    "The market closes at noon — go early.",
+    "Neon is better after dark: Chinatown late.",
+    "Chabad → Floating market → Chinatown → Pier."
+   ],
+   "why": "Every stop caught in its best hour, and the loop-canal with no exit safely avoided."
+  },
+  "pz-tides": {
+   "n": "034",
+   "title": "The Sea's Timetable",
+   "cat": "Timetable",
+   "seal": "compass",
+   "prompt": "The lagoon needs mid-tide; the cave mouth needs anything below high.",
+   "inst": "Choose the departure that sees both.",
+   "type": "choice",
+   "answer": "B",
+   "options": [
+    [
+     "A",
+     "06:00 — dead low tide"
+    ],
+    [
+     "B",
+     "09:30 — rising mid-tide"
+    ],
+    [
+     "C",
+     "13:00 — full high tide"
+    ],
+    [
+     "D",
+     "16:30 — the chart's impossible second low"
+    ]
+   ],
+   "hints": [
+    "Dead low strands the lagoon boat.",
+    "High tide seals the cave.",
+    "One entry on the chart is an anomaly, not an option.",
+    "09:30, rising mid-tide."
+   ],
+   "why": "Mid-tide threads both needles. The impossible 16:30 low is logged in the notebook instead."
+  },
+  "pz-coconut": {
+   "n": "035",
+   "title": "The Load-Bearing Coconuts",
+   "cat": "Fair division",
+   "seal": "key",
+   "prompt": "Seven coconuts, three smoothie orders: one double, two singles. A double takes two coconuts... and Moshé needs two just to hold.",
+   "inst": "How many coconuts remain for the courage reserve after the orders are filled? Type the number.",
+   "type": "text",
+   "answer": "1",
+   "hints": [
+    "The double order: 2 coconuts.",
+    "Two singles: 2 more. Total 4 for drinks.",
+    "Moshé is holding 2 for courage.",
+    "7 − 4 − 2 = 1."
+   ],
+   "why": "One coconut remains — and during a certain hypothetical question, it rolled away, unneeded.",
+   "awardsClue": "clue-question-early"
+  },
+  "pz-visual-route": {
+   "n": "036",
+   "title": "Navigation by Pictures",
+   "cat": "Symbol route",
+   "seal": "eye",
+   "prompt": "No shared language. The guesthouse card shows: fish, umbrella, golden bowl, moon.",
+   "inst": "Tap the signs in the card's order.",
+   "type": "sequence",
+   "tokens": [
+    "Golden bowl",
+    "Moon",
+    "Fish",
+    "Umbrella"
+   ],
+   "answer": "Fish|Umbrella|Golden bowl|Moon",
+   "hints": [
+    "The card reads top to bottom.",
+    "Fish first — the harbor end of the street.",
+    "The moon marks the guesthouse door.",
+    "Fish → Umbrella → Golden bowl → Moon."
+   ],
+   "why": "Pictures outlast words: four signs later, home. (The fish-umbrella-bowl shop dinner happened anyway.)",
+   "view": "moshe"
+  },
+  "pz-seder": {
+   "n": "037",
+   "title": "Seder by the Sea",
+   "cat": "Ritual order",
+   "seal": "eye",
+   "prompt": "The outdoor seder must begin in order — before the water festival reaches the table.",
+   "inst": "Tap the openings in order.",
+   "type": "sequence",
+   "tokens": [
+    "Karpas",
+    "Kiddush",
+    "Yachatz",
+    "Urchatz"
+   ],
+   "answer": "Kiddush|Urchatz|Karpas|Yachatz",
+   "hints": [
+    "It begins with sanctifying over the cup.",
+    "Washing comes second.",
+    "The greens before the breaking.",
+    "Kiddush → Urchatz → Karpas → Yachatz."
+   ],
+   "why": "The seder begins correctly; the matzah under the hat survives Songkran entirely."
+  },
+  "pz-elephant": {
+   "n": "038",
+   "title": "The Elephant's Round",
+   "cat": "Pattern deduction",
+   "seal": "key",
+   "prompt": "The elephant visited: pagoda, bridge, pagoda, gate, pagoda, bridge, pagoda, ... The bananas move in a pattern.",
+   "inst": "Choose the next stop.",
+   "type": "choice",
+   "answer": "gate",
+   "options": [
+    [
+     "pagoda",
+     "The pagoda (again)"
+    ],
+    [
+     "bridge",
+     "The bridge"
+    ],
+    [
+     "gate",
+     "The gate"
+    ],
+    [
+     "exit",
+     "The exit — even elephants finish"
+    ]
+   ],
+   "hints": [
+    "Write the sequence down: P B P G P B P …",
+    "Pagoda alternates with something every time.",
+    "The something cycles: bridge, gate, bridge, …",
+    "The gate."
+   ],
+   "why": "Pattern PBPGPBP(G): pagoda every other stop, the alternates cycling bridge-gate. The bananas confirm."
+  },
+  "pz-whitetemple": {
+   "n": "039",
+   "title": "Road of Frost and Haze",
+   "cat": "Scheduling",
+   "seal": "compass",
+   "prompt": "High road closes at noon. Hot spring adds an hour. Temple face lights at four.",
+   "inst": "Tap the day into its only working order.",
+   "type": "sequence",
+   "tokens": [
+    "Hot spring",
+    "High road",
+    "Palace café",
+    "White Temple"
+   ],
+   "answer": "Palace café|High road|Hot spring|White Temple",
+   "hints": [
+    "Coffee first — it's on the way and opens early.",
+    "Beat the fire-haze closure: high road before noon.",
+    "The spring fills the afternoon gap.",
+    "Café → High road → Hot spring → Temple at four."
+   ],
+   "why": "The temple catches the four o'clock light like frost catching fire.",
+   "awardsClue": null
+  },
+  "pz-flags": {
+   "n": "040",
+   "title": "The Broken Run",
+   "cat": "Counting pattern",
+   "seal": "eye",
+   "prompt": "Flags run: three red, one banner, repeat. One balcony breaks the run.",
+   "inst": "The run along the boulevard reads R R R B R R R B R R B R R R B — which position breaks the pattern? Type the position number.",
+   "type": "text",
+   "answer": "11",
+   "hints": [
+    "Group in fours: RRRB.",
+    "First two groups are perfect.",
+    "The third group is a flag short.",
+    "Position 11 — a banner arrives one flag early."
+   ],
+   "why": "Under the early banner: the side street, the quiet gap, and the best view of the fireworks."
+  },
+  "pz-coaster": {
+   "n": "041",
+   "title": "Rows of Two",
+   "cat": "Seating logic",
+   "seal": "key",
+   "prompt": "Six riders, three rows. Birthday girl picks front. The tall friend can't ride behind the hat. The couple won't split.",
+   "inst": "Type the rows front to back as initial pairs: use B+M (birthday+mother), T+F (tall+friend), L+M2 (the couple). Format: XX,XX,XX with the pair letters only, e.g. BM,TF,LM",
+   "type": "text",
+   "answer": "BM,LM,TF",
+   "hints": [
+    "Front row is fixed: BM.",
+    "The mother's hat is in row one — the tall friend can't sit in row two.",
+    "So the couple takes the middle.",
+    "BM, LM, TF."
+   ],
+   "why": "Everyone rides, the hat survives until the loop, and the photo at the drop is legendary."
+  },
+  "pz-lanterns": {
+   "n": "042",
+   "title": "Lanterns and Reflections",
+   "cat": "Perspective pattern",
+   "seal": "eye",
+   "prompt": "Leah reads the river reflections; Moshé reads the lanterns. Light them so both patterns agree.",
+   "inst": "Tap the lanterns in the order their reflections brighten.",
+   "type": "sequence",
+   "tokens": [
+    "Gold",
+    "Red",
+    "White",
+    "Blue"
+   ],
+   "answer": "Red|Gold|Blue|White",
+   "hints": [
+    "The river brightens warm colors first.",
+    "Red, then gold.",
+    "White last — it's the unlit one's twin.",
+    "Red → Gold → Blue → White."
+   ],
+   "why": "When the white lantern lights, its reflection finally matches — and the rabbit tally in the notebook aligns into a pattern.",
+   "view": "both",
+   "awardsClue": "clue-rabbit-pattern"
+  },
+  "pz-basket": {
+   "n": "043",
+   "title": "The Spinning Basket",
+   "cat": "Balance",
+   "seal": "gear",
+   "prompt": "The basket boat spins unless the weight sits opposite and low.",
+   "inst": "Choose the stable arrangement.",
+   "type": "choice",
+   "answer": "C",
+   "options": [
+    [
+     "A",
+     "Both sit on the same side, holding the rim"
+    ],
+    [
+     "B",
+     "One stands to paddle, one sits center"
+    ],
+    [
+     "C",
+     "Both sit low, opposite each other, paddle strokes alternating"
+    ],
+    [
+     "D",
+     "Spin on purpose and call it a ride"
+    ]
+   ],
+   "hints": [
+    "Same side capsizes — memorably.",
+    "Standing raises the center of gravity.",
+    "Opposite and low, strokes alternating.",
+    "C. (D was attempted. Once.)"
+   ],
+   "why": "Opposite, low, alternating: the basket goes forward — upstream, oddly, but forward.",
+   "view": "leah"
+  },
+  "pz-gates": {
+   "n": "044",
+   "title": "Gate Within Gate",
+   "cat": "Ceremonial order",
+   "seal": "compass",
+   "prompt": "Outer gate: east door for travelers. Middle gate: scholars pass south. Inner gate: the hinge turns one way.",
+   "inst": "Tap the passages in order.",
+   "type": "sequence",
+   "tokens": [
+    "South door",
+    "East door",
+    "One-way hinge",
+    "Courtyard"
+   ],
+   "answer": "East door|South door|One-way hinge|Courtyard",
+   "hints": [
+    "You are travelers first.",
+    "Then scholars — Moshé insists.",
+    "The hinge admits you once.",
+    "East → South → Hinge → Courtyard."
+   ],
+   "why": "Gate within gate within gate — and behind you, each door quietly ceases to exist."
+  },
+  "pz-boat": {
+   "n": "045",
+   "title": "Three Cave Mouths",
+   "cat": "Judgment",
+   "seal": "key",
+   "prompt": "Left cave: under a meter clearance. Right cave: dry ledge, no water. Middle cave: sings.",
+   "inst": "Choose the passage.",
+   "type": "choice",
+   "answer": "middle",
+   "options": [
+    [
+     "left",
+     "The left cave — duck and hope"
+    ],
+    [
+     "middle",
+     "The middle cave — the one that sings"
+    ],
+    [
+     "right",
+     "The right cave — walk the boat"
+    ],
+    [
+     "wait",
+     "Wait for the water to drop"
+    ]
+   ],
+   "hints": [
+    "The boat is taller than a meter with you in it.",
+    "You can't carry a boat up a dry ledge.",
+    "The rower has done this nine thousand times, and she's aiming middle.",
+    "The singing middle cave."
+   ],
+   "why": "The middle cave sings because it breathes — open at both ends. The song is Sharon's tune."
+  },
+  "pz-terraces": {
+   "n": "046",
+   "title": "The Terrace Rhythm",
+   "cat": "Counting pattern",
+   "seal": "eye",
+   "prompt": "The terraces descend 4, 4, 4, 3, 4, 4, 4, 3 … until one group breaks the rhythm.",
+   "inst": "The slope reads 4,4,4,3,4,4,4,3,4,4,3 — which group number breaks the rhythm? Type it.",
+   "type": "text",
+   "answer": "11",
+   "hints": [
+    "The pattern repeats in fours: 4,4,4,3.",
+    "Two full cycles pass cleanly — that's eight groups.",
+    "Count on: 4 (9th), 4 (10th), then…",
+    "The 11th group — a 3 arrives early. The hidden path crosses there."
+   ],
+   "why": "Where the rhythm breaks, a farmer's path crosses the terraces — invisible in the mist, obvious in the count."
+  },
+  "pz-mud": {
+   "n": "047",
+   "title": "The Extraction",
+   "cat": "Cooperative mechanics",
+   "seal": "hands",
+   "prompt": "Bike in the mud to the axle. Two people, four moves, one order that works.",
+   "inst": "Tap the moves in order.",
+   "type": "sequence",
+   "tokens": [
+    "Pull the front",
+    "Rock the throttle",
+    "Boards under wheel",
+    "Count to three"
+   ],
+   "answer": "Boards under wheel|Count to three|Pull the front|Rock the throttle",
+   "hints": [
+    "Traction before force.",
+    "Coordination before effort — count first.",
+    "Pull and throttle land on the same beat.",
+    "Boards → Count → Pull → Throttle."
+   ],
+   "why": "The bike surfaces with a sound like a cork. Both of them are 40% mud. The waterfall applauds.",
+   "coop": true,
+   "ordered": true
+  },
+  "pz-echo": {
+   "n": "048",
+   "title": "The Echo Chamber",
+   "cat": "Wordplay",
+   "seal": "eye",
+   "prompt": "The cave returns each word altered toward its truth. You called GO. What did the cave answer?",
+   "inst": "Type the cave's answer. (If sound is off: the wall's mineral streaks spell the same word.)",
+   "type": "text",
+   "answer": "STAY",
+   "hints": [
+    "It is one word, four letters.",
+    "It is the opposite of what was called.",
+    "The cave has been saying it the whole journey.",
+    "STAY."
+   ],
+   "why": "Every departure in this reconstruction is answered the same way. The cave just says it out loud.",
+   "awardsClue": "clue-echo",
+   "textAlternative": true
+  },
+  "pz-neon": {
+   "n": "049",
+   "title": "Signs and Their Twins",
+   "cat": "Matching",
+   "seal": "eye",
+   "prompt": "Six reflections in the canal, five signs above. Pair what pairs, and name the orphan.",
+   "inst": "Choose the reflection with no sign.",
+   "type": "choice",
+   "answer": "rabbit",
+   "options": [
+    [
+     "crab",
+     "The giant crab"
+    ],
+    [
+     "drum",
+     "The drummer"
+    ],
+    [
+     "rabbit",
+     "A small white rabbit, glowing"
+    ],
+    [
+     "gyoza",
+     "The dumpling"
+    ]
+   ],
+   "hints": [
+    "The crab is famously real.",
+    "The drummer drums above the third bridge.",
+    "What keeps appearing where it shouldn't?",
+    "The rabbit — a reflection with no sign."
+   ],
+   "why": "Five signs, six reflections. The rabbit shines up from the water with nothing above to cast it."
+  },
+  "pz-queue": {
+   "n": "050",
+   "title": "The Queue Theorem",
+   "cat": "Scheduling logic",
+   "seal": "key",
+   "prompt": "Left lane: merges every 10 min. Right lane: slow but never stops. Express gate: opens on the quarter hour, from the right lane only.",
+   "inst": "It is 12:03. Choose the fastest plan.",
+   "type": "choice",
+   "answer": "C",
+   "options": [
+    [
+     "A",
+     "Left lane and pray for merges"
+    ],
+    [
+     "B",
+     "Right lane straight through"
+    ],
+    [
+     "C",
+     "Right lane, then express gate at 12:15"
+    ],
+    [
+     "D",
+     "Split up and race"
+    ]
+   ],
+   "hints": [
+    "The express gate only serves the right lane.",
+    "12:15 is twelve minutes away — the right lane survives that.",
+    "Splitting up defeats the entire premise of this journey.",
+    "C."
+   ],
+   "why": "A scheduling problem wearing a fun hat, solved. Ride photo: two people mid-laugh — from a ride they hadn't boarded yet."
+  },
+  "pz-toriipath": {
+   "n": "051",
+   "title": "The Hamsa at the Gates",
+   "cat": "Perspective test",
+   "seal": "eye",
+   "prompt": "Hold the Hamsa to each gate. Leah reads the eye; Moshé reads the inscriptions. True gates keep the eye clear.",
+   "inst": "Tap only the true gates, in walking order. The eye clouded at the 2nd and 5th.",
+   "type": "sequence",
+   "tokens": [
+    "Fourth gate",
+    "First gate",
+    "Sixth gate",
+    "Third gate"
+   ],
+   "answer": "First gate|Third gate|Fourth gate|Sixth gate",
+   "hints": [
+    "Walk in numeric order, skipping the clouded ones.",
+    "Skip the second.",
+    "Skip the fifth.",
+    "First → Third → Fourth → Sixth."
+   ],
+   "why": "The Hamsa is a compass for memories: clear eye, true detail; clouded eye, invention.",
+   "view": "both",
+   "awardsClue": "clue-hamsa-anchor"
+  },
+  "pz-deer": {
+   "n": "052",
+   "title": "The Map Thief of Nara",
+   "cat": "Deduction",
+   "seal": "key",
+   "prompt": "Three deer came within reach: one bowed twice (both hands visible — no maps), one has paper crumbs, one arrived after the bag was already light.",
+   "inst": "Choose the thief.",
+   "type": "choice",
+   "answer": "crumbs",
+   "options": [
+    [
+     "bower",
+     "The ceremonial bower"
+    ],
+    [
+     "crumbs",
+     "The one with paper crumbs"
+    ],
+    [
+     "late",
+     "The latecomer"
+    ],
+    [
+     "all",
+     "A coordinated heist"
+    ]
+   ],
+   "hints": [
+    "The bower's alibi is airtight and adorable.",
+    "The latecomer arrived post-theft.",
+    "Paper crumbs are not a natural part of the deer diet. And yet.",
+    "The one with the crumbs."
+   ],
+   "why": "Justice in Nara: the deer bowed in apology. The maps were beyond saving. New maps were purchased."
+  },
+  "pz-maplayers": {
+   "n": "053",
+   "title": "Two Maps of One City",
+   "cat": "Cooperative overlay",
+   "seal": "hands",
+   "prompt": "Leah's layer: rail load and flow. Moshé's layer: districts and eras. One crossing satisfies both.",
+   "inst": "Tap the candidates and keep only the crossing both maps mark. Order: eliminate hers-only, eliminate his-only, then confirm the shared one.",
+   "type": "sequence",
+   "tokens": [
+    "Shared crossing",
+    "Rail-only junction",
+    "Historic-only square"
+   ],
+   "answer": "Rail-only junction|Historic-only square|Shared crossing",
+   "hints": [
+    "Eliminate before you confirm.",
+    "Her junction has flow but no story.",
+    "His square has story but no flow.",
+    "Eliminate both, confirm the shared crossing."
+   ],
+   "why": "Systems and stories agree on exactly one crossing — the famous one, where everyone meets.",
+   "coop": true,
+   "awardsClue": null
+  },
+  "pz-fuji": {
+   "n": "054",
+   "title": "The Day in Photographs",
+   "cat": "Ordering",
+   "seal": "compass",
+   "prompt": "Order the day's photos by light and logic — then look at what every gate photo shares.",
+   "inst": "Tap the photos in the order they were taken.",
+   "type": "sequence",
+   "tokens": [
+    "Flower arch",
+    "Dawn mountain",
+    "Rice snacks",
+    "Lake ride"
+   ],
+   "answer": "Dawn mountain|Lake ride|Flower arch|Rice snacks",
+   "hints": [
+    "The mountain unveils at dawn.",
+    "The bikes went around the lake in the morning.",
+    "Snacks ended the day — remember the box.",
+    "Dawn → Lake ride → Flower arch → Snacks."
+   ],
+   "why": "Sorted, the truth is visible: in every gate and arch, they are walking IN. This reconstruction has no exits.",
+   "awardsClue": "clue-gates"
+  },
+  "pz-palace": {
+   "n": "055",
+   "title": "The Compass Gates",
+   "cat": "Ceremonial order",
+   "seal": "compass",
+   "prompt": "The palace gates open by compass: begin where the sun rises, end where it sets, honoring the main gate between.",
+   "inst": "Tap the gates in order.",
+   "type": "sequence",
+   "tokens": [
+    "West gate",
+    "East gate",
+    "Main south gate"
+   ],
+   "answer": "East gate|Main south gate|West gate",
+   "hints": [
+    "Begin with the sunrise.",
+    "The main gate faces south — it is honored second.",
+    "End with the sunset.",
+    "East → South → West."
+   ],
+   "why": "The gates open in the sun's own order. The guard ceremony, this once, runs forward."
+  },
+  "pz-seoulmate": {
+   "n": "056",
+   "title": "You Are My…",
+   "cat": "Wordplay",
+   "seal": "key",
+   "prompt": "He has been building the sentence all day. The last word is a city wearing a word inside it.",
+   "inst": "Type the final word of the sentence.",
+   "type": "text",
+   "answer": "SEOULMATE",
+   "hints": [
+    "It is a pun. She knows it is going to be a pun.",
+    "The city is the one you are standing in.",
+    "The hidden word inside is 'soul'.",
+    "SEOULMATE."
+   ],
+   "why": "A word built from a city, so she would hear the word inside it. The last fragment glows.",
+   "awardsClue": "clue-seoulmate"
+  },
+  "pz-reconstruct": {
+   "n": "057",
+   "title": "The Page, Rebuilt",
+   "cat": "Fragment assembly",
+   "seal": "compass",
+   "prompt": "Eight fragments, one erased page. Order them by the journey.",
+   "inst": "Tap the fragments in journey order.",
+   "type": "sequence",
+   "tokens": [
+    "Fragment IV",
+    "Fragment I",
+    "Fragment VII",
+    "Fragment II",
+    "Fragment VIII",
+    "Fragment III",
+    "Fragment VI",
+    "Fragment V"
+   ],
+   "answer": "Fragment I|Fragment II|Fragment III|Fragment IV|Fragment V|Fragment VI|Fragment VII|Fragment VIII",
+   "hints": [
+    "The fragments are numbered in journey order — trust the numerals.",
+    "I through IV cover Paris to India.",
+    "V through VIII cover Thailand to Korea.",
+    "I, II, III, IV, V, VI, VII, VIII."
+   ],
+   "why": "The page exists again. It is a boarding pass for one seat, on a return flight — with the final line still blank."
+  },
+  "pz-evidence": {
+   "n": "058",
+   "title": "People Don't Keep Receipts for Jokes",
+   "cat": "Deduction",
+   "seal": "key",
+   "prompt": "Find the object that proves the thrift-shop wedding rehearsal meant something.",
+   "inst": "Choose the true evidence.",
+   "type": "choice",
+   "answer": "receipt",
+   "options": [
+    [
+     "hat",
+     "The ridiculous hat he wore"
+    ],
+    [
+     "mirror",
+     "The mirror they posed in"
+    ],
+    [
+     "receipt",
+     "The kept receipt, dated and folded small"
+    ],
+    [
+     "photo",
+     "A photo — except no photo was taken"
+    ]
+   ],
+   "hints": [
+    "The hat went back on the rack.",
+    "Mirrors keep nothing.",
+    "What do you keep folded in a wallet for years?",
+    "The receipt."
+   ],
+   "why": "Kept, folded, carried across nine countries. The joke was never entirely a joke.",
+   "awardsClue": "clue-thrift"
+  },
+  "pz-phiphi2": {
+   "n": "059",
+   "title": "The Beach, From Her Side",
+   "cat": "Perspective replay",
+   "seal": "eye",
+   "prompt": "Replay the sunset from Leah's viewpoint. What could she see that he couldn't?",
+   "inst": "Tap what her side of the beach revealed, in the order she noticed it.",
+   "type": "sequence",
+   "tokens": [
+    "The rabbit on the post",
+    "The departing ferry",
+    "The pier"
+   ],
+   "answer": "The pier|The departing ferry|The rabbit on the post",
+   "hints": [
+    "First the place, then the event, then the witness.",
+    "The pier framed her whole view.",
+    "The ferry left mid-question.",
+    "Pier → Ferry → Rabbit."
+   ],
+   "why": "The evening airport ferry left while the question hung in the air. He never looked at it. The rabbit sat exactly where he didn't look.",
+   "view": "leah",
+   "awardsClue": "clue-rabbit-role"
+  },
+  "pz-proposals": {
+   "n": "060",
+   "title": "Six Postcards, Two Truths",
+   "cat": "Red herring elimination",
+   "seal": "eye",
+   "prompt": "Test each proposal place against the Hamsa's eye. Four cloud it; two keep it clear.",
+   "inst": "Choose the pair the eye stays clear on.",
+   "type": "choice",
+   "answer": "phiphi-seoul",
+   "options": [
+    [
+     "paris-taj",
+     "Paris and the Taj"
+    ],
+    [
+     "phiphi-seoul",
+     "Koh Phi Phi and Seoul"
+    ],
+    [
+     "fuji-waterfall",
+     "Fuji and the waterfall"
+    ],
+    [
+     "taj-seoul",
+     "The Taj and Seoul"
+    ]
+   ],
+   "hints": [
+    "Paris was a coffee stain.",
+    "Fuji was rice snacks; the waterfall was just perfect, not proposive.",
+    "Where was a question actually asked — and where was a word actually built?",
+    "Koh Phi Phi and Seoul."
+   ],
+   "why": "Every candidate held one authentic clue and one lovely lie. Only the too-early question and the Seoulmate sentence survive the Hamsa's eye."
+  },
+  "pz-meta-order": {
+   "n": "061",
+   "title": "Finale I — The Order of Things",
+   "cat": "Metapuzzle",
+   "seal": "hands",
+   "prompt": "Lay the whole story straight: the four turning points, in the order they truly happened.",
+   "inst": "Tap the turning points in true order.",
+   "type": "sequence",
+   "tokens": [
+    "The question asked too early",
+    "The rabbit at Havdalah",
+    "The word built from a city",
+    "The ferry that left alone"
+   ],
+   "answer": "The rabbit at Havdalah|The question asked too early|The ferry that left alone|The word built from a city",
+   "hints": [
+    "It all starts with an excuse to keep talking.",
+    "The question came before the ferry left — that's why the ferry left alone.",
+    "The city-word is the most recent.",
+    "Havdalah → Question → Ferry → Seoulmate."
+   ],
+   "why": "The spine of the story, straightened: an excuse, a question, an unboarded departure, a word.",
+   "coop": true,
+   "ordered": true
+  },
+  "pz-meta-memories": {
+   "n": "062",
+   "title": "Finale II — The True Memories",
+   "cat": "Metapuzzle",
+   "seal": "eye",
+   "prompt": "Three of these are true and load-bearing. One is an invention the reconstruction slipped in.",
+   "inst": "Choose the invented memory.",
+   "type": "choice",
+   "answer": "horse",
+   "options": [
+    [
+     "thrift",
+     "The thrift-shop wedding rehearsal"
+    ],
+    [
+     "horse",
+     "The white-horse wedding in Udaipur"
+    ],
+    [
+     "echo",
+     "The cave that answered 'stay'"
+    ],
+    [
+     "receipt",
+     "The receipt folded in the wallet"
+    ]
+   ],
+   "hints": [
+    "The Hamsa's eye stayed clear on the receipt.",
+    "The echo was witnessed twice.",
+    "One of these was always labelled 'hypothetical'.",
+    "The horse wedding — imagined, allergic, and lovely, but never real."
+   ],
+   "why": "The imagined horses gallop off, taking the last red herring with them.",
+   "coop": true
+  },
+  "pz-final-phrase": {
+   "n": "063",
+   "title": "Finale III — The Last Line",
+   "cat": "The answer",
+   "seal": "hands",
+   "prompt": "The boarding pass is whole except its final line. It is not a destination. It is what Moshé said instead of boarding the missing flight — three words.",
+   "inst": "Type the three words.",
+   "type": "text",
+   "validator": "hash",
+   "hints": [
+    "Three words. He said them instead of leaving.",
+    "The cave already told you the first one.",
+    "The Seoulmate sentence tells you whose company he chose.",
+    "The cave said the first word. Then ask: with whom? Say it to her."
+   ],
+   "why": "The line writes itself in gold. The missing flight departs, forever, without him — exactly as it always did.",
+   "coop": true
+  }
+ }
+}

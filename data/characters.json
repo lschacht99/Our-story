@@ -1,0 +1,14 @@
+{
+  "characters": {
+    "leah": {"name": "Leah", "portrait": "assets/png/portraits/leah.png", "atlas": "assets/png/characters/leah-atlas.png", "strengths": "mechanisms, materials, weights, structures, hidden compartments", "dress": "tsniut: headscarf, long sleeves, long skirt in every sprite"},
+    "moshe": {"name": "Moshé", "portrait": "assets/png/portraits/moshe.png", "atlas": "assets/png/characters/moshe-atlas.png", "strengths": "maps, routes, language, history, social contradictions", "dress": "kippah visible in every sprite; curly dark hair, short beard"},
+    "sharon": {"name": "Sharon", "portrait": "assets/png/portraits/sharon.png"},
+    "leora": {"name": "Leora", "portrait": "assets/png/portraits/leora.png"},
+    "npc": {"name": "Local guide", "portrait": "assets/png/portraits/guide.png"},
+    "stranger": {"name": "Unknown voice", "portrait": "assets/png/portraits/stranger.png"}
+  },
+  "spriteAtlas": {
+    "grid": [7, 7], "frameNote": "7x7 grid; logical frame 24x38. Rows: 0 idle, 1 reserved, 2 walk, 3 talk, 4 question, 5 jump, 6 interact.",
+    "animations": {"idle": [1, 0, 0.1], "walk": [7, 2, 1.15], "talk": [5, 3, 0.9], "question": [5, 4, 0.9], "jump": [5, 5, 0.7], "interact": [3, 6, 0.8]}
+  }
+}
