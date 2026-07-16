@@ -1,12 +1,19 @@
-// Point-and-click scene renderer: painted background, tappable characters,
-// concealed hotspots (with accessible reveal), search ripples, perspective
-// switching, Rabbit Marks (Insight Tokens), travel arrows and backtracking.
+// Point-and-click scene renderer: painted background, tappable direct-PNG
+// characters, concealed hotspots, search ripples, perspective switching,
+// Rabbit Marks (Insight Tokens), travel arrows and backtracking.
 import { el, $, openModal, closeModal, toast } from './ui.js';
 import { playDialogue } from './dialogue.js';
 import { openPuzzle } from './puzzle.js';
 import { conditionMet, sceneComplete } from './core.js';
 
-const HOTSPOT_ICON = { puzzle: '?', clue: '!', rabbit: '♧', item: '▣', observe: '◉', anomaly: '≠' };
+const HOTSPOT_ICON = {
+  puzzle: 'assets/png/ui/hotspots/question.png',
+  clue: 'assets/png/ui/hotspots/clue.png',
+  rabbit: 'assets/png/ui/hotspots/rabbit.png',
+  item: 'assets/png/ui/hotspots/item.png',
+  observe: 'assets/png/ui/hotspots/observe.png',
+  anomaly: 'assets/png/ui/hotspots/anomaly.png'
+};
 const SEARCH_LINES = [
   'Nothing here — but the light is lovely.',
   'Just scenery. Beautiful, uncooperative scenery.',
@@ -57,13 +64,19 @@ export function renderScene(game) {
     if (spot.view && spot.view !== 'both' && spot.view !== save.view) continue;
     const done = isSpotDone(spot, save, state);
     const locked = spot.locked && !conditionMet(spot.locked, save);
+    const icon = locked
+      ? 'assets/png/ui/hotspots/locked.png'
+      : done
+        ? 'assets/png/ui/hotspots/completed.png'
+        : HOTSPOT_ICON[spot.type] || HOTSPOT_ICON.puzzle;
     const btn = el('button', {
       class: `hotspot ${spot.type}${done ? ' done' : ''}${locked ? ' locked' : ''}${reveal || done ? ' hl' : ' concealed'}`,
       style: `left:${spot.x}%;top:${spot.y}%`,
       'aria-label': locked ? `${spot.label} (locked)` : spot.label,
+      'data-label': spot.label,
       title: spot.label,
       onclick: (e) => { e.stopPropagation(); activate(spot, scene, game); }
-    }, HOTSPOT_ICON[spot.type] || '?');
+    }, el('img', { src: icon, alt: '', width: 30, height: 30, decoding: 'async' }));
     stage.append(btn);
   }
 
@@ -153,10 +166,17 @@ function activate(spot, scene, game) {
 
 function sprite(name, game, scene) {
   const info = game.data.characters[name];
+  const src = info.poses?.idle || info.portrait;
   return el('div', { class: `character ${name}` },
     el('button', {
-      class: 'sprite', 'aria-label': `Talk with ${info.name}`,
-      style: `background-image:url('${info.atlas}')`,
+      class: 'character-button',
+      'aria-label': `Talk with ${info.name}`,
       onclick: (e) => { e.stopPropagation(); playDialogue(scene.dialogue, game.data.characters, {}); }
-    }));
+    }, el('img', {
+      class: 'sprite',
+      src,
+      alt: info.name,
+      draggable: 'false',
+      decoding: 'async'
+    })));
 }
