@@ -10,6 +10,8 @@ The game loads finished PNG files only. Character atlas sheets remain source mat
 - Story props: `assets/png/items/`
 - Cutscenes: `assets/png/cutscenes/`
 
+The generated pack contains direct scene backgrounds, seven transparent poses per lead character, portraits, story props, chapter art, cutscene art and small interaction icons.
+
 Regenerate the complete pack with:
 
 ```bash
