@@ -1,68 +1,58 @@
-/* Direct runtime mapping for the approved Leah and Moshé 4×2 PNG sheets. */
+/* Simple 2D PNG character and hotspot layer. No atlas slicing, SVG, external
+   image URLs or runtime artwork transforms. */
+.character{
+  position:absolute!important;
+  z-index:6!important;
+  top:76px!important;
+  bottom:auto!important;
+  pointer-events:auto!important;
+  filter:drop-shadow(0 12px 10px rgba(16,33,34,.28))!important;
+}
+.character.leah{left:4px!important}
+.character.moshe{right:4px!important}
+.character-button{
+  display:block;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  line-height:0;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.character-button:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+  border-radius:16px;
+}
 .character .sprite{
-  width:clamp(126px,34vw,166px)!important;
-  height:clamp(236px,64vw,311px)!important;
-  background-repeat:no-repeat!important;
-  background-size:400% 200%!important;
-  background-position:0 0!important;
-  image-rendering:auto!important;
-  transform-origin:50% 100%;
+  display:block!important;
+  width:clamp(92px,25vw,142px)!important;
+  height:auto!important;
+  max-height:43vh!important;
+  object-fit:contain!important;
+  object-position:top center!important;
   opacity:1!important;
-  animation:approvedCharacterIdle 2.8s ease-in-out infinite!important;
-  will-change:transform,background-position;
+  background:none!important;
+  animation:none!important;
+  transform:none!important;
+  image-rendering:auto!important;
+  pointer-events:none!important;
 }
-.character.leah .sprite{
-  background-image:url('assets/png/characters/leah-atlas.png?v=20260714-5')!important;
+.hotspot img{
+  width:31px;
+  height:31px;
+  object-fit:contain;
+  pointer-events:none;
 }
-.character.moshe .sprite{
-  background-image:url('assets/png/characters/moshe-atlas.png?v=20260714-5')!important;
-}
-
-/* 4×2 frame map: idle, talk, walk 1, walk 2 / question, surprise, point, jump. */
-.character .sprite[data-anim="idle"]{background-position:0 0!important}
-.character .sprite[data-anim="talk"]{background-position:33.333% 0!important}
-.character .sprite[data-anim="question"]{background-position:0 100%!important}
-.character .sprite[data-anim="surprised"]{background-position:33.333% 100%!important}
-.character .sprite[data-anim="interact"],
-.character .sprite[data-anim="point"]{background-position:66.667% 100%!important}
-.character .sprite[data-anim="jump"]{background-position:100% 100%!important}
-.character .sprite[data-anim="walk"]{
-  animation:approvedWalkFrames .58s steps(1,end) infinite,approvedWalkBob .58s ease-in-out infinite!important;
-}
-
-@keyframes approvedCharacterIdle{
-  0%,100%{transform:translateY(0) scale(1)}
-  50%{transform:translateY(-4px) scale(1.006)}
-}
-@keyframes approvedWalkFrames{
-  0%,49.9%{background-position:66.667% 0}
-  50%,100%{background-position:100% 0}
-}
-@keyframes approvedWalkBob{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-7px)}
-}
-
-/* Preserve the illustrated prologue art while the local restored copies deploy. */
 .title-screen{
-  background-image:linear-gradient(#102c3133,#102c31a8),url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/title-key-art.png')!important;
+  background-image:linear-gradient(#102c3125,#102c3199),url('assets/png/ui/title-key-art.png')!important;
 }
-.stage[aria-label^="Paris — The Invitation"]{
-  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/paris-apartment.png')!important;
+.stage{
+  background-position:center!important;
+  background-size:cover!important;
 }
-.stage[aria-label^="Paris — Departures"]{
-  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/paris-airport.png')!important;
-}
-.stage[aria-label^="Istanbul — The Hidden Gate"]{
-  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/istanbul-airport.png')!important;
-}
-.stage[aria-label^="Muscat — Under the Stars"]{
-  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/muscat-airport.png')!important;
-}
-.stage[aria-label^="Mumbai — Two Corridors"]{
-  background-image:url('https://raw.githubusercontent.com/lschacht99/Our-story/3e075ec4c7b2500ed0d095849181f1a9c11f9afa/assets/scenes/mumbai-airport.png')!important;
-}
-
 @media(min-width:700px){
   body{background:#163b41}
   .app-shell{
@@ -77,27 +67,16 @@
     min-height:0!important;
     height:auto!important;
     aspect-ratio:16/9;
-    background-size:cover!important;
-    background-position:center!important;
   }
-  .character .sprite{width:220px!important;height:413px!important}
-  .character.leah{left:7%!important}
-  .character.moshe{right:7%!important}
+  .character{top:88px!important}
+  .character.leah{left:5%!important}
+  .character.moshe{right:5%!important}
+  .character .sprite{width:170px!important;max-height:390px!important}
   .scene-info{padding:18px 26px 22px!important}
 }
-
-@media(min-width:1100px){
-  .character .sprite{width:238px!important;height:446px!important}
-  .character.leah{left:9%!important}
-  .character.moshe{right:9%!important}
-}
-
 @media(max-width:699px){
-  .stage{min-height:500px!important;background-size:cover!important;background-position:center!important}
-  .character.leah{left:-2%!important}
-  .character.moshe{right:-2%!important}
+  .stage{min-height:500px!important}
 }
-
 @media(prefers-reduced-motion:reduce){
   .character .sprite{animation:none!important}
 }
