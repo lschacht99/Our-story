@@ -1,23 +1,50 @@
 {
   "characters": {
-    "leah": {"name": "Leah", "portrait": "assets/png/portraits/leah.png", "atlas": "assets/png/characters/leah-atlas.png?v=20260714-5", "strengths": "mechanisms, materials, weights, structures, hidden compartments", "dress": "tsniut: headscarf, long sleeves, long skirt in every sprite"},
-    "moshe": {"name": "Moshé", "portrait": "assets/png/portraits/moshe.png", "atlas": "assets/png/characters/moshe-atlas.png?v=20260714-5", "strengths": "maps, routes, language, history, social contradictions", "dress": "kippah visible in every sprite; curly dark hair, short beard"},
-    "sharon": {"name": "Sharon", "portrait": "assets/png/portraits/sharon.png"},
-    "leora": {"name": "Leora", "portrait": "assets/png/portraits/leora.png"},
-    "npc": {"name": "Local guide", "portrait": "assets/png/portraits/guide.png"},
-    "stranger": {"name": "Unknown voice", "portrait": "assets/png/portraits/stranger.png"}
-  },
-  "spriteAtlas": {
-    "grid": [4, 2],
-    "frameNote": "Approved 4x2 PNG sheet. Top row: idle, talk, walk-1, walk-2. Bottom row: question, surprised, interact/point, jump.",
-    "animations": {
-      "idle": [1, 0, 2.8],
-      "talk": [1, 1, 0.72],
-      "walk": [2, 2, 0.58],
-      "question": [1, 4, 1.55],
-      "surprised": [1, 5, 0.42],
-      "interact": [1, 6, 0.82],
-      "jump": [1, 7, 0.68]
+    "leah": {
+      "name": "Leah",
+      "portrait": "assets/png/portraits/leah.png",
+      "poses": {
+        "idle": "assets/png/characters/leah/idle.png",
+        "talking": "assets/png/characters/leah/talking.png",
+        "walking": "assets/png/characters/leah/walking.png",
+        "relief": "assets/png/characters/leah/relief.png",
+        "thinking": "assets/png/characters/leah/thinking.png",
+        "scared": "assets/png/characters/leah/scared.png",
+        "happy": "assets/png/characters/leah/happy.png"
+      },
+      "strengths": "mechanisms, materials, weights, structures, hidden compartments",
+      "dress": "tsniut: headscarf, long sleeves, long skirt in every sprite"
+    },
+    "moshe": {
+      "name": "Moshé",
+      "portrait": "assets/png/portraits/moshe.png",
+      "poses": {
+        "idle": "assets/png/characters/moshe/idle.png",
+        "talking": "assets/png/characters/moshe/talking.png",
+        "walking": "assets/png/characters/moshe/walking.png",
+        "relief": "assets/png/characters/moshe/relief.png",
+        "thinking": "assets/png/characters/moshe/thinking.png",
+        "scared": "assets/png/characters/moshe/scared.png",
+        "happy": "assets/png/characters/moshe/happy.png"
+      },
+      "strengths": "maps, routes, language, history, social contradictions",
+      "dress": "kippah visible in every sprite; curly dark hair, short beard"
+    },
+    "sharon": {
+      "name": "Sharon",
+      "portrait": "assets/png/portraits/sharon.png"
+    },
+    "leora": {
+      "name": "Leora",
+      "portrait": "assets/png/portraits/leora.png"
+    },
+    "npc": {
+      "name": "Local guide",
+      "portrait": "assets/png/portraits/guide.png"
+    },
+    "stranger": {
+      "name": "Unknown voice",
+      "portrait": "assets/png/portraits/stranger.png"
     }
   }
 }
