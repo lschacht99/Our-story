@@ -1,4 +1,4 @@
-const CACHE = 'our-story-runtime-v5-20260714';
+const CACHE = 'our-story-simple-2d-png-v6-20260716';
 
 self.addEventListener('install', () => self.skipWaiting());
 
