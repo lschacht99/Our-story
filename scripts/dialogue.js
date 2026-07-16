@@ -1,9 +1,27 @@
-// Dialogue playback with portraits and a persistent history log.
+// Dialogue playback with direct PNG portraits, simple pose changes and history.
 import { el, $ } from './ui.js';
 
 const history = [];
 
 export function getHistory() { return history; }
+
+function poseForLine(text) {
+  if (/(missing|erase|disappear|strange|wrong|rabbit)/i.test(text)) return 'scared';
+  if (text.includes('?')) return 'thinking';
+  if (text.includes('!')) return 'happy';
+  return 'talking';
+}
+
+function setPose(who, pose, characters) {
+  const sprite = document.querySelector(`.character.${who} .sprite`);
+  const src = characters[who]?.poses?.[pose] || characters[who]?.poses?.idle;
+  if (sprite && src) sprite.src = src;
+}
+
+function resetPoses(characters, endingPose = 'idle') {
+  setPose('leah', endingPose, characters);
+  setPose('moshe', endingPose, characters);
+}
 
 export function playDialogue(lines, characters, { onDone } = {}) {
   const stage = $('.stage');
@@ -13,9 +31,16 @@ export function playDialogue(lines, characters, { onDone } = {}) {
 
   const render = () => {
     stage.querySelector('.dialogue')?.remove();
-    if (i >= lines.length) { onDone?.(); return; }
+    if (i >= lines.length) {
+      resetPoses(characters, 'relief');
+      window.setTimeout(() => resetPoses(characters, 'idle'), 650);
+      onDone?.();
+      return;
+    }
     const [who, text] = lines[i];
     const info = characters[who] || { name: who };
+    resetPoses(characters);
+    setPose(who, poseForLine(text), characters);
     history.push({ who: info.name, text });
     if (history.length > 200) history.shift();
     const box = el('div', { class: 'dialogue', role: 'group', 'aria-label': `${info.name} speaking` },
