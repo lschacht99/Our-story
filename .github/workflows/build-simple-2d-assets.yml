@@ -1,3 +1,4 @@
+# Generates finished local PNG assets; no runtime atlas slicing or external art.
 name: Build simple 2D PNG assets
 
 on:
