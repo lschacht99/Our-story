@@ -1,12 +1,12 @@
 // Offline-first service worker.
 // Core shell + data are precached; chapter backgrounds and cutscene art are
 // cached lazily on first use so the initial download stays small.
-const CACHE = 'our-story-v1';
+const CACHE = 'our-story-v2';
 const CORE = [
   './', 'index.html', 'styles.css', 'manifest.webmanifest',
   'scripts/engine.js', 'scripts/core.js', 'scripts/save-core.js', 'scripts/save.js',
   'scripts/ui.js', 'scripts/home.js', 'scripts/scene.js', 'scripts/dialogue.js',
-  'scripts/puzzle.js', 'scripts/cutscene.js', 'scripts/mystery.js',
+  'scripts/puzzle.js', 'scripts/cutscene.js', 'scripts/mystery.js', 'scripts/audio.js',
   'data/chapters.json', 'data/scenes.json', 'data/puzzles.json',
   'data/cutscenes.json', 'data/mystery.json', 'data/characters.json',
   'assets/png/ui/app-icon.png', 'assets/png/ui/title-key-art.png',

@@ -5,6 +5,7 @@ import { el, $, openModal, closeModal, toast } from './ui.js';
 import { playDialogue } from './dialogue.js';
 import { openPuzzle } from './puzzle.js';
 import { conditionMet, sceneComplete } from './core.js';
+import { sfx } from './audio.js';
 
 const HOTSPOT_ICON = { puzzle: '?', clue: '!', rabbit: '♧', item: '▣', observe: '◉', anomaly: '≠' };
 const SEARCH_LINES = [
@@ -46,6 +47,7 @@ export function renderScene(game) {
     });
     stage.append(ripple);
     setTimeout(() => ripple.remove(), 700);
+    sfx('search', save);
     toast(SEARCH_LINES[Math.floor(Math.random() * SEARCH_LINES.length)]);
   });
 
@@ -75,13 +77,13 @@ export function renderScene(game) {
   if (prevId && save.visitedScenes.includes(prevId)) {
     stage.append(el('button', {
       class: 'travel-arrow left', 'aria-label': `Travel back to ${game.data.scenes.scenes[prevId].title}`,
-      onclick: (e) => { e.stopPropagation(); game.goToScene(prevId); }
+      onclick: (e) => { e.stopPropagation(); sfx('travel', save); game.goToScene(prevId); }
     }, '‹'));
   }
   if (scene.next && complete) {
     stage.append(el('button', {
       class: 'travel-arrow right', 'aria-label': `Travel on to ${game.data.scenes.scenes[scene.next].title}`,
-      onclick: (e) => { e.stopPropagation(); game.advanceScene(scene); }
+      onclick: (e) => { e.stopPropagation(); sfx('travel', save); game.advanceScene(scene); }
     }, '›'));
   }
 
@@ -103,11 +105,38 @@ export function renderScene(game) {
   root.append(el('section', { class: 'scene' }, stage, info));
   $('#objectiveText').textContent = scene.objective;
 
-  if (!state.introSeen) {
-    state.introSeen = true;
+  const firstOfChapter = !save.seenChapterIntros?.includes(scene.chapterId);
+  if (firstOfChapter) {
+    save.seenChapterIntros ??= [];
+    save.seenChapterIntros.push(scene.chapterId);
     game.persist();
-    setTimeout(() => playDialogue(scene.dialogue, game.data.characters, {}), 300);
+    showChapterCard(chapter, game, () => runIntroDialogue(scene, state, game));
+  } else {
+    runIntroDialogue(scene, state, game);
   }
+}
+
+function runIntroDialogue(scene, state, game) {
+  if (state.introSeen) return;
+  state.introSeen = true;
+  game.persist();
+  setTimeout(() => playDialogue(scene.dialogue, game.data.characters, {}), 300);
+}
+
+// Full-screen chapter title card, shown once per chapter. Tap to continue.
+function showChapterCard(chapter, game, onDone) {
+  const card = el('div', {
+    class: 'chapter-intro', role: 'dialog', 'aria-label': chapter.title,
+    onclick: () => { card.remove(); onDone(); }
+  },
+    el('img', { src: chapter.card, alt: '', width: 320, height: 180 }),
+    el('div', { class: 'chapter-intro-text' },
+      el('p', { class: 'eyebrow' }, `Chapter ${chapter.number === 0 ? '—' : chapter.number}`),
+      el('h2', {}, chapter.title),
+      el('p', {}, chapter.subtitle),
+      el('small', {}, 'Tap to continue')));
+  $('#screen').append(card);
+  sfx('stamp', game.save);
 }
 
 function isSpotDone(spot, save, state) {
@@ -129,6 +158,7 @@ function activate(spot, scene, game) {
     save.rabbitMarks.push(spot.id);
     save.insightTokens += 1;
     game.persist();
+    sfx('rabbit', save);
     toast(`Rabbit Mark collected — +1 Insight Token (${save.insightTokens} ◈)`);
     renderScene(game);
     return;
@@ -141,6 +171,8 @@ function activate(spot, scene, game) {
     save.inventory.push(spot.item);
   }
   game.persist();
+  game.checkChapterProgress(); // a clue can be a scene's final requirement
+  sfx(spot.type === 'clue' ? 'clue' : 'tap', save);
   const clue = spot.clue ? game.data.mystery.clues.find((c) => c.clueId === spot.clue) : null;
   openModal(el('div', { class: 'section' },
     el('p', { class: 'eyebrow' }, spot.type === 'clue' ? 'Clue discovered' : 'Observation'),

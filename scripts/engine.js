@@ -7,6 +7,7 @@ import { playCutscene, unlockCutscene, galleryPanel } from './cutscene.js';
 import { notebookPanel, passportPanel, routePanel, inventoryPanel } from './mystery.js';
 import { historyPanel } from './dialogue.js';
 import { chapterComplete, sceneComplete } from './core.js';
+import { sfx } from './audio.js';
 
 const DATA_FILES = ['chapters', 'scenes', 'puzzles', 'cutscenes', 'mystery', 'characters'];
 
@@ -90,6 +91,7 @@ const game = {
       if (chapterComplete(ch, scenesById, this.save)) {
         if (!this.save.stamps.includes(ch.id)) {
           this.save.stamps.push(ch.id);
+          sfx('stamp', this.save);
           toast(`Passport stamped: ${ch.title.split('—')[0].trim()}`);
         }
         if (ch.fragment && !this.save.fragments.includes(ch.fragment)) {
@@ -125,7 +127,7 @@ const game = {
         el('p', { class: 'eyebrow' }, 'The journey is whole'),
         el('h1', {}, 'Our Story'),
         el('p', { class: 'memory' }, 'The missing flight departed long ago, without him — exactly as it always did, the evening he chose a question over a boarding gate. The rabbit marked every goodbye they skipped. The Hamsa kept their true memories safe. And every landscape from Tel Aviv to Seoul became the stage for their story.'),
-        el('p', {}, `${this.save.rabbitMarks.length} Rabbit Marks · ${this.save.solvedPuzzles.length} puzzles · every question answered.`),
+        el('p', {}, `${this.save.memoryPoints} Memory Points · ${this.save.solvedPuzzles.length} puzzles · ${this.save.rabbitMarks.length} Rabbit Marks · every question answered.`),
         el('button', { class: 'btn primary', onclick: () => this.goHome() }, 'Return to the title'))));
   },
 

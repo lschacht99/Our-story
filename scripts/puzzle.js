@@ -4,6 +4,7 @@
 // solution explanation. Solved puzzles reopen read-only (no double award).
 import { el, openModal, closeModal, toast } from './ui.js';
 import { checkAnswer, puzzleAward } from './core.js';
+import { sfx } from './audio.js';
 
 const SEAL_ART = {
   eye: 'assets/png/ui/seal-eye.png', gear: 'assets/png/ui/seal-gear.png',
@@ -120,10 +121,12 @@ function puzzleScreen(id, game) {
       }
       delete save.drafts[id];
       game.persist(); game.autosaveNow();
+      sfx('solve', save);
       showSolved(id, game, true);
     } else {
       save.puzzleMisses[id] = misses() + 1;
       game.persist();
+      sfx('wrong', save);
       pointsLine.textContent = `Worth ${potential()} Memory Points`;
       feedback.textContent = 'That does not satisfy every clue yet.';
     }
@@ -134,6 +137,7 @@ function puzzleScreen(id, game) {
       if (hintLevel >= 4) { toast('No more hints for this puzzle.'); return; }
       if (save.insightTokens <= 0) { toast('No Insight Tokens — find Rabbit Marks to earn more.'); return; }
       save.insightTokens -= 1;
+      sfx('hint', save);
       hintLevel += 1;
       save.hintsUsed[id] = hintLevel;
       game.persist();

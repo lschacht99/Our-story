@@ -13,6 +13,7 @@ A mobile-first, cooperative 2.5D point-and-click puzzle adventure starring **Lea
 - **Passport, Journey Seals, Rabbit Marks, route map, dialogue log**
 - **Memory Points & Insight Tokens**: puzzles award points (reduced by wrong submissions, floor of 10); hints cost one Insight Token each; Rabbit Marks replenish tokens
 - **Handheld-style exploration**: concealed hotspots with a "Reveal search marks" accessibility setting, search ripples on empty scenery, tappable characters, puzzle discovery cards with Solve-later and a Notebook Puzzle Index, left/right travel arrows with safe backtracking (one-time cutscenes never replay)
+- **Sound & presentation**: WebAudio interface cues (no audio assets, respects the sound setting) and once-per-chapter illustrated title cards
 - **PWA**: offline service worker, lazy chapter asset caching, installable
 - **Accessibility**: captions, large text, high contrast, reduced motion, hotspot highlighting, keyboard focus styles, screen-reader labels, 44px touch targets
 

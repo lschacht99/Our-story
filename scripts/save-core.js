@@ -24,6 +24,7 @@ export function blankSave(slotId = null, profileName = 'Nomads') {
     encounteredPuzzles: [],
     puzzleMisses: {},
     playedCutscenes: [],
+    seenChapterIntros: [],
     unlockedCutscenes: ['cs01-invitation'],
     drafts: {},
     hintsUsed: {},
