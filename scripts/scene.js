@@ -14,6 +14,54 @@ const HOTSPOT_ICON = {
   observe: 'assets/png/ui/hotspots/observe.png',
   anomaly: 'assets/png/ui/hotspots/anomaly.png'
 };
+const SCENE_ART_SIZE = { width: 1280, height: 720 };
+let currentHotspotStage = null;
+const hotspotResizeObserver = typeof ResizeObserver === 'undefined'
+  ? null
+  : new ResizeObserver((entries) => {
+      for (const entry of entries) positionHotspots(entry.target);
+    });
+
+function positionHotspots(stage) {
+  const stageWidth = stage.clientWidth;
+  const stageHeight = stage.clientHeight;
+  if (!stageWidth || !stageHeight) return;
+
+  // Match CSS `background-size: cover` with centered positioning so hotspot
+  // coordinates remain attached to the 1280x720 source art after cropping.
+  const scale = Math.max(
+    stageWidth / SCENE_ART_SIZE.width,
+    stageHeight / SCENE_ART_SIZE.height
+  );
+  const renderedWidth = SCENE_ART_SIZE.width * scale;
+  const renderedHeight = SCENE_ART_SIZE.height * scale;
+  const offsetX = (stageWidth - renderedWidth) / 2;
+  const offsetY = (stageHeight - renderedHeight) / 2;
+
+  for (const spot of stage.querySelectorAll('.hotspot[data-source-x][data-source-y]')) {
+    const mappedX = offsetX + (Number(spot.dataset.sourceX) / 100) * renderedWidth;
+    const mappedY = offsetY + (Number(spot.dataset.sourceY) / 100) * renderedHeight;
+    const halfWidth = (spot.offsetWidth || 56) / 2;
+    const halfHeight = (spot.offsetHeight || 56) / 2;
+
+    // Keep cropped source targets tappable at the nearest safe stage edge.
+    spot.style.left = `${Math.min(stageWidth - halfWidth, Math.max(halfWidth, mappedX))}px`;
+    spot.style.top = `${Math.min(stageHeight - halfHeight, Math.max(halfHeight, mappedY))}px`;
+  }
+}
+
+function observeHotspots(stage) {
+  if (currentHotspotStage && hotspotResizeObserver) {
+    hotspotResizeObserver.unobserve(currentHotspotStage);
+  }
+  currentHotspotStage = stage;
+  hotspotResizeObserver?.observe(stage);
+  positionHotspots(stage);
+}
+
+window.addEventListener('resize', () => {
+  if (currentHotspotStage?.isConnected) positionHotspots(currentHotspotStage);
+});
 const SEARCH_LINES = [
   'Nothing here — but the light is lovely.',
   'Just scenery. Beautiful, uncooperative scenery.',
@@ -71,7 +119,9 @@ export function renderScene(game) {
         : HOTSPOT_ICON[spot.type] || HOTSPOT_ICON.puzzle;
     const btn = el('button', {
       class: `hotspot ${spot.type}${done ? ' done' : ''}${locked ? ' locked' : ''}${reveal || done ? ' hl' : ' concealed'}`,
-      style: `left:${spot.x}%;top:${spot.y}%`,
+      style: `left:${spot.x}%;top:${spot.y}%;transform:translate(-50%,-50%)`,
+      'data-source-x': spot.x,
+      'data-source-y': spot.y,
       'aria-label': locked ? `${spot.label} (locked)` : spot.label,
       'data-label': spot.label,
       title: spot.label,
@@ -114,6 +164,7 @@ export function renderScene(game) {
     el('div', { class: 'progress' }, el('i', { style: `width:${(needDone / scene.need.length) * 100}%` })));
 
   root.append(el('section', { class: 'scene' }, stage, info));
+  observeHotspots(stage);
   $('#objectiveText').textContent = scene.objective;
 
   if (!state.introSeen) {

@@ -28,22 +28,22 @@
    "hotspots": [
     {
      "id": "pz-invitation",
-     "x": 50,
-     "y": 58,
+     "x": 43,
+     "y": 76,
      "label": "Changing invitation",
      "type": "puzzle"
     },
     {
      "id": "pz-packing",
-     "x": 16,
-     "y": 72,
+     "x": 80,
+     "y": 68,
      "label": "Open suitcase",
      "type": "puzzle"
     },
     {
      "id": "ob-map",
      "x": 22,
-     "y": 32,
+     "y": 68,
      "label": "Travel map",
      "type": "observe",
      "text": "A hand-drawn route links Paris, Istanbul, Muscat and Mumbai. The direct line has been scratched out.",
@@ -51,8 +51,8 @@
     },
     {
      "id": "rm-p01",
-     "x": 86,
-     "y": 30,
+     "x": 94,
+     "y": 47,
      "label": "Rabbit mark",
      "type": "rabbit"
     }
@@ -91,22 +91,22 @@
    "hotspots": [
     {
      "id": "pz-timetable",
-     "x": 28,
-     "y": 24,
+     "x": 25,
+     "y": 20,
      "label": "Departure board",
      "type": "puzzle"
     },
     {
      "id": "pz-scale",
-     "x": 78,
-     "y": 66,
+     "x": 82,
+     "y": 74,
      "label": "Broken baggage scale",
      "type": "puzzle"
     },
     {
      "id": "cl-cancelled",
-     "x": 52,
-     "y": 34,
+     "x": 54,
+     "y": 35,
      "label": "Cancelled direct flight",
      "type": "clue",
      "clue": "clue-cancelled-direct",
@@ -114,8 +114,8 @@
     },
     {
      "id": "rm-p02",
-     "x": 60,
-     "y": 44,
+     "x": 67,
+     "y": 45,
      "label": "Rabbit sticker",
      "type": "rabbit"
     }
@@ -154,22 +154,22 @@
    "hotspots": [
     {
      "id": "pz-clocks",
-     "x": 54,
-     "y": 40,
+     "x": 65,
+     "y": 31,
      "label": "Four clocks",
      "type": "puzzle"
     },
     {
      "id": "pz-tiles",
-     "x": 42,
-     "y": 26,
+     "x": 33,
+     "y": 31,
      "label": "Blue tile gate",
      "type": "puzzle",
      "view": "leah"
     },
     {
      "id": "pz-suitcase",
-     "x": 84,
+     "x": 86,
      "y": 74,
      "label": "Similar suitcases",
      "type": "puzzle"
@@ -177,7 +177,7 @@
     {
      "id": "rm-p03",
      "x": 66,
-     "y": 18,
+     "y": 83,
      "label": "Rabbit mosaic",
      "type": "rabbit"
     }
@@ -217,22 +217,22 @@
    "hotspots": [
     {
      "id": "pz-stars",
-     "x": 56,
-     "y": 18,
+     "x": 39,
+     "y": 9,
      "label": "Star ceiling",
      "type": "puzzle"
     },
     {
      "id": "pz-seats",
-     "x": 78,
-     "y": 66,
+     "x": 84,
+     "y": 67,
      "label": "Seating list",
      "type": "puzzle"
     },
     {
      "id": "rm-p04",
-     "x": 90,
-     "y": 24,
+     "x": 92,
+     "y": 20,
      "label": "Rabbit of light",
      "type": "rabbit"
     }
@@ -275,23 +275,23 @@
    "hotspots": [
     {
      "id": "pz-corridors",
-     "x": 48,
-     "y": 52,
+     "x": 58,
+     "y": 43,
      "label": "Linked corridors",
      "type": "puzzle"
     },
     {
      "id": "cl-photo",
-     "x": 34,
-     "y": 80,
+     "x": 33,
+     "y": 84,
      "label": "Photograph on the floor",
      "type": "clue",
      "clue": "clue-photo"
     },
     {
      "id": "cl-hamsa",
-     "x": 62,
-     "y": 82,
+     "x": 59,
+     "y": 85,
      "label": "Brass Hamsa",
      "type": "clue",
      "clue": "clue-hamsa-eye",
@@ -299,8 +299,8 @@
     },
     {
      "id": "cl-note",
-     "x": 74,
-     "y": 74,
+     "x": 73,
+     "y": 85,
      "label": "Sharon's note",
      "type": "clue",
      "clue": "clue-sharon-note",
@@ -308,8 +308,8 @@
     },
     {
      "id": "rm-p05",
-     "x": 14,
-     "y": 40,
+     "x": 17,
+     "y": 35,
      "label": "Rabbit shadow",
      "type": "rabbit"
     }
@@ -356,14 +356,14 @@
     {
      "id": "pz-havdalah",
      "x": 50,
-     "y": 62,
+     "y": 66,
      "label": "Havdalah set",
      "type": "puzzle"
     },
     {
      "id": "cl-rabbit1",
-     "x": 68,
-     "y": 70,
+     "x": 66,
+     "y": 69,
      "label": "The white rabbit",
      "type": "clue",
      "clue": "clue-rabbit-first",
@@ -371,8 +371,8 @@
     },
     {
      "id": "ob-candle",
-     "x": 40,
-     "y": 46,
+     "x": 37,
+     "y": 61,
      "label": "Braided candle",
      "type": "observe",
      "text": "The flame leans toward the rabbit, as if pointing.",
@@ -380,8 +380,8 @@
     },
     {
      "id": "rm-c1s1",
-     "x": 88,
-     "y": 56,
+     "x": 91,
+     "y": 16,
      "label": "Rabbit mark",
      "type": "rabbit"
     }
@@ -421,15 +421,15 @@
    "hotspots": [
     {
      "id": "pz-future-object",
-     "x": 46,
-     "y": 54,
+     "x": 43,
+     "y": 39,
      "label": "Something glinting",
      "type": "puzzle"
     },
     {
      "id": "ob-house",
-     "x": 76,
-     "y": 40,
+     "x": 75,
+     "y": 34,
      "label": "Abandoned house",
      "type": "observe",
      "text": "Moshé reads the building's history from its seams; Leah reads its structure. Same house, two stories.",
@@ -438,14 +438,14 @@
     {
      "id": "rm-c1s2",
      "x": 12,
-     "y": 66,
+     "y": 64,
      "label": "Rabbit print",
      "type": "rabbit"
     },
     {
      "id": "ob-door",
-     "x": 88,
-     "y": 66,
+     "x": 89,
+     "y": 44,
      "label": "The door, later that night",
      "type": "observe",
      "text": "The walk home ended at her door. A first kiss, given nervously — and, at the door, returned. Neither of them managed to say anything clever afterwards, which said everything.",
@@ -486,14 +486,14 @@
     {
      "id": "pz-footprints",
      "x": 60,
-     "y": 72,
+     "y": 70,
      "label": "Footprints in the sand",
      "type": "puzzle"
     },
     {
      "id": "ob-bakery",
      "x": 22,
-     "y": 44,
+     "y": 69,
      "label": "Bakery box",
      "type": "observe",
      "text": "Inside: the exact pastry Leah mentioned once, in passing, weeks ago. He remembered.",
@@ -501,8 +501,8 @@
     },
     {
      "id": "cl-anomaly-rule",
-     "x": 74,
-     "y": 60,
+     "x": 68,
+     "y": 84,
      "label": "Notebook — anomaly rule",
      "type": "clue",
      "clue": "clue-anomaly-rule",
@@ -510,8 +510,8 @@
     },
     {
      "id": "rm-c1s3",
-     "x": 90,
-     "y": 80,
+     "x": 88,
+     "y": 82,
      "label": "Rabbit in the dunes",
      "type": "rabbit"
     }
@@ -554,15 +554,15 @@
    "hotspots": [
     {
      "id": "pz-skyline",
-     "x": 50,
-     "y": 34,
+     "x": 48,
+     "y": 31,
      "label": "The skyline",
      "type": "puzzle"
     },
     {
      "id": "ob-samba",
-     "x": 30,
-     "y": 66,
+     "x": 32,
+     "y": 73,
      "label": "Phone speaker",
      "type": "observe",
      "text": "The samba track skips at the same beat every loop — like a memory rehearsing itself.",
@@ -571,7 +571,7 @@
     {
      "id": "rm-c1s4",
      "x": 82,
-     "y": 22,
+     "y": 11,
      "label": "Rabbit weathervane",
      "type": "rabbit"
     }
@@ -609,15 +609,15 @@
    "hotspots": [
     {
      "id": "pz-bridge",
-     "x": 44,
-     "y": 56,
+     "x": 36,
+     "y": 52,
      "label": "The wooden bridge",
      "type": "puzzle"
     },
     {
      "id": "ob-swing",
-     "x": 78,
-     "y": 48,
+     "x": 80,
+     "y": 47,
      "label": "The swings",
      "type": "observe",
      "text": "Two swings, still moving slightly, though no one has touched them.",
@@ -625,15 +625,15 @@
     },
     {
      "id": "rm-c1s5",
-     "x": 14,
-     "y": 44,
+     "x": 9,
+     "y": 66,
      "label": "Rabbit by the reeds",
      "type": "rabbit"
     },
     {
      "id": "ob-talk",
-     "x": 62,
-     "y": 66,
+     "x": 58,
+     "y": 71,
      "label": "The quiet stretch of grass",
      "type": "observe",
      "text": "Between the splash and the swings there was a long conversation about family, and futures, and which of the two of them worries more (disputed, tied).",
@@ -677,15 +677,15 @@
    "hotspots": [
     {
      "id": "pz-settlement",
-     "x": 52,
-     "y": 62,
+     "x": 53,
+     "y": 64,
      "label": "Settlement model",
      "type": "puzzle"
     },
     {
      "id": "ob-bear",
-     "x": 80,
-     "y": 42,
+     "x": 78,
+     "y": 44,
      "label": "Giant teddy bear",
      "type": "observe",
      "text": "The bear holds a tiny paper flag with a hand-drawn rabbit on it.",
@@ -693,8 +693,8 @@
     },
     {
      "id": "rm-c1s6",
-     "x": 20,
-     "y": 70,
+     "x": 21,
+     "y": 82,
      "label": "Rabbit under the bear",
      "type": "rabbit"
     }
@@ -732,15 +732,15 @@
    "hotspots": [
     {
      "id": "pz-groupphoto",
-     "x": 48,
-     "y": 52,
+     "x": 52,
+     "y": 44,
      "label": "Group photo",
      "type": "puzzle"
     },
     {
      "id": "cl-groupphoto",
-     "x": 48,
-     "y": 68,
+     "x": 52,
+     "y": 70,
      "label": "Notebook — the missing two",
      "type": "clue",
      "clue": "clue-groupphoto",
@@ -748,8 +748,8 @@
     },
     {
      "id": "ob-hanukkiah",
-     "x": 76,
-     "y": 36,
+     "x": 78,
+     "y": 41,
      "label": "Hanukkiah in the window",
      "type": "observe",
      "text": "Eight little flames, steady in the rain-light.",
@@ -757,8 +757,8 @@
     },
     {
      "id": "rm-c1s7",
-     "x": 16,
-     "y": 34,
+     "x": 12,
+     "y": 20,
      "label": "Rabbit on the noticeboard",
      "type": "rabbit"
     }
@@ -797,15 +797,15 @@
    "hotspots": [
     {
      "id": "pz-oldcity",
-     "x": 46,
-     "y": 58,
+     "x": 56,
+     "y": 64,
      "label": "Old City lanes",
      "type": "puzzle"
     },
     {
      "id": "ob-jeff",
-     "x": 74,
-     "y": 66,
+     "x": 17,
+     "y": 69,
      "label": "Jeff",
      "type": "observe",
      "text": "Jeff insists he once saw a white rabbit on the hostel roof. Nobody believed him. You do, now.",
@@ -813,8 +813,8 @@
     },
     {
      "id": "rm-c1s8",
-     "x": 86,
-     "y": 30,
+     "x": 89,
+     "y": 31,
      "label": "Rabbit scratched in stone",
      "type": "rabbit"
     }
@@ -852,15 +852,15 @@
    "hotspots": [
     {
      "id": "pz-sixturns",
-     "x": 50,
-     "y": 56,
+     "x": 41,
+     "y": 34,
      "label": "The six wrong turns",
      "type": "puzzle"
     },
     {
      "id": "cl-sixturns",
-     "x": 50,
-     "y": 72,
+     "x": 46,
+     "y": 89,
      "label": "Notebook — the letter",
      "type": "clue",
      "clue": "clue-sixturns",
@@ -869,7 +869,7 @@
     {
      "id": "ob-cholent",
      "x": 24,
-     "y": 62,
+     "y": 59,
      "label": "The hosts' table",
      "type": "observe",
      "text": "Their host said: 'A guest who gets lost on the way back was meant to stay longer.'",
@@ -877,8 +877,8 @@
     },
     {
      "id": "rm-c1s9",
-     "x": 82,
-     "y": 44,
+     "x": 85,
+     "y": 56,
      "label": "Rabbit under a lamp",
      "type": "rabbit"
     }
@@ -918,7 +918,7 @@
    "hotspots": [
     {
      "id": "cl-stranger",
-     "x": 46,
+     "x": 43,
      "y": 56,
      "label": "The humming musician",
      "type": "clue",
@@ -927,7 +927,7 @@
     {
      "id": "ob-gate",
      "x": 74,
-     "y": 40,
+     "y": 37,
      "label": "Gate screen",
      "type": "observe",
      "text": "The gate flickers between two flight numbers. One of them is not in any timetable.",
@@ -935,8 +935,8 @@
     },
     {
      "id": "rm-c2s1",
-     "x": 20,
-     "y": 66,
+     "x": 13,
+     "y": 67,
      "label": "Rabbit on a guitar case",
      "type": "rabbit"
     }
@@ -974,8 +974,8 @@
    "hotspots": [
     {
      "id": "pz-signs",
-     "x": 44,
-     "y": 48,
+     "x": 46,
+     "y": 29,
      "label": "Street signs",
      "type": "puzzle",
      "view": "moshe"
@@ -983,7 +983,7 @@
     {
      "id": "cl-parisring",
      "x": 70,
-     "y": 68,
+     "y": 85,
      "label": "Ring-shaped mark",
      "type": "clue",
      "clue": "clue-proposal-paris",
@@ -993,7 +993,7 @@
     {
      "id": "rm-c2s2",
      "x": 14,
-     "y": 38,
+     "y": 53,
      "label": "Rabbit in the bakery window",
      "type": "rabbit"
     }
@@ -1031,15 +1031,15 @@
    "hotspots": [
     {
      "id": "pz-battery",
-     "x": 50,
-     "y": 60,
+     "x": 38,
+     "y": 79,
      "label": "The dying battery",
      "type": "puzzle",
      "view": "leah"
     },
     {
      "id": "ob-fountain",
-     "x": 78,
+     "x": 69,
      "y": 44,
      "label": "Fountain",
      "type": "observe",
@@ -1049,7 +1049,7 @@
     {
      "id": "rm-c2s3",
      "x": 20,
-     "y": 50,
+     "y": 54,
      "label": "Rabbit topiary",
      "type": "rabbit"
     }
@@ -1084,14 +1084,14 @@
     {
      "id": "pz-timeline",
      "x": 48,
-     "y": 56,
+     "y": 73,
      "label": "The shuffled day",
      "type": "puzzle"
     },
     {
      "id": "ob-border",
-     "x": 76,
-     "y": 62,
+     "x": 81,
+     "y": 73,
      "label": "Border stone",
      "type": "observe",
      "text": "One foot in each country, both of them laughing about it.",
@@ -1099,8 +1099,8 @@
     },
     {
      "id": "rm-c2s4",
-     "x": 18,
-     "y": 42,
+     "x": 12,
+     "y": 36,
      "label": "Rabbit carved in timber",
      "type": "rabbit"
     }
@@ -1138,15 +1138,15 @@
    "hotspots": [
     {
      "id": "pz-ticket-route",
-     "x": 50,
-     "y": 58,
+     "x": 37,
+     "y": 69,
      "label": "Pouch of old tickets",
      "type": "puzzle"
     },
     {
      "id": "cl-ticket-route",
-     "x": 50,
-     "y": 74,
+     "x": 45,
+     "y": 69,
      "label": "Notebook — adjacent seats",
      "type": "clue",
      "clue": "clue-ticket-route",
@@ -1154,8 +1154,8 @@
     },
     {
      "id": "ob-citron",
-     "x": 78,
-     "y": 46,
+     "x": 72,
+     "y": 49,
      "label": "Citron Festival float",
      "type": "observe",
      "text": "A float shaped like a lemon whale. No mystery. Just excellent.",
@@ -1163,8 +1163,8 @@
     },
     {
      "id": "rm-c2s5",
-     "x": 16,
-     "y": 64,
+     "x": 10,
+     "y": 42,
      "label": "Rabbit on a fishing sign",
      "type": "rabbit"
     }
@@ -1207,15 +1207,15 @@
    "hotspots": [
     {
      "id": "pz-blessings",
-     "x": 48,
-     "y": 54,
+     "x": 36,
+     "y": 76,
      "label": "The wedding booklet",
      "type": "puzzle"
     },
     {
      "id": "cl-blessing",
      "x": 48,
-     "y": 70,
+     "y": 80,
      "label": "Notebook — the missing page",
      "type": "clue",
      "clue": "clue-missing-blessing",
@@ -1223,8 +1223,8 @@
     },
     {
      "id": "ob-caricature",
-     "x": 76,
-     "y": 62,
+     "x": 84,
+     "y": 70,
      "label": "Wedding caricaturist",
      "type": "observe",
      "text": "The caricaturist has drawn everyone — except two chairs left blank, 'for the ones still traveling'.",
@@ -1232,8 +1232,8 @@
     },
     {
      "id": "ob-sleep",
-     "x": 20,
-     "y": 66,
+     "x": 19,
+     "y": 49,
      "label": "Quiet corner",
      "type": "observe",
      "text": "Someone is peacefully asleep in the synagogue corner. Weddings are long. This is tradition too.",
@@ -1241,8 +1241,8 @@
     },
     {
      "id": "rm-c3s1",
-     "x": 86,
-     "y": 38,
+     "x": 93,
+     "y": 20,
      "label": "Rabbit in the garlands",
      "type": "rabbit"
     }
@@ -1282,8 +1282,8 @@
    "hotspots": [
     {
      "id": "pz-mirror",
-     "x": 50,
-     "y": 50,
+     "x": 51,
+     "y": 42,
      "label": "The stone doubles",
      "type": "puzzle",
      "view": "both"
@@ -1299,8 +1299,8 @@
     },
     {
      "id": "rm-c3s2",
-     "x": 82,
-     "y": 60,
+     "x": 76,
+     "y": 62,
      "label": "Rabbit-shaped shadow",
      "type": "rabbit"
     }
@@ -1335,15 +1335,15 @@
    "hotspots": [
     {
      "id": "pz-train",
-     "x": 52,
-     "y": 58,
+     "x": 57,
+     "y": 48,
      "label": "The arguing timetable",
      "type": "puzzle"
     },
     {
      "id": "ob-children",
-     "x": 24,
-     "y": 48,
+     "x": 29,
+     "y": 61,
      "label": "Photo with the children",
      "type": "observe",
      "text": "Twenty children wanted one photo each. That's twenty photos. Their cheeks hurt from smiling.",
@@ -1351,8 +1351,8 @@
     },
     {
      "id": "rm-c3s3",
-     "x": 80,
-     "y": 40,
+     "x": 88,
+     "y": 48,
      "label": "Rabbit chalked on a wall",
      "type": "rabbit"
     }
@@ -1390,16 +1390,16 @@
    "hotspots": [
     {
      "id": "pz-cablecar",
-     "x": 54,
-     "y": 40,
+     "x": 59,
+     "y": 52,
      "label": "Cable car queue",
      "type": "puzzle",
      "view": "leah"
     },
     {
      "id": "ob-window",
-     "x": 78,
-     "y": 52,
+     "x": 89,
+     "y": 48,
      "label": "The window",
      "type": "observe",
      "text": "From this window the palace floats twice: once in stone, once in the lake.",
@@ -1407,8 +1407,8 @@
     },
     {
      "id": "rm-c3s4",
-     "x": 16,
-     "y": 58,
+     "x": 12,
+     "y": 45,
      "label": "Rabbit kite",
      "type": "rabbit"
     }
@@ -1446,15 +1446,15 @@
    "hotspots": [
     {
      "id": "pz-amber",
-     "x": 46,
-     "y": 44,
+     "x": 19,
+     "y": 38,
      "label": "Amber wall pattern",
      "type": "puzzle"
     },
     {
      "id": "ob-camel",
-     "x": 76,
-     "y": 68,
+     "x": 82,
+     "y": 67,
      "label": "The camel",
      "type": "observe",
      "text": "The camel regards you with the patience of a creature that has seen many tourists and respected few.",
@@ -1462,8 +1462,8 @@
     },
     {
      "id": "rm-c3s5",
-     "x": 20,
-     "y": 36,
+     "x": 22,
+     "y": 44,
      "label": "Rabbit in the honeycomb",
      "type": "rabbit"
     }
@@ -1505,15 +1505,15 @@
    "hotspots": [
     {
      "id": "pz-fuzzy",
-     "x": 50,
-     "y": 60,
+     "x": 49,
+     "y": 80,
      "label": "Fuzzy's missing tail",
      "type": "puzzle"
     },
     {
      "id": "ob-rabbi",
-     "x": 78,
-     "y": 44,
+     "x": 76,
+     "y": 46,
      "label": "Rabbi on horseback",
      "type": "observe",
      "text": "For exactly ninety seconds, the rabbi rode a horse through the courtyard. It will be discussed for years.",
@@ -1521,8 +1521,8 @@
     },
     {
      "id": "rm-c3s6",
-     "x": 18,
-     "y": 48,
+     "x": 25,
+     "y": 84,
      "label": "Rabbit stencil in powder",
      "type": "rabbit"
     }
@@ -1560,16 +1560,16 @@
    "hotspots": [
     {
      "id": "pz-bargain",
-     "x": 50,
-     "y": 62,
+     "x": 56,
+     "y": 47,
      "label": "The negotiation",
      "type": "puzzle",
      "view": "moshe"
     },
     {
      "id": "ob-tuk",
-     "x": 24,
-     "y": 54,
+     "x": 28,
+     "y": 82,
      "label": "Tuk (the first one)",
      "type": "observe",
      "text": "Tuk's dashboard shrine includes seven deities, a plastic sunflower, and — new today — a small white rabbit figurine.",
@@ -1577,8 +1577,8 @@
     },
     {
      "id": "rm-c3s7",
-     "x": 82,
-     "y": 46,
+     "x": 81,
+     "y": 51,
      "label": "Rabbit figurine",
      "type": "rabbit"
     }
@@ -1616,8 +1616,8 @@
    "hotspots": [
     {
      "id": "pz-symmetry",
-     "x": 50,
-     "y": 46,
+     "x": 51,
+     "y": 50,
      "label": "The Taj and its reflection",
      "type": "puzzle",
      "view": "both"
@@ -1625,7 +1625,7 @@
     {
      "id": "ob-jahangir",
      "x": 76,
-     "y": 64,
+     "y": 59,
      "label": "Guide telling Jahangir's story",
      "type": "observe",
      "text": "A story of emperors and gardens; Moshé retains every date, Leah retains how the aqueducts worked.",
@@ -1633,8 +1633,8 @@
     },
     {
      "id": "rm-c3s8",
-     "x": 16,
-     "y": 40,
+     "x": 23,
+     "y": 54,
      "label": "Rabbit in the mist",
      "type": "rabbit"
     }
@@ -1672,15 +1672,15 @@
    "hotspots": [
     {
      "id": "pz-campsite",
-     "x": 48,
+     "x": 35,
      "y": 58,
      "label": "Raising the campsite",
      "type": "puzzle"
     },
     {
      "id": "cl-gift",
-     "x": 66,
-     "y": 70,
+     "x": 61,
+     "y": 85,
      "label": "Sharon's letter fragment",
      "type": "clue",
      "clue": "clue-wedding-gift",
@@ -1688,8 +1688,8 @@
     },
     {
      "id": "rm-c3s9",
-     "x": 84,
-     "y": 34,
+     "x": 94,
+     "y": 16,
      "label": "Rabbit above the snowline",
      "type": "rabbit"
     }
@@ -1724,15 +1724,15 @@
    "hotspots": [
     {
      "id": "pz-canal",
-     "x": 48,
-     "y": 58,
+     "x": 40,
+     "y": 82,
      "label": "Canal route map",
      "type": "puzzle"
     },
     {
      "id": "ob-pizza",
-     "x": 22,
-     "y": 66,
+     "x": 16,
+     "y": 82,
      "label": "Shakshuka pizza",
      "type": "observe",
      "text": "Culinary diplomacy between two homelands. Verdict: unexpectedly excellent.",
@@ -1740,8 +1740,8 @@
     },
     {
      "id": "rm-c4s1",
-     "x": 80,
-     "y": 42,
+     "x": 88,
+     "y": 29,
      "label": "Rabbit lantern",
      "type": "rabbit"
     }
@@ -1775,15 +1775,15 @@
    "hotspots": [
     {
      "id": "pz-tides",
-     "x": 50,
-     "y": 56,
+     "x": 43,
+     "y": 70,
      "label": "Tide chart",
      "type": "puzzle"
     },
     {
      "id": "rm-c4s2",
-     "x": 78,
-     "y": 68,
+     "x": 66,
+     "y": 86,
      "label": "Rabbit drawn in sand",
      "type": "rabbit"
     }
@@ -1825,15 +1825,15 @@
    "hotspots": [
     {
      "id": "pz-coconut",
-     "x": 46,
-     "y": 62,
+     "x": 43,
+     "y": 75,
      "label": "The coconut split",
      "type": "puzzle"
     },
     {
      "id": "cl-question",
-     "x": 64,
-     "y": 74,
+     "x": 68,
+     "y": 86,
      "label": "Notebook — the question",
      "type": "clue",
      "clue": "clue-question-early",
@@ -1841,8 +1841,8 @@
     },
     {
      "id": "ob-monkey",
-     "x": 80,
-     "y": 46,
+     "x": 64,
+     "y": 42,
      "label": "Monkey Beach",
      "type": "observe",
      "text": "A monkey stole a smoothie. The monkey shows no remorse.",
@@ -1850,8 +1850,8 @@
     },
     {
      "id": "rm-c4s3",
-     "x": 16,
-     "y": 52,
+     "x": 12,
+     "y": 66,
      "label": "Rabbit by the kayak",
      "type": "rabbit"
     }
@@ -1891,16 +1891,16 @@
    "hotspots": [
     {
      "id": "pz-visual-route",
-     "x": 50,
-     "y": 52,
+     "x": 51,
+     "y": 38,
      "label": "The picture route",
      "type": "puzzle",
      "view": "moshe"
     },
     {
      "id": "rm-c4s4",
-     "x": 82,
-     "y": 60,
+     "x": 88,
+     "y": 49,
      "label": "Rabbit neon sign",
      "type": "rabbit"
     }
@@ -1934,15 +1934,15 @@
    "hotspots": [
     {
      "id": "pz-seder",
-     "x": 48,
-     "y": 60,
+     "x": 38,
+     "y": 56,
      "label": "The seder table",
      "type": "puzzle"
     },
     {
      "id": "ob-songkran",
-     "x": 78,
-     "y": 48,
+     "x": 76,
+     "y": 50,
      "label": "Songkran water fight",
      "type": "observe",
      "text": "A city-wide water fight. Everyone loses. Everyone wins.",
@@ -1950,8 +1950,8 @@
     },
     {
      "id": "rm-c4s5",
-     "x": 18,
-     "y": 44,
+     "x": 27,
+     "y": 84,
      "label": "Rabbit under the table",
      "type": "rabbit"
     }
@@ -1993,8 +1993,8 @@
    "hotspots": [
     {
      "id": "ob-pool",
-     "x": 50,
-     "y": 62,
+     "x": 56,
+     "y": 70,
      "label": "The pool",
      "type": "observe",
      "text": "Cold, clear, perfect. The memory holds still here, unedited."
@@ -2002,7 +2002,7 @@
     {
      "id": "ob-bike",
      "x": 20,
-     "y": 70,
+     "y": 73,
      "label": "The motorbike",
      "type": "observe",
      "text": "One working mirror, one optimistic engine, zero regrets.",
@@ -2011,7 +2011,7 @@
     {
      "id": "rm-c4s6",
      "x": 82,
-     "y": 50,
+     "y": 52,
      "label": "Rabbit on a mossy stone",
      "type": "rabbit"
     }
@@ -2049,15 +2049,15 @@
    "hotspots": [
     {
      "id": "pz-elephant",
-     "x": 50,
-     "y": 58,
+     "x": 42,
+     "y": 50,
      "label": "The elephant's round",
      "type": "puzzle"
     },
     {
      "id": "rm-c4s7",
-     "x": 80,
-     "y": 40,
+     "x": 83,
+     "y": 41,
      "label": "Rabbit among the ruins",
      "type": "rabbit"
     }
@@ -2091,15 +2091,15 @@
    "hotspots": [
     {
      "id": "pz-whitetemple",
-     "x": 48,
-     "y": 50,
+     "x": 80,
+     "y": 59,
      "label": "The road plan",
      "type": "puzzle"
     },
     {
      "id": "ob-banana",
-     "x": 76,
-     "y": 66,
+     "x": 79,
+     "y": 85,
      "label": "The legendary banana",
      "type": "observe",
      "text": "It's enormous. Photos were taken. Science was consulted. No conclusion reached.",
@@ -2107,8 +2107,8 @@
     },
     {
      "id": "rm-c4s8",
-     "x": 18,
-     "y": 40,
+     "x": 23,
+     "y": 45,
      "label": "Rabbit in the frost-white carvings",
      "type": "rabbit"
     }
@@ -2142,15 +2142,15 @@
    "hotspots": [
     {
      "id": "pz-flags",
-     "x": 50,
-     "y": 46,
+     "x": 39,
+     "y": 58,
      "label": "Flag pattern",
      "type": "puzzle"
     },
     {
      "id": "rm-c5s1",
-     "x": 80,
-     "y": 62,
+     "x": 86,
+     "y": 18,
      "label": "Rabbit on a balcony",
      "type": "rabbit"
     }
@@ -2188,15 +2188,15 @@
    "hotspots": [
     {
      "id": "pz-coaster",
-     "x": 52,
-     "y": 50,
+     "x": 49,
+     "y": 59,
      "label": "Coaster seating",
      "type": "puzzle"
     },
     {
      "id": "ob-giraffe",
-     "x": 78,
-     "y": 60,
+     "x": 80,
+     "y": 46,
      "label": "The giraffe",
      "type": "observe",
      "text": "The giraffe remains unrepentant. The map remains internal.",
@@ -2204,8 +2204,8 @@
     },
     {
      "id": "rm-c5s2",
-     "x": 18,
-     "y": 46,
+     "x": 11,
+     "y": 51,
      "label": "Rabbit balloon",
      "type": "rabbit"
     }
@@ -2240,15 +2240,15 @@
     {
      "id": "pz-lanterns",
      "x": 48,
-     "y": 44,
+     "y": 29,
      "label": "The lantern strings",
      "type": "puzzle",
      "view": "both"
     },
     {
      "id": "cl-pattern",
-     "x": 62,
-     "y": 66,
+     "x": 29,
+     "y": 85,
      "label": "Notebook — the rabbit's pattern",
      "type": "clue",
      "clue": "clue-rabbit-pattern",
@@ -2256,8 +2256,8 @@
     },
     {
      "id": "rm-c5s3",
-     "x": 82,
-     "y": 52,
+     "x": 79,
+     "y": 72,
      "label": "Rabbit lantern, unlit",
      "type": "rabbit"
     }
@@ -2292,16 +2292,16 @@
    "hotspots": [
     {
      "id": "pz-basket",
-     "x": 50,
-     "y": 60,
+     "x": 48,
+     "y": 58,
      "label": "The basket boat",
      "type": "puzzle",
      "view": "leah"
     },
     {
      "id": "rm-c5s4",
-     "x": 78,
-     "y": 46,
+     "x": 73,
+     "y": 53,
      "label": "Rabbit woven into a basket",
      "type": "rabbit"
     }
@@ -2335,15 +2335,15 @@
    "hotspots": [
     {
      "id": "pz-gates",
-     "x": 50,
-     "y": 50,
+     "x": 51,
+     "y": 47,
      "label": "The nested gates",
      "type": "puzzle"
     },
     {
      "id": "rm-c5s5",
-     "x": 20,
-     "y": 58,
+     "x": 25,
+     "y": 51,
      "label": "Rabbit on a bronze urn",
      "type": "rabbit"
     }
@@ -2377,15 +2377,15 @@
    "hotspots": [
     {
      "id": "pz-boat",
-     "x": 50,
-     "y": 58,
+     "x": 35,
+     "y": 50,
      "label": "Three cave mouths",
      "type": "puzzle"
     },
     {
      "id": "rm-c5s6",
      "x": 80,
-     "y": 44,
+     "y": 62,
      "label": "Rabbit in the rice",
      "type": "rabbit"
     }
@@ -2419,15 +2419,15 @@
    "hotspots": [
     {
      "id": "pz-terraces",
-     "x": 48,
-     "y": 48,
+     "x": 47,
+     "y": 60,
      "label": "The terrace rhythm",
      "type": "puzzle"
     },
     {
      "id": "rm-c5s7",
-     "x": 78,
-     "y": 62,
+     "x": 77,
+     "y": 70,
      "label": "Rabbit in the mist",
      "type": "rabbit"
     }
@@ -2461,15 +2461,15 @@
    "hotspots": [
     {
      "id": "pz-mud",
-     "x": 50,
-     "y": 62,
+     "x": 44,
+     "y": 60,
      "label": "The stuck motorbike",
      "type": "puzzle"
     },
     {
      "id": "ob-falls",
-     "x": 76,
-     "y": 40,
+     "x": 67,
+     "y": 43,
      "label": "The border falls",
      "type": "observe",
      "text": "Two countries share one waterfall, and the waterfall has no opinion about borders.",
@@ -2477,8 +2477,8 @@
     },
     {
      "id": "rm-c5s8",
-     "x": 18,
-     "y": 50,
+     "x": 15,
+     "y": 81,
      "label": "Rabbit tracks in the mud",
      "type": "rabbit"
     }
@@ -2520,15 +2520,15 @@
    "hotspots": [
     {
      "id": "pz-echo",
-     "x": 50,
-     "y": 52,
+     "x": 47,
+     "y": 47,
      "label": "The echo chamber",
      "type": "puzzle"
     },
     {
      "id": "cl-echo",
-     "x": 50,
-     "y": 70,
+     "x": 41,
+     "y": 84,
      "label": "Notebook — the echo's answer",
      "type": "clue",
      "clue": "clue-echo",
@@ -2536,8 +2536,8 @@
     },
     {
      "id": "rm-c5s9",
-     "x": 80,
-     "y": 60,
+     "x": 76,
+     "y": 51,
      "label": "Rabbit-shaped stalagmite",
      "type": "rabbit"
     }
@@ -2572,15 +2572,15 @@
    "hotspots": [
     {
      "id": "pz-neon",
-     "x": 50,
-     "y": 50,
+     "x": 66,
+     "y": 55,
      "label": "Neon and reflections",
      "type": "puzzle"
     },
     {
      "id": "rm-c6s1",
-     "x": 80,
-     "y": 62,
+     "x": 85,
+     "y": 37,
      "label": "Rabbit neon, flickering",
      "type": "rabbit"
     }
@@ -2614,15 +2614,15 @@
    "hotspots": [
     {
      "id": "pz-queue",
-     "x": 50,
-     "y": 56,
+     "x": 46,
+     "y": 45,
      "label": "The queue rules",
      "type": "puzzle"
     },
     {
      "id": "rm-c6s2",
-     "x": 20,
-     "y": 48,
+     "x": 8,
+     "y": 57,
      "label": "Rabbit mascot pin",
      "type": "rabbit"
     }
@@ -2656,16 +2656,16 @@
    "hotspots": [
     {
      "id": "pz-toriipath",
-     "x": 50,
-     "y": 46,
+     "x": 36,
+     "y": 45,
      "label": "The tunnel of gates",
      "type": "puzzle",
      "view": "both"
     },
     {
      "id": "cl-anchor",
-     "x": 50,
-     "y": 66,
+     "x": 36,
+     "y": 88,
      "label": "Notebook — the Hamsa's eye",
      "type": "clue",
      "clue": "clue-hamsa-anchor",
@@ -2673,8 +2673,8 @@
     },
     {
      "id": "rm-c6s3",
-     "x": 80,
-     "y": 56,
+     "x": 79,
+     "y": 69,
      "label": "Rabbit at a fox shrine",
      "type": "rabbit"
     }
@@ -2709,15 +2709,15 @@
    "hotspots": [
     {
      "id": "pz-deer",
-     "x": 50,
-     "y": 58,
+     "x": 33,
+     "y": 65,
      "label": "The deer lineup",
      "type": "puzzle"
     },
     {
      "id": "rm-c6s4",
-     "x": 78,
-     "y": 44,
+     "x": 73,
+     "y": 66,
      "label": "Rabbit among stone lanterns",
      "type": "rabbit"
     }
@@ -2755,15 +2755,15 @@
    "hotspots": [
     {
      "id": "pz-maplayers",
-     "x": 50,
-     "y": 50,
+     "x": 41,
+     "y": 81,
      "label": "Two maps, one city",
      "type": "puzzle"
     },
     {
      "id": "rm-c6s5",
-     "x": 18,
-     "y": 60,
+     "x": 12,
+     "y": 58,
      "label": "Rabbit in a claw machine",
      "type": "rabbit"
     }
@@ -2801,15 +2801,15 @@
    "hotspots": [
     {
      "id": "pz-fuji",
-     "x": 48,
-     "y": 54,
+     "x": 24,
+     "y": 82,
      "label": "The day's photographs",
      "type": "puzzle"
     },
     {
      "id": "cl-gates",
-     "x": 48,
-     "y": 72,
+     "x": 35,
+     "y": 85,
      "label": "Notebook — entrances only",
      "type": "clue",
      "clue": "clue-gates",
@@ -2817,8 +2817,8 @@
     },
     {
      "id": "ob-snacks",
-     "x": 78,
-     "y": 64,
+     "x": 86,
+     "y": 54,
      "label": "Rice snack stand",
      "type": "observe",
      "text": "A small box of rice snacks. Remember this box. It will be slandered later as a ring box.",
@@ -2826,8 +2826,8 @@
     },
     {
      "id": "rm-c6s6",
-     "x": 16,
-     "y": 42,
+     "x": 10,
+     "y": 50,
      "label": "Rabbit by the flower arch",
      "type": "rabbit"
     }
@@ -2862,15 +2862,15 @@
    "hotspots": [
     {
      "id": "pz-palace",
-     "x": 50,
-     "y": 50,
+     "x": 45,
+     "y": 53,
      "label": "The palace gates",
      "type": "puzzle"
     },
     {
      "id": "ob-hanbok",
-     "x": 76,
-     "y": 62,
+     "x": 86,
+     "y": 68,
      "label": "Traditional clothing",
      "type": "observe",
      "text": "Borrowed splendor, modestly worn; the rental shop owner approves of Leah's scarf-matching instincts.",
@@ -2878,8 +2878,8 @@
     },
     {
      "id": "rm-c7s1",
-     "x": 18,
-     "y": 44,
+     "x": 10,
+     "y": 34,
      "label": "Rabbit roof charm",
      "type": "rabbit"
     }
@@ -2921,15 +2921,15 @@
    "hotspots": [
     {
      "id": "pz-seoulmate",
-     "x": 50,
-     "y": 56,
+     "x": 40,
+     "y": 57,
      "label": "The unfinished sentence",
      "type": "puzzle"
     },
     {
      "id": "cl-seoulmate",
-     "x": 50,
-     "y": 72,
+     "x": 32,
+     "y": 75,
      "label": "The final fragment",
      "type": "clue",
      "clue": "clue-seoulmate",
@@ -2937,8 +2937,8 @@
     },
     {
      "id": "rm-c7s2",
-     "x": 80,
-     "y": 46,
+     "x": 81,
+     "y": 52,
      "label": "Rabbit on the railing",
      "type": "rabbit"
     }
@@ -2974,14 +2974,14 @@
     {
      "id": "pz-reconstruct",
      "x": 50,
-     "y": 54,
+     "y": 62,
      "label": "The fragments",
      "type": "puzzle"
     },
     {
      "id": "rm-f01",
      "x": 80,
-     "y": 42,
+     "y": 51,
      "label": "Rabbit on the desk",
      "type": "rabbit"
     }
@@ -3016,15 +3016,15 @@
    "hotspots": [
     {
      "id": "pz-evidence",
-     "x": 48,
-     "y": 56,
+     "x": 46,
+     "y": 51,
      "label": "The rack and the receipt",
      "type": "puzzle"
     },
     {
      "id": "cl-thrift",
-     "x": 48,
-     "y": 72,
+     "x": 46,
+     "y": 88,
      "label": "Notebook — it was true",
      "type": "clue",
      "clue": "clue-thrift",
@@ -3032,8 +3032,8 @@
     },
     {
      "id": "rm-f02",
-     "x": 80,
-     "y": 48,
+     "x": 85,
+     "y": 32,
      "label": "Rabbit between the hangers",
      "type": "rabbit"
     }
@@ -3073,15 +3073,15 @@
     {
      "id": "pz-phiphi2",
      "x": 50,
-     "y": 52,
+     "y": 55,
      "label": "The remembered beach",
      "type": "puzzle",
      "view": "leah"
     },
     {
      "id": "cl-rabbit-role",
-     "x": 50,
-     "y": 70,
+     "x": 44,
+     "y": 83,
      "label": "Notebook — the rabbit's post",
      "type": "clue",
      "clue": "clue-rabbit-role",
@@ -3089,8 +3089,8 @@
     },
     {
      "id": "rm-f03",
-     "x": 80,
-     "y": 58,
+     "x": 76,
+     "y": 49,
      "label": "Rabbit on the pier post",
      "type": "rabbit"
     }
@@ -3129,15 +3129,15 @@
    "hotspots": [
     {
      "id": "pz-proposals",
-     "x": 50,
-     "y": 52,
+     "x": 52,
+     "y": 50,
      "label": "The six postcards",
      "type": "puzzle"
     },
     {
      "id": "cl-false-fuji",
-     "x": 74,
-     "y": 66,
+     "x": 78,
+     "y": 64,
      "label": "The Fuji 'ring box'",
      "type": "clue",
      "clue": "clue-false-fuji",
@@ -3145,8 +3145,8 @@
     },
     {
      "id": "rm-f04",
-     "x": 18,
-     "y": 44,
+     "x": 14,
+     "y": 36,
      "label": "Rabbit between postcards",
      "type": "rabbit"
     }
@@ -3188,22 +3188,22 @@
    "hotspots": [
     {
      "id": "pz-meta-order",
-     "x": 30,
-     "y": 46,
+     "x": 40,
+     "y": 35,
      "label": "Order the fragments",
      "type": "puzzle"
     },
     {
      "id": "pz-meta-memories",
-     "x": 70,
-     "y": 46,
+     "x": 71,
+     "y": 40,
      "label": "Choose the true memories",
      "type": "puzzle"
     },
     {
      "id": "pz-final-phrase",
-     "x": 50,
-     "y": 68,
+     "x": 46,
+     "y": 83,
      "label": "The last line",
      "type": "puzzle",
      "locked": "solve:pz-meta-order,pz-meta-memories"
@@ -3253,8 +3253,8 @@
    "hotspots": [
     {
      "id": "ob-bench",
-     "x": 50,
-     "y": 60,
+     "x": 46,
+     "y": 54,
      "label": "The bench",
      "type": "observe",
      "text": "There is room for two, and the rabbit."
@@ -3262,7 +3262,7 @@
     {
      "id": "ob-skyline",
      "x": 50,
-     "y": 30,
+     "y": 24,
      "label": "The skyline of everywhere",
      "type": "observe",
      "text": "Tel Aviv into Paris into Mumbai into Bangkok into Hoi An into Kyoto into Seoul. One horizon.",
@@ -3270,15 +3270,15 @@
     },
     {
      "id": "rm-f06",
-     "x": 64,
-     "y": 58,
+     "x": 68,
+     "y": 70,
      "label": "The rabbit, at rest",
      "type": "rabbit"
     },
     {
      "id": "ob-date",
-     "x": 34,
-     "y": 66,
+     "x": 33,
+     "y": 83,
      "label": "A date kept like a stone in a pocket",
      "type": "observe",
      "text": "14/01/2025. The day the certainty was said out loud: wherever the day goes — whatever the weather, the hour or the plan — the shared future is the one fixed point.",
