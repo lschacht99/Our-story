@@ -5,6 +5,7 @@
 import { el, openModal, closeModal, toast } from './ui.js';
 import { checkAnswer, puzzleAward } from './core.js';
 import { sfx } from './audio.js';
+import { visualRenderer } from './renderers.js';
 
 const SEAL_ART = {
   eye: 'assets/png/ui/seal-eye.png', gear: 'assets/png/ui/seal-gear.png',
@@ -92,9 +93,16 @@ function puzzleScreen(id, game) {
           }
         }, token));
       });
+      // show each picked token's position so long sequences read like a plan
+      grid.querySelectorAll('.seq-token').forEach((btn, i) => {
+        const pos = draft.seq.indexOf(i);
+        if (pos >= 0) btn.append(el('span', { class: 'seq-pos', 'aria-hidden': 'true' }, String(pos + 1)));
+      });
       body.append(grid, el('p', { class: 'seq-readout' },
         el('strong', {}, 'Selected: '), draft.seq.map((i) => p.tokens[i]).join(' → ') || 'none'));
     } else {
+      const widget = visualRenderer(p, draft, () => game.persist(), game);
+      if (widget) { body.append(widget); return; }
       const input = el('input', {
         class: 'answer', id: 'answerInput', autocomplete: 'off',
         'aria-label': 'Your answer', placeholder: 'Your answer', value: draft.value || ''

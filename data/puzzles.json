@@ -86,7 +86,18 @@
     "10, 7, 5."
    ],
    "why": "10 + 7 + 5 = 22 kg, using exactly three weights.",
-   "points": 40
+   "points": 40,
+   "ui": "weights",
+   "uiConfig": {
+    "weights": [
+     10,
+     7,
+     5,
+     4,
+     2
+    ],
+    "target": 22
+   }
   },
   "pz-clocks": {
    "n": "005",
@@ -105,7 +116,18 @@
    ],
    "why": "All four clocks now show one shared instant — except the fifth, stuck on a Havdalah hour.",
    "awardsClue": "clue-clocks",
-   "points": 45
+   "points": 45,
+   "ui": "clocks",
+   "uiConfig": {
+    "clocks": [
+     "Istanbul",
+     "Muscat",
+     "Mumbai"
+    ],
+    "start": "09:00",
+    "step": 30,
+    "note": "Each clock starts where Paris stands: 09:00. Turn the hands until every city shows this same instant."
+   }
   },
   "pz-tiles": {
    "n": "006",
@@ -488,7 +510,11 @@
    ],
    "why": "Traced on the map, the turns draw a letter S — the first stroke of a sentence still being written.",
    "awardsClue": "clue-sixturns",
-   "points": 45
+   "points": 45,
+   "ui": "turns",
+   "uiConfig": {
+    "length": 6
+   }
   },
   "pz-signs": {
    "n": "020",
@@ -527,7 +553,8 @@
    ],
    "why": "Four assisted kilometres, alternated fairly — and four pedaled ones, complained about equally.",
    "view": "leah",
-   "points": 40
+   "points": 40,
+   "ui": "keypad"
   },
   "pz-timeline": {
    "n": "022",
@@ -627,7 +654,8 @@
    "why": "Two visitors have no doubles: the same two missing from every photograph.",
    "awardsClue": "clue-mirror",
    "view": "both",
-   "points": 35
+   "points": 35,
+   "ui": "keypad"
   },
   "pz-train": {
    "n": "026",
@@ -761,7 +789,8 @@
    ],
    "why": "Both sides declare victory, which is the definition of a fair price. The rabbit figurine nods.",
    "view": "moshe",
-   "points": 50
+   "points": 50,
+   "ui": "keypad"
   },
   "pz-symmetry": {
    "n": "031",
@@ -904,7 +933,8 @@
    ],
    "why": "One coconut remains — and during a certain hypothetical question, it rolled away, unneeded.",
    "awardsClue": "clue-question-early",
-   "points": 50
+   "points": 50,
+   "ui": "keypad"
   },
   "pz-visual-route": {
    "n": "036",
@@ -1032,7 +1062,8 @@
     "Position 11 — a banner arrives one flag early."
    ],
    "why": "Under the early banner: the side street, the quiet gap, and the best view of the fireworks.",
-   "points": 35
+   "points": 35,
+   "ui": "keypad"
   },
   "pz-coaster": {
    "n": "041",
@@ -1191,7 +1222,8 @@
     "The 11th group — a 3 arrives early. The hidden path crosses there."
    ],
    "why": "Where the rhythm breaks, a farmer's path crosses the terraces — invisible in the mist, obvious in the count.",
-   "points": 35
+   "points": 35,
+   "ui": "keypad"
   },
   "pz-mud": {
    "n": "047",

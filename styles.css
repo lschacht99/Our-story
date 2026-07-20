@@ -96,3 +96,24 @@ body.reduced-motion .search-ripple,body.reduced-motion .travel-arrow.right{anima
 .chapter-intro-text small{display:block;margin-top:14px;color:#b9c4c0;letter-spacing:.12em;text-transform:uppercase;font-size:10px}
 .screen{position:relative}
 body.reduced-motion .chapter-intro{animation:none}
+
+/* ===== visual puzzle widgets (opt-in, additive classes only) ===== */
+.pv-widget{display:grid;gap:12px;margin-bottom:8px}
+.pv-display{min-height:52px;display:grid;place-items:center;border:2px solid #d1b36f;border-radius:13px;background:#fff;font-weight:900;font-size:24px;color:var(--navy);letter-spacing:.08em}
+.pv-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pv-key{min-height:52px;min-width:52px;border:1px solid #c9a862;border-radius:12px;background:#fff6dd;color:var(--navy);font-weight:900;font-size:18px}
+.pv-key.wide{grid-column:span 1;padding:0 18px}
+.pv-key.used{background:var(--navy);color:#fff}
+.pv-weight-grid{grid-template-columns:repeat(auto-fit,minmax(72px,1fr))}
+.pv-note{margin:0;color:#5a6058;font-size:14px;line-height:1.4;min-height:20px}
+.pv-clocks{gap:10px}
+.pv-clock{display:grid;gap:6px;padding:10px;border-radius:13px;background:#efe4cf}
+.pv-clock>span{font-weight:800;color:var(--terra);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.pv-clock-row{display:grid;grid-template-columns:52px 1fr 52px;gap:8px;align-items:center}
+.pv-clock-time{text-align:center;font-size:26px;font-family:var(--serif);color:var(--navy)}
+.pv-trace{display:flex;gap:6px;justify-content:center}
+.pv-step{width:44px;height:44px;display:grid;place-items:center;border:2px dashed #c9a862;border-radius:10px;font-size:22px;color:#b9a877}
+.pv-step.set{border-style:solid;background:#fff6dd;color:var(--navy)}
+.pv-turn-row{grid-template-columns:1fr 1fr 64px}
+.seq-token{position:relative}
+.seq-pos{position:absolute;top:-8px;right:-8px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:var(--terra);color:#fff;font-size:12px;font-weight:900}

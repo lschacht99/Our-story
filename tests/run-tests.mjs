@@ -150,6 +150,25 @@ for (const [id, p] of Object.entries(puzzles)) {
   if (p.type === 'text') ok(p.answer || p.validator === 'hash', `puzzle ${id} has no validator`);
   if (p.awardsClue) ok(mystery.clues.some((c) => c.clueId === p.awardsClue), `puzzle ${id} awards unknown clue`);
   ok(Number.isFinite(p.points) && p.points >= 10, `puzzle ${id} needs a positive points value`);
+  // visual renderers are opt-in and must stay consistent with the validator's answer
+  if (p.ui) {
+    ok(['keypad', 'clocks', 'weights', 'turns'].includes(p.ui), `puzzle ${id} unknown ui renderer ${p.ui}`);
+    ok(p.type === 'text', `puzzle ${id} ui renderer only valid on text puzzles`);
+    if (p.ui === 'keypad') ok(/^\d+$/.test(p.answer), `puzzle ${id} keypad needs a purely numeric answer`);
+    if (p.ui === 'clocks') {
+      ok(p.uiConfig?.clocks?.length === p.answer.split(',').length, `puzzle ${id} clock count must match answer parts`);
+      ok(p.answer.split(',').every((t) => /^\d{2}:\d{2}$/.test(t)), `puzzle ${id} clock answer must be HH:MM parts`);
+    }
+    if (p.ui === 'weights') {
+      const parts = p.answer.split(',').map(Number);
+      ok(parts.every((w) => p.uiConfig?.weights?.includes(w)), `puzzle ${id} answer weights must exist in the stock`);
+      ok(String(parts) === String([...parts].sort((a, b) => b - a)), `puzzle ${id} weights answer must be sorted descending`);
+      ok(parts.reduce((a, b) => a + b, 0) === p.uiConfig?.target, `puzzle ${id} weights must sum to the target`);
+    }
+    if (p.ui === 'turns') {
+      ok(p.answer.length === p.uiConfig?.length && /^[LR]+$/.test(p.answer), `puzzle ${id} turns config/answer mismatch`);
+    }
+  }
   if (p.coop) coop += 1;
   if (p.ordered) ordered += 1;
   if (p.view) viewed += 1;
