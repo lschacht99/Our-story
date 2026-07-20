@@ -15,11 +15,22 @@ const HOTSPOT_ICON = {
   anomaly: 'assets/png/ui/hotspots/anomaly.png'
 };
 const SCENE_ART_SIZE = { width: 1280, height: 720 };
+const SCENE_ART_RATIO = SCENE_ART_SIZE.width / SCENE_ART_SIZE.height;
+const scenePanPositions = new Map();
 let currentHotspotStage = null;
+let currentStageLayout = null;
+let stageLayoutFrame = 0;
 const hotspotResizeObserver = typeof ResizeObserver === 'undefined'
   ? null
   : new ResizeObserver((entries) => {
       for (const entry of entries) positionHotspots(entry.target);
+    });
+const stageFrameResizeObserver = typeof ResizeObserver === 'undefined'
+  ? null
+  : new ResizeObserver((entries) => {
+      if (entries.some((entry) => entry.target === currentStageLayout?.frame)) {
+        restoreStageLayout();
+      }
     });
 
 function positionHotspots(stage) {
@@ -50,17 +61,59 @@ function positionHotspots(stage) {
   }
 }
 
-function observeHotspots(stage) {
+function panRatio(viewport) {
+  const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+  return maxScroll > 0 ? viewport.scrollLeft / maxScroll : 0.5;
+}
+
+function rememberCurrentPan() {
+  if (!currentStageLayout?.viewport?.isConnected) return;
+  if (currentStageLayout.viewport.scrollWidth - currentStageLayout.viewport.clientWidth <= 1) return;
+  scenePanPositions.set(
+    currentStageLayout.sceneId,
+    panRatio(currentStageLayout.viewport)
+  );
+}
+
+function restoreStageLayout() {
+  const layout = currentStageLayout;
+  if (!layout?.frame?.isConnected) return;
+  const { frame, viewport, stage, sceneId } = layout;
+  const portrait = window.matchMedia?.('(orientation: portrait)').matches ?? false;
+  const canvasWidth = portrait
+    ? Math.max(viewport.clientWidth, viewport.clientHeight * SCENE_ART_RATIO)
+    : viewport.clientWidth;
+  stage.style.width = `${Math.ceil(canvasWidth)}px`;
+  const ratio = scenePanPositions.get(sceneId) ?? 0.5;
+
+  window.cancelAnimationFrame(stageLayoutFrame);
+  stageLayoutFrame = window.requestAnimationFrame(() => {
+    if (currentStageLayout !== layout) return;
+    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    viewport.scrollLeft = maxScroll * ratio;
+    viewport.classList.toggle('is-pannable', maxScroll > 1);
+    positionHotspots(stage);
+  });
+}
+
+function observeStage(stage, frame, viewport, sceneId) {
   if (currentHotspotStage && hotspotResizeObserver) {
     hotspotResizeObserver.unobserve(currentHotspotStage);
   }
+  if (currentStageLayout?.frame && stageFrameResizeObserver) {
+    stageFrameResizeObserver.unobserve(currentStageLayout.frame);
+  }
   currentHotspotStage = stage;
+  currentStageLayout = { stage, frame, viewport, sceneId };
+  if (!scenePanPositions.has(sceneId)) scenePanPositions.set(sceneId, 0.5);
   hotspotResizeObserver?.observe(stage);
-  positionHotspots(stage);
+  stageFrameResizeObserver?.observe(frame);
+  restoreStageLayout();
 }
 
 window.addEventListener('resize', () => {
-  if (currentHotspotStage?.isConnected) positionHotspots(currentHotspotStage);
+  if (!currentStageLayout?.frame?.isConnected) return;
+  restoreStageLayout();
 });
 const SEARCH_LINES = [
   'Nothing here — but the light is lovely.',
@@ -71,6 +124,7 @@ const SEARCH_LINES = [
 ];
 
 export function renderScene(game) {
+  rememberCurrentPan();
   const save = game.save;
   const scene = { ...game.data.scenes.scenes[save.sceneId], id: save.sceneId };
   const chapter = game.chaptersById[scene.chapterId];
@@ -84,12 +138,38 @@ export function renderScene(game) {
   root.innerHTML = '';
 
   const stage = el('div', {
-    class: 'stage', style: `background-image:url('${scene.background}')`,
-    role: 'img', 'aria-label': `${scene.title} — ${scene.location}`
+    class: 'stage', style: `background-image:url('${scene.background}')`
   });
-  stage.append(el('div', { class: 'scene-title' },
+  const viewport = el('div', {
+    class: 'stage-viewport',
+    role: 'region',
+    tabindex: '0',
+    'aria-label': `Scrollable view of ${scene.title}. Swipe or use the left and right arrow keys to explore.`
+  }, stage);
+  const frame = el('div', { class: 'stage-frame' }, viewport);
+  frame.append(el('div', { class: 'scene-title' },
     el('small', {}, chapter.title),
     el('strong', {}, scene.title)));
+  frame.append(el('div', { class: 'stage-pan-hint', 'aria-hidden': 'true' }, 'Swipe to explore ↔'));
+
+  viewport.addEventListener('scroll', () => {
+    if (currentStageLayout?.viewport !== viewport) return;
+    if (viewport.scrollWidth - viewport.clientWidth <= 1) return;
+    scenePanPositions.set(scene.id, panRatio(viewport));
+  }, { passive: true });
+  viewport.addEventListener('pointerdown', () => viewport.classList.add('has-panned'), { once: true });
+  viewport.addEventListener('keydown', (event) => {
+    if (event.target !== viewport || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    viewport.classList.add('has-panned');
+    const direction = event.key === 'ArrowLeft' ? -1 : 1;
+    const reducedMotion = document.body.classList.contains('reduced-motion')
+      || (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
+    viewport.scrollBy({
+      left: direction * viewport.clientWidth * 0.65,
+      behavior: reducedMotion ? 'auto' : 'smooth'
+    });
+  });
 
   // Tap empty scenery → brief search ripple + short response.
   stage.addEventListener('click', (e) => {
@@ -136,13 +216,13 @@ export function renderScene(game) {
   // Travel arrows: back to any visited previous scene, forward when complete.
   const prevId = game.prevMap[scene.id];
   if (prevId && save.visitedScenes.includes(prevId)) {
-    stage.append(el('button', {
+    frame.append(el('button', {
       class: 'travel-arrow left', 'aria-label': `Travel back to ${game.data.scenes.scenes[prevId].title}`,
       onclick: (e) => { e.stopPropagation(); game.goToScene(prevId); }
     }, '‹'));
   }
   if (scene.next && complete) {
-    stage.append(el('button', {
+    frame.append(el('button', {
       class: 'travel-arrow right', 'aria-label': `Travel on to ${game.data.scenes.scenes[scene.next].title}`,
       onclick: (e) => { e.stopPropagation(); game.advanceScene(scene); }
     }, '›'));
@@ -163,8 +243,8 @@ export function renderScene(game) {
       complete && !scene.next ? el('button', { class: 'btn primary', onclick: () => game.showEnding() }, 'Watch the sunrise') : null),
     el('div', { class: 'progress' }, el('i', { style: `width:${(needDone / scene.need.length) * 100}%` })));
 
-  root.append(el('section', { class: 'scene' }, stage, info));
-  observeHotspots(stage);
+  root.append(el('section', { class: 'scene' }, frame, info));
+  observeStage(stage, frame, viewport, scene.id);
   $('#objectiveText').textContent = scene.objective;
 
   if (!state.introSeen) {
