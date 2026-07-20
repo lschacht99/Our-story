@@ -400,10 +400,32 @@ for (const cs of cutscenes) {
   ok(dialogueRenderer.includes("const dialogueHost = $('.stage-frame') || stage") && dialogueRenderer.includes('dialogueHost.append(box)'), 'dialogue must remain fixed to the scene frame with a legacy-stage fallback');
   ok(spriteCss.includes('@media(orientation:portrait)') && spriteCss.includes('overflow-x:auto') && spriteCss.includes('touch-action:pan-x'), 'portrait scenes must enable native horizontal touch panning');
   ok(spriteCss.includes('overscroll-behavior-x:contain') && spriteCss.includes('.stage-pan-hint'), 'portrait panning must be contained and discoverable');
-  ok(spriteCss.includes('left:calc(50% - min(40vw,320px))') && spriteCss.includes('left:calc(50% + min(40vw,320px))'), 'portrait characters must stay near the initial centered composition');
+  ok(spriteCss.includes('left:calc(50% - min(49.5vw,400px))') && spriteCss.includes('left:calc(50% + min(49.5vw,400px))') && spriteCss.includes('width:clamp(157px,49vw,245px)'), 'portrait characters must remain large and sit edge-to-edge without overlapping');
   ok(/const CACHE_VERSION = '[^']*pan[^']*';/.test(sw), 'service-worker cache version must change for the portrait-pan release');
   const manifest = json('manifest.webmanifest');
   for (const icon of manifest.icons) ok(existsSync(join(ROOT, icon.src)), `manifest icon missing ${icon.src}`);
+}
+
+// Interactive illustrated-puzzle, audio, options and persistence regressions.
+{
+  const homeSource = readFileSync(join(ROOT, 'scripts/home.js'), 'utf8');
+  const engineSource = readFileSync(join(ROOT, 'scripts/engine.js'), 'utf8');
+  const puzzleSource = readFileSync(join(ROOT, 'scripts/puzzle.js'), 'utf8');
+  const audioSource = readFileSync(join(ROOT, 'scripts/audio.js'), 'utf8');
+  const cutsceneSource = readFileSync(join(ROOT, 'scripts/cutscene.js'), 'utf8');
+  const layoutCss = readFileSync(join(ROOT, 'styles.css'), 'utf8');
+  for (const id of ['pz-invitation', 'pz-packing']) {
+    const p = puzzles[id];
+    ok(p.type === 'sequence' && p.artTargets?.length === p.tokens?.length, `${id} must provide one interactive image target per sequence token`);
+    ok(new Set(p.artTargets.map((target) => target.tokenIndex)).size === p.tokens.length, `${id} image targets must map to distinct token indices`);
+  }
+  ok(puzzleSource.includes("class: 'puzzle-art-target'") && puzzleSource.includes('refreshArtTargets'), 'illustrated puzzle targets must be interactive and synchronized');
+  ok(homeSource.includes("class: 'home-options-btn'") && homeSource.includes("setChapter('home'"), 'home must expose direct Options and its own music state');
+  ok(homeSource.includes("settings: { ...latest.settings, ...(saves.readPreferences() || {}) }"), 'home cutscene gallery must honor global preferences over stale save settings');
+  ok(engineSource.includes('saves.readPreferences() || this.save?.settings') && engineSource.includes('saves.writePreferences(s)'), 'global options must remain authoritative and persistent');
+  ok(audioSource.includes('home:') && audioSource.includes('cinematic:') && cutsceneSource.includes("setChapter('cinematic'"), 'home and cinematic mystery music states must be wired');
+  ok(layoutCss.includes('container-type:size') && layoutCss.includes('width:min(100cqw,calc(100cqh * 4 / 3))') && layoutCss.includes('height:min(100cqh,calc(100cqw * 3 / 4))'), 'interactive puzzle art canvas must preserve its 4:3 coordinate system in every panel ratio');
+  ok(!JSON.stringify(puzzles).toLowerCase().includes('first letter'), 'puzzles must not rely on arbitrary first-letter riddles');
 }
 
 console.log(`${checks} checks, ${failures} failures`);

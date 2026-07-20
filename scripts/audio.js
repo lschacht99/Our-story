@@ -2,6 +2,8 @@
 // Web Audio so the static PWA keeps working offline without a large dependency.
 
 const THEMES = {
+  home: { tempo: 78, root: 50, notes: [7, 12, 15, 14, 12, 9, 10, 7, 5, 9, 7, 4] },
+  cinematic: { tempo: 72, root: 50, notes: [0, 3, 7, 10, 12, 15, 14, 10, 7, 5, 3, 2] },
   prologue: { tempo: 88, root: 50, notes: [0, 3, 7, 5, 3, 2, 0, -2] },
   ch1: { tempo: 92, root: 50, notes: [0, 2, 3, 7, 5, 3, 2, 0] },
   ch2: { tempo: 96, root: 53, notes: [7, 9, 10, 14, 12, 10, 7, 5] },
@@ -63,8 +65,11 @@ export function createAudioDirector() {
     const now = context.currentTime + 0.04;
     for (let i = 0; i < 8; i++) {
       const offset = theme.notes[(step + i) % theme.notes.length];
-      voice(theme.root + offset, now + i * beat / 2, beat * 0.42);
-      if (i % 2 === 0) voice(theme.root - 12 + [0, 5, 3, 7][(step + i) % 4], now + i * beat / 2, beat * 0.8, 'sine', 0.045);
+      const cinematic = activeChapter === 'cinematic';
+      const home = activeChapter === 'home';
+      voice(theme.root + offset, now + i * beat / 2, beat * (cinematic ? 0.7 : 0.42), home ? 'triangle' : 'sine', cinematic ? 0.075 : 0.06);
+      if (i % 2 === 0) voice(theme.root - 12 + [0, 5, 3, 7][(step + i) % 4], now + i * beat / 2, beat * 0.9, 'triangle', cinematic ? 0.065 : 0.045);
+      if ((home || cinematic) && i % 3 === 0) voice(theme.root + offset + 12, now + i * beat / 2, beat * 0.24, 'sine', home ? 0.028 : 0.04);
     }
     step = (step + 2) % theme.notes.length;
     timer = window.setTimeout(scheduleMeasure, beat * 4000);

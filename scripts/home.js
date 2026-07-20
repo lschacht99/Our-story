@@ -10,6 +10,8 @@ export function renderHome(game) {
   $('#objectiveText').textContent = 'Begin the journey';
   const hasAnySave = saves.SLOT_IDS.some((id) => saves.readSlot(id) || saves.readSlotBackup(id)) || saves.readAutosave();
   const latest = latestSave();
+  const homeSettings = saves.readPreferences() || latest?.settings || saves.blankSave().settings;
+  game.audio?.setChapter('home', homeSettings.music);
 
   const secondaryMenu = el('div', {
     class: 'home-more-menu', id: 'home-more-menu', hidden: ''
@@ -19,7 +21,7 @@ export function renderHome(game) {
     menuBtn('Mystery Notebook', !latest, () => latest && (game.loadSave(latest), game.openNotebook())),
     menuBtn('Cutscenes', !latest, () => {
       if (!latest) return;
-      game.save = latest;
+      game.save = { ...latest, settings: { ...latest.settings, ...(saves.readPreferences() || {}) } };
       openModal(galleryPanel(game, null), { label: 'Cutscene gallery' });
     }),
     menuBtn('Options', false, () => game.openSettings(true)),
@@ -60,6 +62,13 @@ export function renderHome(game) {
       decoding: 'async',
       fetchpriority: 'high'
     }),
+    el('button', {
+      class: 'home-options-btn',
+      type: 'button',
+      'aria-label': 'Options',
+      title: 'Options',
+      onclick: () => game.openSettings(true)
+    }, el('img', { src: 'assets/png/ui/icon-settings.png', alt: '' })),
     el('article', { class: 'title-card' },
       el('p', { class: 'eyebrow' }, 'A cooperative travel mystery'),
       el('h1', { id: 'home-title' }, 'Our Story ', el('span', {}, 'The Missing Flight')),

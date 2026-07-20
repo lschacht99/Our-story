@@ -74,6 +74,7 @@ function puzzleScreen(id, game) {
   const hintBox = el('div', { class: 'hint-box' });
   const body = el('div', { class: 'puzzle-body' });
   const pointsLine = el('p', { class: 'points-line' });
+  const artTargetButtons = [];
 
   const renderHint = () => {
     hintBox.innerHTML = '';
@@ -87,6 +88,24 @@ function puzzleScreen(id, game) {
     if (p.type === 'choice') return draft.value;
     if (p.type === 'sequence') return (draft.seq || []).map((i) => p.tokens[i]);
     return draft.value;
+  };
+
+  const refreshArtTargets = () => {
+    for (const { button, tokenIndex } of artTargetButtons) {
+      const order = (draft.seq || []).indexOf(tokenIndex);
+      button.classList.toggle('selected', order >= 0);
+      button.setAttribute('aria-pressed', String(order >= 0));
+      button.textContent = order >= 0 ? String(order + 1) : '';
+    }
+  };
+
+  const toggleSequenceIndex = (tokenIndex) => {
+    draft.seq ??= [];
+    const at = draft.seq.indexOf(tokenIndex);
+    if (at >= 0) draft.seq.splice(at, 1); else draft.seq.push(tokenIndex);
+    game.persist();
+    renderBody();
+    refreshArtTargets();
   };
 
   const renderBody = () => {
@@ -107,11 +126,7 @@ function puzzleScreen(id, game) {
         const used = draft.seq.includes(i);
         grid.append(el('button', {
           class: `seq-token${used ? ' used' : ''}`, 'aria-pressed': String(used),
-          onclick: () => {
-            const at = draft.seq.indexOf(i);
-            if (at >= 0) draft.seq.splice(at, 1); else draft.seq.push(i);
-            game.persist(); renderBody();
-          }
+          onclick: () => toggleSequenceIndex(i)
         }, token));
       });
       body.append(grid, el('p', { class: 'seq-readout', 'aria-live': 'polite' },
@@ -144,10 +159,23 @@ function puzzleScreen(id, game) {
   }, 'Indice');
 
   const submitBtn = el('button', { class: 'btn primary submit' }, 'Valider');
+  const artCanvas = el('div', { class: 'puzzle-art-canvas' }, puzzleArt(id, p.title));
   const visual = el('figure', { class: 'puzzle-visual' },
-    puzzleArt(id, p.title),
+    artCanvas,
     reactionLayer(game, 'wrong', p.n),
     reactionLayer(game, 'correct', p.n));
+  for (const target of p.artTargets || []) {
+    const button = el('button', {
+      class: 'puzzle-art-target',
+      type: 'button',
+      style: `left:${target.x}%;top:${target.y}%`,
+      'aria-label': `Select ${target.label}`,
+      'aria-pressed': 'false',
+      onclick: () => toggleSequenceIndex(target.tokenIndex)
+    });
+    artCanvas.append(button);
+    artTargetButtons.push({ button, tokenIndex: target.tokenIndex });
+  }
   const controls = el('div', { class: 'puzzle puzzle-controls' },
     el('div', { class: 'instructions' }, p.inst),
     body, hintBox, feedback);
@@ -206,6 +234,7 @@ function puzzleScreen(id, game) {
 
   submitBtn.addEventListener('click', submit);
   renderBody();
+  refreshArtTargets();
   renderHint();
   refreshPoints();
   if (misses() >= 3) hintBtn.classList.add('suggested');
