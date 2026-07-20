@@ -49,16 +49,17 @@ function puzzleScreen(id, game) {
   const draft = save.drafts[id];
   let hintLevel = save.hintsUsed[id] || 0;
 
+  hintLevel = Math.min(hintLevel, 3); // older saves may hold the retired 4th tier
   const feedback = el('div', { class: 'feedback', role: 'status', 'aria-live': 'polite' });
   const hintBox = el('div', { class: 'hint-box' });
   const body = el('div', { class: 'puzzle-body' });
-  const tokenLabel = () => `Hint (${save.insightTokens} ◈)`;
+  const tokenLabel = () => `Indice (${save.insightTokens} ◈)`;
 
   const renderHint = () => {
     hintBox.innerHTML = '';
     for (let i = 1; i <= hintLevel; i++) {
-      hintBox.append(el('div', { class: 'hint' },
-        el('strong', {}, `Hint ${i}/4`), el('br'), p.hints[i - 1]));
+      hintBox.append(el('div', { class: 'hint pv-hint-in' },
+        el('strong', {}, `Indice ${i}/3`), el('br'), p.hints[i - 1]));
     }
   };
 
@@ -136,19 +137,28 @@ function puzzleScreen(id, game) {
       game.persist();
       sfx('wrong', save);
       pointsLine.textContent = `Worth ${potential()} Memory Points`;
-      feedback.textContent = 'That does not satisfy every clue yet.';
+      feedback.textContent = 'Dommage… réessayez.';
+      if (misses() >= 2 && hintLevel === 0) {
+        feedback.append(el('span', { class: 'hint-suggest' }, ' Un indice, peut-être ?'));
+      }
+      if (misses() >= 3 && hintLevel === 0) hintBtn.classList.add('attention');
+      // paper rustle: brief shake on the puzzle body, reduced-motion aware
+      body.classList.remove('pv-shake');
+      void body.offsetWidth;
+      body.classList.add('pv-shake');
     }
   };
 
   const hintBtn = el('button', {
     class: 'btn', onclick: () => {
-      if (hintLevel >= 4) { toast('No more hints for this puzzle.'); return; }
+      if (hintLevel >= 3) { toast('No more hints for this puzzle.'); return; }
       if (save.insightTokens <= 0) { toast('No Insight Tokens — find Rabbit Marks to earn more.'); return; }
       save.insightTokens -= 1;
       sfx('hint', save);
       hintLevel += 1;
       save.hintsUsed[id] = hintLevel;
       game.persist();
+      hintBtn.classList.remove('attention');
       hintBtn.textContent = tokenLabel();
       renderHint();
     }
@@ -176,12 +186,12 @@ function puzzleScreen(id, game) {
 export function showSolved(id, game, newly) {
   const p = game.data.puzzles[id];
   const earned = newly ? puzzleAward(p.points, (game.save.puzzleMisses[id] || 0)) : null;
-  openModal(el('div', { class: 'solution' },
-    el('img', { src: SEAL_ART[p.seal], alt: '', width: 72, height: 72 }),
-    el('p', { class: 'eyebrow' }, newly ? 'Puzzle solved' : 'Solved puzzle'),
+  openModal(el('div', { class: `solution${newly ? ' pv-ink-reveal' : ''}` },
+    el('img', { class: newly ? 'pv-seal-in' : '', src: SEAL_ART[p.seal], alt: '', width: 72, height: 72 }),
+    el('p', { class: 'eyebrow' }, newly ? 'Félicitations !' : 'Solved puzzle'),
     el('h2', {}, p.title),
     el('p', { class: 'seal' }, `◆ ${SEAL_NAME[p.seal]}${newly ? ` · +${earned} Memory Points` : ''}`),
-    el('p', {}, p.why),
+    el('p', { class: newly ? 'pv-reveal-text' : '' }, p.why),
     el('button', {
       class: 'btn primary', onclick: () => {
         closeModal();

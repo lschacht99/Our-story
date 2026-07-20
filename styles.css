@@ -124,3 +124,18 @@ body.reduced-motion .chapter-intro{animation:none}
 .pv-tile{position:relative}
 .pv-tile.used{background:var(--navy);color:#fff;opacity:.85}
 .pv-tile:disabled{cursor:default}
+
+/* ===== Layton-style feedback states (paper, ink, seal) ===== */
+@keyframes pvShake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(3px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.pv-shake{animation:pvShake .45s both}
+@keyframes pvInk{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
+.pv-ink-reveal{animation:pvInk .7s both}
+.pv-reveal-text{animation:pvInk 1.2s .3s both}
+@keyframes pvSeal{0%{transform:scale(1.7) rotate(-8deg);opacity:0}60%{transform:scale(.95) rotate(1deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+.pv-seal-in{animation:pvSeal .55s .15s both}
+@keyframes pvMarginalia{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.pv-hint-in{animation:pvMarginalia .4s both}
+.hint-suggest{color:var(--olive);font-style:italic}
+@keyframes pvPulse{50%{box-shadow:0 0 0 6px #d6a84955}}
+.btn.attention{animation:pvPulse 1.4s infinite;border-color:var(--gold)}
+body.reduced-motion .pv-shake,body.reduced-motion .pv-ink-reveal,body.reduced-motion .pv-reveal-text,body.reduced-motion .pv-seal-in,body.reduced-motion .pv-hint-in,body.reduced-motion .btn.attention{animation:none}

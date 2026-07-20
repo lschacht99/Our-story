@@ -2,10 +2,11 @@
 
 export function normalizeAnswer(v) {
   return String(v || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // accents never block a right answer
     .toUpperCase()
     .replace(/[\s.'"’,;:!?()-]+/g, '')
-    .replace(/[–—]/g, '')
-    .replace(/É/g, 'E');
+    .replace(/[–—]/g, '');
 }
 
 export async function sha256Hex(text) {

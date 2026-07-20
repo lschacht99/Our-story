@@ -135,7 +135,7 @@ for (const id of placedPuzzles) ok(puzzles[id], `placed puzzle undefined: ${id}`
 let coop = 0, ordered = 0, viewed = 0;
 for (const [id, p] of Object.entries(puzzles)) {
   ok(['text', 'choice', 'sequence'].includes(p.type), `puzzle ${id} bad type`);
-  ok(Array.isArray(p.hints) && p.hints.length === 4, `puzzle ${id} needs exactly 4 hints`);
+  ok(Array.isArray(p.hints) && p.hints.length === 3, `puzzle ${id} needs exactly 3 hints`);
   ok(p.why && p.prompt && p.inst && p.title, `puzzle ${id} missing fields`);
   ok(['eye', 'gear', 'compass', 'key', 'hands'].includes(p.seal), `puzzle ${id} bad seal`);
   if (p.type === 'choice') {
