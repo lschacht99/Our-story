@@ -17,7 +17,11 @@
    ],
    "why": "The shifted letters spell TERMINAL TWO — where the replacement route begins.",
    "awardsClue": "clue-invitation",
-   "points": 35
+   "points": 35,
+   "ui": "letters",
+   "uiConfig": {
+    "bank": "ROTMWINLTEAU"
+   }
   },
   "pz-packing": {
    "n": "002",
@@ -35,7 +39,53 @@
     "C S K S G F C C T P."
    ],
    "why": "Fragile things ride on soft layers and the passports stay on top.",
-   "points": 40
+   "points": 40,
+   "ui": "arrange",
+   "uiConfig": {
+    "items": [
+     [
+      "Gift",
+      "G"
+     ],
+     [
+      "Clothes",
+      "C"
+     ],
+     [
+      "Passports",
+      "P"
+     ],
+     [
+      "Scarf box",
+      "S"
+     ],
+     [
+      "Camera",
+      "C"
+     ],
+     [
+      "Kippah case",
+      "K"
+     ],
+     [
+      "Toiletries",
+      "T"
+     ],
+     [
+      "Shoes",
+      "S"
+     ],
+     [
+      "Chargers",
+      "C"
+     ],
+     [
+      "Food",
+      "F"
+     ]
+    ],
+    "joiner": ""
+   }
   },
   "pz-timetable": {
    "n": "003",
@@ -233,7 +283,41 @@
     "M L S C E F M."
    ],
    "why": "Everyone boards: couple together, family together, flowers unsquashed.",
-   "points": 50
+   "points": 50,
+   "ui": "arrange",
+   "uiConfig": {
+    "items": [
+     [
+      "Child",
+      "C"
+     ],
+     [
+      "Moshé",
+      "M"
+     ],
+     [
+      "Flowers",
+      "F"
+     ],
+     [
+      "Leah",
+      "L"
+     ],
+     [
+      "Musician",
+      "M"
+     ],
+     [
+      "Sara",
+      "S"
+     ],
+     [
+      "Eli",
+      "E"
+     ]
+    ],
+    "joiner": ""
+   }
   },
   "pz-corridors": {
    "n": "010",
@@ -404,7 +488,29 @@
    ],
    "why": "Load path respected, camera dry, dinner intact, scooter's one brake unharmed.",
    "view": "leah",
-   "points": 40
+   "points": 40,
+   "ui": "arrange",
+   "uiConfig": {
+    "items": [
+     [
+      "Scooter",
+      "SCOOTER"
+     ],
+     [
+      "Camera",
+      "CAMERA"
+     ],
+     [
+      "Moshé",
+      "MOSHE"
+     ],
+     [
+      "Leah",
+      "LEAH"
+     ]
+    ],
+    "joiner": ","
+   }
   },
   "pz-settlement": {
    "n": "016",
@@ -534,7 +640,11 @@
    "why": "Rest, travelers, a question: the street grid itself is asking whether to keep moving or to stay.",
    "awardsClue": "clue-proposal-paris",
    "view": "moshe",
-   "points": 35
+   "points": 35,
+   "ui": "letters",
+   "uiConfig": {
+    "bank": "PROSEV"
+   }
   },
   "pz-battery": {
    "n": "021",
@@ -597,7 +707,29 @@
    ],
    "why": "Every 'wrong' connection on the route still shows two adjacent seats. The itinerary optimized for togetherness.",
    "awardsClue": "clue-ticket-route",
-   "points": 45
+   "points": 45,
+   "ui": "arrange",
+   "uiConfig": {
+    "items": [
+     [
+      "Ventimiglia",
+      "V"
+     ],
+     [
+      "Antibes",
+      "A"
+     ],
+     [
+      "Back to Antibes",
+      "A"
+     ],
+     [
+      "Menton",
+      "M"
+     ]
+    ],
+    "joiner": ""
+   }
   },
   "pz-blessings": {
    "n": "024",
@@ -710,7 +842,18 @@
    ],
    "why": "Three trips, no group split at the top, and the fireworks catch everyone mid-air on the last one.",
    "view": "leah",
-   "points": 40
+   "points": 40,
+   "ui": "trips",
+   "uiConfig": {
+    "weights": [
+     90,
+     80,
+     70,
+     60,
+     50
+    ],
+    "capacity": 200
+   }
   },
   "pz-amber": {
    "n": "028",
@@ -1081,7 +1224,25 @@
     "BM, LM, TF."
    ],
    "why": "Everyone rides, the hat survives until the loop, and the photo at the drop is legendary.",
-   "points": 50
+   "points": 50,
+   "ui": "arrange",
+   "uiConfig": {
+    "items": [
+     [
+      "Tall friend + friend",
+      "TF"
+     ],
+     [
+      "Birthday girl + mother",
+      "BM"
+     ],
+     [
+      "The couple",
+      "LM"
+     ]
+    ],
+    "joiner": ","
+   }
   },
   "pz-lanterns": {
    "n": "042",
@@ -1269,7 +1430,11 @@
    "why": "Every departure in this reconstruction is answered the same way. The cave just says it out loud.",
    "awardsClue": "clue-echo",
    "textAlternative": true,
-   "points": 35
+   "points": 35,
+   "ui": "letters",
+   "uiConfig": {
+    "bank": "GOSTAY"
+   }
   },
   "pz-neon": {
    "n": "049",
@@ -1495,7 +1660,11 @@
    ],
    "why": "A word built from a city, so she would hear the word inside it. The last fragment glows.",
    "awardsClue": "clue-seoulmate",
-   "points": 50
+   "points": 50,
+   "ui": "letters",
+   "uiConfig": {
+    "bank": "TEAMSOULE"
+   }
   },
   "pz-reconstruct": {
    "n": "057",

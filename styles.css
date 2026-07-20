@@ -117,3 +117,10 @@ body.reduced-motion .chapter-intro{animation:none}
 .pv-turn-row{grid-template-columns:1fr 1fr 64px}
 .seq-token{position:relative}
 .seq-pos{position:absolute;top:-8px;right:-8px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:var(--terra);color:#fff;font-size:12px;font-weight:900}
+
+/* ===== letter/arrange/trip tiles ===== */
+.pv-letters{grid-template-columns:repeat(auto-fit,minmax(48px,1fr))}
+.pv-arrange{grid-template-columns:repeat(auto-fit,minmax(96px,1fr))}
+.pv-tile{position:relative}
+.pv-tile.used{background:var(--navy);color:#fff;opacity:.85}
+.pv-tile:disabled{cursor:default}

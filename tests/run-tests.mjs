@@ -152,7 +152,7 @@ for (const [id, p] of Object.entries(puzzles)) {
   ok(Number.isFinite(p.points) && p.points >= 10, `puzzle ${id} needs a positive points value`);
   // visual renderers are opt-in and must stay consistent with the validator's answer
   if (p.ui) {
-    ok(['keypad', 'clocks', 'weights', 'turns'].includes(p.ui), `puzzle ${id} unknown ui renderer ${p.ui}`);
+    ok(['keypad', 'clocks', 'weights', 'turns', 'letters', 'arrange', 'trips'].includes(p.ui), `puzzle ${id} unknown ui renderer ${p.ui}`);
     ok(p.type === 'text', `puzzle ${id} ui renderer only valid on text puzzles`);
     if (p.ui === 'keypad') ok(/^\d+$/.test(p.answer), `puzzle ${id} keypad needs a purely numeric answer`);
     if (p.ui === 'clocks') {
@@ -167,6 +167,37 @@ for (const [id, p] of Object.entries(puzzles)) {
     }
     if (p.ui === 'turns') {
       ok(p.answer.length === p.uiConfig?.length && /^[LR]+$/.test(p.answer), `puzzle ${id} turns config/answer mismatch`);
+    }
+    if (p.ui === 'letters') {
+      // the bank must contain every answer letter with enough multiplicity
+      const bank = [...(p.uiConfig?.bank || '')];
+      const need = [...p.answer];
+      const pool = [...bank];
+      const feasible = need.every((ch) => {
+        const at = pool.indexOf(ch);
+        if (at < 0) return false;
+        pool.splice(at, 1);
+        return true;
+      });
+      ok(feasible, `puzzle ${id} letter bank cannot spell the answer`);
+      ok(bank.length > need.length || bank.length === need.length, `puzzle ${id} letter bank too small`);
+    }
+    if (p.ui === 'arrange') {
+      const items = p.uiConfig?.items || [];
+      const joiner = p.uiConfig?.joiner ?? '';
+      const emits = items.map(([, e]) => e);
+      // some ordering of the emits must produce the exact answer
+      const answerParts = joiner ? p.answer.split(joiner) : null;
+      if (answerParts) {
+        ok(String([...emits].sort()) === String([...answerParts].sort()), `puzzle ${id} arrange emits must match answer parts`);
+      } else {
+        ok([...emits.join('')].sort().join('') === [...p.answer].sort().join(''), `puzzle ${id} arrange emits must spell the answer`);
+      }
+    }
+    if (p.ui === 'trips') {
+      const tripsList = p.answer.split(',').map((t) => t.split('+').map(Number));
+      ok(String(tripsList.flat().sort((a, b) => a - b)) === String([...(p.uiConfig?.weights || [])].sort((a, b) => a - b)), `puzzle ${id} trips must use every weight once`);
+      ok(tripsList.every((t) => t.reduce((a, b) => a + b, 0) <= p.uiConfig?.capacity), `puzzle ${id} a trip exceeds capacity`);
     }
   }
   if (p.coop) coop += 1;
