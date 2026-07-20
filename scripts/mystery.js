@@ -20,7 +20,21 @@ export function notebookPanel(game) {
       el('strong', {}, `${done ? '✓ ' : ''}${q.text}`),
       el('small', {}, `${found}/${q.resolvedBy.length} supporting clues`)));
   }
-  wrap.append(qs, el('h3', {}, 'Clue board'));
+  wrap.append(qs);
+
+  const deductions = el('details', { class: 'notebook-deductions' },
+    el('summary', {}, `Story deductions (${save.solvedPuzzles.length})`));
+  const deductionCards = el('div', { class: 'cards' });
+  for (const pid of [...save.solvedPuzzles].reverse()) {
+    const puzzle = data.puzzles[pid];
+    if (!puzzle) continue;
+    deductionCards.append(el('article', { class: 'card done' },
+      el('strong', {}, `${puzzle.n} · ${puzzle.title}`),
+      el('small', {}, puzzle.why)));
+  }
+  if (!save.solvedPuzzles.length) deductionCards.append(el('p', {}, 'Solve an énigme to write the first deduction.'));
+  deductions.append(deductionCards);
+  wrap.append(deductions, el('h3', {}, 'Clue board'));
 
   const board = el('div', { class: 'cards' });
   const collected = data.mystery.clues.filter((c) => save.clueBoard.includes(c.clueId));

@@ -26,11 +26,12 @@ function resetPoses(characters, endingPose = 'idle') {
 export function playDialogue(lines, characters, { onDone } = {}) {
   const stage = $('.stage');
   if (!stage || !lines?.length) { onDone?.(); return; }
-  stage.querySelector('.dialogue')?.remove();
+  const dialogueHost = $('.stage-frame') || stage;
+  dialogueHost.querySelector('.dialogue')?.remove();
   let i = 0;
 
   const render = () => {
-    stage.querySelector('.dialogue')?.remove();
+    dialogueHost.querySelector('.dialogue')?.remove();
     if (i >= lines.length) {
       resetPoses(characters, 'relief');
       window.setTimeout(() => resetPoses(characters, 'idle'), 650);
@@ -50,7 +51,7 @@ export function playDialogue(lines, characters, { onDone } = {}) {
         el('p', {}, text)),
       el('button', { class: 'dialogue-next', 'aria-label': 'Next line', onclick: () => { i += 1; render(); } }, '›')
     );
-    stage.append(box);
+    dialogueHost.append(box);
   };
   render();
 }

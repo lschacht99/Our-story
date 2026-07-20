@@ -6,6 +6,7 @@ import { join, extname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeAnswer, sha256Hex, checkAnswer, conditionMet, sceneComplete, puzzleAward } from '../scripts/core.js';
 import { blankSave, migrateSave, deserializeSave, serializeSave, SAVE_VERSION } from '../scripts/save-core.js';
+import * as browserSaves from '../scripts/save.js';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 let failures = 0, checks = 0;
@@ -134,8 +135,15 @@ for (const id of Object.keys(puzzles)) ok(placedPuzzles.has(id), `orphan puzzle 
 for (const id of placedPuzzles) ok(puzzles[id], `placed puzzle undefined: ${id}`);
 let coop = 0, ordered = 0, viewed = 0;
 for (const [id, p] of Object.entries(puzzles)) {
+  const artPath = join(ROOT, 'assets', 'png', 'puzzles', `${id}.png`);
+  ok(existsSync(artPath), `puzzle ${id} is missing its illustrated board`);
+  if (existsSync(artPath)) {
+    const png = readFileSync(artPath);
+    ok(png.readUInt32BE(16) === 1024 && png.readUInt32BE(20) === 768,
+      `puzzle ${id} board must be 1024x768`);
+  }
   ok(['text', 'choice', 'sequence'].includes(p.type), `puzzle ${id} bad type`);
-  ok(Array.isArray(p.hints) && p.hints.length === 4, `puzzle ${id} needs exactly 4 hints`);
+  ok(Array.isArray(p.hints) && p.hints.length === 3, `puzzle ${id} needs exactly 3 progressive hints`);
   ok(p.why && p.prompt && p.inst && p.title, `puzzle ${id} missing fields`);
   ok(['eye', 'gear', 'compass', 'key', 'hands'].includes(p.seal), `puzzle ${id} bad seal`);
   if (p.type === 'choice') {
@@ -158,6 +166,15 @@ ok(coop >= 6, `need >=6 cooperative puzzles, have ${coop}`);
 ok(ordered >= 4, `need >=4 ordered dual-action puzzles, have ${ordered}`);
 ok(viewed >= 8, `need >=8 perspective puzzles, have ${viewed}`);
 ok(Object.keys(puzzles).length >= 40, 'need >=40 puzzles overall');
+ok(readdirSync(join(ROOT, 'assets', 'png', 'puzzles')).filter((name) => name.endsWith('.png')).length === Object.keys(puzzles).length,
+  'puzzle board folder must contain exactly one PNG per puzzle');
+
+const puzzleSource = readFileSync(join(ROOT, 'scripts', 'puzzle.js'), 'utf8');
+ok(puzzleSource.includes('assets/png/puzzles/${id}.png'), 'puzzle UI must derive the board path from the puzzle id');
+ok(puzzleSource.includes("class: 'puzzle-workspace'"), 'puzzle UI must use the responsive illustrated workspace');
+const homeSource = readFileSync(join(ROOT, 'scripts', 'home.js'), 'utf8');
+ok(homeSource.includes("id: 'home-more-menu'"), 'home must keep secondary actions in the More menu');
+ok(homeSource.includes("'aria-expanded'"), 'home More control must expose its expanded state');
 
 // ---------- 6. mystery clue graph ----------
 const clueIds = mystery.clues.map((c) => c.clueId);
@@ -232,6 +249,7 @@ for (const cs of cutscenes) {
   ok(migrateSave('garbage') === null && deserializeSave('{not json') === null, 'garbage save not rejected');
   const round = deserializeSave(serializeSave(blankSave(1, 'Round')));
   ok(round && round.profileName === 'Round' && round.slotId === 1, 'serialize/deserialize roundtrip failed');
+  ok(!!round.lastSavedAt && !Number.isNaN(Date.parse(round.lastSavedAt)), 'serialized save needs a valid timestamp');
 
   // v3 → v4: points/tokens economy fields appear, progress retained
   const v3 = migrateSave({
@@ -253,6 +271,34 @@ for (const cs of cutscenes) {
   const fresh = blankSave();
   ok(fresh.memoryPoints === 0 && fresh.insightTokens >= 1, 'fresh save economy defaults wrong');
   ok(Array.isArray(fresh.playedCutscenes) && Array.isArray(fresh.encounteredPuzzles), 'fresh save missing v4 arrays');
+  const saveUiSource = readFileSync(join(ROOT, 'scripts', 'home.js'), 'utf8');
+  const saveManagerSource = readFileSync(join(ROOT, 'scripts', 'save.js'), 'utf8');
+  ok(saveUiSource.includes("'Save now'") && saveUiSource.includes("'Restore previous'"), 'Save Center controls missing');
+  ok(saveUiSource.includes('saves.readSlot(id) || saves.readSlotBackup(id)'), 'homepage must enable loading when only a recovery backup survives');
+  ok(saveManagerSource.includes('slot-${slotId}-backup') && saveManagerSource.includes('manualSave'), 'per-slot recovery system missing');
+
+  const memory = new Map();
+  globalThis.localStorage = {
+    getItem: (key) => memory.has(key) ? memory.get(key) : null,
+    setItem: (key, value) => memory.set(key, String(value)),
+    removeItem: (key) => memory.delete(key)
+  };
+  const working = browserSaves.newGame(1, 'Recovery QA');
+  working.sceneId = 'p02-paris-airport';
+  browserSaves.writeSlot(1, working);
+  browserSaves.checkpointSlot(1);
+  const checkpoint = memory.get('ourstory-slot-1-backup');
+  working.drafts['pz-invitation'] = { value: 'several keystrokes later' };
+  browserSaves.writeSlot(1, working);
+  browserSaves.writeSlot(1, working);
+  ok(memory.get('ourstory-slot-1-backup') === checkpoint, 'ordinary persistence must not rotate the checkpoint backup');
+  memory.set('ourstory-slot-1', '{corrupt');
+  ok(browserSaves.readSlot(1) === null && browserSaves.readSlotBackup(1)?.sceneId === 'p02-paris-airport',
+    'valid slot backup must remain readable when the primary is corrupt');
+  const recovered = browserSaves.restoreSlotBackup(1);
+  ok(recovered?.sceneId === 'p02-paris-airport' && browserSaves.readSlot(1)?.sceneId === 'p02-paris-airport',
+    'slot backup recovery failed');
+  delete globalThis.localStorage;
 }
 
 // ---------- 9. puzzle validation logic ----------
@@ -268,6 +314,7 @@ for (const cs of cutscenes) {
   ok(finalP.validator === 'hash' && !finalP.answer, 'final puzzle must not store a plaintext answer');
   ok(!(await checkAnswer(finalP, 'WRONG GUESS', mystery.finalValidationHash)), 'hash validator accepted junk');
   ok(normalizeAnswer("  ter-mi n'al two!! ") === 'TERMINALTWO', 'normalizer failed');
+  ok(normalizeAnswer('Énigme, déjà !') === 'ENIGMEDEJA', 'normalizer must forgive French accents and punctuation');
   ok(conditionMet('solve:pz-clocks', { solvedPuzzles: ['pz-clocks'], visitedScenes: [] }), 'conditionMet solve failed');
   ok(!conditionMet('visit:p03-istanbul', { solvedPuzzles: [], visitedScenes: [] }), 'conditionMet visit failed');
   const demo = blankSave();
@@ -301,10 +348,60 @@ for (const cs of cutscenes) {
   ok(html.includes('scripts/engine.js'), 'index.html must load the engine');
   ok(html.includes('manifest.webmanifest'), 'index.html must link the manifest');
   const sw = readFileSync(join(ROOT, 'sw.js'), 'utf8');
-  for (const m of sw.match(/'(assets\/[^']+|scripts\/[^']+|data\/[^']+)'/g) || []) {
-    const p = m.slice(1, -1);
+  for (const m of sw.match(/'(?:\.\/)?(?:assets\/[^']+|scripts\/[^']+|data\/[^']+)'/g) || []) {
+    const p = m.slice(1, -1).replace(/^\.\//, '');
     ok(existsSync(join(ROOT, p)), `sw.js precaches missing file: ${p}`);
   }
+  ok(sw.includes("const CACHE_PREFIX = 'our-story-';") && sw.includes('CACHE_VERSION'), 'service-worker caches must be app-scoped and versioned');
+  ok(sw.includes('key.startsWith(CACHE_PREFIX)') && sw.includes('!ACTIVE_CACHES.has(key)'), 'service-worker cleanup must only remove obsolete app caches');
+  ok(sw.includes("request.method !== 'GET'") && sw.includes("request.headers.has('range')"), 'service worker must skip non-GET and range requests');
+  ok(sw.includes('requestUrl.origin !== scopeUrl.origin') && sw.includes('requestUrl.pathname.startsWith(scopeUrl.pathname)'), 'service worker must skip cross-origin and out-of-scope requests');
+  ok(sw.includes("response.status === 200") && sw.includes("response.type === 'basic'"), 'service worker must only cache successful same-origin responses');
+  ok(sw.includes('cacheFirstPng(event)') && sw.includes('staleWhileRevalidate(event)'), 'service worker must use dedicated PNG and shell/data cache strategies');
+  const fetchAndCacheStrategy = sw.slice(sw.indexOf('function fetchAndCache'), sw.indexOf('function normalizedCacheKey'));
+  const navigationStrategy = sw.slice(sw.indexOf('async function navigationResponse'), sw.indexOf('function cacheFirstPng'));
+  const pngStrategy = sw.slice(sw.indexOf('function cacheFirstPng'), sw.indexOf('async function staleWhileRevalidate'));
+  const refreshStrategy = sw.slice(sw.indexOf('async function staleWhileRevalidate'), sw.indexOf("self.addEventListener('fetch'"));
+  ok(fetchAndCacheStrategy.includes('event.waitUntil(writePromise)') && fetchAndCacheStrategy.includes('return responsePromise'), 'network responses must return independently while cache writes extend event lifetime');
+  ok(fetchAndCacheStrategy.includes('.catch(() => undefined)'), 'cache-write failures must be best-effort and not reject network responses');
+  ok(navigationStrategy.indexOf('fetchAndCache(event,') < navigationStrategy.indexOf('await '), 'navigation refresh lifetime must be registered before yielding');
+  ok(pngStrategy.includes('if (cached) return') && pngStrategy.indexOf('if (cached) return') < pngStrategy.indexOf('await fetch(request)'), 'cached PNG hits must not start a network request');
+  ok(pngStrategy.includes('event.waitUntil(writePromise)') && pngStrategy.includes('return responsePromise'), 'PNG miss writes must be registered synchronously without blocking the response');
+  ok(refreshStrategy.indexOf('fetchAndCache(event,') < refreshStrategy.indexOf('await '), 'background resource refresh must extend lifetime before yielding');
+  ok(refreshStrategy.includes('cache.match(cacheKey)') && refreshStrategy.includes('fetchAndCache(event, request, SHELL_CACHE, cacheKey)'), 'resource refresh must read and overwrite the same normalized shell-cache key');
+  ok(sw.includes("url.search = '';"), 'resource cache keys must discard version query parameters');
+  ok(!sw.includes('RUNTIME_CACHE'), 'service worker must not retain a shadow runtime cache for shell resources');
+  ok(sw.includes('const OFFLINE_URL') && sw.includes('caches.match(OFFLINE_URL)'), 'service worker must provide an offline navigation fallback');
+  const precachedPngs = sw.match(/'\.\/assets\/[^']+\.png'/g) || [];
+  ok(precachedPngs.length === 3, 'service worker must only precache the three critical PNGs');
+  ok(precachedPngs.includes("'./assets/png/ui/title-key-art.png'"), 'service worker must precache the homepage title art');
+  const engine = readFileSync(join(ROOT, 'scripts/engine.js'), 'utf8');
+  const puzzleUi = readFileSync(join(ROOT, 'scripts/puzzle.js'), 'utf8');
+  const audioUi = readFileSync(join(ROOT, 'scripts/audio.js'), 'utf8');
+  ok(engine.includes("register('sw.js', { updateViaCache: 'none' })"), 'service-worker registration must bypass the HTTP cache when checking for updates');
+  ok(puzzleUi.includes("const MAX_HINTS = 3") && puzzleUi.includes('Félicitations !') && puzzleUi.includes('Dommage… réessayez.'), 'puzzle UI must expose three hints and gentle French feedback');
+  ok(puzzleUi.includes("class: 'notebook-update'") && puzzleUi.includes('puzzle-reaction'), 'puzzle solves must reveal a notebook update and character reaction');
+  ok(audioUi.includes('const THEMES') && audioUi.includes('prologue:') && audioUi.includes('final:'), 'chapter-aware lightweight music themes must be defined');
+  ok(audioUi.includes('if (!changed && enabled === nextEnabled) return;'), 'same-chapter rerenders must not restart and overlap the music score');
+  ok(characters.sharon.identity?.includes('Indian Jewish man'), 'Sharon identity metadata must remain male and culturally accurate');
+  const sharonStoryText = `${JSON.stringify(scenes)} ${JSON.stringify(mystery)} ${readFileSync(join(ROOT, 'assets/ASSET_TEMPLATE.json'), 'utf8')}`;
+  for (const stale of ["Sharon isn't here. But her", "Sharon hums that when she's", "That's her resting state", "song she made up", 'joyful bride-to-be']) {
+    ok(!sharonStoryText.includes(stale), `stale female Sharon reference remains: ${stale}`);
+  }
+  const sceneRenderer = readFileSync(join(ROOT, 'scripts/scene.js'), 'utf8');
+  const dialogueRenderer = readFileSync(join(ROOT, 'scripts/dialogue.js'), 'utf8');
+  const spriteCss = readFileSync(join(ROOT, 'sprite-fix.css'), 'utf8');
+  ok(sceneRenderer.includes("class: 'stage-frame'") && sceneRenderer.includes("class: 'stage-viewport'"), 'scene art must render inside a fixed frame and pannable viewport');
+  ok(sceneRenderer.includes('Math.max(viewport.clientWidth, viewport.clientHeight * SCENE_ART_RATIO)'), 'portrait canvas must preserve the 1280:720 art ratio without becoming narrower than its viewport');
+  ok(sceneRenderer.includes('const scenePanPositions = new Map()') && sceneRenderer.includes('scenePanPositions.get(sceneId) ?? 0.5'), 'scene panning must restore an in-memory per-scene position centered by default');
+  ok((sceneRenderer.match(/scrollWidth - .*clientWidth <= 1/g) || []).length >= 2, 'non-pannable landscape scroll and rerender events must not overwrite the saved portrait position');
+  ok(sceneRenderer.includes("['ArrowLeft', 'ArrowRight']") && sceneRenderer.includes('viewport.clientWidth * 0.65'), 'scene viewport must support substantial keyboard panning');
+  ok(sceneRenderer.includes("role: 'region'") && sceneRenderer.includes("tabindex: '0'"), 'scene viewport must expose keyboard-accessible region semantics');
+  ok(dialogueRenderer.includes("const dialogueHost = $('.stage-frame') || stage") && dialogueRenderer.includes('dialogueHost.append(box)'), 'dialogue must remain fixed to the scene frame with a legacy-stage fallback');
+  ok(spriteCss.includes('@media(orientation:portrait)') && spriteCss.includes('overflow-x:auto') && spriteCss.includes('touch-action:pan-x'), 'portrait scenes must enable native horizontal touch panning');
+  ok(spriteCss.includes('overscroll-behavior-x:contain') && spriteCss.includes('.stage-pan-hint'), 'portrait panning must be contained and discoverable');
+  ok(spriteCss.includes('left:calc(50% - min(40vw,320px))') && spriteCss.includes('left:calc(50% + min(40vw,320px))'), 'portrait characters must stay near the initial centered composition');
+  ok(/const CACHE_VERSION = '[^']*pan[^']*';/.test(sw), 'service-worker cache version must change for the portrait-pan release');
   const manifest = json('manifest.webmanifest');
   for (const icon of manifest.icons) ok(existsSync(join(ROOT, icon.src)), `manifest icon missing ${icon.src}`);
 }

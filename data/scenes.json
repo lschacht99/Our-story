@@ -269,7 +269,7 @@
     ],
     [
      "leah",
-     "Sharon isn't here. But her Hamsa is — and this photograph… two people are missing from it."
+     "Sharon isn't here. But his Hamsa is — and this photograph… two people are missing from it."
     ]
    ],
    "hotspots": [
@@ -904,11 +904,11 @@
    "dialogue": [
     [
      "leah",
-     "That tune. Sharon hums that when she's plotting something."
+     "That tune. Sharon hums that when he's plotting something."
     ],
     [
      "moshe",
-     "Sharon is always plotting something. That's her resting state."
+     "Sharon is always plotting something. That's his resting state."
     ],
     [
      "leah",
@@ -943,7 +943,7 @@
    ],
    "anomaly": {
     "category": "phrase",
-    "text": "The musician hums Sharon's tune — a song she made up, that no stranger could know."
+    "text": "The musician hums Sharon's tune — a song he made up, that no stranger could know."
    },
    "need": [
     "cl-stranger"

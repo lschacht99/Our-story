@@ -87,3 +87,90 @@ body.reduced-motion *,body.reduced-motion *:before,body.reduced-motion *:after{a
 .puzzle-index-row{text-align:left;border:0;width:100%;cursor:pointer}
 .discovery .row{justify-content:center}
 body.reduced-motion .search-ripple,body.reduced-motion .travel-arrow.right{animation:none}
+
+/* Storybook puzzle layer: additive styles only; scene geometry is untouched. */
+.puzzle-shell,.puzzle-reveal{position:relative;overflow:hidden}
+.puzzle-shell .puzzle-head,.puzzle-shell .puzzle{position:relative;z-index:2}
+.puzzle-shell.checking .puzzle{filter:saturate(.9)}
+.puzzle-shell.checking:after{content:"";position:absolute;z-index:3;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(214,168,73,.16),transparent 65%);animation:parchment-check .8s linear infinite}
+.puzzle-shell.wrong .instructions{animation:paper-shake .38s ease both;border-color:#a64b42}
+.puzzle-shell.correct .instructions{border-color:var(--olive);background:#e6edda;transition:background .25s}
+.puzzle-shell.correct .feedback{color:var(--olive)}
+.puzzle-reaction{position:absolute;z-index:4;left:0;right:0;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none;opacity:0;padding:0 10px}
+.puzzle-reaction img{width:clamp(74px,22vw,132px);max-height:190px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 8px 8px rgba(16,33,34,.24))}
+.puzzle-shell.wrong>.puzzle-reaction.wrong,.puzzle-shell.correct>.puzzle-reaction.correct,.puzzle-reveal>.puzzle-reaction.correct{opacity:1}
+.puzzle-shell.wrong>.puzzle-reaction.wrong img:first-child{animation:reaction-think-a .48s ease both}
+.puzzle-shell.wrong>.puzzle-reaction.wrong img:last-child{animation:reaction-think-b .48s ease both}
+.puzzle-shell.correct>.puzzle-reaction.correct img,.puzzle-reveal>.puzzle-reaction.correct img{animation:reaction-cheer .62s cubic-bezier(.2,.85,.25,1) both}
+.puzzle-reaction.reaction-2 img:last-child{animation-delay:.08s!important}
+.puzzle-reaction.reaction-3 img:first-child{transform-origin:bottom right}
+.puzzle-reaction.reaction-3 img:last-child{transform-origin:bottom left}
+.hint{animation:ink-reveal .28s ease both}
+.hintbtn.suggested{box-shadow:0 0 0 3px rgba(214,168,73,.42);animation:hint-nudge 1.7s ease-in-out infinite}
+.notebook-update{position:relative;z-index:5;margin:18px auto;padding:13px 15px;max-width:560px;border:1px solid #caa85e;border-radius:12px;background:#fff5d9;text-align:left;box-shadow:inset 0 0 30px rgba(214,168,73,.13);animation:ink-reveal .42s ease both}
+.notebook-update strong{color:var(--navy);font-family:var(--serif)}
+.notebook-update p{margin:5px 0 0;line-height:1.45}
+.reveal-text{position:relative;z-index:5;font-family:var(--serif);font-size:1.08rem;line-height:1.55}
+.notebook-deductions{margin:14px 0 20px;border:1px solid var(--line);border-radius:14px;background:#fff8e9}
+.notebook-deductions summary{min-height:48px;padding:13px 14px;color:var(--navy);font-weight:900;cursor:pointer}
+.notebook-deductions>.cards{max-height:45dvh;overflow:auto;padding:0 12px 12px;margin-top:0}
+@keyframes parchment-check{from{transform:translateX(-70%)}to{transform:translateX(70%)}}
+@keyframes paper-shake{20%{transform:translateX(-5px) rotate(-.3deg)}40%{transform:translateX(4px) rotate(.25deg)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}to{transform:none}}
+@keyframes ink-reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+@keyframes hint-nudge{50%{box-shadow:0 0 0 7px rgba(214,168,73,0)}}
+@keyframes reaction-think-a{0%{opacity:0;transform:translate(-18px,10px)}60%{opacity:1;transform:translate(2px,-3px) rotate(-2deg)}to{opacity:1;transform:none}}
+@keyframes reaction-think-b{0%{opacity:0;transform:translate(18px,10px)}60%{opacity:1;transform:translate(-2px,-3px) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes reaction-cheer{0%{opacity:0;transform:translateY(24px) scale(.9)}55%{opacity:1;transform:translateY(-8px) scale(1.04)}to{opacity:1;transform:none}}
+@media(max-width:520px){.puzzle-buttons{grid-template-columns:1fr 1fr}.puzzle-buttons .submit{grid-column:1/-1}.puzzle-reaction{bottom:96px}.puzzle-reaction img{width:86px;max-height:134px}.notebook-update{margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){.puzzle-reaction,.puzzle-reaction img{animation:none!important}.hintbtn.suggested{animation:none!important}}
+body.reduced-motion .puzzle-reaction,body.reduced-motion .puzzle-reaction img,body.reduced-motion .hintbtn.suggested{animation:none!important}
+
+/* Compact illustrated puzzle workspace. */
+.modal-shell:has(.puzzle-shell){overflow:hidden}
+.puzzle-shell{display:grid;grid-template-rows:auto minmax(0,1fr) auto;max-height:calc(100dvh - 14px);background:var(--paper)}
+.puzzle-shell .puzzle-head{padding:14px 58px 12px 16px;gap:9px;align-items:center}
+.puzzle-shell .puzzle-head>img{width:40px;height:40px}
+.puzzle-shell .puzzle-head h2{font-size:clamp(22px,4vw,34px);line-height:1.03}
+.puzzle-shell .puzzle-head p:not(.eyebrow){margin:5px 0 0;font-size:clamp(.82rem,1.8vw,.94rem);line-height:1.35}
+.puzzle-shell .points-line{font-size:.78rem!important;margin-top:4px!important}
+.puzzle-workspace{display:grid;grid-template-columns:minmax(260px,44%) minmax(0,1fr);min-height:0;overflow:hidden}
+.puzzle-visual{position:relative;min-width:0;margin:0;background:#173f42;overflow:hidden}
+.puzzle-board-art{display:block;width:100%;height:100%;min-height:260px;object-fit:cover}
+.puzzle-controls{min-height:0;overflow:auto;padding:16px;font-size:clamp(.84rem,1.7vw,.96rem)}
+.puzzle-controls .instructions{margin-bottom:12px;padding:9px 11px;line-height:1.35}
+.puzzle-controls .option{padding:9px 10px;line-height:1.3}
+.puzzle-controls .options{gap:7px}
+.puzzle-controls .answer{min-height:44px;padding:9px 10px}
+.puzzle-controls .sequence{gap:6px}
+.puzzle-controls .sequence button{min-height:44px;padding:7px 9px;font-size:.88rem}
+.puzzle-controls .hint{padding:9px 10px;line-height:1.35}
+.puzzle-actions{position:relative;z-index:6;bottom:auto;display:grid;grid-template-columns:auto auto auto minmax(150px,1fr);gap:7px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#fff8e9;border-top:1px solid var(--line)}
+.puzzle-actions button{min-height:44px;padding:8px 11px}
+.puzzle-visual .puzzle-reaction{bottom:0;padding:0 4px}
+.puzzle-visual .puzzle-reaction img{width:clamp(72px,16vw,128px);max-height:45%;filter:drop-shadow(0 5px 7px rgba(16,33,34,.3))}
+.puzzle-shell.wrong .puzzle-visual .puzzle-reaction.wrong,.puzzle-shell.correct .puzzle-visual .puzzle-reaction.correct{opacity:1}
+.puzzle-shell.wrong .puzzle-visual .puzzle-reaction.wrong img:first-child{animation:reaction-think-a .48s ease both}
+.puzzle-shell.wrong .puzzle-visual .puzzle-reaction.wrong img:last-child{animation:reaction-think-b .48s ease both}
+.puzzle-shell.correct .puzzle-visual .puzzle-reaction.correct img{animation:reaction-cheer .62s cubic-bezier(.2,.85,.25,1) both}
+.puzzle-result-art{display:block;width:min(100%,520px);max-height:32dvh;aspect-ratio:4/3;object-fit:cover;margin:13px auto;border-radius:15px;border:1px solid rgba(21,63,70,.2);box-shadow:0 9px 24px rgba(22,43,44,.18)}
+.discovery{padding:24px}
+.discovery h2,.puzzle-reveal h2{font-size:clamp(24px,5vw,38px)}
+@media(max-width:759px){
+  .puzzle-shell .puzzle-head{padding:11px 54px 10px 13px}
+  .puzzle-shell .puzzle-head>img{width:34px;height:34px}
+  .puzzle-shell .puzzle-head h2{font-size:clamp(20px,6vw,27px)}
+  .puzzle-workspace{display:block;overflow:auto}
+  .puzzle-visual{width:100%;height:min(25dvh,190px);min-height:128px}
+  .puzzle-board-art{height:100%;min-height:0;object-fit:cover}
+  .puzzle-controls{overflow:visible;padding:12px 13px;font-size:.86rem}
+  .puzzle-actions{grid-template-columns:repeat(4,minmax(0,1fr));padding:8px 9px calc(8px + env(safe-area-inset-bottom))}
+  .puzzle-actions button{min-width:0;padding:7px 4px;font-size:.76rem;line-height:1.1}
+  .puzzle-actions .submit{grid-column:auto}
+  .puzzle-visual .puzzle-reaction img{width:72px;max-height:76%}
+  .puzzle-result-art{max-height:24dvh;margin:9px auto}
+  .discovery{padding:19px 16px}
+}
+@media(max-height:650px){
+  .puzzle-shell .puzzle-head p:not(.eyebrow),.puzzle-shell .points-line{display:none}
+  .puzzle-visual{height:min(22dvh,140px)}
+}
