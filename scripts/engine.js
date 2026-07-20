@@ -42,6 +42,7 @@ const game = {
   closeAllPanels() { closeModal(); },
 
   startNewGame(save) {
+    save.settings = { ...save.settings, ...(saves.readPreferences() || {}) };
     this.save = save;
     this.mode = 'scene';
     const intro = this.data.cutscenes.cutscenes.find((c) => c.id === 'cs01-invitation');
@@ -49,6 +50,7 @@ const game = {
   },
 
   loadSave(save) {
+    save.settings = { ...save.settings, ...(saves.readPreferences() || {}) };
     this.save = save;
     this.mode = 'scene';
     this.render();
@@ -182,7 +184,7 @@ const game = {
   openNotebook() { openModal(notebookPanel(this), { label: 'Mystery Notebook' }); },
 
   openSettings(fromHome = false) {
-    const s = this.save?.settings || saves.blankSave().settings;
+    const s = saves.readPreferences() || this.save?.settings || saves.blankSave().settings;
     const rows = [
       ['sound', 'Sound cues'], ['music', 'Music'], ['captions', 'Captions'],
       ['largeText', 'Larger text'], ['contrast', 'High contrast'],
@@ -199,8 +201,9 @@ const game = {
       input.addEventListener('change', () => {
         s[keyName] = input.checked;
         applySettings(s);
-        if (keyName === 'music') this.audio.setChapter(this.save?.chapterId, s.music && this.mode === 'scene');
-        this.persist();
+        if (keyName === 'music') this.audio.setChapter(this.mode === 'home' ? 'home' : this.save?.chapterId, s.music);
+        saves.writePreferences(s);
+        if (this.save) this.persist();
       });
       list.append(el('label', { class: 'card settings-row' }, label, input));
     }
@@ -266,7 +269,7 @@ async function boot() {
   document.addEventListener('pointerdown', () => audio.unlock(), { once: true, passive: true });
   document.addEventListener('keydown', () => audio.unlock(), { once: true });
   startPlaytimeClock();
-  applySettings(saves.readAutosave()?.settings || saves.blankSave().settings);
+  applySettings(saves.readPreferences() || saves.readAutosave()?.settings || saves.blankSave().settings);
   loading.remove();
   game.render();
   window.addEventListener('beforeunload', () => { if (game.save) { game.persist(); game.autosaveNow(); } });

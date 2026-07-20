@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'our-story-';
-const CACHE_VERSION = 'v10-20260720-pan-puzzle-art';
+const CACHE_VERSION = 'v11-20260720-pan-interactive-clues';
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const PNG_CACHE = `${CACHE_PREFIX}png-${CACHE_VERSION}`;
 const ACTIVE_CACHES = new Set([SHELL_CACHE, PNG_CACHE]);

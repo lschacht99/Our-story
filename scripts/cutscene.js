@@ -11,11 +11,13 @@ export function playCutscene(cs, game, { replay = false, onDone } = {}) {
   const textHost = el('div', { class: 'cutscene-text', 'aria-live': 'polite' });
   let i = 0;
   let finished = false;
+  game.audio?.setChapter('cinematic', game.save?.settings.music !== false);
 
   const finish = () => {
     if (finished) return;
     finished = true;
     overlay.remove();
+    game.audio?.setChapter(game.mode === 'home' ? 'home' : game.save?.chapterId, game.save?.settings.music !== false);
     onDone?.();
   };
 

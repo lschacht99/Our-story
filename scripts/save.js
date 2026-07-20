@@ -29,6 +29,15 @@ export function readSlotBackup(slotId) {
   return text ? deserializeSave(text) : null;
 }
 
+export function readPreferences() {
+  try { return JSON.parse(localStorage.getItem(key('preferences'))) || null; }
+  catch { return null; }
+}
+
+export function writePreferences(settings) {
+  localStorage.setItem(key('preferences'), JSON.stringify(settings));
+}
+
 function stamped(save) {
   save.lastSavedAt = new Date().toISOString();
   return serializeSave(save);
