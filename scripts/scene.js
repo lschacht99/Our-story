@@ -129,6 +129,7 @@ export function renderScene(game) {
   const scene = { ...game.data.scenes.scenes[save.sceneId], id: save.sceneId };
   const chapter = game.chaptersById[scene.chapterId];
   save.chapterId = scene.chapterId;
+  game.audio?.setChapter(scene.chapterId, save.settings.music);
   if (!save.visitedScenes.includes(scene.id)) {
     save.visitedScenes.push(scene.id);
     game.persist();

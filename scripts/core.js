@@ -2,10 +2,10 @@
 
 export function normalizeAnswer(v) {
   return String(v || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .toUpperCase()
-    .replace(/[\s.'"’,;:!?()-]+/g, '')
-    .replace(/[–—]/g, '')
-    .replace(/É/g, 'E');
+    .replace(/[^A-Z0-9]+/g, '');
 }
 
 export async function sha256Hex(text) {

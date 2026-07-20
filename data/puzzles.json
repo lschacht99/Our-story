@@ -12,8 +12,7 @@
    "hints": [
     "It names an airport location.",
     "It begins with T.",
-    "Two words: eight letters, then three.",
-    "TERMINAL TWO."
+    "Two words: eight letters, then three."
    ],
    "why": "The shifted letters spell TERMINAL TWO — where the replacement route begins.",
    "awardsClue": "clue-invitation",
@@ -31,8 +30,7 @@
    "hints": [
     "Soft clothes form the base.",
     "The scarf box lies flat on the clothes.",
-    "Passports go last, on top, reachable.",
-    "C S K S G F C C T P."
+    "Passports go last, on top, reachable."
    ],
    "why": "Fragile things ride on soft layers and the passports stay on top.",
    "points": 40
@@ -63,8 +61,7 @@
    "hints": [
     "The connecting gate closes at 14:05.",
     "A same-terminal transfer needs 50 minutes.",
-    "A is delayed; C loses 70 minutes changing terminals.",
-    "Choose B."
+    "A is delayed; C loses 70 minutes changing terminals."
    ],
    "why": "Flight B lands with a comfortable same-terminal transfer.",
    "awardsClue": "clue-return-ticket",
@@ -82,8 +79,7 @@
    "hints": [
     "Begin with the 10 kg weight.",
     "Add the 7 kg weight next.",
-    "Five kilograms remain.",
-    "10, 7, 5."
+    "Five kilograms remain."
    ],
    "why": "10 + 7 + 5 = 22 kg, using exactly three weights.",
    "points": 40
@@ -100,8 +96,7 @@
    "hints": [
     "Istanbul is two hours ahead of Paris.",
     "Muscat is three hours ahead.",
-    "Mumbai is four and a half hours ahead.",
-    "11:00, 12:00, 13:30."
+    "Mumbai is four and a half hours ahead."
    ],
    "why": "All four clocks now show one shared instant — except the fifth, stuck on a Havdalah hour.",
    "awardsClue": "clue-clocks",
@@ -125,8 +120,7 @@
    "hints": [
     "Begin with the protective symbol.",
     "The messenger follows the protector.",
-    "The direction comes before the destination.",
-    "Hamsa → Rabbit → Arrow → Gate."
+    "The direction comes before the destination."
    ],
    "why": "The completed pattern slides the tile wall open onto the hidden concourse.",
    "view": "leah",
@@ -162,8 +156,7 @@
    "hints": [
     "The suitcase carries a Mumbai sticker.",
     "A witness heard metal clinking inside.",
-    "One suspect is attending Sharon's wedding.",
-    "The musician."
+    "One suspect is attending Sharon's wedding."
    ],
    "why": "Only the musician matches destination, sound and occasion.",
    "awardsClue": "clue-lost-suitcase",
@@ -188,8 +181,7 @@
    "hints": [
     "Begin at the right-hand edge — the East.",
     "The Crown sits highest of all.",
-    "The Heart is the central star.",
-    "East → Crown → Heart → West → South."
+    "The Heart is the central star."
    ],
    "why": "The five stars trace a Hamsa across the ceiling and the gate display flickers back on.",
    "coop": true,
@@ -207,8 +199,7 @@
    "hints": [
     "The family of three takes C, D and E.",
     "Moshé and Leah stay together in A and B.",
-    "The flowers get their own seat F; the musician takes G.",
-    "M L S C E F M."
+    "The flowers get their own seat F; the musician takes G."
    ],
    "why": "Everyone boards: couple together, family together, flowers unsquashed.",
    "points": 50
@@ -233,8 +224,7 @@
    "hints": [
     "Nothing opens before Leah restores power.",
     "Moshé opens the gate, then redirects the walkway.",
-    "The belt must move before the sign updates.",
-    "Power → Gate → Walkway → Belt → Sign → Elevator."
+    "The belt must move before the sign updates."
    ],
    "why": "Each traveler opened the other's path until both reached arrivals — together.",
    "coop": true,
@@ -259,8 +249,7 @@
    "hints": [
     "It begins over a full cup.",
     "The fragrance comes second.",
-    "Light before the final words.",
-    "Wine → Spices → Flame → Blessing."
+    "Light before the final words."
    ],
    "why": "The ceremony completes — and in the candlelight, a white rabbit sits calmly on the table.",
    "awardsClue": "clue-rabbit-first",
@@ -296,8 +285,7 @@
    "hints": [
     "Three objects have aged here for years.",
     "One object hasn't been printed yet.",
-    "Moshé talked about the metro on the rooftop — later.",
-    "The metro card."
+    "Moshé talked about the metro on the rooftop — later."
    ],
    "why": "A future metro card inside an old memory: proof the past is being reconstructed, not replayed.",
    "awardsClue": "clue-future-object",
@@ -333,8 +321,7 @@
    "hints": [
     "Count trails toward the water.",
     "Now count trails coming back.",
-    "Zero is a strange number of departures.",
-    "Every trail arrives; none leave."
+    "Zero is a strange number of departures."
    ],
    "why": "The direction anomaly, stated plainly: in this reconstruction, arrivals are real and departures are not.",
    "awardsClue": "clue-anomaly-rule",
@@ -358,8 +345,7 @@
    "hints": [
     "The oldest silhouette stands far left.",
     "The crane leans beside it.",
-    "The antenna ends the line on the right.",
-    "Old Tower → Crane → New Tower → Antenna."
+    "The antenna ends the line on the right."
    ],
    "why": "The overlaid skylines agree — except one tower that belongs to a later city.",
    "view": "both",
@@ -377,8 +363,7 @@
    "hints": [
     "The lightest precious thing goes first, carried high.",
     "Leah tests the rail path with the camera.",
-    "The scooter rolls across last, alone.",
-    "Camera, Leah, Moshé, Scooter."
+    "The scooter rolls across last, alone."
    ],
    "why": "Load path respected, camera dry, dinner intact, scooter's one brake unharmed.",
    "view": "leah",
@@ -402,8 +387,7 @@
    "hints": [
     "No settlement without water on the high point.",
     "Homes come before their meeting place.",
-    "The gate is the last promise.",
-    "Water Tower → Houses → Square → Gate."
+    "The gate is the last promise."
    ],
    "why": "Engineer and planner build one small town — and its sign already says WELCOME HOME.",
    "coop": true,
@@ -440,8 +424,7 @@
    "hints": [
     "The cooks are visible, aprons and all.",
     "Nobody overslept — attendance was taken.",
-    "Who was missing from the Mumbai photo?",
-    "Leah and Moshé — the same two, every photo."
+    "Who was missing from the Mumbai photo?"
    ],
    "why": "You cannot appear in a memory you are still rebuilding. The pattern holds.",
    "awardsClue": "clue-groupphoto",
@@ -465,8 +448,7 @@
    "hints": [
     "Start where the morning market noise is loudest.",
     "Jeff's 'second arch, obviously' comes second — obviously.",
-    "Finish above the city, on the rooftops.",
-    "Market Lane → Second Arch → Fountain Court → Rooftop Path."
+    "Finish above the city, on the rooftops."
    ],
    "why": "One clean line through the city — and from the rooftop path, the lane that shouldn't exist is briefly visible.",
    "points": 45
@@ -483,8 +465,7 @@
    "hints": [
     "It starts with L.",
     "Two rights follow the first left.",
-    "It ends turning right, under the lamp.",
-    "L R R L L R."
+    "It ends turning right, under the lamp."
    ],
    "why": "Traced on the map, the turns draw a letter S — the first stroke of a sentence still being written.",
    "awardsClue": "clue-sixturns",
@@ -502,8 +483,7 @@
    "hints": [
     "Look at the first sign.",
     "'Repos' means rest — rest and staying share a root of stillness.",
-    "The other two signs are travelers and a question.",
-    "REPOS."
+    "The other two signs are travelers and a question."
    ],
    "why": "Rest, travelers, a question: the street grid itself is asking whether to keep moving or to stay.",
    "awardsClue": "clue-proposal-paris",
@@ -522,8 +502,7 @@
    "hints": [
     "10% per assisted kilometre.",
     "40 ÷ 10.",
-    "It doesn't matter who uses it — the pool is shared.",
-    "4 kilometres of assist, shared however you like."
+    "It doesn't matter who uses it — the pool is shared."
    ],
    "why": "Four assisted kilometres, alternated fairly — and four pedaled ones, complained about equally.",
    "view": "leah",
@@ -547,8 +526,7 @@
    "hints": [
     "The day began on foot, early.",
     "You crossed the bridge with morning light behind you.",
-    "Lunch was late; the grass came after.",
-    "Walk → Bridge → Lunch → Grass."
+    "Lunch was late; the grass came after."
    ],
    "why": "The day reassembles: quiet, bordered by two countries, ordered by light.",
    "points": 45
@@ -565,8 +543,7 @@
    "hints": [
     "It starts where the fishing rods are.",
     "The Citron Festival is the second stop.",
-    "Italy is the farthest point, then home.",
-    "A M V A."
+    "Italy is the farthest point, then home."
    ],
    "why": "Every 'wrong' connection on the route still shows two adjacent seats. The itinerary optimized for togetherness.",
    "awardsClue": "clue-ticket-route",
@@ -602,8 +579,7 @@
    "hints": [
     "Wine opens the booklet — it's there.",
     "Joy and voices both appear on the last page.",
-    "Which blessing is about what two people build?",
-    "The blessing of building a home together."
+    "Which blessing is about what two people build?"
    ],
    "why": "The page about building a home is the one the memory cannot supply — the players must supply it themselves.",
    "awardsClue": "clue-missing-blessing",
@@ -621,8 +597,7 @@
    "hints": [
     "Moshé matched every face he could.",
     "Leah counted two empty niches.",
-    "The empty niches are exactly where two doubles should stand.",
-    "2."
+    "The empty niches are exactly where two doubles should stand."
    ],
    "why": "Two visitors have no doubles: the same two missing from every photograph.",
    "awardsClue": "clue-mirror",
@@ -659,8 +634,7 @@
    "hints": [
     "The board and sign contradict — one of them updated late.",
     "Crowds follow the board, including its mistakes.",
-    "Someone you've met before is also going your way.",
-    "The musician — Mumbai wedding, Udaipur honeymoon tour. Follow the clinking."
+    "Someone you've met before is also going your way."
    ],
    "why": "The musician's luggage has been right twice already. Platform 3, as the sign said.",
    "points": 45
@@ -677,8 +651,7 @@
    "hints": [
     "90 and 80 together stay under 200.",
     "70 and 60 pair cleanly.",
-    "The lightest rides alone with the view.",
-    "90+80, 70+60, 50."
+    "The lightest rides alone with the view."
    ],
    "why": "Three trips, no group split at the top, and the fireworks catch everyone mid-air on the last one.",
    "view": "leah",
@@ -702,8 +675,7 @@
    "hints": [
     "Follow the breaks in the order the wall climbs.",
     "Lowest break first.",
-    "The arch is the destination, not a break.",
-    "First → Second → Third → Gate arch."
+    "The arch is the destination, not a break."
    ],
    "why": "The breaks stitch a walkable line up the hill, straight to the gate before sunset.",
    "points": 35
@@ -738,8 +710,7 @@
    "hints": [
     "Unclipped means hands, not accident.",
     "The hook sits low — or the culprit reached up? No: shorter than the hook.",
-    "Who carried green?",
-    "The small kid with the green powder bag. The tail is now a Holi trophy."
+    "Who carried green?"
    ],
    "why": "Unclipped by small hands dusted green. The tail was returned, ceremonially, at sundown.",
    "points": 50
@@ -756,8 +727,7 @@
    "hints": [
     "Meter: 8 × 12.",
     "That's 96.",
-    "Plus 24 for the rabbit figurine's welfare.",
-    "96 + 24 = 120."
+    "Plus 24 for the rabbit figurine's welfare."
    ],
    "why": "Both sides declare victory, which is the definition of a fair price. The rabbit figurine nods.",
    "view": "moshe",
@@ -793,8 +763,7 @@
    "hints": [
     "Count the big shapes — they all match.",
     "It's small, warm and yellow.",
-    "Someone seems to be home in the reflection only.",
-    "One extra lit window."
+    "Someone seems to be home in the reflection only."
    ],
    "why": "The memory added a lit window: somewhere in the reconstruction, a home is already waiting.",
    "view": "both",
@@ -818,8 +787,7 @@
    "hints": [
     "Wind first, or nothing else survives.",
     "The tent must be anchored before the fire is lit beside it.",
-    "Guylines are the final tension.",
-    "Windbreak → Anchors → Fire → Guylines."
+    "Guylines are the final tension."
    ],
    "why": "Camp stands, fire burns, stars come out early — and a letter fragment waits in the tent pocket.",
    "coop": true,
@@ -845,8 +813,7 @@
    "hints": [
     "Start where breakfast (and the shakshuka pizza) is.",
     "The market closes at noon — go early.",
-    "Neon is better after dark: Chinatown late.",
-    "Chabad → Floating market → Chinatown → Pier."
+    "Neon is better after dark: Chinatown late."
    ],
    "why": "Every stop caught in its best hour, and the loop-canal with no exit safely avoided.",
    "points": 45
@@ -881,8 +848,7 @@
    "hints": [
     "Dead low strands the lagoon boat.",
     "High tide seals the cave.",
-    "One entry on the chart is an anomaly, not an option.",
-    "09:30, rising mid-tide."
+    "One entry on the chart is an anomaly, not an option."
    ],
    "why": "Mid-tide threads both needles. The impossible 16:30 low is logged in the notebook instead.",
    "points": 45
@@ -899,8 +865,7 @@
    "hints": [
     "The double order: 2 coconuts.",
     "Two singles: 2 more. Total 4 for drinks.",
-    "Moshé is holding 2 for courage.",
-    "7 − 4 − 2 = 1."
+    "Moshé is holding 2 for courage."
    ],
    "why": "One coconut remains — and during a certain hypothetical question, it rolled away, unneeded.",
    "awardsClue": "clue-question-early",
@@ -924,8 +889,7 @@
    "hints": [
     "The card reads top to bottom.",
     "Fish first — the harbor end of the street.",
-    "The moon marks the guesthouse door.",
-    "Fish → Umbrella → Golden bowl → Moon."
+    "The moon marks the guesthouse door."
    ],
    "why": "Pictures outlast words: four signs later, home. (The fish-umbrella-bowl shop dinner happened anyway.)",
    "view": "moshe",
@@ -949,8 +913,7 @@
    "hints": [
     "It begins with sanctifying over the cup.",
     "Washing comes second.",
-    "The greens before the breaking.",
-    "Kiddush → Urchatz → Karpas → Yachatz."
+    "The greens before the breaking."
    ],
    "why": "The seder begins correctly; the matzah under the hat survives Songkran entirely.",
    "points": 35
@@ -985,8 +948,7 @@
    "hints": [
     "Write the sequence down: P B P G P B P …",
     "Pagoda alternates with something every time.",
-    "The something cycles: bridge, gate, bridge, …",
-    "The gate."
+    "The something cycles: bridge, gate, bridge, …"
    ],
    "why": "Pattern PBPGPBP(G): pagoda every other stop, the alternates cycling bridge-gate. The bananas confirm.",
    "points": 50
@@ -1009,8 +971,7 @@
    "hints": [
     "Coffee first — it's on the way and opens early.",
     "Beat the fire-haze closure: high road before noon.",
-    "The spring fills the afternoon gap.",
-    "Café → High road → Hot spring → Temple at four."
+    "The spring fills the afternoon gap."
    ],
    "why": "The temple catches the four o'clock light like frost catching fire.",
    "awardsClue": null,
@@ -1028,8 +989,7 @@
    "hints": [
     "Group in fours: RRRB.",
     "First two groups are perfect.",
-    "The third group is a flag short.",
-    "Position 11 — a banner arrives one flag early."
+    "The third group is a flag short."
    ],
    "why": "Under the early banner: the side street, the quiet gap, and the best view of the fireworks.",
    "points": 35
@@ -1046,8 +1006,7 @@
    "hints": [
     "Front row is fixed: BM.",
     "The mother's hat is in row one — the tall friend can't sit in row two.",
-    "So the couple takes the middle.",
-    "BM, LM, TF."
+    "So the couple takes the middle."
    ],
    "why": "Everyone rides, the hat survives until the loop, and the photo at the drop is legendary.",
    "points": 50
@@ -1070,8 +1029,7 @@
    "hints": [
     "The river brightens warm colors first.",
     "Red, then gold.",
-    "White last — it's the unlit one's twin.",
-    "Red → Gold → Blue → White."
+    "White last — it's the unlit one's twin."
    ],
    "why": "When the white lantern lights, its reflection finally matches — and the rabbit tally in the notebook aligns into a pattern.",
    "view": "both",
@@ -1108,8 +1066,7 @@
    "hints": [
     "Same side capsizes — memorably.",
     "Standing raises the center of gravity.",
-    "Opposite and low, strokes alternating.",
-    "C. (D was attempted. Once.)"
+    "Opposite and low, strokes alternating."
    ],
    "why": "Opposite, low, alternating: the basket goes forward — upstream, oddly, but forward.",
    "view": "leah",
@@ -1133,8 +1090,7 @@
    "hints": [
     "You are travelers first.",
     "Then scholars — Moshé insists.",
-    "The hinge admits you once.",
-    "East → South → Hinge → Courtyard."
+    "The hinge admits you once."
    ],
    "why": "Gate within gate within gate — and behind you, each door quietly ceases to exist.",
    "points": 45
@@ -1169,8 +1125,7 @@
    "hints": [
     "The boat is taller than a meter with you in it.",
     "You can't carry a boat up a dry ledge.",
-    "The rower has done this nine thousand times, and she's aiming middle.",
-    "The singing middle cave."
+    "The rower has done this nine thousand times, and she's aiming middle."
    ],
    "why": "The middle cave sings because it breathes — open at both ends. The song is Sharon's tune.",
    "points": 50
@@ -1187,8 +1142,7 @@
    "hints": [
     "The pattern repeats in fours: 4,4,4,3.",
     "Two full cycles pass cleanly — that's eight groups.",
-    "Count on: 4 (9th), 4 (10th), then…",
-    "The 11th group — a 3 arrives early. The hidden path crosses there."
+    "Count on: 4 (9th), 4 (10th), then…"
    ],
    "why": "Where the rhythm breaks, a farmer's path crosses the terraces — invisible in the mist, obvious in the count.",
    "points": 35
@@ -1211,8 +1165,7 @@
    "hints": [
     "Traction before force.",
     "Coordination before effort — count first.",
-    "Pull and throttle land on the same beat.",
-    "Boards → Count → Pull → Throttle."
+    "Pull and throttle land on the same beat."
    ],
    "why": "The bike surfaces with a sound like a cork. Both of them are 40% mud. The waterfall applauds.",
    "coop": true,
@@ -1231,8 +1184,7 @@
    "hints": [
     "It is one word, four letters.",
     "It is the opposite of what was called.",
-    "The cave has been saying it the whole journey.",
-    "STAY."
+    "The cave has been saying it the whole journey."
    ],
    "why": "Every departure in this reconstruction is answered the same way. The cave just says it out loud.",
    "awardsClue": "clue-echo",
@@ -1269,8 +1221,7 @@
    "hints": [
     "The crab is famously real.",
     "The drummer drums above the third bridge.",
-    "What keeps appearing where it shouldn't?",
-    "The rabbit — a reflection with no sign."
+    "What keeps appearing where it shouldn't?"
    ],
    "why": "Five signs, six reflections. The rabbit shines up from the water with nothing above to cast it.",
    "points": 35
@@ -1305,8 +1256,7 @@
    "hints": [
     "The express gate only serves the right lane.",
     "12:15 is twelve minutes away — the right lane survives that.",
-    "Splitting up defeats the entire premise of this journey.",
-    "C."
+    "Splitting up defeats the entire premise of this journey."
    ],
    "why": "A scheduling problem wearing a fun hat, solved. Ride photo: two people mid-laugh — from a ride they hadn't boarded yet.",
    "points": 50
@@ -1329,8 +1279,7 @@
    "hints": [
     "Walk in numeric order, skipping the clouded ones.",
     "Skip the second.",
-    "Skip the fifth.",
-    "First → Third → Fourth → Sixth."
+    "Skip the fifth."
    ],
    "why": "The Hamsa is a compass for memories: clear eye, true detail; clouded eye, invention.",
    "view": "both",
@@ -1367,8 +1316,7 @@
    "hints": [
     "The bower's alibi is airtight and adorable.",
     "The latecomer arrived post-theft.",
-    "Paper crumbs are not a natural part of the deer diet. And yet.",
-    "The one with the crumbs."
+    "Paper crumbs are not a natural part of the deer diet. And yet."
    ],
    "why": "Justice in Nara: the deer bowed in apology. The maps were beyond saving. New maps were purchased.",
    "points": 50
@@ -1390,8 +1338,7 @@
    "hints": [
     "Eliminate before you confirm.",
     "Her junction has flow but no story.",
-    "His square has story but no flow.",
-    "Eliminate both, confirm the shared crossing."
+    "His square has story but no flow."
    ],
    "why": "Systems and stories agree on exactly one crossing — the famous one, where everyone meets.",
    "coop": true,
@@ -1416,8 +1363,7 @@
    "hints": [
     "The mountain unveils at dawn.",
     "The bikes went around the lake in the morning.",
-    "Snacks ended the day — remember the box.",
-    "Dawn → Lake ride → Flower arch → Snacks."
+    "Snacks ended the day — remember the box."
    ],
    "why": "Sorted, the truth is visible: in every gate and arch, they are walking IN. This reconstruction has no exits.",
    "awardsClue": "clue-gates",
@@ -1440,8 +1386,7 @@
    "hints": [
     "Begin with the sunrise.",
     "The main gate faces south — it is honored second.",
-    "End with the sunset.",
-    "East → South → West."
+    "End with the sunset."
    ],
    "why": "The gates open in the sun's own order. The guard ceremony, this once, runs forward.",
    "points": 45
@@ -1458,8 +1403,7 @@
    "hints": [
     "It is a pun. She knows it is going to be a pun.",
     "The city is the one you are standing in.",
-    "The hidden word inside is 'soul'.",
-    "SEOULMATE."
+    "The hidden word inside is 'soul'."
    ],
    "why": "A word built from a city, so she would hear the word inside it. The last fragment glows.",
    "awardsClue": "clue-seoulmate",
@@ -1487,8 +1431,7 @@
    "hints": [
     "The fragments are numbered in journey order — trust the numerals.",
     "I through IV cover Paris to India.",
-    "V through VIII cover Thailand to Korea.",
-    "I, II, III, IV, V, VI, VII, VIII."
+    "V through VIII cover Thailand to Korea."
    ],
    "why": "The page exists again. It is a boarding pass for one seat, on a return flight — with the final line still blank.",
    "points": 45
@@ -1523,8 +1466,7 @@
    "hints": [
     "The hat went back on the rack.",
     "Mirrors keep nothing.",
-    "What do you keep folded in a wallet for years?",
-    "The receipt."
+    "What do you keep folded in a wallet for years?"
    ],
    "why": "Kept, folded, carried across nine countries. The joke was never entirely a joke.",
    "awardsClue": "clue-thrift",
@@ -1547,8 +1489,7 @@
    "hints": [
     "First the place, then the event, then the witness.",
     "The pier framed her whole view.",
-    "The ferry left mid-question.",
-    "Pier → Ferry → Rabbit."
+    "The ferry left mid-question."
    ],
    "why": "The evening airport ferry left while the question hung in the air. He never looked at it. The rabbit sat exactly where he didn't look.",
    "view": "leah",
@@ -1585,8 +1526,7 @@
    "hints": [
     "Paris was a coffee stain.",
     "Fuji was rice snacks; the waterfall was just perfect, not proposive.",
-    "Where was a question actually asked — and where was a word actually built?",
-    "Koh Phi Phi and Seoul."
+    "Where was a question actually asked — and where was a word actually built?"
    ],
    "why": "Every candidate held one authentic clue and one lovely lie. Only the too-early question and the Seoulmate sentence survive the Hamsa's eye.",
    "points": 35
@@ -1609,8 +1549,7 @@
    "hints": [
     "It all starts with an excuse to keep talking.",
     "The question came before the ferry left — that's why the ferry left alone.",
-    "The city-word is the most recent.",
-    "Havdalah → Question → Ferry → Seoulmate."
+    "The city-word is the most recent."
    ],
    "why": "The spine of the story, straightened: an excuse, a question, an unboarded departure, a word.",
    "coop": true,
@@ -1647,8 +1586,7 @@
    "hints": [
     "The Hamsa's eye stayed clear on the receipt.",
     "The echo was witnessed twice.",
-    "One of these was always labelled 'hypothetical'.",
-    "The horse wedding — imagined, allergic, and lovely, but never real."
+    "One of these was always labelled 'hypothetical'."
    ],
    "why": "The imagined horses gallop off, taking the last red herring with them.",
    "coop": true,
@@ -1666,8 +1604,7 @@
    "hints": [
     "Three words. He said them instead of leaving.",
     "The cave already told you the first one.",
-    "The Seoulmate sentence tells you whose company he chose.",
-    "The cave said the first word. Then ask: with whom? Say it to her."
+    "The Seoulmate sentence tells you whose company he chose."
    ],
    "why": "The line writes itself in gold. The missing flight departs, forever, without him — exactly as it always did.",
    "coop": true,

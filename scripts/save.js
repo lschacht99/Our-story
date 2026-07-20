@@ -24,24 +24,57 @@ export function readBackup() {
   return text ? deserializeSave(text) : null;
 }
 
+export function readSlotBackup(slotId) {
+  const text = localStorage.getItem(key(`slot-${slotId}-backup`));
+  return text ? deserializeSave(text) : null;
+}
+
+function stamped(save) {
+  save.lastSavedAt = new Date().toISOString();
+  return serializeSave(save);
+}
+
 export function writeSlot(slotId, save) {
   save.slotId = slotId;
-  localStorage.setItem(key(`slot-${slotId}`), serializeSave(save));
+  const slotKey = key(`slot-${slotId}`);
+  const text = stamped(save);
+  if (!deserializeSave(text)) throw new Error('Save validation failed');
+  localStorage.setItem(slotKey, text);
+  return save.lastSavedAt;
+}
+
+// Preserve a meaningful checkpoint before scene transitions, puzzle awards,
+// imports or overwrites. Ordinary draft keystrokes must never rotate recovery.
+export function checkpointSlot(slotId) {
+  const previous = localStorage.getItem(key(`slot-${slotId}`));
+  if (!previous || !deserializeSave(previous)) return false;
+  localStorage.setItem(key(`slot-${slotId}-backup`), previous);
+  return true;
 }
 
 export function autosave(save) {
   const prev = localStorage.getItem(key('autosave'));
   if (prev) localStorage.setItem(key('backup'), prev);
-  localStorage.setItem(key('autosave'), serializeSave(save));
+  localStorage.setItem(key('autosave'), stamped(save));
+  return save.lastSavedAt;
+}
+
+export function manualSave(save) {
+  if (!save?.slotId || !SLOT_IDS.includes(Number(save.slotId))) return null;
+  writeSlot(Number(save.slotId), save);
+  autosave(save);
+  return save.lastSavedAt;
 }
 
 export function deleteSlot(slotId) {
   localStorage.removeItem(key(`slot-${slotId}`));
+  localStorage.removeItem(key(`slot-${slotId}-backup`));
 }
 
 export function copySlot(from, to) {
   const save = readSlot(from);
   if (!save) return false;
+  checkpointSlot(to);
   writeSlot(to, { ...save });
   return true;
 }
@@ -62,8 +95,16 @@ export function exportSlot(slotId) {
 export function importToSlot(slotId, text) {
   const save = deserializeSave(text);
   if (!save) return null;
+  checkpointSlot(slotId);
   writeSlot(slotId, save);
   return save;
+}
+
+export function restoreSlotBackup(slotId) {
+  const backup = readSlotBackup(slotId);
+  if (!backup) return null;
+  writeSlot(slotId, backup);
+  return backup;
 }
 
 // One-time adoption of the old chapter-1 prototype save, if present and
@@ -83,6 +124,7 @@ export function adoptLegacySave() {
 }
 
 export function newGame(slotId, profileName) {
+  checkpointSlot(slotId);
   const save = blankSave(slotId, profileName);
   writeSlot(slotId, save);
   return save;

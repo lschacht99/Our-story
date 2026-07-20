@@ -32,11 +32,13 @@
     },
     "sharon": {
       "name": "Sharon",
-      "portrait": "assets/png/portraits/sharon.png"
+      "portrait": "assets/png/portraits/sharon.png",
+      "identity": "Indian Jewish man; Leora's fiancé and architect of the mystery"
     },
     "leora": {
       "name": "Leora",
-      "portrait": "assets/png/portraits/leora.png"
+      "portrait": "assets/png/portraits/leora.png",
+      "identity": "Sharon's fiancée; keeper of the brass Hamsa clue"
     },
     "npc": {
       "name": "Local guide",

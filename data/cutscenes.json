@@ -8,6 +8,7 @@
         {"t": "narrate", "text": "Paris. A Tuesday like any other — until the mailbox."},
         {"t": "layer", "img": "assets/png/cutscenes/layers/glow.png", "x": 50, "y": 55, "scale": 1.4, "anim": "fadein"},
         {"t": "say", "who": "sharon", "text": "Moshé! Leah! Leora said yes! Mumbai! Wedding! Come!"},
+        {"t": "say", "who": "leora", "text": "And bring the old brass Hamsa. Sharon insists it belongs with the invitation."},
         {"t": "say", "who": "leah", "text": "That's five exclamation marks. It must be real."},
         {"t": "say", "who": "moshe", "text": "Mumbai. We'd better start packing tonight."},
         {"t": "narrate", "text": "Neither of them noticed, yet, that the invitation had already begun to change."}

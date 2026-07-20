@@ -9,8 +9,8 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" href="assets/png/ui/app-icon.png">
   <link rel="apple-touch-icon" href="assets/png/ui/app-icon.png">
-  <link rel="stylesheet" href="styles.css?v=20260716-2d">
-  <link rel="stylesheet" href="sprite-fix.css?v=20260716-2d">
+  <link rel="stylesheet" href="styles.css?v=20260720-puzzle-art">
+  <link rel="stylesheet" href="sprite-fix.css?v=20260720-home">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -20,6 +20,9 @@
         <span><strong>Our Story</strong><small>The Missing Flight</small></span>
       </button>
       <p class="objective-chip"><span>Objective</span><strong id="objectiveText">Begin the journey</strong></p>
+      <button class="icon-btn save-btn" id="saveBtn" type="button" aria-label="Open save center" title="Save game">
+        <img src="assets/png/ui/icon-save.png" alt="" width="24" height="24">
+      </button>
     </header>
 
     <main id="screen" class="screen" aria-live="polite">
@@ -48,6 +51,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="scripts/engine.js?v=20260716-2d"></script>
+  <script type="module" src="scripts/engine.js?v=20260720-puzzle-art"></script>
 </body>
 </html>

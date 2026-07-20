@@ -105,7 +105,7 @@ export function migrateSave(raw) {
 }
 
 export function serializeSave(save) {
-  return JSON.stringify({ ...save, lastSavedAt: new Date().toISOString() });
+  return JSON.stringify({ ...save, lastSavedAt: save.lastSavedAt || new Date().toISOString() });
 }
 
 export function deserializeSave(text) {

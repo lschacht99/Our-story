@@ -8,12 +8,12 @@ export function renderHome(game) {
   const root = $('#screen');
   root.innerHTML = '';
   $('#objectiveText').textContent = 'Begin the journey';
-  const hasAnySave = saves.SLOT_IDS.some((id) => saves.readSlot(id)) || saves.readAutosave();
+  const hasAnySave = saves.SLOT_IDS.some((id) => saves.readSlot(id) || saves.readSlotBackup(id)) || saves.readAutosave();
   const latest = latestSave();
 
-  const menu = el('nav', { class: 'home-menu', 'aria-label': 'Main menu' },
-    menuBtn('Continue', !latest, () => { if (latest) game.loadSave(latest); }),
-    menuBtn('New Game', false, () => slotPicker(game, 'new')),
+  const secondaryMenu = el('div', {
+    class: 'home-more-menu', id: 'home-more-menu', hidden: ''
+  },
     menuBtn('Load Save', !hasAnySave, () => slotPicker(game, 'load')),
     menuBtn('Chapters', !latest, () => latest && game.openChapters()),
     menuBtn('Mystery Notebook', !latest, () => latest && (game.loadSave(latest), game.openNotebook())),
@@ -25,6 +25,26 @@ export function renderHome(game) {
     menuBtn('Options', false, () => game.openSettings(true)),
     menuBtn('Credits', false, () => credits()));
 
+  const moreBtn = el('button', {
+    class: 'menu-btn menu-more',
+    type: 'button',
+    'aria-expanded': 'false',
+    'aria-controls': secondaryMenu.id,
+    onclick: () => {
+      const willOpen = secondaryMenu.hidden;
+      secondaryMenu.hidden = !willOpen;
+      moreBtn.setAttribute('aria-expanded', String(willOpen));
+      moreBtn.classList.toggle('is-open', willOpen);
+    }
+  }, 'More');
+
+  const menu = el('nav', { class: 'home-menu', 'aria-label': 'Main menu' },
+    el('div', { class: 'home-primary-actions' },
+      menuBtn('Continue', !latest, () => { if (latest) game.loadSave(latest); }),
+      menuBtn('New Game', false, () => slotPicker(game, 'new')),
+      moreBtn),
+    secondaryMenu);
+
   const summary = latest
     ? el('p', { class: 'home-summary' },
         `${latest.profileName} · ${game.chaptersById[latest.chapterId]?.title?.split('—')[0].trim() || ''} · ` +
@@ -32,11 +52,17 @@ export function renderHome(game) {
         `${latest.rabbitMarks.length} rabbit marks`)
     : el('p', { class: 'home-summary' }, 'A cooperative travel mystery for two nomads and one rabbit.');
 
-  root.append(el('section', { class: 'title-screen' },
+  root.append(el('section', { class: 'title-screen', 'aria-labelledby': 'home-title' },
+    el('img', {
+      class: 'home-key-art',
+      src: 'assets/png/ui/title-key-art.png',
+      alt: 'Leah and Moshé follow a dashed travel route beside a white rabbit and a half-erased airline ticket.',
+      decoding: 'async',
+      fetchpriority: 'high'
+    }),
     el('article', { class: 'title-card' },
-      el('img', { class: 'key-art', src: 'assets/png/ui/title-key-art.png', alt: 'Leah and Moshé over a dashed travel route, a white rabbit and a half-erased ticket' }),
       el('p', { class: 'eyebrow' }, 'A cooperative travel mystery'),
-      el('h1', {}, 'Our Story ', el('span', {}, 'The Missing Flight')),
+      el('h1', { id: 'home-title' }, 'Our Story ', el('span', {}, 'The Missing Flight')),
       summary, menu)));
 }
 
@@ -59,6 +85,7 @@ export function slotPicker(game, mode) {
 
   for (const id of saves.SLOT_IDS) {
     const save = saves.readSlot(id);
+    const backup = saves.readSlotBackup(id);
     const chapter = save ? game.chaptersById[save.chapterId] : null;
     const prog = save ? overallProgress(game.data.chapters.chapters, game.data.scenes.scenes, save) : null;
     const card = el('div', { class: `slot${save ? '' : ' empty'}` },
@@ -67,7 +94,7 @@ export function slotPicker(game, mode) {
         el('strong', {}, save ? save.profileName : `Slot ${id} — empty`),
         save ? el('small', {}, `${chapter?.title.split('—')[0].trim()} · ${prog.pct}% · ${formatTime(save.playTime)} · ${save.solvedPuzzles.length} puzzles · ${save.rabbitMarks.length} ♧${save.finished ? ' · completed' : ''}`) : null,
         save?.lastSavedAt ? el('small', {}, `Saved ${new Date(save.lastSavedAt).toLocaleString()}`) : null),
-      el('div', { class: 'slot-actions' }, ...slotActions(game, mode, id, save)));
+      el('div', { class: 'slot-actions' }, ...slotActions(game, mode, id, save, backup)));
     list.append(card);
   }
 
@@ -85,7 +112,52 @@ export function slotPicker(game, mode) {
   openModal(wrap, { label: 'Save slots' });
 }
 
-function slotActions(game, mode, id, save) {
+export function savePanel(game) {
+  if (!game.save) return;
+  const save = game.save;
+  const slotId = Number(save.slotId);
+  const backup = saves.readSlotBackup(slotId);
+  const wrap = el('div', { class: 'section save-center' },
+    el('p', { class: 'eyebrow' }, 'Progress and recovery'),
+    el('h2', {}, 'Save Center'),
+    el('div', { class: 'save-status', role: 'status' },
+      el('img', { src: 'assets/png/ui/icon-save.png', alt: '', width: 44, height: 44 }),
+      el('div', {},
+        el('strong', {}, `${save.profileName} · Slot ${slotId}`),
+        el('small', {}, save.lastSavedAt ? `Saved ${new Date(save.lastSavedAt).toLocaleString()}` : 'Not saved yet'))),
+    el('p', {}, 'The game saves at scene changes and solved puzzles. Use Save now before closing the browser or switching devices.'),
+    el('div', { class: 'save-center-actions' },
+      el('button', {
+        class: 'btn primary', onclick: () => {
+          const when = saves.manualSave(save);
+          toast(when ? 'Journey saved safely' : 'Choose a save slot first');
+          if (when) { closeModal(); savePanel(game); }
+        }
+      }, 'Save now'),
+      el('button', { class: 'btn', onclick: () => { closeModal(); slotPicker(game, 'load'); } }, 'Manage slots'),
+      el('button', { class: 'btn', onclick: () => downloadSave(slotId) }, 'Download backup'),
+      el('button', {
+        class: 'btn', disabled: backup ? null : '',
+        onclick: () => backup && confirmDialog('Restore the previous version of this slot?', () => {
+          const restored = saves.restoreSlotBackup(slotId);
+          if (restored) { closeModal(); game.loadSave(restored); toast('Previous save restored'); }
+        }, { danger: true })
+      }, 'Restore previous')));
+  openModal(wrap, { label: 'Save Center' });
+}
+
+function downloadSave(slotId) {
+  const text = saves.exportSlot(slotId);
+  if (!text) { toast('Save the journey before downloading a backup'); return; }
+  const blob = new Blob([text], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `our-story-slot-${slotId}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function slotActions(game, mode, id, save, backup) {
   const actions = [];
   if (mode === 'new') {
     actions.push(el('button', {
@@ -120,19 +192,21 @@ function slotActions(game, mode, id, save) {
       }, 'Copy'),
       el('button', {
         class: 'btn small', onclick: () => {
-          const text = saves.exportSlot(id);
-          const blob = new Blob([text], { type: 'application/json' });
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = `our-story-slot-${id}.json`;
-          a.click();
-          URL.revokeObjectURL(a.href);
+          downloadSave(id);
         }
       }, 'Export'),
       el('button', {
         class: 'btn small danger',
         onclick: () => confirmDialog(`Delete "${save.profileName}" forever?`, () => { saves.deleteSlot(id); slotPicker(game, mode); }, { danger: true, requireDouble: true })
       }, 'Delete'));
+  }
+  if (mode === 'load' && backup) {
+    actions.push(el('button', {
+      class: 'btn small', onclick: () => confirmDialog(`Recover the previous version of slot ${id}?`, () => {
+        const restored = saves.restoreSlotBackup(id);
+        if (restored) { closeModal(); game.loadSave(restored); toast('Previous save restored'); }
+      })
+    }, save ? 'Recover previous' : 'Recover backup'));
   }
   return actions;
 }

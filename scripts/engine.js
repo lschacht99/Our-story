@@ -1,14 +1,16 @@
 // Boot, data loading, global state and navigation.
 import { el, $, openModal, closeModal, toast } from './ui.js';
 import * as saves from './save.js';
-import { renderHome, slotPicker } from './home.js';
+import { renderHome, savePanel } from './home.js';
 import { renderScene } from './scene.js';
 import { playCutscene, unlockCutscene, galleryPanel } from './cutscene.js';
 import { notebookPanel, passportPanel, routePanel, inventoryPanel } from './mystery.js';
 import { historyPanel } from './dialogue.js';
 import { chapterComplete, sceneComplete } from './core.js';
+import { createAudioDirector } from './audio.js';
 
 const DATA_FILES = ['chapters', 'scenes', 'puzzles', 'cutscenes', 'mystery', 'characters'];
+const audio = createAudioDirector();
 
 const game = {
   data: {},
@@ -16,12 +18,22 @@ const game = {
   prevMap: {},
   save: null,
   mode: 'home',
+  audio,
 
   persist() {
-    if (this.save?.slotId) saves.writeSlot(this.save.slotId, this.save);
+    if (!this.save?.slotId) return null;
+    try { return saves.writeSlot(this.save.slotId, this.save); }
+    catch { toast('Save failed — download a backup from the Save Center'); return null; }
   },
   autosaveNow() {
-    if (this.save) saves.autosave(this.save);
+    if (!this.save) return null;
+    try { return saves.autosave(this.save); }
+    catch { toast('Autosave failed — storage may be full'); return null; }
+  },
+  checkpointNow() {
+    if (!this.save?.slotId) return false;
+    try { return saves.checkpointSlot(this.save.slotId); }
+    catch { return false; }
   },
   render() {
     if (this.mode === 'home' || !this.save) renderHome(this);
@@ -45,6 +57,7 @@ const game = {
   goHome() {
     if (this.save) { this.persist(); this.autosaveNow(); }
     this.mode = 'home';
+    this.audio.setChapter(null, false);
     this.render();
   },
 
@@ -56,6 +69,7 @@ const game = {
   advanceScene(scene) {
     this.persist();
     this.autosaveNow(); // autosave at every scene transition
+    this.checkpointNow();
     const go = () => {
       this.save.sceneId = scene.next;
       this.checkChapterProgress();
@@ -185,6 +199,7 @@ const game = {
       input.addEventListener('change', () => {
         s[keyName] = input.checked;
         applySettings(s);
+        if (keyName === 'music') this.audio.setChapter(this.save?.chapterId, s.music && this.mode === 'scene');
         this.persist();
       });
       list.append(el('label', { class: 'card settings-row' }, label, input));
@@ -223,6 +238,7 @@ function bindTopBar() {
   $('#journalBtn').addEventListener('click', () => game.save && game.openNotebook());
   $('#bagBtn').addEventListener('click', () => game.save && openModal(inventoryPanel(game), { label: 'Inventory' }));
   $('#settingsBtn').addEventListener('click', () => game.openSettings());
+  $('#saveBtn').addEventListener('click', () => game.save && savePanel(game));
   $('#logBtn').addEventListener('click', () => openModal(historyPanel(), { label: 'Dialogue history' }));
   $('#modalClose').addEventListener('click', closeModal);
   $('#modal').addEventListener('click', (e) => { if (e.target === $('#modal')) closeModal(); });
@@ -247,12 +263,16 @@ async function boot() {
   }
   saves.adoptLegacySave();
   bindTopBar();
+  document.addEventListener('pointerdown', () => audio.unlock(), { once: true, passive: true });
+  document.addEventListener('keydown', () => audio.unlock(), { once: true });
   startPlaytimeClock();
   applySettings(saves.readAutosave()?.settings || saves.blankSave().settings);
   loading.remove();
   game.render();
   window.addEventListener('beforeunload', () => { if (game.save) { game.persist(); game.autosaveNow(); } });
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(() => {});
+  }
 }
 
 boot();

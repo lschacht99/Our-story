@@ -5,194 +5,1059 @@
   "assets": [
     {
       "group": "backgrounds",
-      "suggestedSize": [720, 1080],
+      "suggestedSize": [
+        720,
+        1080
+      ],
       "files": [
-        {"path": "assets/png/backgrounds/p01-paris-apartment.png", "art": "Paris apartment interior, warm evening, open suitcase, desk with invitation, window over rooftops"},
-        {"path": "assets/png/backgrounds/p02-paris-airport.png", "art": "CDG departures hall, timetable board, baggage scale, morning light"},
-        {"path": "assets/png/backgrounds/p03-istanbul.png", "art": "Istanbul airport concourse at dusk, blue tile wall, four wall clocks, domes through glass"},
-        {"path": "assets/png/backgrounds/p04-muscat.png", "art": "Muscat airport at night during power failure, star patterns on ceiling, emergency lights"},
-        {"path": "assets/png/backgrounds/p05-mumbai-arrivals.png", "art": "Mumbai arrivals hall, two corridors, arrivals sign, brass Hamsa under sign, warm chaos"},
-        {"path": "assets/png/backgrounds/c1s1-havdalah.png", "art": "Tel Aviv apartment Havdalah night, braided candle, wine, spices, small white rabbit on table"},
-        {"path": "assets/png/backgrounds/c1s2-construction.png", "art": "Israeli construction site, debris hill, abandoned house, day"},
-        {"path": "assets/png/backgrounds/c1s3-bakery-beach.png", "art": "Bakery counter and cold dawn beach with footprints, split-mood scene"},
-        {"path": "assets/png/backgrounds/c1s4-rooftop.png", "art": "Tel Aviv rooftop at dusk, wine and chocolate, distant metro construction cranes"},
-        {"path": "assets/png/backgrounds/c1s5-yarkon.png", "art": "Yarkon park river, wooden bridge, swings, evening picnic"},
-        {"path": "assets/png/backgrounds/c1s6-kibbutz.png", "art": "Kibbutz lawn with giant teddy bear sculpture, small settlement model table"},
-        {"path": "assets/png/backgrounds/c1s7-sarel.png", "art": "SAR-EL volunteer base in rain, hanukkiah in window, cleaning gear"},
-        {"path": "assets/png/backgrounds/c1s8-jerusalem.png", "art": "Jerusalem Old City lanes at golden hour, stone arches, distant highway"},
-        {"path": "assets/png/backgrounds/c1s9-meashearim.png", "art": "Mea Shearim narrow lamplit lanes on Shabbat night, stone arches"},
-        {"path": "assets/png/backgrounds/c2s1-athens.png", "art": "Athens airport at night, musician corner, gate seats"},
-        {"path": "assets/png/backgrounds/c2s2-paris.png", "art": "Paris street at dawn, bakery, Arc de Triomphe far away"},
-        {"path": "assets/png/backgrounds/c2s3-versailles.png", "art": "Versailles gardens, rental bikes, long gravel alleys"},
-        {"path": "assets/png/backgrounds/c2s4-strasbourg.png", "art": "Strasbourg half-timbered lane, quiet Shabbat afternoon, border river"},
-        {"path": "assets/png/backgrounds/c2s5-riviera.png", "art": "Riviera coast Menton, citron festival stalls, fishing rods, Italian hills"},
-        {"path": "assets/png/backgrounds/c3s1-mumbai-wedding.png", "art": "Indian synagogue wedding hall, garlands, chuppah, warm lamps"},
-        {"path": "assets/png/backgrounds/c3s2-elephanta.png", "art": "Elephanta cave temple, carved pillars, mirrored statues"},
-        {"path": "assets/png/backgrounds/c3s3-ahmedabad.png", "art": "Ahmedabad street, temple gate, mall front, train platform hints"},
-        {"path": "assets/png/backgrounds/c3s4-udaipur.png", "art": "Udaipur lake palace at dusk, cable car line, fireworks far away"},
-        {"path": "assets/png/backgrounds/c3s5-pushkar.png", "art": "Pushkar/Jaipur composite: camel silhouette, Amber fort walls, Hawa Mahal facade"},
-        {"path": "assets/png/backgrounds/c3s6-purim-holi.png", "art": "Chabad courtyard during Purim meeting Holi colours, powder clouds"},
-        {"path": "assets/png/backgrounds/c3s7-tuktuk.png", "art": "Busy street from inside a tuk-tuk, route signs, bargaining stalls"},
-        {"path": "assets/png/backgrounds/c3s8-agra.png", "art": "Taj Mahal at dawn across reflecting pool, perfect symmetry"},
-        {"path": "assets/png/backgrounds/c3s9-himalaya.png", "art": "Himalayan trail, youth group campsite, prayer-flag bridge"},
-        {"path": "assets/png/backgrounds/c4s1-bangkok.png", "art": "Bangkok night, canal boat, Chinatown neon, floating market edge"},
-        {"path": "assets/png/backgrounds/c4s2-krabi.png", "art": "Krabi limestone cliffs, tide line, longtail boats"},
-        {"path": "assets/png/backgrounds/c4s3-kohphiphi.png", "art": "Koh Phi Phi beach at sunset, smoothie stand, kayak, Monkey Beach cliffs"},
-        {"path": "assets/png/backgrounds/c4s4-phuket.png", "art": "Patong night street, sign jungle in many scripts"},
-        {"path": "assets/png/backgrounds/c4s5-kohsamui.png", "art": "Koh Samui beach at dusk, long outdoor Passover table, Songkran water buckets"},
-        {"path": "assets/png/backgrounds/c4s6-waterfall.png", "art": "Hidden jungle waterfall, parked motorbike, mossy pool"},
-        {"path": "assets/png/backgrounds/c4s7-ancientcity.png", "art": "Ancient city park, ruins replicas, elephant, rental bikes"},
-        {"path": "assets/png/backgrounds/c4s8-chiangmai.png", "art": "Chiang Rai White Temple gleaming at dawn, mountain road with fire haze"},
-        {"path": "assets/png/backgrounds/c5s1-hcmc.png", "art": "Ho Chi Minh City on Reunification Day, flags, parade street, fireworks"},
-        {"path": "assets/png/backgrounds/c5s2-birthday.png", "art": "Amusement park day, coaster loops, giraffe enclosure, waterpark slides"},
-        {"path": "assets/png/backgrounds/c5s3-hoian.png", "art": "Hoi An night, Japanese bridge, hundreds of lanterns mirrored in river"},
-        {"path": "assets/png/backgrounds/c5s4-coconut.png", "art": "Coconut Village canal, round basket boats spinning, palms"},
-        {"path": "assets/png/backgrounds/c5s5-hue.png", "art": "Hue Imperial City, nested gates in a row, moss and gold"},
-        {"path": "assets/png/backgrounds/c5s6-ninhbinh.png", "art": "Tam Coc rice fields, rowing boat entering low cave, karst hills"},
-        {"path": "assets/png/backgrounds/c5s7-sapa.png", "art": "Sapa rice terraces in mist, Fansipan cable car line, waterfall"},
-        {"path": "assets/png/backgrounds/c5s8-caobang.png", "art": "Ban Gioc border waterfall, motorbike on muddy track"},
-        {"path": "assets/png/backgrounds/c5s9-cave.png", "art": "Nguom Ngao cave interior, headlamp beams, stalactites, echo chamber"},
-        {"path": "assets/png/backgrounds/c6s1-osaka.png", "art": "Osaka castle over moat plus Dotonbori neon canal at night"},
-        {"path": "assets/png/backgrounds/c6s2-themepark.png", "art": "Generic original theme park at dusk, queue ropes, no branded characters"},
-        {"path": "assets/png/backgrounds/c6s3-kyoto.png", "art": "Kyoto lane, pagoda, Golden Pavilion pond, tunnel of repeating red gates"},
-        {"path": "assets/png/backgrounds/c6s4-nara.png", "art": "Nara park, deer among stone lanterns, temple eaves"},
-        {"path": "assets/png/backgrounds/c6s5-tokyo.png", "art": "Tokyo layered: tower, garden, electronics district, giant crossing"},
-        {"path": "assets/png/backgrounds/c6s6-fuji.png", "art": "Mount Fuji over lake at dawn, bikes, flower arch, rice-snack stand"},
-        {"path": "assets/png/backgrounds/c7s1-seoul.png", "art": "Seoul palace gate, hanbok rental colours, modern towers behind"},
-        {"path": "assets/png/backgrounds/c7s2-seoulmate.png", "art": "Seoul Han river night viewpoint, city lights, two silhouettes"},
-        {"path": "assets/png/backgrounds/f01-page.png", "art": "Guesthouse desk covered in ticket fragments, lamp, notebook"},
-        {"path": "assets/png/backgrounds/f02-thriftshop.png", "art": "Jerusalem thrift shop, racks, mirror, hypothetical wedding clothes"},
-        {"path": "assets/png/backgrounds/f03-phiphi2.png", "art": "Koh Phi Phi beach at night from the other side, moonlit water"},
-        {"path": "assets/png/backgrounds/f04-proposals.png", "art": "Dream collage of six proposal places floating as paper cards"},
-        {"path": "assets/png/backgrounds/f05-metapuzzle.png", "art": "Dark memory space, glowing boarding pass reassembling, gold thread routes"},
-        {"path": "assets/png/backgrounds/f06-ending.png", "art": "Dawn bench with rabbit, teddy, lizard, drink and Hamsa, skyline of all trip landmarks"}
+        {
+          "path": "assets/png/backgrounds/p01-paris-apartment.png",
+          "art": "Paris apartment interior, warm evening, open suitcase, desk with invitation, window over rooftops"
+        },
+        {
+          "path": "assets/png/backgrounds/p02-paris-airport.png",
+          "art": "CDG departures hall, timetable board, baggage scale, morning light"
+        },
+        {
+          "path": "assets/png/backgrounds/p03-istanbul.png",
+          "art": "Istanbul airport concourse at dusk, blue tile wall, four wall clocks, domes through glass"
+        },
+        {
+          "path": "assets/png/backgrounds/p04-muscat.png",
+          "art": "Muscat airport at night during power failure, star patterns on ceiling, emergency lights"
+        },
+        {
+          "path": "assets/png/backgrounds/p05-mumbai-arrivals.png",
+          "art": "Mumbai arrivals hall, two corridors, arrivals sign, brass Hamsa under sign, warm chaos"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s1-havdalah.png",
+          "art": "Tel Aviv apartment Havdalah night, braided candle, wine, spices, small white rabbit on table"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s2-construction.png",
+          "art": "Israeli construction site, debris hill, abandoned house, day"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s3-bakery-beach.png",
+          "art": "Bakery counter and cold dawn beach with footprints, split-mood scene"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s4-rooftop.png",
+          "art": "Tel Aviv rooftop at dusk, wine and chocolate, distant metro construction cranes"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s5-yarkon.png",
+          "art": "Yarkon park river, wooden bridge, swings, evening picnic"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s6-kibbutz.png",
+          "art": "Kibbutz lawn with giant teddy bear sculpture, small settlement model table"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s7-sarel.png",
+          "art": "SAR-EL volunteer base in rain, hanukkiah in window, cleaning gear"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s8-jerusalem.png",
+          "art": "Jerusalem Old City lanes at golden hour, stone arches, distant highway"
+        },
+        {
+          "path": "assets/png/backgrounds/c1s9-meashearim.png",
+          "art": "Mea Shearim narrow lamplit lanes on Shabbat night, stone arches"
+        },
+        {
+          "path": "assets/png/backgrounds/c2s1-athens.png",
+          "art": "Athens airport at night, musician corner, gate seats"
+        },
+        {
+          "path": "assets/png/backgrounds/c2s2-paris.png",
+          "art": "Paris street at dawn, bakery, Arc de Triomphe far away"
+        },
+        {
+          "path": "assets/png/backgrounds/c2s3-versailles.png",
+          "art": "Versailles gardens, rental bikes, long gravel alleys"
+        },
+        {
+          "path": "assets/png/backgrounds/c2s4-strasbourg.png",
+          "art": "Strasbourg half-timbered lane, quiet Shabbat afternoon, border river"
+        },
+        {
+          "path": "assets/png/backgrounds/c2s5-riviera.png",
+          "art": "Riviera coast Menton, citron festival stalls, fishing rods, Italian hills"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s1-mumbai-wedding.png",
+          "art": "Indian synagogue wedding hall, garlands, chuppah, warm lamps"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s2-elephanta.png",
+          "art": "Elephanta cave temple, carved pillars, mirrored statues"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s3-ahmedabad.png",
+          "art": "Ahmedabad street, temple gate, mall front, train platform hints"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s4-udaipur.png",
+          "art": "Udaipur lake palace at dusk, cable car line, fireworks far away"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s5-pushkar.png",
+          "art": "Pushkar/Jaipur composite: camel silhouette, Amber fort walls, Hawa Mahal facade"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s6-purim-holi.png",
+          "art": "Chabad courtyard during Purim meeting Holi colours, powder clouds"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s7-tuktuk.png",
+          "art": "Busy street from inside a tuk-tuk, route signs, bargaining stalls"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s8-agra.png",
+          "art": "Taj Mahal at dawn across reflecting pool, perfect symmetry"
+        },
+        {
+          "path": "assets/png/backgrounds/c3s9-himalaya.png",
+          "art": "Himalayan trail, youth group campsite, prayer-flag bridge"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s1-bangkok.png",
+          "art": "Bangkok night, canal boat, Chinatown neon, floating market edge"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s2-krabi.png",
+          "art": "Krabi limestone cliffs, tide line, longtail boats"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s3-kohphiphi.png",
+          "art": "Koh Phi Phi beach at sunset, smoothie stand, kayak, Monkey Beach cliffs"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s4-phuket.png",
+          "art": "Patong night street, sign jungle in many scripts"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s5-kohsamui.png",
+          "art": "Koh Samui beach at dusk, long outdoor Passover table, Songkran water buckets"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s6-waterfall.png",
+          "art": "Hidden jungle waterfall, parked motorbike, mossy pool"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s7-ancientcity.png",
+          "art": "Ancient city park, ruins replicas, elephant, rental bikes"
+        },
+        {
+          "path": "assets/png/backgrounds/c4s8-chiangmai.png",
+          "art": "Chiang Rai White Temple gleaming at dawn, mountain road with fire haze"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s1-hcmc.png",
+          "art": "Ho Chi Minh City on Reunification Day, flags, parade street, fireworks"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s2-birthday.png",
+          "art": "Amusement park day, coaster loops, giraffe enclosure, waterpark slides"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s3-hoian.png",
+          "art": "Hoi An night, Japanese bridge, hundreds of lanterns mirrored in river"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s4-coconut.png",
+          "art": "Coconut Village canal, round basket boats spinning, palms"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s5-hue.png",
+          "art": "Hue Imperial City, nested gates in a row, moss and gold"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s6-ninhbinh.png",
+          "art": "Tam Coc rice fields, rowing boat entering low cave, karst hills"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s7-sapa.png",
+          "art": "Sapa rice terraces in mist, Fansipan cable car line, waterfall"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s8-caobang.png",
+          "art": "Ban Gioc border waterfall, motorbike on muddy track"
+        },
+        {
+          "path": "assets/png/backgrounds/c5s9-cave.png",
+          "art": "Nguom Ngao cave interior, headlamp beams, stalactites, echo chamber"
+        },
+        {
+          "path": "assets/png/backgrounds/c6s1-osaka.png",
+          "art": "Osaka castle over moat plus Dotonbori neon canal at night"
+        },
+        {
+          "path": "assets/png/backgrounds/c6s2-themepark.png",
+          "art": "Generic original theme park at dusk, queue ropes, no branded characters"
+        },
+        {
+          "path": "assets/png/backgrounds/c6s3-kyoto.png",
+          "art": "Kyoto lane, pagoda, Golden Pavilion pond, tunnel of repeating red gates"
+        },
+        {
+          "path": "assets/png/backgrounds/c6s4-nara.png",
+          "art": "Nara park, deer among stone lanterns, temple eaves"
+        },
+        {
+          "path": "assets/png/backgrounds/c6s5-tokyo.png",
+          "art": "Tokyo layered: tower, garden, electronics district, giant crossing"
+        },
+        {
+          "path": "assets/png/backgrounds/c6s6-fuji.png",
+          "art": "Mount Fuji over lake at dawn, bikes, flower arch, rice-snack stand"
+        },
+        {
+          "path": "assets/png/backgrounds/c7s1-seoul.png",
+          "art": "Seoul palace gate, hanbok rental colours, modern towers behind"
+        },
+        {
+          "path": "assets/png/backgrounds/c7s2-seoulmate.png",
+          "art": "Seoul Han river night viewpoint, city lights, two silhouettes"
+        },
+        {
+          "path": "assets/png/backgrounds/f01-page.png",
+          "art": "Guesthouse desk covered in ticket fragments, lamp, notebook"
+        },
+        {
+          "path": "assets/png/backgrounds/f02-thriftshop.png",
+          "art": "Jerusalem thrift shop, racks, mirror, hypothetical wedding clothes"
+        },
+        {
+          "path": "assets/png/backgrounds/f03-phiphi2.png",
+          "art": "Koh Phi Phi beach at night from the other side, moonlit water"
+        },
+        {
+          "path": "assets/png/backgrounds/f04-proposals.png",
+          "art": "Dream collage of six proposal places floating as paper cards"
+        },
+        {
+          "path": "assets/png/backgrounds/f05-metapuzzle.png",
+          "art": "Dark memory space, glowing boarding pass reassembling, gold thread routes"
+        },
+        {
+          "path": "assets/png/backgrounds/f06-ending.png",
+          "art": "Dawn bench with rabbit, teddy, lizard, drink and Hamsa, skyline of all trip landmarks"
+        }
       ]
     },
     {
       "group": "ui/chapter-cards",
-      "suggestedSize": [640, 360],
+      "suggestedSize": [
+        640,
+        360
+      ],
       "files": [
-        {"path": "assets/png/ui/chapter-cards/prologue.png", "art": "Prologue card: erased boarding pass over Istanbul dusk"},
-        {"path": "assets/png/ui/chapter-cards/ch1.png", "art": "Chapter 1 card: Havdalah candle and rabbit"},
-        {"path": "assets/png/ui/chapter-cards/ch2.png", "art": "Chapter 2 card: Paris dawn street"},
-        {"path": "assets/png/ui/chapter-cards/ch3.png", "art": "Chapter 3 card: Taj at dawn"},
-        {"path": "assets/png/ui/chapter-cards/ch4.png", "art": "Chapter 4 card: Koh Phi Phi sunset"},
-        {"path": "assets/png/ui/chapter-cards/ch5.png", "art": "Chapter 5 card: Hoi An lanterns"},
-        {"path": "assets/png/ui/chapter-cards/ch6.png", "art": "Chapter 6 card: Fuji dawn"},
-        {"path": "assets/png/ui/chapter-cards/ch7.png", "art": "Chapter 7 card: Seoul night river"},
-        {"path": "assets/png/ui/chapter-cards/final.png", "art": "Final card: bench at dawn"}
+        {
+          "path": "assets/png/ui/chapter-cards/prologue.png",
+          "art": "Prologue card: erased boarding pass over Istanbul dusk"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch1.png",
+          "art": "Chapter 1 card: Havdalah candle and rabbit"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch2.png",
+          "art": "Chapter 2 card: Paris dawn street"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch3.png",
+          "art": "Chapter 3 card: Taj at dawn"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch4.png",
+          "art": "Chapter 4 card: Koh Phi Phi sunset"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch5.png",
+          "art": "Chapter 5 card: Hoi An lanterns"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch6.png",
+          "art": "Chapter 6 card: Fuji dawn"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/ch7.png",
+          "art": "Chapter 7 card: Seoul night river"
+        },
+        {
+          "path": "assets/png/ui/chapter-cards/final.png",
+          "art": "Final card: bench at dawn"
+        }
       ]
     },
     {
       "group": "cutscenes/backgrounds",
-      "suggestedSize": [720, 1080],
+      "suggestedSize": [
+        720,
+        1080
+      ],
       "files": [
-        {"path": "assets/png/cutscenes/backgrounds/cs01-invitation.png", "art": "Paris apartment, invitation glowing on desk"},
-        {"path": "assets/png/cutscenes/backgrounds/cs02-erasure.png", "art": "Airport hall, boarding pass held up, letters fading"},
-        {"path": "assets/png/cutscenes/backgrounds/cs03-havdalah-rabbit.png", "art": "Havdalah table close, candlelight, rabbit appearing"},
-        {"path": "assets/png/cutscenes/backgrounds/cs04-route.png", "art": "Istanbul concourse, map table with three-city route"},
-        {"path": "assets/png/cutscenes/backgrounds/cs05-mumbai-arrival.png", "art": "Mumbai arrivals, empty meeting point, photo on floor"},
-        {"path": "assets/png/cutscenes/backgrounds/cs06-israel-fragment.png", "art": "Mea Shearim night, glowing fragment over stone lane"},
-        {"path": "assets/png/cutscenes/backgrounds/cs07-wedding.png", "art": "Synagogue wedding, chuppah, one page missing from siddur"},
-        {"path": "assets/png/cutscenes/backgrounds/cs08-phiphi-question.png", "art": "Phi Phi sunset, two figures at waterline"},
-        {"path": "assets/png/cutscenes/backgrounds/cs09-boarding-pass.png", "art": "Desk at night, almost complete reconstructed boarding pass"},
-        {"path": "assets/png/cutscenes/backgrounds/cs10-final-reveal.png", "art": "Dawn bench scene, rabbit beside them, full skyline"}
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs01-invitation.png",
+          "art": "Paris apartment, invitation glowing on desk"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs02-erasure.png",
+          "art": "Airport hall, boarding pass held up, letters fading"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs03-havdalah-rabbit.png",
+          "art": "Havdalah table close, candlelight, rabbit appearing"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs04-route.png",
+          "art": "Istanbul concourse, map table with three-city route"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs05-mumbai-arrival.png",
+          "art": "Mumbai arrivals, empty meeting point, photo on floor"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs06-israel-fragment.png",
+          "art": "Mea Shearim night, glowing fragment over stone lane"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs07-wedding.png",
+          "art": "Synagogue wedding, chuppah, one page missing from siddur"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs08-phiphi-question.png",
+          "art": "Phi Phi sunset, two figures at waterline"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs09-boarding-pass.png",
+          "art": "Desk at night, almost complete reconstructed boarding pass"
+        },
+        {
+          "path": "assets/png/cutscenes/backgrounds/cs10-final-reveal.png",
+          "art": "Dawn bench scene, rabbit beside them, full skyline"
+        }
       ]
     },
     {
       "group": "cutscenes/layers",
-      "suggestedSize": [560, 320],
+      "suggestedSize": [
+        560,
+        320
+      ],
       "files": [
-        {"path": "assets/png/cutscenes/layers/rabbit.png", "art": "White rabbit sprite, transparent background", "placeholderSize": [64, 64]},
-        {"path": "assets/png/cutscenes/layers/hamsa.png", "art": "Brass Hamsa with eye, transparent background", "placeholderSize": [64, 64]},
-        {"path": "assets/png/cutscenes/layers/ticket.png", "art": "Boarding pass with erased destination block, transparent background", "placeholderSize": [140, 60]},
-        {"path": "assets/png/cutscenes/layers/photo.png", "art": "Group photo with two ghost-white erased figures, transparent background", "placeholderSize": [105, 80]},
-        {"path": "assets/png/cutscenes/layers/glow.png", "art": "Soft warm radial glow, transparent background", "placeholderSize": [64, 64]},
-        {"path": "assets/png/cutscenes/layers/candle.png", "art": "Braided Havdalah candle with flame, transparent background", "placeholderSize": [40, 80]}
+        {
+          "path": "assets/png/cutscenes/layers/rabbit.png",
+          "art": "White rabbit sprite, transparent background",
+          "placeholderSize": [
+            64,
+            64
+          ]
+        },
+        {
+          "path": "assets/png/cutscenes/layers/hamsa.png",
+          "art": "Brass Hamsa with eye, transparent background",
+          "placeholderSize": [
+            64,
+            64
+          ]
+        },
+        {
+          "path": "assets/png/cutscenes/layers/ticket.png",
+          "art": "Boarding pass with erased destination block, transparent background",
+          "placeholderSize": [
+            140,
+            60
+          ]
+        },
+        {
+          "path": "assets/png/cutscenes/layers/photo.png",
+          "art": "Group photo with two ghost-white erased figures, transparent background",
+          "placeholderSize": [
+            105,
+            80
+          ]
+        },
+        {
+          "path": "assets/png/cutscenes/layers/glow.png",
+          "art": "Soft warm radial glow, transparent background",
+          "placeholderSize": [
+            64,
+            64
+          ]
+        },
+        {
+          "path": "assets/png/cutscenes/layers/candle.png",
+          "art": "Braided Havdalah candle with flame, transparent background",
+          "placeholderSize": [
+            40,
+            80
+          ]
+        }
       ]
     },
     {
       "group": "cutscenes/thumbnails",
-      "suggestedSize": [320, 180],
+      "suggestedSize": [
+        320,
+        180
+      ],
       "files": [
-        {"path": "assets/png/cutscenes/thumbnails/cs01-invitation.png", "art": "Thumb of cs01"},
-        {"path": "assets/png/cutscenes/thumbnails/cs02-erasure.png", "art": "Thumb of cs02"},
-        {"path": "assets/png/cutscenes/thumbnails/cs03-havdalah-rabbit.png", "art": "Thumb of cs03"},
-        {"path": "assets/png/cutscenes/thumbnails/cs04-route.png", "art": "Thumb of cs04"},
-        {"path": "assets/png/cutscenes/thumbnails/cs05-mumbai-arrival.png", "art": "Thumb of cs05"},
-        {"path": "assets/png/cutscenes/thumbnails/cs06-israel-fragment.png", "art": "Thumb of cs06"},
-        {"path": "assets/png/cutscenes/thumbnails/cs07-wedding.png", "art": "Thumb of cs07"},
-        {"path": "assets/png/cutscenes/thumbnails/cs08-phiphi-question.png", "art": "Thumb of cs08"},
-        {"path": "assets/png/cutscenes/thumbnails/cs09-boarding-pass.png", "art": "Thumb of cs09"},
-        {"path": "assets/png/cutscenes/thumbnails/cs10-final-reveal.png", "art": "Thumb of cs10"}
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs01-invitation.png",
+          "art": "Thumb of cs01"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs02-erasure.png",
+          "art": "Thumb of cs02"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs03-havdalah-rabbit.png",
+          "art": "Thumb of cs03"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs04-route.png",
+          "art": "Thumb of cs04"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs05-mumbai-arrival.png",
+          "art": "Thumb of cs05"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs06-israel-fragment.png",
+          "art": "Thumb of cs06"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs07-wedding.png",
+          "art": "Thumb of cs07"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs08-phiphi-question.png",
+          "art": "Thumb of cs08"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs09-boarding-pass.png",
+          "art": "Thumb of cs09"
+        },
+        {
+          "path": "assets/png/cutscenes/thumbnails/cs10-final-reveal.png",
+          "art": "Thumb of cs10"
+        }
+      ]
+    },
+    {
+      "group": "puzzles",
+      "suggestedSize": [
+        1024,
+        768
+      ],
+      "files": [
+        {
+          "path": "assets/png/puzzles/pz-invitation.png",
+          "art": "The Restless Invitation: Letters moved when the invitation changed. They settle into a hidden instruction.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-packing.png",
+          "art": "One Suitcase, Two Nomads: Pack without crushing the wedding gift or burying the passports.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-timetable.png",
+          "art": "The Flight That Still Exists: Only one flight leaves enough time for the Muscat connection.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-scale.png",
+          "art": "The Broken Baggage Scale: Use exactly three reference weights to balance the 22 kg suitcase.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-clocks.png",
+          "art": "Four Cities, Four Clocks: Set every clock to the same instant as 09:00 in Paris.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-tiles.png",
+          "art": "The Gate in the Tiles: Leah feels the mechanical seams: four symbols must be pressed in order.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-suitcase.png",
+          "art": "The Vanishing Suitcase: Who accidentally took the green Mumbai suitcase?",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-stars.png",
+          "art": "Muscat Under the Stars: Moshé reads the route diagram; Leah turns the star ceiling. Neither works alone.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-seats.png",
+          "art": "The Seating Problem: Seven passengers, seven seats, and the gate is closing.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-corridors.png",
+          "art": "Two Corridors, One Arrival: Leah sees the power controls; Moshé sees the doors. Each control opens the other's path.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-havdalah.png",
+          "art": "The Havdalah Order: Set the Havdalah items in the order they are used.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-future-object.png",
+          "art": "The Object from Later: One object on the debris hill does not belong to this afternoon.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-footprints.png",
+          "art": "Footprints That Never Left: Read the beach: whose prints are whose, and what is impossible about them?",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-skyline.png",
+          "art": "Two Skylines: Leah sees structures; Moshé sees the city's story. Only overlaid do they match the view.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-bridge.png",
+          "art": "The Opinionated Bridge: Cross with camera, dinner and scooter — the rotten plank takes at most one light load.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-settlement.png",
+          "art": "The Settlement Model: Leah places structures; Moshé arranges the plan. The model wants both.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-groupphoto.png",
+          "art": "Fourteen of Sixteen: Sixteen volunteers, fourteen in the photo. Who is missing?",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-oldcity.png",
+          "art": "Four Quarters, One Path: Cross the Old City visiting each quarter once, never crossing your own path.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-sixturns.png",
+          "art": "Six Wrong Turns: Recount the six wrong turns of that Shabbat walk. Drawn on paper, they make a letter.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-signs.png",
+          "art": "The Sentence in the Signs: Moshé reads the street signs in walking order. They form a question.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-battery.png",
+          "art": "One Battery, Two Bikes: 40% battery, two bikes, 8 km of gravel. Assist drains 10% per km but only one bike can use it at a time.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-timeline.png",
+          "art": "The Shuffled Shabbat: The border day refuses to stay in order. Rebuild it.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-ticket-route.png",
+          "art": "The Pouch of Old Tickets: Reconstruct the Riviera hops from the ticket stubs — and notice what every stub shares.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-blessings.png",
+          "art": "Six of Seven: The booklet holds six blessings. Which of the seven is missing?",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-mirror.png",
+          "art": "The Stone Doubles: Leah maps the niches; Moshé matches the faces. Cross-check both lists.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-train.png",
+          "art": "The Arguing Timetable: Board says platform 5, sign says 3, conductor says yes. The Udaipur train leaves in 9 minutes.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-cablecar.png",
+          "art": "The Cable Car Limit: The car takes 200 kg per trip. Loads: 90, 80, 70, 60, 50. Everyone rides before the fireworks — in three trips.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-amber.png",
+          "art": "The Wall's Rhythm: The Amber wall repeats every five merlons, then breaks. Breaks mark the path.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-fuzzy.png",
+          "art": "The Case of Fuzzy's Tail: Fuzzy the costume-dog has lost his tail during Purim-meets-Holi. Everyone is pink.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-bargain.png",
+          "art": "The Fair Meter: Quoted 300. The meter says 8 per km, the map says 12 km, and dignity is non-negotiable.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-symmetry.png",
+          "art": "The Flaw in the Reflection: Building and reflection differ in exactly one detail.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-campsite.png",
+          "art": "Camp Before Dark: Two workers, four jobs, one correct interleaving before the light goes.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-canal.png",
+          "art": "Four Stops Before Closing: Chabad, Chinatown, the floating market and the pier — one boat line, one direction, market closes first.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-tides.png",
+          "art": "The Sea's Timetable: The lagoon needs mid-tide; the cave mouth needs anything below high.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-coconut.png",
+          "art": "The Load-Bearing Coconuts: Seven coconuts, three smoothie orders: one double, two singles. A double takes two coconuts... and Moshé needs two just to hold.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-visual-route.png",
+          "art": "Navigation by Pictures: No shared language. The guesthouse card shows: fish, umbrella, golden bowl, moon.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-seder.png",
+          "art": "Seder by the Sea: The outdoor seder must begin in order — before the water festival reaches the table.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-elephant.png",
+          "art": "The Elephant's Round: The elephant visited: pagoda, bridge, pagoda, gate, pagoda, bridge, pagoda, ... The bananas move in a pattern.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-whitetemple.png",
+          "art": "Road of Frost and Haze: High road closes at noon. Hot spring adds an hour. Temple face lights at four.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-flags.png",
+          "art": "The Broken Run: Flags run: three red, one banner, repeat. One balcony breaks the run.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-coaster.png",
+          "art": "Rows of Two: Six riders, three rows. Birthday girl picks front. The tall friend can't ride behind the hat. The couple won't split.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-lanterns.png",
+          "art": "Lanterns and Reflections: Leah reads the river reflections; Moshé reads the lanterns. Light them so both patterns agree.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-basket.png",
+          "art": "The Spinning Basket: The basket boat spins unless the weight sits opposite and low.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-gates.png",
+          "art": "Gate Within Gate: Outer gate: east door for travelers. Middle gate: scholars pass south. Inner gate: the hinge turns one way.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-boat.png",
+          "art": "Three Cave Mouths: Left cave: under a meter clearance. Right cave: dry ledge, no water. Middle cave: sings.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-terraces.png",
+          "art": "The Terrace Rhythm: The terraces descend 4, 4, 4, 3, 4, 4, 4, 3 … until one group breaks the rhythm.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-mud.png",
+          "art": "The Extraction: Bike in the mud to the axle. Two people, four moves, one order that works.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-echo.png",
+          "art": "The Echo Chamber: The cave returns each word altered toward its truth. You called GO. What did the cave answer?",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-neon.png",
+          "art": "Signs and Their Twins: Six reflections in the canal, five signs above. Pair what pairs, and name the orphan.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-queue.png",
+          "art": "The Queue Theorem: Left lane: merges every 10 min. Right lane: slow but never stops. Express gate: opens on the quarter hour, from the right lane only.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-toriipath.png",
+          "art": "The Hamsa at the Gates: Hold the Hamsa to each gate. Leah reads the eye; Moshé reads the inscriptions. True gates keep the eye clear.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-deer.png",
+          "art": "The Map Thief of Nara: Three deer came within reach: one bowed twice (both hands visible — no maps), one has paper crumbs, one arrived after the bag was already light.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-maplayers.png",
+          "art": "Two Maps of One City: Leah's layer: rail load and flow. Moshé's layer: districts and eras. One crossing satisfies both.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-fuji.png",
+          "art": "The Day in Photographs: Order the day's photos by light and logic — then look at what every gate photo shares.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-palace.png",
+          "art": "The Compass Gates: The palace gates open by compass: begin where the sun rises, end where it sets, honoring the main gate between.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-seoulmate.png",
+          "art": "You Are My…: He has been building the sentence all day. The last word is a city wearing a word inside it.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-reconstruct.png",
+          "art": "The Page, Rebuilt: Eight fragments, one erased page. Order them by the journey.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-evidence.png",
+          "art": "People Don't Keep Receipts for Jokes: Find the object that proves the thrift-shop wedding rehearsal meant something.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-phiphi2.png",
+          "art": "The Beach, From Her Side: Replay the sunset from Leah's viewpoint. What could she see that he couldn't?",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-proposals.png",
+          "art": "Six Postcards, Two Truths: Test each proposal place against the Hamsa's eye. Four cloud it; two keep it clear.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-meta-order.png",
+          "art": "Finale I — The Order of Things: Lay the whole story straight: the four turning points, in the order they truly happened.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-meta-memories.png",
+          "art": "Finale II — The True Memories: Three of these are true and load-bearing. One is an invention the reconstruction slipped in.",
+          "keep": true
+        },
+        {
+          "path": "assets/png/puzzles/pz-final-phrase.png",
+          "art": "Finale III — The Last Line: The boarding pass is whole except its final line. It is not a destination. It is what Moshé said instead of boarding the missing flight — three words.",
+          "keep": true
+        }
       ]
     },
     {
       "group": "portraits",
-      "suggestedSize": [256, 256],
+      "suggestedSize": [
+        256,
+        256
+      ],
       "files": [
-        {"path": "assets/png/portraits/leah.png", "art": "Leah portrait: headscarf, warm smile, modest dress"},
-        {"path": "assets/png/portraits/moshe.png", "art": "Moshé portrait: kippah, curly dark hair, short beard"},
-        {"path": "assets/png/portraits/sharon.png", "art": "Sharon portrait: joyful bride-to-be"},
-        {"path": "assets/png/portraits/leora.png", "art": "Leora portrait: Sharon's partner"},
-        {"path": "assets/png/portraits/guide.png", "art": "Recurring local guide NPC portrait"},
-        {"path": "assets/png/portraits/stranger.png", "art": "Mysterious stranger portrait, face half in shadow"}
+        {
+          "path": "assets/png/portraits/leah.png",
+          "art": "Leah portrait: headscarf, warm smile, modest dress"
+        },
+        {
+          "path": "assets/png/portraits/moshe.png",
+          "art": "Moshé portrait: kippah, curly dark hair, short beard"
+        },
+        {
+          "path": "assets/png/portraits/sharon.png",
+          "art": "Sharon portrait: joyful Indian Jewish groom-to-be, dark hair, short beard, visible kippah, saffron kurta"
+        },
+        {
+          "path": "assets/png/portraits/leora.png",
+          "art": "Leora portrait: Sharon's fiancée"
+        },
+        {
+          "path": "assets/png/portraits/guide.png",
+          "art": "Recurring local guide NPC portrait"
+        },
+        {
+          "path": "assets/png/portraits/stranger.png",
+          "art": "Mysterious stranger portrait, face half in shadow"
+        }
       ]
     },
     {
       "group": "stamps",
-      "suggestedSize": [160, 160],
+      "suggestedSize": [
+        160,
+        160
+      ],
       "files": [
-        {"path": "assets/png/stamps/prologue.png", "art": "Passport stamp: plane over three cities"},
-        {"path": "assets/png/stamps/ch1.png", "art": "Passport stamp: Havdalah candle"},
-        {"path": "assets/png/stamps/ch2.png", "art": "Passport stamp: European arch"},
-        {"path": "assets/png/stamps/ch3.png", "art": "Passport stamp: dome and garland"},
-        {"path": "assets/png/stamps/ch4.png", "art": "Passport stamp: longtail boat"},
-        {"path": "assets/png/stamps/ch5.png", "art": "Passport stamp: lantern"},
-        {"path": "assets/png/stamps/ch6.png", "art": "Passport stamp: red gate"},
-        {"path": "assets/png/stamps/ch7.png", "art": "Passport stamp: palace gate heart"},
-        {"path": "assets/png/stamps/final.png", "art": "Passport stamp: Hamsa with rabbit"}
+        {
+          "path": "assets/png/stamps/prologue.png",
+          "art": "Passport stamp: plane over three cities"
+        },
+        {
+          "path": "assets/png/stamps/ch1.png",
+          "art": "Passport stamp: Havdalah candle"
+        },
+        {
+          "path": "assets/png/stamps/ch2.png",
+          "art": "Passport stamp: European arch"
+        },
+        {
+          "path": "assets/png/stamps/ch3.png",
+          "art": "Passport stamp: dome and garland"
+        },
+        {
+          "path": "assets/png/stamps/ch4.png",
+          "art": "Passport stamp: longtail boat"
+        },
+        {
+          "path": "assets/png/stamps/ch5.png",
+          "art": "Passport stamp: lantern"
+        },
+        {
+          "path": "assets/png/stamps/ch6.png",
+          "art": "Passport stamp: red gate"
+        },
+        {
+          "path": "assets/png/stamps/ch7.png",
+          "art": "Passport stamp: palace gate heart"
+        },
+        {
+          "path": "assets/png/stamps/final.png",
+          "art": "Passport stamp: Hamsa with rabbit"
+        }
       ]
     },
     {
       "group": "ui",
       "files": [
-        {"path": "assets/png/ui/title-key-art.png", "art": "Home key art: Leah and Moshé, dashed route, rabbit, erased ticket, Hamsa. No spoilers.", "placeholderSize": [72, 108]},
-        {"path": "assets/png/ui/loading.png", "art": "Loading screen: gold Hamsa on deep teal", "placeholderSize": [72, 108]},
-        {"path": "assets/png/ui/paper.png", "art": "Cream paper texture panel", "placeholderSize": [64, 90]},
-        {"path": "assets/png/ui/button.png", "art": "Teal rounded button with gold edge", "placeholderSize": [80, 24]},
-        {"path": "assets/png/ui/button-accent.png", "art": "Terracotta rounded button with gold edge", "placeholderSize": [80, 24]},
-        {"path": "assets/png/ui/app-icon.png", "art": "App icon 192: gold Hamsa on teal disc", "placeholderSize": [48, 48]},
-        {"path": "assets/png/ui/app-icon-512.png", "art": "App icon 512: gold Hamsa on teal disc", "placeholderSize": [64, 64]},
-        {"path": "assets/png/ui/seal-eye.png", "art": "Journey Seal: eye", "placeholderSize": [35, 35]},
-        {"path": "assets/png/ui/seal-gear.png", "art": "Journey Seal: gear", "placeholderSize": [35, 35]},
-        {"path": "assets/png/ui/seal-compass.png", "art": "Journey Seal: compass", "placeholderSize": [35, 35]},
-        {"path": "assets/png/ui/seal-key.png", "art": "Journey Seal: key", "placeholderSize": [35, 35]},
-        {"path": "assets/png/ui/seal-hands.png", "art": "Journey Seal: two hands", "placeholderSize": [35, 35]},
-        {"path": "assets/png/ui/icon-passport.png", "art": "Nav icon: passport", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-map.png", "art": "Nav icon: route map", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-notebook.png", "art": "Nav icon: mystery notebook", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-settings.png", "art": "Nav icon: settings", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-inventory.png", "art": "Nav icon: satchel inventory", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-hint.png", "art": "Icon: hint lamp", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-save.png", "art": "Icon: save slot", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-cutscene.png", "art": "Icon: cutscene reel", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-rabbit.png", "art": "Icon: rabbit mark", "placeholderSize": [24, 24]},
-        {"path": "assets/png/ui/icon-swap.png", "art": "Icon: perspective swap arrows", "placeholderSize": [24, 24]}
+        {
+          "path": "assets/png/ui/title-key-art.png",
+          "art": "Home key art: Leah and Moshé, dashed route, rabbit, erased ticket, Hamsa. No spoilers.",
+          "placeholderSize": [
+            72,
+            108
+          ]
+        },
+        {
+          "path": "assets/png/ui/loading.png",
+          "art": "Loading screen: gold Hamsa on deep teal",
+          "placeholderSize": [
+            72,
+            108
+          ]
+        },
+        {
+          "path": "assets/png/ui/paper.png",
+          "art": "Cream paper texture panel",
+          "placeholderSize": [
+            64,
+            90
+          ]
+        },
+        {
+          "path": "assets/png/ui/button.png",
+          "art": "Teal rounded button with gold edge",
+          "placeholderSize": [
+            80,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/button-accent.png",
+          "art": "Terracotta rounded button with gold edge",
+          "placeholderSize": [
+            80,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/app-icon.png",
+          "art": "App icon 192: gold Hamsa on teal disc",
+          "placeholderSize": [
+            48,
+            48
+          ]
+        },
+        {
+          "path": "assets/png/ui/app-icon-512.png",
+          "art": "App icon 512: gold Hamsa on teal disc",
+          "placeholderSize": [
+            64,
+            64
+          ]
+        },
+        {
+          "path": "assets/png/ui/seal-eye.png",
+          "art": "Journey Seal: eye",
+          "placeholderSize": [
+            35,
+            35
+          ]
+        },
+        {
+          "path": "assets/png/ui/seal-gear.png",
+          "art": "Journey Seal: gear",
+          "placeholderSize": [
+            35,
+            35
+          ]
+        },
+        {
+          "path": "assets/png/ui/seal-compass.png",
+          "art": "Journey Seal: compass",
+          "placeholderSize": [
+            35,
+            35
+          ]
+        },
+        {
+          "path": "assets/png/ui/seal-key.png",
+          "art": "Journey Seal: key",
+          "placeholderSize": [
+            35,
+            35
+          ]
+        },
+        {
+          "path": "assets/png/ui/seal-hands.png",
+          "art": "Journey Seal: two hands",
+          "placeholderSize": [
+            35,
+            35
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-passport.png",
+          "art": "Nav icon: passport",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-map.png",
+          "art": "Nav icon: route map",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-notebook.png",
+          "art": "Nav icon: mystery notebook",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-settings.png",
+          "art": "Nav icon: settings",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-inventory.png",
+          "art": "Nav icon: satchel inventory",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-hint.png",
+          "art": "Icon: hint lamp",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-save.png",
+          "art": "Icon: save slot",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-cutscene.png",
+          "art": "Icon: cutscene reel",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-rabbit.png",
+          "art": "Icon: rabbit mark",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        },
+        {
+          "path": "assets/png/ui/icon-swap.png",
+          "art": "Icon: perspective swap arrows",
+          "placeholderSize": [
+            24,
+            24
+          ]
+        }
       ]
     },
     {
       "group": "collectibles",
       "files": [
-        {"path": "assets/png/collectibles/rabbit-mark.png", "art": "Collectible white rabbit mark, transparent background", "placeholderSize": [40, 40]}
+        {
+          "path": "assets/png/collectibles/rabbit-mark.png",
+          "art": "Collectible white rabbit mark, transparent background",
+          "placeholderSize": [
+            40,
+            40
+          ]
+        }
       ]
     },
     {
       "group": "characters",
       "note": "Existing hand-made 7x7 sprite atlases, frame 24x38 px logical grid. Rows: idle, walk, talk, question, jump, interact, extra. Replace later with full state atlases (idle/walk in 4 directions, listen, think, point, examine, pickup, celebrate, surprised, worried, laugh, tired, wet, bicycle, motorbike, sitting, map, camera, passport, coop action) and document frame sizes here.",
       "files": [
-        {"path": "assets/png/characters/leah-atlas.png", "art": "Leah sprite atlas: headscarf, long sleeves, long skirt in every frame", "keep": true},
-        {"path": "assets/png/characters/moshe-atlas.png", "art": "Moshé sprite atlas: kippah visible in every frame", "keep": true}
+        {
+          "path": "assets/png/characters/leah-atlas.png",
+          "art": "Leah sprite atlas: headscarf, long sleeves, long skirt in every frame",
+          "keep": true
+        },
+        {
+          "path": "assets/png/characters/moshe-atlas.png",
+          "art": "Moshé sprite atlas: kippah visible in every frame",
+          "keep": true
+        }
       ]
     }
   ]
